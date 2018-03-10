@@ -17,9 +17,6 @@ struct UpdateAccountRequest {
         var localizedDescription: String { return rawValue }
     }
     
-    
-    let requestURL = URL(string: "http://refrain.genoe.ca/api/v1/users")!
-    
     private let completionHandler: ((Result<Any?>) -> Void)
     
     init(_ completionHandler: @escaping (Result<Any?>) -> Void) {
@@ -57,8 +54,7 @@ struct UpdateAccountRequest {
         
         
         // create request and append body
-        let requestURL = URL(string: "http://localhost:3000/api/v1/users")!
-        var request = URLRequest(url: requestURL)
+        var request = URLRequest(url: uesrsAPIURL)
         request.httpMethod = "PATCH"
         request.setValue("application/x-www-form-urlencoded", forHTTPHeaderField: "Content-Type")
         request.httpBody = urlEncodedParameters.data(using: .utf8)

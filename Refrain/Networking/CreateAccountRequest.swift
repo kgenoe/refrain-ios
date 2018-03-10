@@ -18,9 +18,6 @@ struct CreateAccountRequest {
         var localizedDescription: String { return rawValue }
     }
     
-    
-    let requestURL = URL(string: "http://refrain.genoe.ca/api/v1/users")!
-    
     private let completionHandler: ((Result<Any>) -> Void)
     
     init(_ completionHandler: @escaping (Result<Any>) -> Void) {
@@ -35,8 +32,10 @@ struct CreateAccountRequest {
             return
         }
         
-        var request = URLRequest(url: requestURL)
+        var request = URLRequest(url: uesrsAPIURL)
         request.httpMethod = "POST"
+        
+        
         
         URLSession.shared.dataTask(with: request) { (data, response, error) in
             
