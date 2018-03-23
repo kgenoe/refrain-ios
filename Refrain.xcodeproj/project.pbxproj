@@ -7,6 +7,15 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		2705BC32202E48DD00213DF6 /* DefaultsKeys.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2705BC31202E48DD00213DF6 /* DefaultsKeys.swift */; };
+		273BE5372054610C00EF57C2 /* NetworkingConstants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 273BE5362054610C00EF57C2 /* NetworkingConstants.swift */; };
+		27431B712059E8D2008B4D2B /* CardView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 27431B702059E8D2008B4D2B /* CardView.xib */; };
+		27431B732059E8E0008B4D2B /* CardView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 27431B722059E8E0008B4D2B /* CardView.swift */; };
+		2781964F2053773900A42E4C /* CreateAccountRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2781964E2053773900A42E4C /* CreateAccountRequest.swift */; };
+		278196512053787500A42E4C /* Result.swift in Sources */ = {isa = PBXBuildFile; fileRef = 278196502053787500A42E4C /* Result.swift */; };
+		2781965320537E6500A42E4C /* UpdateAccountRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2781965220537E6500A42E4C /* UpdateAccountRequest.swift */; };
+		279FE4FA20659453007B7F17 /* BlockingList.swift in Sources */ = {isa = PBXBuildFile; fileRef = 279FE4F920659453007B7F17 /* BlockingList.swift */; };
+		279FE4FC20659686007B7F17 /* BlockingListStore.swift in Sources */ = {isa = PBXBuildFile; fileRef = 279FE4FB20659686007B7F17 /* BlockingListStore.swift */; };
 		27C34F6E2017D9E700B129F6 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 27C34F6D2017D9E700B129F6 /* AppDelegate.swift */; };
 		27C34F732017D9E700B129F6 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 27C34F712017D9E700B129F6 /* Main.storyboard */; };
 		27C34F752017D9E700B129F6 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 27C34F742017D9E700B129F6 /* Assets.xcassets */; };
@@ -17,7 +26,6 @@
 		27C34F872017E24900B129F6 /* BlockingRuleCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 27C34F862017E24900B129F6 /* BlockingRuleCell.swift */; };
 		27C34F8C2017E54F00B129F6 /* SharedUserDefaults.swift in Sources */ = {isa = PBXBuildFile; fileRef = 27C34F8B2017E54F00B129F6 /* SharedUserDefaults.swift */; };
 		27C34F902017E6EA00B129F6 /* BlockingRule.swift in Sources */ = {isa = PBXBuildFile; fileRef = 27C34F8F2017E6EA00B129F6 /* BlockingRule.swift */; };
-		27C34F96201930C700B129F6 /* BlockingRuleStore.swift in Sources */ = {isa = PBXBuildFile; fileRef = 27C34F95201930C700B129F6 /* BlockingRuleStore.swift */; };
 		789207D62023AEB10053F351 /* BlockingSchedulesViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 789207D52023AEB10053F351 /* BlockingSchedulesViewController.swift */; };
 		789207D82023B18D0053F351 /* BlockingSchedule.swift in Sources */ = {isa = PBXBuildFile; fileRef = 789207D72023B18D0053F351 /* BlockingSchedule.swift */; };
 		789207DA2023B32D0053F351 /* BlockingScheduleStore.swift in Sources */ = {isa = PBXBuildFile; fileRef = 789207D92023B32D0053F351 /* BlockingScheduleStore.swift */; };
@@ -27,6 +35,16 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		2705BC2C202D2F8300213DF6 /* Refrain.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = Refrain.entitlements; sourceTree = "<group>"; };
+		2705BC31202E48DD00213DF6 /* DefaultsKeys.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DefaultsKeys.swift; sourceTree = "<group>"; };
+		273BE5362054610C00EF57C2 /* NetworkingConstants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkingConstants.swift; sourceTree = "<group>"; };
+		27431B702059E8D2008B4D2B /* CardView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = CardView.xib; sourceTree = "<group>"; };
+		27431B722059E8E0008B4D2B /* CardView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CardView.swift; sourceTree = "<group>"; };
+		2781964E2053773900A42E4C /* CreateAccountRequest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreateAccountRequest.swift; sourceTree = "<group>"; };
+		278196502053787500A42E4C /* Result.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Result.swift; sourceTree = "<group>"; };
+		2781965220537E6500A42E4C /* UpdateAccountRequest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UpdateAccountRequest.swift; sourceTree = "<group>"; };
+		279FE4F920659453007B7F17 /* BlockingList.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BlockingList.swift; sourceTree = "<group>"; };
+		279FE4FB20659686007B7F17 /* BlockingListStore.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BlockingListStore.swift; sourceTree = "<group>"; };
 		27C34F6A2017D9E700B129F6 /* Refrain.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Refrain.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		27C34F6D2017D9E700B129F6 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		27C34F722017D9E700B129F6 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
@@ -39,7 +57,6 @@
 		27C34F862017E24900B129F6 /* BlockingRuleCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BlockingRuleCell.swift; sourceTree = "<group>"; };
 		27C34F8B2017E54F00B129F6 /* SharedUserDefaults.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SharedUserDefaults.swift; sourceTree = "<group>"; };
 		27C34F8F2017E6EA00B129F6 /* BlockingRule.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BlockingRule.swift; sourceTree = "<group>"; };
-		27C34F95201930C700B129F6 /* BlockingRuleStore.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BlockingRuleStore.swift; sourceTree = "<group>"; };
 		789207D52023AEB10053F351 /* BlockingSchedulesViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BlockingSchedulesViewController.swift; sourceTree = "<group>"; };
 		789207D72023B18D0053F351 /* BlockingSchedule.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BlockingSchedule.swift; sourceTree = "<group>"; };
 		789207D92023B32D0053F351 /* BlockingScheduleStore.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BlockingScheduleStore.swift; sourceTree = "<group>"; };
@@ -59,6 +76,35 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		27431B6A2059E843008B4D2B /* View Controllers */ = {
+			isa = PBXGroup;
+			children = (
+				27C34F7F2017DCF900B129F6 /* MainViewController.swift */,
+				27C34F852017DEBD00B129F6 /* Blocking List */,
+				789207D42023A2C90053F351 /* Schedules */,
+			);
+			path = "View Controllers";
+			sourceTree = "<group>";
+		};
+		27431B6B2059E84D008B4D2B /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				27431B722059E8E0008B4D2B /* CardView.swift */,
+				27431B702059E8D2008B4D2B /* CardView.xib */,
+			);
+			path = Views;
+			sourceTree = "<group>";
+		};
+		2781964D2053771100A42E4C /* Networking */ = {
+			isa = PBXGroup;
+			children = (
+				273BE5362054610C00EF57C2 /* NetworkingConstants.swift */,
+				2781964E2053773900A42E4C /* CreateAccountRequest.swift */,
+				2781965220537E6500A42E4C /* UpdateAccountRequest.swift */,
+			);
+			path = Networking;
+			sourceTree = "<group>";
+		};
 		27C34F612017D9E700B129F6 = {
 			isa = PBXGroup;
 			children = (
@@ -78,11 +124,12 @@
 		27C34F6C2017D9E700B129F6 /* Refrain */ = {
 			isa = PBXGroup;
 			children = (
+				2705BC2C202D2F8300213DF6 /* Refrain.entitlements */,
 				27C34F6D2017D9E700B129F6 /* AppDelegate.swift */,
+				2781964D2053771100A42E4C /* Networking */,
 				27C34F912017E6EE00B129F6 /* Model */,
-				27C34F7F2017DCF900B129F6 /* MainViewController.swift */,
-				27C34F852017DEBD00B129F6 /* Blocking List */,
-				789207D42023A2C90053F351 /* Schedules */,
+				27431B6A2059E843008B4D2B /* View Controllers */,
+				27431B6B2059E84D008B4D2B /* Views */,
 				27C34F922017E7E800B129F6 /* Helpers */,
 				27C34F712017D9E700B129F6 /* Main.storyboard */,
 				27C34F742017D9E700B129F6 /* Assets.xcassets */,
@@ -106,7 +153,8 @@
 			isa = PBXGroup;
 			children = (
 				27C34F8B2017E54F00B129F6 /* SharedUserDefaults.swift */,
-				27C34F95201930C700B129F6 /* BlockingRuleStore.swift */,
+				2705BC31202E48DD00213DF6 /* DefaultsKeys.swift */,
+				279FE4FB20659686007B7F17 /* BlockingListStore.swift */,
 				789207D92023B32D0053F351 /* BlockingScheduleStore.swift */,
 			);
 			path = Defaults;
@@ -115,6 +163,7 @@
 		27C34F912017E6EE00B129F6 /* Model */ = {
 			isa = PBXGroup;
 			children = (
+				279FE4F920659453007B7F17 /* BlockingList.swift */,
 				27C34F8F2017E6EA00B129F6 /* BlockingRule.swift */,
 				789207D72023B18D0053F351 /* BlockingSchedule.swift */,
 			);
@@ -125,6 +174,7 @@
 			isa = PBXGroup;
 			children = (
 				789207DD2023B8FE0053F351 /* DateExtensions.swift */,
+				278196502053787500A42E4C /* Result.swift */,
 				27C34F882017E51800B129F6 /* Defaults */,
 			);
 			path = Helpers;
@@ -173,6 +223,11 @@
 					27C34F692017D9E700B129F6 = {
 						CreatedOnToolsVersion = 9.2;
 						ProvisioningStyle = Automatic;
+						SystemCapabilities = {
+							com.apple.Push = {
+								enabled = 1;
+							};
+						};
 					};
 				};
 			};
@@ -201,6 +256,7 @@
 			files = (
 				27C34F782017D9E700B129F6 /* LaunchScreen.storyboard in Resources */,
 				27C34F752017D9E700B129F6 /* Assets.xcassets in Resources */,
+				27431B712059E8D2008B4D2B /* CardView.xib in Resources */,
 				27C34F732017D9E700B129F6 /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -213,19 +269,26 @@
 			buildActionMask = 2147483647;
 			files = (
 				27C34F6E2017D9E700B129F6 /* AppDelegate.swift in Sources */,
+				2705BC32202E48DD00213DF6 /* DefaultsKeys.swift in Sources */,
+				2781965320537E6500A42E4C /* UpdateAccountRequest.swift in Sources */,
 				27C34F802017DCF900B129F6 /* MainViewController.swift in Sources */,
 				789207D62023AEB10053F351 /* BlockingSchedulesViewController.swift in Sources */,
 				27C34F842017DEB900B129F6 /* BlockingRuleViewController.swift in Sources */,
+				279FE4FC20659686007B7F17 /* BlockingListStore.swift in Sources */,
 				27C34F872017E24900B129F6 /* BlockingRuleCell.swift in Sources */,
 				789207D82023B18D0053F351 /* BlockingSchedule.swift in Sources */,
 				789207DC2023B8370053F351 /* BlockingSchedueCell.swift in Sources */,
 				789207DA2023B32D0053F351 /* BlockingScheduleStore.swift in Sources */,
 				27C34F822017DD4F00B129F6 /* BlockingListViewController.swift in Sources */,
 				27C34F902017E6EA00B129F6 /* BlockingRule.swift in Sources */,
-				27C34F96201930C700B129F6 /* BlockingRuleStore.swift in Sources */,
 				27C34F8C2017E54F00B129F6 /* SharedUserDefaults.swift in Sources */,
+				27431B732059E8E0008B4D2B /* CardView.swift in Sources */,
 				789207E02023BC160053F351 /* BlockingScheduleViewController.swift in Sources */,
+				278196512053787500A42E4C /* Result.swift in Sources */,
 				789207DE2023B8FE0053F351 /* DateExtensions.swift in Sources */,
+				273BE5372054610C00EF57C2 /* NetworkingConstants.swift in Sources */,
+				279FE4FA20659453007B7F17 /* BlockingList.swift in Sources */,
+				2781964F2053773900A42E4C /* CreateAccountRequest.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -362,11 +425,12 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_ENTITLEMENTS = Refrain/Refrain.entitlements;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = V9CEBD9ZBT;
 				INFOPLIST_FILE = Refrain/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = ca.genoe.apps.Refrain;
+				PRODUCT_BUNDLE_IDENTIFIER = ca.genoe.Refrain;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 4.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
@@ -377,11 +441,12 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_ENTITLEMENTS = Refrain/Refrain.entitlements;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = V9CEBD9ZBT;
 				INFOPLIST_FILE = Refrain/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = ca.genoe.apps.Refrain;
+				PRODUCT_BUNDLE_IDENTIFIER = ca.genoe.Refrain;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 4.0;
 				TARGETED_DEVICE_FAMILY = "1,2";

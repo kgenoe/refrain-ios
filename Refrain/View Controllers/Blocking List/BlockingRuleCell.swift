@@ -9,6 +9,8 @@
 import UIKit
 
 class BlockingRuleCell: UITableViewCell {
+    
+    var blockingList: BlockingList!
 
     var blockingRule: BlockingRule!
     
@@ -19,7 +21,7 @@ class BlockingRuleCell: UITableViewCell {
     @IBOutlet weak var enabledSwitch: UISwitch!
     
     
-    static func instantiate(from tableView: UITableView, blockingRule: BlockingRule) -> BlockingRuleCell {
+    static func instantiate(from tableView: UITableView, blockingList: BlockingList, blockingRule: BlockingRule) -> BlockingRuleCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "BlockingRuleCell") as! BlockingRuleCell
         cell.blockingRule = blockingRule
         cell.setInitialState(for: blockingRule)
@@ -35,6 +37,6 @@ class BlockingRuleCell: UITableViewCell {
     
     @IBAction func switchToggled() {
         blockingRule.enabled = enabledSwitch.isOn
-        BlockingRuleStore.shared.save(blockingRule)
+        BlockingListStore.shared.saveRule(blockingRule, to: blockingList)
     }
 }

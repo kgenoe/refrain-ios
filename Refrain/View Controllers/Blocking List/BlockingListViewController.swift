@@ -10,9 +10,15 @@ import UIKit
 
 class BlockingListViewController: UIViewController {
 
+    var blockingList: BlockingList!
     
     @IBOutlet weak var tableView: UITableView!
     
+    static func instantiate(blockingList: BlockingList) -> BlockingListViewController {
+        let vc = UIStoryboard(name: "Main", bundle: Bundle.main).instantiateViewController(withIdentifier: "BlockingListViewController") as! BlockingListViewController
+        vc.blockingList = blockingList
+        return vc
+    }
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -22,7 +28,13 @@ class BlockingListViewController: UIViewController {
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(true)
-        navigationItem.title = "Blocking Rules"
+        
+        // check for updated version of blocking list from store
+        if let updatedBlockingList = BlockingListStore.shared.lists.first(where: { $0.id == blockingList.id }) {
+            blockingList = updatedBlockingList
+        }
+        
+        navigationItem.title = blockingList.name
         
         navigationItem.backBarButtonItem = UIBarButtonItem(title: "Back", style: .plain, target: nil, action: nil)
         
@@ -35,7 +47,7 @@ class BlockingListViewController: UIViewController {
     }
     
     @IBAction func newBlockingRuleButtonPressed() {
-        let newRuleVC = BlockingRuleViewController.instantiate()
+        let newRuleVC = BlockingRuleViewController.instantiate(blockingList: blockingList)
         navigationController?.pushViewController(newRuleVC, animated: true)
     }
     
@@ -54,16 +66,15 @@ extension BlockingListViewController: UITableViewDataSource, UITableViewDelegate
     func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCellEditingStyle, forRowAt indexPath: IndexPath) {
         switch editingStyle {
         case .delete:
-            let ruleToDelete = BlockingRuleStore.shared.rules[indexPath.row]
-            BlockingRuleStore.shared.delete(ruleToDelete)
+            blockingList.rules.remove(at: indexPath.row)
             tableView.deleteRows(at: [indexPath], with: .fade)
         default: break
         }
     }
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        let rule = BlockingRuleStore.shared.rules[indexPath.row]
-        let editRuleVC = BlockingRuleViewController.instantiate(blockingRule: rule)
+        let rule = blockingList.rules[indexPath.row]
+        let editRuleVC = BlockingRuleViewController.instantiate(blockingList: blockingList, blockingRule: rule)
         navigationController?.pushViewController(editRuleVC, animated: true)
     }
     
@@ -75,12 +86,12 @@ extension BlockingListViewController: UITableViewDataSource, UITableViewDelegate
     }
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return BlockingRuleStore.shared.rules.count
+        return blockingList.rules.count
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let rule = BlockingRuleStore.shared.rules[indexPath.row]
-        return BlockingRuleCell.instantiate(from: tableView, blockingRule: rule)
+        let rule = blockingList.rules[indexPath.row]
+        return BlockingRuleCell.instantiate(from: tableView, blockingList: blockingList, blockingRule: rule)
     }
     
 }

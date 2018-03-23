@@ -10,7 +10,8 @@ import UIKit
 
 class BlockingRuleViewController: UIViewController {
 
-
+    var blockingList: BlockingList!
+    
     var blockingRule: BlockingRule?
     
     @IBOutlet weak var nameTextField: UITextField!
@@ -19,8 +20,9 @@ class BlockingRuleViewController: UIViewController {
     
     
     
-    static func instantiate(blockingRule: BlockingRule? = nil) -> BlockingRuleViewController {
+    static func instantiate(blockingList: BlockingList, blockingRule: BlockingRule? = nil) -> BlockingRuleViewController {
         let vc = UIStoryboard(name: "Main", bundle: Bundle.main).instantiateViewController(withIdentifier: "BlockingRuleViewController") as! BlockingRuleViewController
+        vc.blockingList = blockingList
         vc.blockingRule = blockingRule
         return vc
     }
@@ -50,14 +52,14 @@ class BlockingRuleViewController: UIViewController {
         
         // Patch existing rule
         if let updatedRule = blockingRule {
-            BlockingRuleStore.shared.save(updatedRule)
+            BlockingListStore.shared.saveRule(updatedRule, to: blockingList)
         }
         // Save new rule
         else {
             let name = nameTextField.text ?? ""
             let filter = filterTextField.text ?? ""
             let newRule = BlockingRule(name: name, urlFilter: filter)
-            BlockingRuleStore.shared.save(newRule)
+            BlockingListStore.shared.saveRule(newRule, to: blockingList)
         }
         
         // return to blocking list
