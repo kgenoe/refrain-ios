@@ -1,56 +1,54 @@
 //
-//  BlockingSchedule.swift
+//  BlockingList.swift
 //  Refrain
 //
-//  Created by Kyle Genoe on 2018-02-01.
+//  Created by Kyle on 2018-03-23.
 //  Copyright © 2018 Kyle. All rights reserved.
 //
 
 import Foundation
 
-class BlockingSchedule: NSObject, NSCoding {
+class BlockingList: NSObject, NSCoding {
     
-    var startTime: Date
-    var endTime: Date
+    var id: String
+    var name: String
     var enabled: Bool
-    var listIds: [String]
+    var rules: [BlockingRule]
     var createdDate: Date
     var updatedDate: Date
     
-    init(startTime: Date, endTime: Date, enabled: Bool = true) {
-        self.startTime = startTime
-        self.endTime = endTime
+    init(name: String, enabled: Bool = true) {
+        self.id = UUID().uuidString
+        self.name = name
         self.enabled = enabled
-        self.listIds = []
+        self.rules = []
         let now = Date()
         self.createdDate = now
         self.updatedDate = now
     }
     
-    
     required init?(coder: NSCoder) {
-        guard let startTime = coder.decodeObject(forKey: "startTime") as? Date,
-            let endTime = coder.decodeObject(forKey: "endTime") as? Date,
-            let listIds = coder.decodeObject(forKey: "listIds") as? [String],
+        guard let id = coder.decodeObject(forKey: "uuid") as? String,
+            let name = coder.decodeObject(forKey: "name") as? String,
+            let rules = coder.decodeObject(forKey: "rules") as? [BlockingRule],
             let createdDate = coder.decodeObject(forKey: "createdDate") as? Date,
             let updatedDate = coder.decodeObject(forKey: "updatedDate") as? Date else {
                 return nil
         }
         
-        self.startTime = startTime
-        self.endTime = endTime
+        self.id = id
+        self.name = name
+        self.rules = rules
         self.enabled = coder.decodeBool(forKey: "enabled")
-        self.listIds = listIds
         self.createdDate = createdDate
         self.updatedDate = updatedDate
     }
     
-    
     func encode(with coder: NSCoder) {
-        coder.encode(startTime, forKey: "startTime")
-        coder.encode(endTime, forKey: "endTime")
+        coder.encode(id, forKey: "uuid")
+        coder.encode(name, forKey: "name")
         coder.encode(enabled, forKey: "enabled")
-        coder.encode(listIds, forKey: "listIds")
+        coder.encode(rules, forKey: "rules")
         coder.encode(createdDate, forKey: "createdDate")
         coder.encode(updatedDate, forKey: "updatedDate")
     }
