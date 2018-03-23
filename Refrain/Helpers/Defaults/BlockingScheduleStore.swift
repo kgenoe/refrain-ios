@@ -16,7 +16,7 @@ class BlockingScheduleStore: NSObject {
     private let scheduleStore = "scheduleStore"
     private let wasScheduleStoreCreated = "wasScheduleStoreCreated"
     
-    override init() {
+    private override init() {
         let scheduleStoreCreated = UserDefaults.standard.bool(forKey: wasScheduleStoreCreated)
         if !scheduleStoreCreated {
             let data = NSKeyedArchiver.archivedData(withRootObject: [BlockingSchedule]())
