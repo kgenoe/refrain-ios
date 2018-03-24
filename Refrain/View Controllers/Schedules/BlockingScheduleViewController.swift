@@ -19,6 +19,8 @@ class BlockingScheduleViewController: UIViewController {
     
     @IBOutlet weak var endTimeTextField: UITextField!
     
+    @IBOutlet weak var tableView: UITableView!
+    
     var datePicker: UIDatePicker?
     
     
@@ -32,6 +34,8 @@ class BlockingScheduleViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        tableView.dataSource = self
 
         let saveButton = UIBarButtonItem(title: "Save", style: .done, target: self, action: #selector(saveButtonPressed))
         navigationItem.rightBarButtonItem = saveButton
@@ -109,6 +113,24 @@ class BlockingScheduleViewController: UIViewController {
         blockingSchedule.endTime = datePicker!.date
         endTimeTextField.text = datePicker!.date.timeString()
         datePicker = nil
+    }
+}
+
+
+
+extension BlockingScheduleViewController: UITableViewDataSource {
+    
+    func numberOfSections(in tableView: UITableView) -> Int {
+        return 1
+    }
+    
+    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        return BlockingListStore.shared.lists.count
+    }
+    
+    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        let list = BlockingListStore.shared.lists[indexPath.row]
+        return BlockingScheduleListCell.instantiate(from: tableView, schedule: blockingSchedule, blockingList: list)
     }
 }
 

@@ -16,6 +16,7 @@
 		2781965320537E6500A42E4C /* UpdateAccountRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2781965220537E6500A42E4C /* UpdateAccountRequest.swift */; };
 		279FE4FA20659453007B7F17 /* BlockingList.swift in Sources */ = {isa = PBXBuildFile; fileRef = 279FE4F920659453007B7F17 /* BlockingList.swift */; };
 		279FE4FC20659686007B7F17 /* BlockingListStore.swift in Sources */ = {isa = PBXBuildFile; fileRef = 279FE4FB20659686007B7F17 /* BlockingListStore.swift */; };
+		279FE4FE2065CABF007B7F17 /* BlockingScheduleListCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 279FE4FD2065CABF007B7F17 /* BlockingScheduleListCell.swift */; };
 		27C34F6E2017D9E700B129F6 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 27C34F6D2017D9E700B129F6 /* AppDelegate.swift */; };
 		27C34F732017D9E700B129F6 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 27C34F712017D9E700B129F6 /* Main.storyboard */; };
 		27C34F752017D9E700B129F6 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 27C34F742017D9E700B129F6 /* Assets.xcassets */; };
@@ -45,6 +46,7 @@
 		2781965220537E6500A42E4C /* UpdateAccountRequest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UpdateAccountRequest.swift; sourceTree = "<group>"; };
 		279FE4F920659453007B7F17 /* BlockingList.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BlockingList.swift; sourceTree = "<group>"; };
 		279FE4FB20659686007B7F17 /* BlockingListStore.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BlockingListStore.swift; sourceTree = "<group>"; };
+		279FE4FD2065CABF007B7F17 /* BlockingScheduleListCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BlockingScheduleListCell.swift; sourceTree = "<group>"; };
 		27C34F6A2017D9E700B129F6 /* Refrain.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Refrain.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		27C34F6D2017D9E700B129F6 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		27C34F722017D9E700B129F6 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
@@ -186,6 +188,7 @@
 				789207D52023AEB10053F351 /* BlockingSchedulesViewController.swift */,
 				789207DB2023B8370053F351 /* BlockingSchedueCell.swift */,
 				789207DF2023BC160053F351 /* BlockingScheduleViewController.swift */,
+				279FE4FD2065CABF007B7F17 /* BlockingScheduleListCell.swift */,
 			);
 			path = Schedules;
 			sourceTree = "<group>";
@@ -289,6 +292,7 @@
 				273BE5372054610C00EF57C2 /* NetworkingConstants.swift in Sources */,
 				279FE4FA20659453007B7F17 /* BlockingList.swift in Sources */,
 				2781964F2053773900A42E4C /* CreateAccountRequest.swift in Sources */,
+				279FE4FE2065CABF007B7F17 /* BlockingScheduleListCell.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
