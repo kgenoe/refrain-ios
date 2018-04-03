@@ -30,8 +30,8 @@ class BlockingRuleCell: UITableViewCell {
     
     
     private func setInitialState(for rule: BlockingRule) {
-        titleLabel.text = rule.name
-        descriptionLabel.text = rule.urlFilter
+        titleLabel.text = rule.urlFilter
+        descriptionLabel.text = rule.ruleDescription
         enabledSwitch.isOn = rule.enabled
     }
     

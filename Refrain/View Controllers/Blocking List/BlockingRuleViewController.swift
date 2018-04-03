@@ -14,11 +14,10 @@ class BlockingRuleViewController: UIViewController {
     
     var blockingRule: BlockingRule?
     
-    @IBOutlet weak var nameTextField: UITextField!
-    
     @IBOutlet weak var filterTextField: UITextField!
     
-    
+    @IBOutlet weak var descriptionTextField: UITextField!
+
     
     static func instantiate(blockingList: BlockingList, blockingRule: BlockingRule? = nil) -> BlockingRuleViewController {
         let vc = UIStoryboard(name: "Main", bundle: Bundle.main).instantiateViewController(withIdentifier: "BlockingRuleViewController") as! BlockingRuleViewController
@@ -37,7 +36,7 @@ class BlockingRuleViewController: UIViewController {
         
         if let rule = blockingRule {
             navigationItem.title = "Edit Rule"
-            nameTextField.text = rule.name
+            descriptionTextField.text = rule.ruleDescription
             filterTextField.text = rule.urlFilter
         } else {
             navigationItem.title = "New Rule"
@@ -56,9 +55,9 @@ class BlockingRuleViewController: UIViewController {
         }
         // Save new rule
         else {
-            let name = nameTextField.text ?? ""
             let filter = filterTextField.text ?? ""
-            let newRule = BlockingRule(name: name, urlFilter: filter)
+            let description = descriptionTextField.text ?? ""
+            let newRule = BlockingRule(urlFilter: filter, ruleDescription: description)
             BlockingListStore.shared.saveRule(newRule, to: blockingList)
         }
         
