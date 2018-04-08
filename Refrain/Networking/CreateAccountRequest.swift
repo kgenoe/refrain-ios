@@ -13,7 +13,7 @@ struct CreateAccountRequest {
     enum FailCase: String, Error {
         case accountAlreadyExists
         case noDataInResponse
-        case noUUIDinResponseData
+        case noUserIDinResponseData
         
         var localizedDescription: String { return rawValue }
     }
@@ -26,8 +26,8 @@ struct CreateAccountRequest {
     
     func send() {
         
-        // Don't send create account Request if already hold a UUID
-        guard UserDefaults.standard.string(forKey: DefaultsKey.UUID) == nil else {
+        // Don't send create account Request if already hold a userApiAccountToken
+        guard UserDefaults.standard.string(forKey: DefaultsKey.userApiAccountToken) == nil else {
             completionHandler(.Failure(FailCase.accountAlreadyExists))
             return
         }
@@ -52,16 +52,16 @@ struct CreateAccountRequest {
             do {
                 guard let json = try JSONSerialization.jsonObject(with: data, options: []) as? [String: Any] else { return }
                 
-                guard let uuid = json["uuid"] as? String else {
-                    self.completionHandler(.Failure(FailCase.noUUIDinResponseData))
+                guard let userID = json["userID"] as? String else {
+                    self.completionHandler(.Failure(FailCase.noUserIDinResponseData))
                     return
                 }
                 
-                //save UUID
-                print("Found UUID: \(uuid)")
-                UserDefaults.standard.set(uuid, forKey: DefaultsKey.UUID)
+                //save UserID
+                print("Found userApiAccountToken: \(userID)")
+                UserDefaults.standard.set(userID, forKey: DefaultsKey.userApiAccountToken)
                 
-                self.completionHandler(.Success(uuid))
+                self.completionHandler(.Success(userID))
             }
             catch {
                 print("Response:\n\(String(data: data, encoding: .utf8)!)")

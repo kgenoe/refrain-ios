@@ -8,11 +8,23 @@
 
 import Foundation
 
+extension Collection where Iterator.Element == [String:AnyObject] {
+    func toJSONString(options: JSONSerialization.WritingOptions = .prettyPrinted) -> String {
+        if let arr = self as? [[String:AnyObject]],
+            let dat = try? JSONSerialization.data(withJSONObject: arr, options: options),
+            let str = String(data: dat, encoding: String.Encoding.utf8) {
+            return str
+        }
+        return "[]"
+    }
+}
+
 struct UpdateAccountRequest {
     
     enum FailCase: String, Error {
-        case noLocalUUID
+        case noLocalUserID
         case noLocalApnsToken
+        case invalidJsonPayload
         
         var localizedDescription: String { return rawValue }
     }
@@ -26,39 +38,34 @@ struct UpdateAccountRequest {
     func send() {
         
         // Get request components
-        guard let uuid = UserDefaults.standard.string(forKey: DefaultsKey.UUID) else {
-            completionHandler(.Failure(FailCase.noLocalUUID))
+        guard let userApiAccountToken = UserDefaults.standard.string(forKey: DefaultsKey.userApiAccountToken) else {
+            completionHandler(.Failure(FailCase.noLocalUserID))
             return
         }
-        
-        guard let apnsToken = UserDefaults.standard.string(forKey: DefaultsKey.apnsToken) else {
-            completionHandler(.Failure(FailCase.noLocalApnsToken))
-            return
-        }
+
+        let apnsToken = UserDefaults.standard.string(forKey: DefaultsKey.apnsToken) ?? ""
         
         let schedules = BlockingScheduleStore.shared.schedules
-        let startTimes = schedules.map{ $0.startTime }
-        let stopTimes = schedules.map{ $0.endTime }
+        let scheduleDicts = schedules.map{ $0.toDictionary() }
+            
+        let payload: [String: Any] = [
+            "userID": userApiAccountToken,
+            "apnsToken": apnsToken,
+            "schedules": scheduleDicts
+        ]
         
-        let startTimeIntegers = startTimes.map{ $0.toTimeInteger() }
-        let stopTimeIntegers = stopTimes.map{ $0.toTimeInteger() }
+    
         
-        let startTimeString = startTimeIntegers.map{ "\($0)" }.joined(separator: ",")
-        let stopTimeString = stopTimeIntegers.map{ "\($0)" }.joined(separator: ",")
-        
-        
-        // Format URL encoded string
-        var urlEncodedParameters = "uuid=\(uuid)&apnsToken=\(apnsToken)"
-        urlEncodedParameters += "&startTimes=\(startTimeString)"
-        urlEncodedParameters += "&stopTimes=\(stopTimeString)"
-        
+        guard JSONSerialization.isValidJSONObject(payload) else {
+            completionHandler(.Failure(FailCase.invalidJsonPayload))
+            return
+        }
         
         // create request and append body
         var request = URLRequest(url: uesrsAPIURL)
         request.httpMethod = "PATCH"
-        request.setValue("application/x-www-form-urlencoded", forHTTPHeaderField: "Content-Type")
-        request.httpBody = urlEncodedParameters.data(using: .utf8)
-        
+        request.setValue("application/json", forHTTPHeaderField: "Content-Type")
+        request.httpBody = try! JSONSerialization.data(withJSONObject: payload, options: [])
         
         URLSession.shared.dataTask(with: request) { (data, response, error) in
             

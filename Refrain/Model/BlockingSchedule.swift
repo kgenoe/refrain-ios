@@ -10,6 +10,7 @@ import Foundation
 
 class BlockingSchedule: NSObject, NSCoding {
     
+    var id: String
     var startTime: Date
     var endTime: Date
     var enabled: Bool
@@ -18,6 +19,7 @@ class BlockingSchedule: NSObject, NSCoding {
     var updatedDate: Date
     
     init(startTime: Date, endTime: Date, enabled: Bool = true) {
+        self.id = UUID().uuidString
         self.startTime = startTime
         self.endTime = endTime
         self.enabled = enabled
@@ -29,7 +31,8 @@ class BlockingSchedule: NSObject, NSCoding {
     
     
     required init?(coder: NSCoder) {
-        guard let startTime = coder.decodeObject(forKey: "startTime") as? Date,
+        guard let id = coder.decodeObject(forKey: "uuid") as? String,
+            let startTime = coder.decodeObject(forKey: "startTime") as? Date,
             let endTime = coder.decodeObject(forKey: "endTime") as? Date,
             let listIds = coder.decodeObject(forKey: "listIds") as? [String],
             let createdDate = coder.decodeObject(forKey: "createdDate") as? Date,
@@ -37,6 +40,7 @@ class BlockingSchedule: NSObject, NSCoding {
                 return nil
         }
         
+        self.id = id
         self.startTime = startTime
         self.endTime = endTime
         self.enabled = coder.decodeBool(forKey: "enabled")
@@ -47,11 +51,21 @@ class BlockingSchedule: NSObject, NSCoding {
     
     
     func encode(with coder: NSCoder) {
+        coder.encode(id, forKey: "uuid")
         coder.encode(startTime, forKey: "startTime")
         coder.encode(endTime, forKey: "endTime")
         coder.encode(enabled, forKey: "enabled")
         coder.encode(listIds, forKey: "listIds")
         coder.encode(createdDate, forKey: "createdDate")
         coder.encode(updatedDate, forKey: "updatedDate")
+    }
+    
+    
+    func toDictionary() -> [String: Any] {
+        return [
+            "id"        : id,
+            "startTime" : startTime.toTimeInteger(),
+            "stopTime"  : endTime.toTimeInteger(),
+        ]
     }
 }

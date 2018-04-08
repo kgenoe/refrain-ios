@@ -9,8 +9,9 @@
 import Foundation
 
 struct DefaultsKey {
-    static let UUID = "UUID"
+    static let userApiAccountToken = "userApiAccountToken"
     static let apnsToken = "apnsToken"
+    static let savedApnsTokenToServer = "savedApnsTokenToServer"
     static let extrasPurchased = "extrasPurchased"
 }
 

@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import UserNotifications
 
 @UIApplicationMain
 class AppDelegate: UIResponder, UIApplicationDelegate {
@@ -15,32 +16,105 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
 
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplicationLaunchOptionsKey: Any]?) -> Bool {
-        // Override point for customization after application launch.
+    
+        
+        UNUserNotificationCenter.current().requestAuthorization(options: []) { (granted, error) in
+            guard error == nil else {
+                print("UNUserNotificationCenter.requestAuthorization error: \(error!)")
+                return
+            }
+            
+            print("UNUserNotificationCenter.requestAuthorization granted = \(granted)")
+        }
+        
+//        // DEBUGGING //
+//        UpdateAccountRequest { (result) in
+//            switch result {
+//            case .Success(let resource):
+//                print("Success")
+//            case .Failure(let error):
+//                print(error)
+//            }
+//            }.send()
+//        // DEBUGGING //
+        
+        // Try to create account if one already doesnt exists (check by looking for userID)
+        if UserDefaults.standard.string(forKey: DefaultsKey.userApiAccountToken) == nil {
+            print("Create account request sending...")
+            CreateAccountRequest { (result) in
+                switch result {
+                case .Success(let userID):
+                    print("Created account with userID: \(userID)")
+                    DispatchQueue.main.async {
+                        print("Register for remote notifications after creating account...")
+                        UIApplication.shared.registerForRemoteNotifications()
+                    }
+                case .Failure(let error):
+                    print("Error creating account:\n\(error)")
+                }
+            }.send()
+        }
+        
+
+        // Check for a apnsToken before registering for remote notifications. If there is no apnsToken, it means a network request for one is in progress. registerForRemoteNotifications() after that request is completed.
+        if UserDefaults.standard.string(forKey: DefaultsKey.apnsToken) == nil &&
+            UserDefaults.standard.string(forKey: DefaultsKey.userApiAccountToken) != nil {
+            DispatchQueue.main.async {
+                print("Register for remote notifications...")
+                UIApplication.shared.registerForRemoteNotifications()
+            }
+        }
+    
         return true
     }
 
-    func applicationWillResignActive(_ application: UIApplication) {
-        // Sent when the application is about to move from active to inactive state. This can occur for certain types of temporary interruptions (such as an incoming phone call or SMS message) or when the user quits the application and it begins the transition to the background state.
-        // Use this method to pause ongoing tasks, disable timers, and invalidate graphics rendering callbacks. Games should use this method to pause the game.
-    }
+    
+    func application(_ application: UIApplication, didRegisterForRemoteNotificationsWithDeviceToken deviceToken: Data) {
+        
+        let newToken = deviceToken.map{ data -> String in
+            return String(format: "%02.2hhx", data)
+        }.joined()
+        
+        print("New APN Device Token: \(newToken)")
 
+        let currentToken = UserDefaults.standard.string(forKey: DefaultsKey.apnsToken)
+        if currentToken != newToken {
+            // if new token, save it and invalidate the old one
+            UserDefaults.standard.set(newToken, forKey: DefaultsKey.apnsToken)
+            UserDefaults.standard.set(false, forKey: DefaultsKey.savedApnsTokenToServer)
+        }
+        
+        // Save token to server if previous one has been invalidated (or is 1st)
+        let hasSavedKey = UserDefaults.standard.bool(forKey: DefaultsKey.savedApnsTokenToServer)
+        if !hasSavedKey {
+            UpdateAccountRequest { (result) in
+                switch result {
+                case .Success(_):
+                    print("Successfully updated user profile with new APNs token")
+                    UserDefaults.standard.set(true, forKey: DefaultsKey.savedApnsTokenToServer)
+                case .Failure(let error):
+                    print("Error updating user profile with new APNs token:\n\(error)")
+                }
+            }.send()
+        }
+    }
+    
+    func application(_ application: UIApplication, didFailToRegisterForRemoteNotificationsWithError error: Error) {
+        print("Failed to register: \(error)")
+    }
+    
     func applicationDidEnterBackground(_ application: UIApplication) {
-        // Use this method to release shared resources, save user data, invalidate timers, and store enough application state information to restore your application to its current state in case it is terminated later.
-        // If your application supports background execution, this method is called instead of applicationWillTerminate: when the user quits.
+        
+        // On entering background, update the server with the most recent schedules
+        UpdateAccountRequest { (result) in
+            switch result {
+            case .Success(_): break
+            case .Failure(let error):
+                print(error)
+            }
+        }.send()
     }
-
-    func applicationWillEnterForeground(_ application: UIApplication) {
-        // Called as part of the transition from the background to the active state; here you can undo many of the changes made on entering the background.
-    }
-
-    func applicationDidBecomeActive(_ application: UIApplication) {
-        // Restart any tasks that were paused (or not yet started) while the application was inactive. If the application was previously in the background, optionally refresh the user interface.
-    }
-
-    func applicationWillTerminate(_ application: UIApplication) {
-        // Called when the application is about to terminate. Save data if appropriate. See also applicationDidEnterBackground:.
-    }
-
-
+    
+    
 }
 
