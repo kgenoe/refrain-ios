@@ -17,6 +17,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplicationLaunchOptionsKey: Any]?) -> Bool {
     
+        _ = AppearanceManager()
         
         UNUserNotificationCenter.current().requestAuthorization(options: []) { (granted, error) in
             guard error == nil else {
