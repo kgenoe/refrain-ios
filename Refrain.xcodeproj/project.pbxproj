@@ -8,9 +8,18 @@
 
 /* Begin PBXBuildFile section */
 		2705BC32202E48DD00213DF6 /* DefaultsKeys.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2705BC31202E48DD00213DF6 /* DefaultsKeys.swift */; };
+		2711EC4F20911F6300F32622 /* ContentBlockerManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2711EC4E20911F6300F32622 /* ContentBlockerManager.swift */; };
+		271E0172208BBAA400FC37C6 /* BlockingListCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 271E0171208BBAA400FC37C6 /* BlockingListCell.swift */; };
+		272EE1BD208A805E007B6FDB /* ContentBlockerRequestHandler.swift in Sources */ = {isa = PBXBuildFile; fileRef = 272EE1BC208A805E007B6FDB /* ContentBlockerRequestHandler.swift */; };
+		272EE1C1208A805E007B6FDB /* ContentBlocker.appex in Embed App Extensions */ = {isa = PBXBuildFile; fileRef = 272EE1B8208A805E007B6FDB /* ContentBlocker.appex */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
 		273BE5372054610C00EF57C2 /* NetworkingConstants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 273BE5362054610C00EF57C2 /* NetworkingConstants.swift */; };
 		27431B712059E8D2008B4D2B /* CardView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 27431B702059E8D2008B4D2B /* CardView.xib */; };
 		27431B732059E8E0008B4D2B /* CardView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 27431B722059E8E0008B4D2B /* CardView.swift */; };
+		274E8388207C018100BAE7A5 /* InnerShadowLayer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 274E8387207C018100BAE7A5 /* InnerShadowLayer.swift */; };
+		274E838A2081816200BAE7A5 /* SwitchTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 274E83892081816200BAE7A5 /* SwitchTableViewCell.swift */; };
+		274E838D2081849D00BAE7A5 /* SwitchTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 274E838C2081849D00BAE7A5 /* SwitchTableViewCell.xib */; };
+		277F5FBF2079C78400A1A558 /* BackgroundGradientLayer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 277F5FBE2079C78400A1A558 /* BackgroundGradientLayer.swift */; };
+		277F5FC12079CCA100A1A558 /* AppearanceManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 277F5FC02079CCA100A1A558 /* AppearanceManager.swift */; };
 		2781964F2053773900A42E4C /* CreateAccountRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2781964E2053773900A42E4C /* CreateAccountRequest.swift */; };
 		278196512053787500A42E4C /* Result.swift in Sources */ = {isa = PBXBuildFile; fileRef = 278196502053787500A42E4C /* Result.swift */; };
 		2781965320537E6500A42E4C /* UpdateAccountRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2781965220537E6500A42E4C /* UpdateAccountRequest.swift */; };
@@ -25,8 +34,11 @@
 		27C34F822017DD4F00B129F6 /* BlockingListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 27C34F812017DD4F00B129F6 /* BlockingListViewController.swift */; };
 		27C34F842017DEB900B129F6 /* BlockingRuleViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 27C34F832017DEB900B129F6 /* BlockingRuleViewController.swift */; };
 		27C34F872017E24900B129F6 /* BlockingRuleCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 27C34F862017E24900B129F6 /* BlockingRuleCell.swift */; };
-		27C34F8C2017E54F00B129F6 /* SharedUserDefaults.swift in Sources */ = {isa = PBXBuildFile; fileRef = 27C34F8B2017E54F00B129F6 /* SharedUserDefaults.swift */; };
 		27C34F902017E6EA00B129F6 /* BlockingRule.swift in Sources */ = {isa = PBXBuildFile; fileRef = 27C34F8F2017E6EA00B129F6 /* BlockingRule.swift */; };
+		27CFF58420ABC22700193AF8 /* DefaultBlockingLists.swift in Sources */ = {isa = PBXBuildFile; fileRef = 27CFF58320ABC22700193AF8 /* DefaultBlockingLists.swift */; };
+		27CFF58720AE45CA00193AF8 /* HeaderTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 27CFF58620AE45CA00193AF8 /* HeaderTableViewCell.swift */; };
+		27CFF58920AE45D600193AF8 /* HeaderTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 27CFF58820AE45D600193AF8 /* HeaderTableViewCell.xib */; };
+		27CFF58B20AEF3BE00193AF8 /* BlockingListsTableViewStructure.swift in Sources */ = {isa = PBXBuildFile; fileRef = 27CFF58A20AEF3BE00193AF8 /* BlockingListsTableViewStructure.swift */; };
 		789207D62023AEB10053F351 /* BlockingSchedulesViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 789207D52023AEB10053F351 /* BlockingSchedulesViewController.swift */; };
 		789207D82023B18D0053F351 /* BlockingSchedule.swift in Sources */ = {isa = PBXBuildFile; fileRef = 789207D72023B18D0053F351 /* BlockingSchedule.swift */; };
 		789207DA2023B32D0053F351 /* BlockingScheduleStore.swift in Sources */ = {isa = PBXBuildFile; fileRef = 789207D92023B32D0053F351 /* BlockingScheduleStore.swift */; };
@@ -35,12 +47,47 @@
 		789207E02023BC160053F351 /* BlockingScheduleViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 789207DF2023BC160053F351 /* BlockingScheduleViewController.swift */; };
 /* End PBXBuildFile section */
 
+/* Begin PBXContainerItemProxy section */
+		272EE1BF208A805E007B6FDB /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 27C34F622017D9E700B129F6 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 272EE1B7208A805E007B6FDB;
+			remoteInfo = ContentBlocker;
+		};
+/* End PBXContainerItemProxy section */
+
+/* Begin PBXCopyFilesBuildPhase section */
+		272EE1C5208A805E007B6FDB /* Embed App Extensions */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = "";
+			dstSubfolderSpec = 13;
+			files = (
+				272EE1C1208A805E007B6FDB /* ContentBlocker.appex in Embed App Extensions */,
+			);
+			name = "Embed App Extensions";
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXCopyFilesBuildPhase section */
+
 /* Begin PBXFileReference section */
 		2705BC2C202D2F8300213DF6 /* Refrain.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = Refrain.entitlements; sourceTree = "<group>"; };
 		2705BC31202E48DD00213DF6 /* DefaultsKeys.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DefaultsKeys.swift; sourceTree = "<group>"; };
+		2711EC4E20911F6300F32622 /* ContentBlockerManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentBlockerManager.swift; sourceTree = "<group>"; };
+		271E0171208BBAA400FC37C6 /* BlockingListCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BlockingListCell.swift; sourceTree = "<group>"; };
+		272EE1B8208A805E007B6FDB /* ContentBlocker.appex */ = {isa = PBXFileReference; explicitFileType = "wrapper.app-extension"; includeInIndex = 0; path = ContentBlocker.appex; sourceTree = BUILT_PRODUCTS_DIR; };
+		272EE1BC208A805E007B6FDB /* ContentBlockerRequestHandler.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentBlockerRequestHandler.swift; sourceTree = "<group>"; };
+		272EE1BE208A805E007B6FDB /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		272EE1C8208A836D007B6FDB /* ContentBlocker.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = ContentBlocker.entitlements; sourceTree = "<group>"; };
 		273BE5362054610C00EF57C2 /* NetworkingConstants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkingConstants.swift; sourceTree = "<group>"; };
 		27431B702059E8D2008B4D2B /* CardView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = CardView.xib; sourceTree = "<group>"; };
 		27431B722059E8E0008B4D2B /* CardView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CardView.swift; sourceTree = "<group>"; };
+		274E8387207C018100BAE7A5 /* InnerShadowLayer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InnerShadowLayer.swift; sourceTree = "<group>"; };
+		274E83892081816200BAE7A5 /* SwitchTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SwitchTableViewCell.swift; sourceTree = "<group>"; };
+		274E838C2081849D00BAE7A5 /* SwitchTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = SwitchTableViewCell.xib; sourceTree = "<group>"; };
+		277F5FBE2079C78400A1A558 /* BackgroundGradientLayer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BackgroundGradientLayer.swift; sourceTree = "<group>"; };
+		277F5FC02079CCA100A1A558 /* AppearanceManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppearanceManager.swift; sourceTree = "<group>"; };
 		2781964E2053773900A42E4C /* CreateAccountRequest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreateAccountRequest.swift; sourceTree = "<group>"; };
 		278196502053787500A42E4C /* Result.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Result.swift; sourceTree = "<group>"; };
 		2781965220537E6500A42E4C /* UpdateAccountRequest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UpdateAccountRequest.swift; sourceTree = "<group>"; };
@@ -57,8 +104,11 @@
 		27C34F812017DD4F00B129F6 /* BlockingListViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BlockingListViewController.swift; sourceTree = "<group>"; };
 		27C34F832017DEB900B129F6 /* BlockingRuleViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BlockingRuleViewController.swift; sourceTree = "<group>"; };
 		27C34F862017E24900B129F6 /* BlockingRuleCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BlockingRuleCell.swift; sourceTree = "<group>"; };
-		27C34F8B2017E54F00B129F6 /* SharedUserDefaults.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SharedUserDefaults.swift; sourceTree = "<group>"; };
 		27C34F8F2017E6EA00B129F6 /* BlockingRule.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BlockingRule.swift; sourceTree = "<group>"; };
+		27CFF58320ABC22700193AF8 /* DefaultBlockingLists.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DefaultBlockingLists.swift; sourceTree = "<group>"; };
+		27CFF58620AE45CA00193AF8 /* HeaderTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HeaderTableViewCell.swift; sourceTree = "<group>"; };
+		27CFF58820AE45D600193AF8 /* HeaderTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = HeaderTableViewCell.xib; sourceTree = "<group>"; };
+		27CFF58A20AEF3BE00193AF8 /* BlockingListsTableViewStructure.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BlockingListsTableViewStructure.swift; sourceTree = "<group>"; };
 		789207D52023AEB10053F351 /* BlockingSchedulesViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BlockingSchedulesViewController.swift; sourceTree = "<group>"; };
 		789207D72023B18D0053F351 /* BlockingSchedule.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BlockingSchedule.swift; sourceTree = "<group>"; };
 		789207D92023B32D0053F351 /* BlockingScheduleStore.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BlockingScheduleStore.swift; sourceTree = "<group>"; };
@@ -68,6 +118,13 @@
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
+		272EE1B5208A805E007B6FDB /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		27C34F672017D9E700B129F6 /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
@@ -78,10 +135,30 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		271E0170208BB94500FC37C6 /* TableView Cells */ = {
+			isa = PBXGroup;
+			children = (
+				27CFF58520AE45AC00193AF8 /* Header Cell */,
+			);
+			path = "TableView Cells";
+			sourceTree = "<group>";
+		};
+		272EE1B9208A805E007B6FDB /* ContentBlocker */ = {
+			isa = PBXGroup;
+			children = (
+				272EE1C8208A836D007B6FDB /* ContentBlocker.entitlements */,
+				272EE1BC208A805E007B6FDB /* ContentBlockerRequestHandler.swift */,
+				272EE1BE208A805E007B6FDB /* Info.plist */,
+			);
+			path = ContentBlocker;
+			sourceTree = "<group>";
+		};
 		27431B6A2059E843008B4D2B /* View Controllers */ = {
 			isa = PBXGroup;
 			children = (
 				27C34F7F2017DCF900B129F6 /* MainViewController.swift */,
+				27CFF58A20AEF3BE00193AF8 /* BlockingListsTableViewStructure.swift */,
+				271E0171208BBAA400FC37C6 /* BlockingListCell.swift */,
 				27C34F852017DEBD00B129F6 /* Blocking List */,
 				789207D42023A2C90053F351 /* Schedules */,
 			);
@@ -91,10 +168,31 @@
 		27431B6B2059E84D008B4D2B /* Views */ = {
 			isa = PBXGroup;
 			children = (
+				271E0170208BB94500FC37C6 /* TableView Cells */,
+				277F5FBE2079C78400A1A558 /* BackgroundGradientLayer.swift */,
+				274E8387207C018100BAE7A5 /* InnerShadowLayer.swift */,
+				277F5FBC2079C73400A1A558 /* Card View */,
+				274E838B2081848B00BAE7A5 /* SwitchTableViewCell */,
+			);
+			path = Views;
+			sourceTree = "<group>";
+		};
+		274E838B2081848B00BAE7A5 /* SwitchTableViewCell */ = {
+			isa = PBXGroup;
+			children = (
+				274E83892081816200BAE7A5 /* SwitchTableViewCell.swift */,
+				274E838C2081849D00BAE7A5 /* SwitchTableViewCell.xib */,
+			);
+			path = SwitchTableViewCell;
+			sourceTree = "<group>";
+		};
+		277F5FBC2079C73400A1A558 /* Card View */ = {
+			isa = PBXGroup;
+			children = (
 				27431B722059E8E0008B4D2B /* CardView.swift */,
 				27431B702059E8D2008B4D2B /* CardView.xib */,
 			);
-			path = Views;
+			path = "Card View";
 			sourceTree = "<group>";
 		};
 		2781964D2053771100A42E4C /* Networking */ = {
@@ -111,6 +209,7 @@
 			isa = PBXGroup;
 			children = (
 				27C34F6C2017D9E700B129F6 /* Refrain */,
+				272EE1B9208A805E007B6FDB /* ContentBlocker */,
 				27C34F6B2017D9E700B129F6 /* Products */,
 			);
 			sourceTree = "<group>";
@@ -119,6 +218,7 @@
 			isa = PBXGroup;
 			children = (
 				27C34F6A2017D9E700B129F6 /* Refrain.app */,
+				272EE1B8208A805E007B6FDB /* ContentBlocker.appex */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -128,6 +228,9 @@
 			children = (
 				2705BC2C202D2F8300213DF6 /* Refrain.entitlements */,
 				27C34F6D2017D9E700B129F6 /* AppDelegate.swift */,
+				2711EC4E20911F6300F32622 /* ContentBlockerManager.swift */,
+				277F5FC02079CCA100A1A558 /* AppearanceManager.swift */,
+				27CFF58320ABC22700193AF8 /* DefaultBlockingLists.swift */,
 				2781964D2053771100A42E4C /* Networking */,
 				27C34F912017E6EE00B129F6 /* Model */,
 				27431B6A2059E843008B4D2B /* View Controllers */,
@@ -145,8 +248,8 @@
 			isa = PBXGroup;
 			children = (
 				27C34F812017DD4F00B129F6 /* BlockingListViewController.swift */,
-				27C34F862017E24900B129F6 /* BlockingRuleCell.swift */,
 				27C34F832017DEB900B129F6 /* BlockingRuleViewController.swift */,
+				27C34F862017E24900B129F6 /* BlockingRuleCell.swift */,
 			);
 			path = "Blocking List";
 			sourceTree = "<group>";
@@ -154,7 +257,6 @@
 		27C34F882017E51800B129F6 /* Defaults */ = {
 			isa = PBXGroup;
 			children = (
-				27C34F8B2017E54F00B129F6 /* SharedUserDefaults.swift */,
 				2705BC31202E48DD00213DF6 /* DefaultsKeys.swift */,
 				279FE4FB20659686007B7F17 /* BlockingListStore.swift */,
 				789207D92023B32D0053F351 /* BlockingScheduleStore.swift */,
@@ -182,6 +284,15 @@
 			path = Helpers;
 			sourceTree = "<group>";
 		};
+		27CFF58520AE45AC00193AF8 /* Header Cell */ = {
+			isa = PBXGroup;
+			children = (
+				27CFF58620AE45CA00193AF8 /* HeaderTableViewCell.swift */,
+				27CFF58820AE45D600193AF8 /* HeaderTableViewCell.xib */,
+			);
+			path = "Header Cell";
+			sourceTree = "<group>";
+		};
 		789207D42023A2C90053F351 /* Schedules */ = {
 			isa = PBXGroup;
 			children = (
@@ -196,6 +307,23 @@
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
+		272EE1B7208A805E007B6FDB /* ContentBlocker */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 272EE1C4208A805E007B6FDB /* Build configuration list for PBXNativeTarget "ContentBlocker" */;
+			buildPhases = (
+				272EE1B4208A805E007B6FDB /* Sources */,
+				272EE1B5208A805E007B6FDB /* Frameworks */,
+				272EE1B6208A805E007B6FDB /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = ContentBlocker;
+			productName = ContentBlocker;
+			productReference = 272EE1B8208A805E007B6FDB /* ContentBlocker.appex */;
+			productType = "com.apple.product-type.app-extension";
+		};
 		27C34F692017D9E700B129F6 /* Refrain */ = {
 			isa = PBXNativeTarget;
 			buildConfigurationList = 27C34F7C2017D9E700B129F6 /* Build configuration list for PBXNativeTarget "Refrain" */;
@@ -203,10 +331,12 @@
 				27C34F662017D9E700B129F6 /* Sources */,
 				27C34F672017D9E700B129F6 /* Frameworks */,
 				27C34F682017D9E700B129F6 /* Resources */,
+				272EE1C5208A805E007B6FDB /* Embed App Extensions */,
 			);
 			buildRules = (
 			);
 			dependencies = (
+				272EE1C0208A805E007B6FDB /* PBXTargetDependency */,
 			);
 			name = Refrain;
 			productName = Refrain;
@@ -219,14 +349,26 @@
 		27C34F622017D9E700B129F6 /* Project object */ = {
 			isa = PBXProject;
 			attributes = {
-				LastSwiftUpdateCheck = 0920;
+				LastSwiftUpdateCheck = 0930;
 				LastUpgradeCheck = 0920;
 				ORGANIZATIONNAME = Kyle;
 				TargetAttributes = {
+					272EE1B7208A805E007B6FDB = {
+						CreatedOnToolsVersion = 9.3;
+						ProvisioningStyle = Automatic;
+						SystemCapabilities = {
+							com.apple.ApplicationGroups.iOS = {
+								enabled = 1;
+							};
+						};
+					};
 					27C34F692017D9E700B129F6 = {
 						CreatedOnToolsVersion = 9.2;
 						ProvisioningStyle = Automatic;
 						SystemCapabilities = {
+							com.apple.ApplicationGroups.iOS = {
+								enabled = 1;
+							};
 							com.apple.Push = {
 								enabled = 1;
 							};
@@ -248,18 +390,28 @@
 			projectRoot = "";
 			targets = (
 				27C34F692017D9E700B129F6 /* Refrain */,
+				272EE1B7208A805E007B6FDB /* ContentBlocker */,
 			);
 		};
 /* End PBXProject section */
 
 /* Begin PBXResourcesBuildPhase section */
+		272EE1B6208A805E007B6FDB /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		27C34F682017D9E700B129F6 /* Resources */ = {
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
 				27C34F782017D9E700B129F6 /* LaunchScreen.storyboard in Resources */,
+				274E838D2081849D00BAE7A5 /* SwitchTableViewCell.xib in Resources */,
 				27C34F752017D9E700B129F6 /* Assets.xcassets in Resources */,
 				27431B712059E8D2008B4D2B /* CardView.xib in Resources */,
+				27CFF58920AE45D600193AF8 /* HeaderTableViewCell.xib in Resources */,
 				27C34F732017D9E700B129F6 /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -267,13 +419,23 @@
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
+		272EE1B4208A805E007B6FDB /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				272EE1BD208A805E007B6FDB /* ContentBlockerRequestHandler.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		27C34F662017D9E700B129F6 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
 				27C34F6E2017D9E700B129F6 /* AppDelegate.swift in Sources */,
 				2705BC32202E48DD00213DF6 /* DefaultsKeys.swift in Sources */,
+				2711EC4F20911F6300F32622 /* ContentBlockerManager.swift in Sources */,
 				2781965320537E6500A42E4C /* UpdateAccountRequest.swift in Sources */,
+				274E8388207C018100BAE7A5 /* InnerShadowLayer.swift in Sources */,
 				27C34F802017DCF900B129F6 /* MainViewController.swift in Sources */,
 				789207D62023AEB10053F351 /* BlockingSchedulesViewController.swift in Sources */,
 				27C34F842017DEB900B129F6 /* BlockingRuleViewController.swift in Sources */,
@@ -281,14 +443,20 @@
 				27C34F872017E24900B129F6 /* BlockingRuleCell.swift in Sources */,
 				789207D82023B18D0053F351 /* BlockingSchedule.swift in Sources */,
 				789207DC2023B8370053F351 /* BlockingSchedueCell.swift in Sources */,
+				277F5FBF2079C78400A1A558 /* BackgroundGradientLayer.swift in Sources */,
+				271E0172208BBAA400FC37C6 /* BlockingListCell.swift in Sources */,
 				789207DA2023B32D0053F351 /* BlockingScheduleStore.swift in Sources */,
 				27C34F822017DD4F00B129F6 /* BlockingListViewController.swift in Sources */,
+				277F5FC12079CCA100A1A558 /* AppearanceManager.swift in Sources */,
 				27C34F902017E6EA00B129F6 /* BlockingRule.swift in Sources */,
-				27C34F8C2017E54F00B129F6 /* SharedUserDefaults.swift in Sources */,
 				27431B732059E8E0008B4D2B /* CardView.swift in Sources */,
 				789207E02023BC160053F351 /* BlockingScheduleViewController.swift in Sources */,
+				27CFF58420ABC22700193AF8 /* DefaultBlockingLists.swift in Sources */,
 				278196512053787500A42E4C /* Result.swift in Sources */,
+				27CFF58720AE45CA00193AF8 /* HeaderTableViewCell.swift in Sources */,
 				789207DE2023B8FE0053F351 /* DateExtensions.swift in Sources */,
+				27CFF58B20AEF3BE00193AF8 /* BlockingListsTableViewStructure.swift in Sources */,
+				274E838A2081816200BAE7A5 /* SwitchTableViewCell.swift in Sources */,
 				273BE5372054610C00EF57C2 /* NetworkingConstants.swift in Sources */,
 				279FE4FA20659453007B7F17 /* BlockingList.swift in Sources */,
 				2781964F2053773900A42E4C /* CreateAccountRequest.swift in Sources */,
@@ -297,6 +465,14 @@
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		272EE1C0208A805E007B6FDB /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 272EE1B7208A805E007B6FDB /* ContentBlocker */;
+			targetProxy = 272EE1BF208A805E007B6FDB /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
 
 /* Begin PBXVariantGroup section */
 		27C34F712017D9E700B129F6 /* Main.storyboard */ = {
@@ -318,6 +494,48 @@
 /* End PBXVariantGroup section */
 
 /* Begin XCBuildConfiguration section */
+		272EE1C2208A805E007B6FDB /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ARCHS = "$(ARCHS_STANDARD_64_BIT)";
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CODE_SIGN_ENTITLEMENTS = ContentBlocker/ContentBlocker.entitlements;
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = V9CEBD9ZBT;
+				INFOPLIST_FILE = ContentBlocker/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 11.3;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @executable_path/../../Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = ca.genoe.Refrain2.ContentBlocker;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SKIP_INSTALL = YES;
+				SWIFT_VERSION = 4.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Debug;
+		};
+		272EE1C3208A805E007B6FDB /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ARCHS = "$(ARCHS_STANDARD_64_BIT)";
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CODE_SIGN_ENTITLEMENTS = ContentBlocker/ContentBlocker.entitlements;
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = V9CEBD9ZBT;
+				INFOPLIST_FILE = ContentBlocker/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 11.3;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @executable_path/../../Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = ca.genoe.Refrain2.ContentBlocker;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SKIP_INSTALL = YES;
+				SWIFT_VERSION = 4.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Release;
+		};
 		27C34F7A2017D9E700B129F6 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
@@ -428,13 +646,14 @@
 		27C34F7D2017D9E700B129F6 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_ENTITLEMENTS = Refrain/Refrain.entitlements;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = V9CEBD9ZBT;
 				INFOPLIST_FILE = Refrain/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = ca.genoe.Refrain;
+				PRODUCT_BUNDLE_IDENTIFIER = ca.genoe.Refrain2;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 4.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
@@ -444,13 +663,14 @@
 		27C34F7E2017D9E700B129F6 /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_ENTITLEMENTS = Refrain/Refrain.entitlements;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = V9CEBD9ZBT;
 				INFOPLIST_FILE = Refrain/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = ca.genoe.Refrain;
+				PRODUCT_BUNDLE_IDENTIFIER = ca.genoe.Refrain2;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 4.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
@@ -460,6 +680,15 @@
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
+		272EE1C4208A805E007B6FDB /* Build configuration list for PBXNativeTarget "ContentBlocker" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				272EE1C2208A805E007B6FDB /* Debug */,
+				272EE1C3208A805E007B6FDB /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
 		27C34F652017D9E700B129F6 /* Build configuration list for PBXProject "Refrain" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
