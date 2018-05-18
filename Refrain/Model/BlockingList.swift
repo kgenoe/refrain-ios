@@ -13,6 +13,7 @@ class BlockingList: NSObject, NSCoding {
     var id: String
     var name: String
     var enabled: Bool
+    var isDefault: Bool
     var rules: [BlockingRule]
     var createdDate: Date
     var updatedDate: Date
@@ -21,6 +22,7 @@ class BlockingList: NSObject, NSCoding {
         self.id = UUID().uuidString
         self.name = name
         self.enabled = enabled
+        self.isDefault = false
         self.rules = []
         let now = Date()
         self.createdDate = now
@@ -40,6 +42,7 @@ class BlockingList: NSObject, NSCoding {
         self.name = name
         self.rules = rules
         self.enabled = coder.decodeBool(forKey: "enabled")
+        self.isDefault = coder.decodeBool(forKey: "isDefault")
         self.createdDate = createdDate
         self.updatedDate = updatedDate
     }
@@ -48,6 +51,7 @@ class BlockingList: NSObject, NSCoding {
         coder.encode(id, forKey: "uuid")
         coder.encode(name, forKey: "name")
         coder.encode(enabled, forKey: "enabled")
+        coder.encode(isDefault, forKey: "isDefault")
         coder.encode(rules, forKey: "rules")
         coder.encode(createdDate, forKey: "createdDate")
         coder.encode(updatedDate, forKey: "updatedDate")

@@ -19,6 +19,8 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     
         _ = AppearanceManager()
         
+        DefaultBlockingLists().createDefaultLists()
+        
         UNUserNotificationCenter.current().requestAuthorization(options: []) { (granted, error) in
             guard error == nil else {
                 print("UNUserNotificationCenter.requestAuthorization error: \(error!)")
