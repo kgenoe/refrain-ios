@@ -1,0 +1,91 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="14109" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+    <device id="retina4_7" orientation="portrait">
+        <adaptation id="fullscreen"/>
+    </device>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14088"/>
+        <capability name="Named colors" minToolsVersion="9.0"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="CardView" customModule="Refrain" customModuleProvider="target">
+            <connections>
+                <outlet property="contentView" destination="ooG-Cy-Bv3" id="g2Q-tR-ro1"/>
+                <outlet property="subtitleLabel" destination="Am8-pX-Sc2" id="cLM-2q-t2O"/>
+                <outlet property="subtitleLabelHeight" destination="mnS-3J-0Bw" id="Pqk-Cn-Kf6"/>
+                <outlet property="titleLabel" destination="j7q-6z-hTK" id="91S-VJ-diN"/>
+            </connections>
+        </placeholder>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <view contentMode="scaleToFill" id="iN0-l3-epB">
+            <rect key="frame" x="0.0" y="0.0" width="375" height="104"/>
+            <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+            <subviews>
+                <view clipsSubviews="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="ooG-Cy-Bv3">
+                    <rect key="frame" x="0.0" y="0.0" width="375" height="104"/>
+                    <subviews>
+                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Blocking Lists" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="j7q-6z-hTK">
+                            <rect key="frame" x="16" y="12" width="343" height="23"/>
+                            <constraints>
+                                <constraint firstAttribute="height" constant="23" id="Jet-Qj-nNe"/>
+                            </constraints>
+                            <fontDescription key="fontDescription" name="AvenirNextCondensed-DemiBold" family="Avenir Next Condensed" pointSize="20"/>
+                            <color key="textColor" name="DarkGrey"/>
+                            <nil key="highlightedColor"/>
+                        </label>
+                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" usesAttributedText="YES" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Am8-pX-Sc2">
+                            <rect key="frame" x="16" y="39" width="343" height="53"/>
+                            <constraints>
+                                <constraint firstAttribute="height" relation="greaterThanOrEqual" constant="52" id="mnS-3J-0Bw"/>
+                            </constraints>
+                            <attributedString key="attributedText">
+                                <fragment content="Set which sites to block with the option to group similar sites together to make them easier to toggle on and off.">
+                                    <attributes>
+                                        <color key="NSColor" name="DarkGrey"/>
+                                        <font key="NSFont" size="14" name="Avenir-BookOblique"/>
+                                        <paragraphStyle key="NSParagraphStyle" alignment="natural" lineBreakMode="wordWrapping" baseWritingDirection="natural" lineHeightMultiple="0.90000000000000002" tighteningFactorForTruncation="0.0"/>
+                                    </attributes>
+                                </fragment>
+                            </attributedString>
+                            <nil key="highlightedColor"/>
+                        </label>
+                    </subviews>
+                    <color key="backgroundColor" name="White"/>
+                    <constraints>
+                        <constraint firstAttribute="trailing" secondItem="j7q-6z-hTK" secondAttribute="trailing" constant="16" id="1mN-f7-gGQ"/>
+                        <constraint firstItem="j7q-6z-hTK" firstAttribute="leading" secondItem="ooG-Cy-Bv3" secondAttribute="leading" constant="16" id="S5y-B0-eR5"/>
+                        <constraint firstItem="Am8-pX-Sc2" firstAttribute="top" secondItem="j7q-6z-hTK" secondAttribute="bottom" constant="4" id="Ssv-5A-3pX"/>
+                        <constraint firstItem="j7q-6z-hTK" firstAttribute="top" secondItem="ooG-Cy-Bv3" secondAttribute="top" constant="12" id="WhQ-8e-jK0"/>
+                        <constraint firstAttribute="trailing" secondItem="Am8-pX-Sc2" secondAttribute="trailing" constant="16" id="jEP-Et-9hY"/>
+                        <constraint firstAttribute="bottom" secondItem="Am8-pX-Sc2" secondAttribute="bottom" constant="12" id="jhL-KF-9KN"/>
+                        <constraint firstItem="Am8-pX-Sc2" firstAttribute="leading" secondItem="ooG-Cy-Bv3" secondAttribute="leading" constant="16" id="zOA-OD-1UZ"/>
+                    </constraints>
+                </view>
+            </subviews>
+            <color key="backgroundColor" white="1" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+            <constraints>
+                <constraint firstItem="ooG-Cy-Bv3" firstAttribute="bottom" secondItem="vUN-kp-3ea" secondAttribute="bottom" id="2kZ-HU-tmt"/>
+                <constraint firstItem="ooG-Cy-Bv3" firstAttribute="leading" secondItem="vUN-kp-3ea" secondAttribute="leading" id="6PS-JM-LEm"/>
+                <constraint firstItem="ooG-Cy-Bv3" firstAttribute="trailing" secondItem="vUN-kp-3ea" secondAttribute="trailing" id="CYA-4E-KHy"/>
+                <constraint firstItem="ooG-Cy-Bv3" firstAttribute="top" secondItem="vUN-kp-3ea" secondAttribute="top" id="GQz-3i-mp4"/>
+            </constraints>
+            <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
+            <viewLayoutGuide key="safeArea" id="vUN-kp-3ea"/>
+            <point key="canvasLocation" x="33.5" y="-222"/>
+        </view>
+    </objects>
+    <resources>
+        <namedColor name="DarkGrey">
+            <color white="0.20299999415874481" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+        </namedColor>
+        <namedColor name="DarkGrey">
+            <color white="0.15000000596046448" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+        </namedColor>
+        <namedColor name="White">
+            <color white="0.97000002861022949" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+        </namedColor>
+    </resources>
+</document>
