@@ -27,7 +27,19 @@ class BlockingSchedulesViewController: UIViewController {
         
         tableView.reloadSections(IndexSet(integer: 0), with: .fade)
     }
-
+    
+    override func viewDidLayoutSubviews() {
+        super.viewDidLayoutSubviews()
+        self.setBackgroundGradient()
+    }
+    
+    private func setBackgroundGradient() {
+        view.layer.sublayers?.filter{ ($0 as? BackgroundGradientLayer) != nil }
+            .forEach{ $0.removeFromSuperlayer() }
+        
+        let gradient = BackgroundGradientLayer(frame: view.bounds)
+        view.layer.addSublayer(gradient)
+    }
     
     @IBAction func closeButtonPressed() {
         dismiss(animated: true, completion: nil)
@@ -72,6 +84,6 @@ extension BlockingSchedulesViewController: UITableViewDataSource, UITableViewDel
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let schedule = BlockingScheduleStore.shared.schedules[indexPath.row]
-        return BlockingSchedueCell.instantiate(from: tableView, blockingSchedule: schedule)
+        return BlockingSchedueCell(blockingSchedule: schedule)
     }
 }

@@ -8,29 +8,30 @@
 
 import UIKit
 
-class BlockingSchedueCell: UITableViewCell {
+class BlockingSchedueCell: SwitchTableViewCell {
 
     var blockingSchedule: BlockingSchedule!
     
-    @IBOutlet weak var titleLabel: UILabel!
+    init(blockingSchedule: BlockingSchedule) {
+        self.blockingSchedule = blockingSchedule
+        
+        super.init()
+        enabledSwitch.addTarget(self, action: #selector(switchToggled), for: .valueChanged)
+        setInitialState()
+    }
     
-    @IBOutlet weak var enabledSwitch: UISwitch!
-    
-    
-    static func instantiate(from tableView: UITableView, blockingSchedule: BlockingSchedule) -> BlockingSchedueCell {
-        let cell = tableView.dequeueReusableCell(withIdentifier: "BlockingSchedueCell") as! BlockingSchedueCell
-        cell.blockingSchedule = blockingSchedule
-        cell.setInitialState(for: blockingSchedule)
-        return cell
+    required init?(coder aDecoder: NSCoder) {
+        fatalError("init(coder:) has not been implemented")
     }
     
     
-    private func setInitialState(for schedule: BlockingSchedule) {
-        titleLabel.text = "\(schedule.startTime.timeString()) - \(schedule.endTime.timeString())"
-        enabledSwitch.isOn = schedule.enabled
+    private func setInitialState()
+    {
+        titleLabel.text = "\(blockingSchedule.startTime.timeString()) - \(blockingSchedule.endTime.timeString())"
+        enabledSwitch.isOn = blockingSchedule.enabled
     }
     
-    @IBAction func switchToggled() {
+    @objc func switchToggled() {
         blockingSchedule.enabled = enabledSwitch.isOn
         BlockingScheduleStore.shared.save(blockingSchedule)
     }
