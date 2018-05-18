@@ -14,9 +14,13 @@ class BlockingRuleViewController: UIViewController {
     
     var blockingRule: BlockingRule?
     
-    @IBOutlet weak var filterTextField: UITextField!
+    @IBOutlet private weak var filterTextFieldView: UIView!
     
-    @IBOutlet weak var descriptionTextField: UITextField!
+    @IBOutlet private weak var descriptionTextFieldView: UIView!
+    
+    @IBOutlet private weak var filterTextField: UITextField!
+    
+    @IBOutlet private weak var descriptionTextField: UITextField!
 
     
     static func instantiate(blockingList: BlockingList, blockingRule: BlockingRule? = nil) -> BlockingRuleViewController {
@@ -26,13 +30,21 @@ class BlockingRuleViewController: UIViewController {
         return vc
     }
     
-    
+
     override func viewDidLoad() {
         super.viewDidLoad()
-        
-        let saveButton = UIBarButtonItem(title: "Save", style: .done, target: self, action: #selector(saveButtonPressed))
+        setupView()
+    }
+    
+    override func prepareForInterfaceBuilder() {
+        super.prepareForInterfaceBuilder()
+        setupView()
+    }
+    
+    private func setupView() {
+        let saveButton = UIBarButtonItem(title: "Save", style: .plain, target: self, action: #selector(saveButtonPressed))
+        saveButton.tintColor = UIColor(named: "White")
         navigationItem.rightBarButtonItem = saveButton
-        
         
         if let rule = blockingRule {
             navigationItem.title = "Edit Rule"
@@ -41,8 +53,34 @@ class BlockingRuleViewController: UIViewController {
         } else {
             navigationItem.title = "New Rule"
         }
+        
     }
     
+    
+    override func viewDidLayoutSubviews() {
+        super.viewDidLayoutSubviews()
+        setBackgroundGradient()
+        setTextFieldInnerShadows()
+    }
+    
+    private func setBackgroundGradient() {
+        view.layer.sublayers?.filter{ ($0 as? BackgroundGradientLayer) != nil }
+            .forEach{ $0.removeFromSuperlayer() }
+        
+        let gradient = BackgroundGradientLayer(frame: view.bounds)
+        view.layer.addSublayer(gradient)
+    }
+    
+    private func setTextFieldInnerShadows() {
+        
+        filterTextFieldView.layer.sublayers?.filter{ ($0 as? InnerShadowLayer) != nil }.forEach{ $0.removeFromSuperlayer() }
+        let filterInnerShadow = InnerShadowLayer(frame: filterTextFieldView.bounds.insetBy(dx: -20, dy: 0).offsetBy(dx: 10, dy: 0))
+        filterTextFieldView.layer.addSublayer(filterInnerShadow)
+        
+        descriptionTextFieldView.layer.sublayers?.filter{ ($0 as? InnerShadowLayer) != nil }.forEach{ $0.removeFromSuperlayer() }
+        let descriptionInnerShadow = InnerShadowLayer(frame: descriptionTextFieldView.bounds.insetBy(dx: -20, dy: 0).offsetBy(dx: 10, dy: 0))
+        descriptionTextFieldView.layer.addSublayer(descriptionInnerShadow)
+    }
 
     @objc func saveButtonPressed() {
         

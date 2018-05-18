@@ -20,25 +20,59 @@ class BlockingListViewController: UIViewController {
         return vc
     }
     
-    override func viewDidLoad() {
-        super.viewDidLoad()
-        tableView.delegate = self
-        tableView.dataSource = self
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        setupView()
     }
     
-    override func viewWillAppear(_ animated: Bool) {
-        super.viewWillAppear(true)
+    override func prepareForInterfaceBuilder() {
+        super.prepareForInterfaceBuilder()
+        setupView()
+    }
+    
+    private func setupView() {
+        tableView.delegate = self
+        tableView.dataSource = self
         
         // check for updated version of blocking list from store
         if let updatedBlockingList = BlockingListStore.shared.lists.first(where: { $0.id == blockingList.id }) {
             blockingList = updatedBlockingList
         }
-        
+                
         navigationItem.title = blockingList.name
         
-        navigationItem.backBarButtonItem = UIBarButtonItem(title: "Back", style: .plain, target: nil, action: nil)
+        // set back button for next view (BlockingRuleView)
+        navigationItem.backBarButtonItem = UIBarButtonItem(title: "", style: .plain, target: nil, action: nil)
+        navigationItem.backBarButtonItem?.tintColor = UIColor(named: "White")
         
-        tableView.reloadSections(IndexSet(integer: 0), with: .fade)
+        
+//        let allSections = IndexSet(integersIn: 0..<blockingList.rules.count)
+//        if allSections.count > 0 {
+//            tableView.reloadSections(allSections, with: .fade)
+//        }
+        tableView.reloadData()
+
+        
+        setBackgroundGradient()
+    }
+    
+    override func viewWillDisappear(_ animated: Bool) {
+        super.viewWillDisappear(animated)
+        
+        BlockingListStore.shared.saveList(blockingList)
+    }
+    
+    override func viewDidLayoutSubviews() {
+        super.viewDidLayoutSubviews()
+        self.setBackgroundGradient()
+    }
+    
+    private func setBackgroundGradient() {
+        view.layer.sublayers?.filter{ ($0 as? BackgroundGradientLayer) != nil }
+            .forEach{ $0.removeFromSuperlayer() }
+        
+        let gradient = BackgroundGradientLayer(frame: view.bounds)
+        view.layer.addSublayer(gradient)
     }
     
     
@@ -50,7 +84,6 @@ class BlockingListViewController: UIViewController {
         let newRuleVC = BlockingRuleViewController.instantiate(blockingList: blockingList)
         navigationController?.pushViewController(newRuleVC, animated: true)
     }
-    
 }
 
 
@@ -61,6 +94,13 @@ extension BlockingListViewController: UITableViewDataSource, UITableViewDelegate
     //MARK: - UITableViewDelegate
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
         return UITableViewAutomaticDimension
+    }
+    
+    
+    func tableView(_ tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {
+        let view = UIView()
+        view.backgroundColor = .clear
+        return view
     }
     
     func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCellEditingStyle, forRowAt indexPath: IndexPath) {
@@ -91,7 +131,7 @@ extension BlockingListViewController: UITableViewDataSource, UITableViewDelegate
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let rule = blockingList.rules[indexPath.row]
-        return BlockingRuleCell.instantiate(from: tableView, blockingList: blockingList, blockingRule: rule)
+        return BlockingRuleCell(blockingList: blockingList, blockingRule: rule)
     }
     
 }

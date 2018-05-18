@@ -8,34 +8,32 @@
 
 import UIKit
 
-class BlockingRuleCell: UITableViewCell {
+class BlockingRuleCell: SwitchTableViewCell {
     
     var blockingList: BlockingList!
 
     var blockingRule: BlockingRule!
     
-    @IBOutlet weak var titleLabel: UILabel!
+    init(blockingList: BlockingList, blockingRule: BlockingRule) {
+        self.blockingList = blockingList
+        self.blockingRule = blockingRule
+        
+        super.init()
+        enabledSwitch.addTarget(self, action: #selector(switchToggled), for: .valueChanged)
+        setInitialState(for: blockingRule)
+    }
     
-    @IBOutlet weak var descriptionLabel: UILabel!
-    
-    @IBOutlet weak var enabledSwitch: UISwitch!
-    
-    
-    static func instantiate(from tableView: UITableView, blockingList: BlockingList, blockingRule: BlockingRule) -> BlockingRuleCell {
-        let cell = tableView.dequeueReusableCell(withIdentifier: "BlockingRuleCell") as! BlockingRuleCell
-        cell.blockingRule = blockingRule
-        cell.setInitialState(for: blockingRule)
-        return cell
+    required init?(coder aDecoder: NSCoder) {
+        fatalError("init(coder:) has not been implemented")
     }
     
     
     private func setInitialState(for rule: BlockingRule) {
         titleLabel.text = rule.urlFilter
-        descriptionLabel.text = rule.ruleDescription
         enabledSwitch.isOn = rule.enabled
     }
     
-    @IBAction func switchToggled() {
+    @objc func switchToggled() {
         blockingRule.enabled = enabledSwitch.isOn
         BlockingListStore.shared.saveRule(blockingRule, to: blockingList)
     }
