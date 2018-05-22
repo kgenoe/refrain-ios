@@ -83,6 +83,12 @@ class MainViewController: UIViewController {
             let blockingListVC = BlockingListViewController.instantiate(blockingList: sender as! BlockingList)
             navVC.viewControllers[0] = blockingListVC
         }
+        
+        if let navVC = segue.destination as? UINavigationController,
+            segue.identifier == "toSettings" {
+            let settingsVC = SettingsViewController.instantiate()
+            navVC.viewControllers[0] = settingsVC
+        }
     }
     
     
@@ -153,6 +159,11 @@ extension MainViewController: UITableViewDelegate, UITableViewDataSource {
             cell.titleLabel.textAlignment = .center
             cell.titleLabel.textColor = UIColor(named: "Orange")
             return cell
+        case .Settings:
+            let cell = HeaderTableViewCell(title: "Settings")
+            cell.titleLabel.textAlignment = .center
+            cell.titleLabel.textColor = UIColor(named: "Orange")
+            return cell
         }
     }
     
@@ -166,6 +177,8 @@ extension MainViewController: UITableViewDelegate, UITableViewDataSource {
             performSegue(withIdentifier: "toBlockingList", sender: list)
         case .NewUserBlockingList:
             self.presentCreateBlockingListAlert()
+        case .Settings:
+            performSegue(withIdentifier: "toSettings", sender: nil)
         default:
             break
         }
@@ -176,7 +189,7 @@ extension MainViewController: UITableViewDelegate, UITableViewDataSource {
     func tableView(_ tableView: UITableView, willSelectRowAt indexPath: IndexPath) -> IndexPath? {
         
         switch tableViewStructure.rowType(for: indexPath) {
-        case .DefaultBlockingLists(_), .UserBlockingLists(_), .NewUserBlockingList:
+        case .DefaultBlockingLists(_), .UserBlockingLists(_), .NewUserBlockingList, .Settings:
             return indexPath
         default:
             return nil

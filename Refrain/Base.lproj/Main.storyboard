@@ -61,11 +61,12 @@
                         <outlet property="tableView" destination="wPE-P6-NXf" id="nwW-UM-xuq"/>
                         <segue destination="Y3Q-bl-mWn" kind="showDetail" identifier="toBlockingList" id="X9U-e8-aSM"/>
                         <segue destination="jEs-6x-yN9" kind="showDetail" identifier="toBlockingSchedules" id="cA5-FM-giz"/>
+                        <segue destination="dUp-d1-BYE" kind="showDetail" identifier="toSettings" id="N6T-5R-uLF"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="136.80000000000001" y="133.5832083958021"/>
+            <point key="canvasLocation" x="159" y="519"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="I6g-ml-Tvk">
@@ -411,6 +412,112 @@
             </objects>
             <point key="canvasLocation" x="2724" y="517.6911544227886"/>
         </scene>
+        <!--Navigation Controller-->
+        <scene sceneID="Rfm-cm-Dvh">
+            <objects>
+                <navigationController id="dUp-d1-BYE" sceneMemberID="viewController">
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="KWU-js-zHA">
+                        <rect key="frame" x="0.0" y="20" width="375" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <connections>
+                        <segue destination="YQT-Ey-euC" kind="relationship" relationship="rootViewController" id="IRo-sA-6nI"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="UbH-Jz-Pvb" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1017" y="1298"/>
+        </scene>
+        <!--Settings View Controller-->
+        <scene sceneID="QDe-oR-baZ">
+            <objects>
+                <viewController storyboardIdentifier="SettingsViewController" id="YQT-Ey-euC" customClass="SettingsViewController" customModule="Refrain" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="CSo-P3-brQ">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="none" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="tj7-Ss-4s3">
+                                <rect key="frame" x="0.0" y="64" width="375" height="603"/>
+                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                            </tableView>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="tj7-Ss-4s3" firstAttribute="leading" secondItem="y7I-1X-0SA" secondAttribute="leading" id="5Bw-ar-VlB"/>
+                            <constraint firstItem="tj7-Ss-4s3" firstAttribute="bottom" secondItem="y7I-1X-0SA" secondAttribute="bottom" id="Fm1-xr-aLn"/>
+                            <constraint firstItem="tj7-Ss-4s3" firstAttribute="trailing" secondItem="y7I-1X-0SA" secondAttribute="trailing" id="Hdx-hH-C6S"/>
+                            <constraint firstItem="tj7-Ss-4s3" firstAttribute="top" secondItem="y7I-1X-0SA" secondAttribute="top" id="fK9-zn-5Ri"/>
+                        </constraints>
+                        <viewLayoutGuide key="safeArea" id="y7I-1X-0SA"/>
+                    </view>
+                    <navigationItem key="navigationItem" id="KG3-f3-DUO">
+                        <barButtonItem key="leftBarButtonItem" image="BackArrow" id="H4q-Ch-Lfd">
+                            <color key="tintColor" name="White"/>
+                            <connections>
+                                <action selector="closeButtonPressed" destination="YQT-Ey-euC" id="c05-0T-Gst"/>
+                            </connections>
+                        </barButtonItem>
+                        <barButtonItem key="rightBarButtonItem" title="Item" image="Plus" style="plain" id="4TU-UQ-Cmu">
+                            <color key="tintColor" name="White"/>
+                            <connections>
+                                <action selector="newBlockingRuleButtonPressed" destination="YQT-Ey-euC" id="HEF-20-BFJ"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
+                    <connections>
+                        <outlet property="tableView" destination="tj7-Ss-4s3" id="IVP-po-bf3"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="LFA-kG-2UG" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1878" y="1298"/>
+        </scene>
+        <!--Premium Upgrade View Controller-->
+        <scene sceneID="ERI-zS-MHd">
+            <objects>
+                <viewController storyboardIdentifier="PremiumUpgradeViewController" id="PFj-7v-ERF" customClass="PremiumUpgradeViewController" customModule="Refrain" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="pMI-Q3-CRi">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="PRICE" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Eyx-aH-BOA">
+                                <rect key="frame" x="16" y="70" width="343" height="21"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="21" id="41V-48-3PK"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" name="AvenirNextCondensed-DemiBold" family="Avenir Next Condensed" pointSize="18"/>
+                                <color key="textColor" name="White"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="$4.99 / year" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="FOW-NV-LJ0">
+                                <rect key="frame" x="16" y="99" width="343" height="17"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="17" id="ygn-xe-qQz"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" name="Avenir-BookOblique" family="Avenir" pointSize="15"/>
+                                <color key="textColor" white="0.75" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                        </subviews>
+                        <color key="backgroundColor" name="Gradient2"/>
+                        <constraints>
+                            <constraint firstItem="FOW-NV-LJ0" firstAttribute="leading" secondItem="LIr-4d-uaE" secondAttribute="leading" constant="16" id="60O-Nf-x7I"/>
+                            <constraint firstItem="Eyx-aH-BOA" firstAttribute="top" secondItem="LIr-4d-uaE" secondAttribute="top" constant="50" id="Ku6-nL-xAf"/>
+                            <constraint firstItem="FOW-NV-LJ0" firstAttribute="top" secondItem="Eyx-aH-BOA" secondAttribute="bottom" constant="8" id="SYv-bm-4Ul"/>
+                            <constraint firstItem="LIr-4d-uaE" firstAttribute="trailing" secondItem="FOW-NV-LJ0" secondAttribute="trailing" constant="16" id="Yyp-DD-Y3p"/>
+                            <constraint firstItem="LIr-4d-uaE" firstAttribute="trailing" secondItem="Eyx-aH-BOA" secondAttribute="trailing" constant="16" id="iXO-bW-Slw"/>
+                            <constraint firstItem="Eyx-aH-BOA" firstAttribute="leading" secondItem="LIr-4d-uaE" secondAttribute="leading" constant="16" id="rrG-q8-9PY"/>
+                        </constraints>
+                        <viewLayoutGuide key="safeArea" id="LIr-4d-uaE"/>
+                    </view>
+                    <connections>
+                        <outlet property="priceLabel" destination="FOW-NV-LJ0" id="qzV-JK-k32"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="evq-GX-lFP" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="2724" y="1298"/>
+        </scene>
     </scenes>
     <resources>
         <image name="BackArrow" width="12" height="21"/>
@@ -421,8 +528,17 @@
         <namedColor name="Gradient2">
             <color red="0.079000003635883331" green="0.21899999678134918" blue="0.43000000715255737" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
         </namedColor>
+        <namedColor name="Gradient2">
+            <color red="0.079000003635883331" green="0.21899999678134918" blue="0.43000000715255737" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+        </namedColor>
         <namedColor name="White">
             <color white="0.97000002861022949" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+        </namedColor>
+        <namedColor name="White">
+            <color white="0.97000002860000001" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+        </namedColor>
+        <namedColor name="White">
+            <color white="0.97000002860000001" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
         </namedColor>
     </resources>
 </document>

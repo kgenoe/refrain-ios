@@ -40,6 +40,8 @@
 		27CFF58B20AEF3BE00193AF8 /* BlockingListsTableViewStructure.swift in Sources */ = {isa = PBXBuildFile; fileRef = 27CFF58A20AEF3BE00193AF8 /* BlockingListsTableViewStructure.swift */; };
 		27CFF58D20AF8BE200193AF8 /* README.md in Resources */ = {isa = PBXBuildFile; fileRef = 27CFF58C20AF8BE200193AF8 /* README.md */; };
 		27CFF59220AFC44A00193AF8 /* Result.swift in Sources */ = {isa = PBXBuildFile; fileRef = 27CFF59120AFC44A00193AF8 /* Result.swift */; };
+		27CFF59520B4B36F00193AF8 /* SettingsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 27CFF59420B4B36F00193AF8 /* SettingsViewController.swift */; };
+		27CFF59820B4B7F700193AF8 /* PremiumUpgradeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 27CFF59720B4B7F700193AF8 /* PremiumUpgradeViewController.swift */; };
 		789207D62023AEB10053F351 /* BlockingSchedulesViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 789207D52023AEB10053F351 /* BlockingSchedulesViewController.swift */; };
 		789207D82023B18D0053F351 /* BlockingSchedule.swift in Sources */ = {isa = PBXBuildFile; fileRef = 789207D72023B18D0053F351 /* BlockingSchedule.swift */; };
 		789207DA2023B32D0053F351 /* BlockingScheduleStore.swift in Sources */ = {isa = PBXBuildFile; fileRef = 789207D92023B32D0053F351 /* BlockingScheduleStore.swift */; };
@@ -111,6 +113,8 @@
 		27CFF58A20AEF3BE00193AF8 /* BlockingListsTableViewStructure.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BlockingListsTableViewStructure.swift; sourceTree = "<group>"; };
 		27CFF58C20AF8BE200193AF8 /* README.md */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = net.daringfireball.markdown; path = README.md; sourceTree = "<group>"; };
 		27CFF59120AFC44A00193AF8 /* Result.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Result.swift; sourceTree = "<group>"; };
+		27CFF59420B4B36F00193AF8 /* SettingsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsViewController.swift; sourceTree = "<group>"; };
+		27CFF59720B4B7F700193AF8 /* PremiumUpgradeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PremiumUpgradeViewController.swift; sourceTree = "<group>"; };
 		789207D52023AEB10053F351 /* BlockingSchedulesViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BlockingSchedulesViewController.swift; sourceTree = "<group>"; };
 		789207D72023B18D0053F351 /* BlockingSchedule.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BlockingSchedule.swift; sourceTree = "<group>"; };
 		789207D92023B32D0053F351 /* BlockingScheduleStore.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BlockingScheduleStore.swift; sourceTree = "<group>"; };
@@ -141,6 +145,7 @@
 			isa = PBXGroup;
 			children = (
 				27CFF58520AE45AC00193AF8 /* Header Cell */,
+				274E838B2081848B00BAE7A5 /* Switch Cell */,
 			);
 			path = "TableView Cells";
 			sourceTree = "<group>";
@@ -164,6 +169,7 @@
 				27C34F852017DEBD00B129F6 /* Blocking List */,
 				27CFF58E20AFAD6000193AF8 /* Blocking Rule */,
 				789207D42023A2C90053F351 /* Schedules */,
+				27CFF59320B4B35600193AF8 /* Settings */,
 			);
 			path = "View Controllers";
 			sourceTree = "<group>";
@@ -175,18 +181,17 @@
 				277F5FBE2079C78400A1A558 /* BackgroundGradientLayer.swift */,
 				274E8387207C018100BAE7A5 /* InnerShadowLayer.swift */,
 				277F5FBC2079C73400A1A558 /* Card View */,
-				274E838B2081848B00BAE7A5 /* SwitchTableViewCell */,
 			);
 			path = Views;
 			sourceTree = "<group>";
 		};
-		274E838B2081848B00BAE7A5 /* SwitchTableViewCell */ = {
+		274E838B2081848B00BAE7A5 /* Switch Cell */ = {
 			isa = PBXGroup;
 			children = (
 				274E83892081816200BAE7A5 /* SwitchTableViewCell.swift */,
 				274E838C2081849D00BAE7A5 /* SwitchTableViewCell.xib */,
 			);
-			path = SwitchTableViewCell;
+			path = "Switch Cell";
 			sourceTree = "<group>";
 		};
 		277F5FBC2079C73400A1A558 /* Card View */ = {
@@ -302,6 +307,15 @@
 				27C34F832017DEB900B129F6 /* BlockingRuleViewController.swift */,
 			);
 			path = "Blocking Rule";
+			sourceTree = "<group>";
+		};
+		27CFF59320B4B35600193AF8 /* Settings */ = {
+			isa = PBXGroup;
+			children = (
+				27CFF59420B4B36F00193AF8 /* SettingsViewController.swift */,
+				27CFF59720B4B7F700193AF8 /* PremiumUpgradeViewController.swift */,
+			);
+			path = Settings;
 			sourceTree = "<group>";
 		};
 		789207D42023A2C90053F351 /* Schedules */ = {
@@ -458,11 +472,13 @@
 				789207DC2023B8370053F351 /* BlockingSchedueCell.swift in Sources */,
 				277F5FBF2079C78400A1A558 /* BackgroundGradientLayer.swift in Sources */,
 				271E0172208BBAA400FC37C6 /* BlockingListCell.swift in Sources */,
+				27CFF59820B4B7F700193AF8 /* PremiumUpgradeViewController.swift in Sources */,
 				789207DA2023B32D0053F351 /* BlockingScheduleStore.swift in Sources */,
 				27C34F822017DD4F00B129F6 /* BlockingListViewController.swift in Sources */,
 				277F5FC12079CCA100A1A558 /* AppearanceManager.swift in Sources */,
 				27C34F902017E6EA00B129F6 /* BlockingRule.swift in Sources */,
 				27431B732059E8E0008B4D2B /* CardView.swift in Sources */,
+				27CFF59520B4B36F00193AF8 /* SettingsViewController.swift in Sources */,
 				789207E02023BC160053F351 /* BlockingScheduleViewController.swift in Sources */,
 				27CFF58420ABC22700193AF8 /* DefaultBlockingLists.swift in Sources */,
 				27CFF58720AE45CA00193AF8 /* HeaderTableViewCell.swift in Sources */,

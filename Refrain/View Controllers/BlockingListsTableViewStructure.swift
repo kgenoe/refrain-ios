@@ -12,7 +12,7 @@ enum BlockingListsSection: Int {
     
     case DefaultBlockingLists
     case UserBlockingLists
-    
+    case Settings
     
     /// Number of potentially available Listing Sections
     static var count: Int = {
@@ -41,6 +41,8 @@ enum BlockingListsRow {
     case UserBlockingListsHeader
     case UserBlockingLists(Int)
     case NewUserBlockingList
+    
+    case Settings
 }
 
 
@@ -52,6 +54,7 @@ struct BlockingListsTableViewStructure {
     // Rows
     private var defaultBlockingListsRows: [BlockingListsRow]
     private var userBlockingListsRows: [BlockingListsRow]
+    private var settingsRows: [BlockingListsRow]
     
     init(defaultListsCount: Int, userListsCount: Int){
         
@@ -65,6 +68,8 @@ struct BlockingListsTableViewStructure {
             userBlockingListsRows.append(.UserBlockingLists(i))
         }
         userBlockingListsRows.append(.NewUserBlockingList)
+        
+        self.settingsRows = [.Settings]
     }
     
     
@@ -89,6 +94,7 @@ struct BlockingListsTableViewStructure {
         switch section {
         case .DefaultBlockingLists: return defaultBlockingListsRows
         case .UserBlockingLists: return userBlockingListsRows
+        case .Settings: return settingsRows
         }
     }
     
