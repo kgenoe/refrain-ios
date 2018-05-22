@@ -4,6 +4,8 @@
 <dict>
 	<key>CFBundleDevelopmentRegion</key>
 	<string>$(DEVELOPMENT_LANGUAGE)</string>
+	<key>NSHumanReadableDescription</key>
+	<string>Blocks unwanted or distracting websites</string>
 	<key>CFBundleDisplayName</key>
 	<string>ContentBlocker</string>
 	<key>CFBundleExecutable</key>
@@ -18,6 +20,8 @@
 	<string>XPC!</string>
 	<key>CFBundleShortVersionString</key>
 	<string>2.0</string>
+	<key>LSApplicationCategoryType</key>
+	<string></string>
 	<key>CFBundleVersion</key>
 	<string>20</string>
 	<key>NSExtension</key>

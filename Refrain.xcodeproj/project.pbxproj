@@ -535,7 +535,7 @@
 				INFOPLIST_FILE = ContentBlocker/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 11.3;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @executable_path/../../Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = ca.genoe.Refrain2.ContentBlocker;
+				PRODUCT_BUNDLE_IDENTIFIER = ca.genoe.Refrain.ContentBlocker;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SKIP_INSTALL = YES;
 				SWIFT_VERSION = 4.0;
@@ -556,7 +556,7 @@
 				INFOPLIST_FILE = ContentBlocker/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 11.3;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @executable_path/../../Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = ca.genoe.Refrain2.ContentBlocker;
+				PRODUCT_BUNDLE_IDENTIFIER = ca.genoe.Refrain.ContentBlocker;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SKIP_INSTALL = YES;
 				SWIFT_VERSION = 4.0;
@@ -681,7 +681,7 @@
 				DEVELOPMENT_TEAM = V9CEBD9ZBT;
 				INFOPLIST_FILE = Refrain/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = ca.genoe.Refrain2;
+				PRODUCT_BUNDLE_IDENTIFIER = ca.genoe.Refrain;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 4.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
@@ -698,7 +698,7 @@
 				DEVELOPMENT_TEAM = V9CEBD9ZBT;
 				INFOPLIST_FILE = Refrain/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = ca.genoe.Refrain2;
+				PRODUCT_BUNDLE_IDENTIFIER = ca.genoe.Refrain;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 4.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
