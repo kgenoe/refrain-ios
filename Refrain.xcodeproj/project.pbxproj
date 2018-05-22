@@ -21,7 +21,6 @@
 		277F5FBF2079C78400A1A558 /* BackgroundGradientLayer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 277F5FBE2079C78400A1A558 /* BackgroundGradientLayer.swift */; };
 		277F5FC12079CCA100A1A558 /* AppearanceManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 277F5FC02079CCA100A1A558 /* AppearanceManager.swift */; };
 		2781964F2053773900A42E4C /* CreateAccountRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2781964E2053773900A42E4C /* CreateAccountRequest.swift */; };
-		278196512053787500A42E4C /* Result.swift in Sources */ = {isa = PBXBuildFile; fileRef = 278196502053787500A42E4C /* Result.swift */; };
 		2781965320537E6500A42E4C /* UpdateAccountRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2781965220537E6500A42E4C /* UpdateAccountRequest.swift */; };
 		279FE4FA20659453007B7F17 /* BlockingList.swift in Sources */ = {isa = PBXBuildFile; fileRef = 279FE4F920659453007B7F17 /* BlockingList.swift */; };
 		279FE4FC20659686007B7F17 /* BlockingListStore.swift in Sources */ = {isa = PBXBuildFile; fileRef = 279FE4FB20659686007B7F17 /* BlockingListStore.swift */; };
@@ -40,6 +39,7 @@
 		27CFF58920AE45D600193AF8 /* HeaderTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 27CFF58820AE45D600193AF8 /* HeaderTableViewCell.xib */; };
 		27CFF58B20AEF3BE00193AF8 /* BlockingListsTableViewStructure.swift in Sources */ = {isa = PBXBuildFile; fileRef = 27CFF58A20AEF3BE00193AF8 /* BlockingListsTableViewStructure.swift */; };
 		27CFF58D20AF8BE200193AF8 /* README.md in Resources */ = {isa = PBXBuildFile; fileRef = 27CFF58C20AF8BE200193AF8 /* README.md */; };
+		27CFF59220AFC44A00193AF8 /* Result.swift in Sources */ = {isa = PBXBuildFile; fileRef = 27CFF59120AFC44A00193AF8 /* Result.swift */; };
 		789207D62023AEB10053F351 /* BlockingSchedulesViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 789207D52023AEB10053F351 /* BlockingSchedulesViewController.swift */; };
 		789207D82023B18D0053F351 /* BlockingSchedule.swift in Sources */ = {isa = PBXBuildFile; fileRef = 789207D72023B18D0053F351 /* BlockingSchedule.swift */; };
 		789207DA2023B32D0053F351 /* BlockingScheduleStore.swift in Sources */ = {isa = PBXBuildFile; fileRef = 789207D92023B32D0053F351 /* BlockingScheduleStore.swift */; };
@@ -90,7 +90,6 @@
 		277F5FBE2079C78400A1A558 /* BackgroundGradientLayer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BackgroundGradientLayer.swift; sourceTree = "<group>"; };
 		277F5FC02079CCA100A1A558 /* AppearanceManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppearanceManager.swift; sourceTree = "<group>"; };
 		2781964E2053773900A42E4C /* CreateAccountRequest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreateAccountRequest.swift; sourceTree = "<group>"; };
-		278196502053787500A42E4C /* Result.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Result.swift; sourceTree = "<group>"; };
 		2781965220537E6500A42E4C /* UpdateAccountRequest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UpdateAccountRequest.swift; sourceTree = "<group>"; };
 		279FE4F920659453007B7F17 /* BlockingList.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BlockingList.swift; sourceTree = "<group>"; };
 		279FE4FB20659686007B7F17 /* BlockingListStore.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BlockingListStore.swift; sourceTree = "<group>"; };
@@ -111,6 +110,7 @@
 		27CFF58820AE45D600193AF8 /* HeaderTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = HeaderTableViewCell.xib; sourceTree = "<group>"; };
 		27CFF58A20AEF3BE00193AF8 /* BlockingListsTableViewStructure.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BlockingListsTableViewStructure.swift; sourceTree = "<group>"; };
 		27CFF58C20AF8BE200193AF8 /* README.md */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = net.daringfireball.markdown; path = README.md; sourceTree = "<group>"; };
+		27CFF59120AFC44A00193AF8 /* Result.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Result.swift; sourceTree = "<group>"; };
 		789207D52023AEB10053F351 /* BlockingSchedulesViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BlockingSchedulesViewController.swift; sourceTree = "<group>"; };
 		789207D72023B18D0053F351 /* BlockingSchedule.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BlockingSchedule.swift; sourceTree = "<group>"; };
 		789207D92023B32D0053F351 /* BlockingScheduleStore.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BlockingScheduleStore.swift; sourceTree = "<group>"; };
@@ -162,6 +162,7 @@
 				27CFF58A20AEF3BE00193AF8 /* BlockingListsTableViewStructure.swift */,
 				271E0171208BBAA400FC37C6 /* BlockingListCell.swift */,
 				27C34F852017DEBD00B129F6 /* Blocking List */,
+				27CFF58E20AFAD6000193AF8 /* Blocking Rule */,
 				789207D42023A2C90053F351 /* Schedules */,
 			);
 			path = "View Controllers";
@@ -251,7 +252,6 @@
 			isa = PBXGroup;
 			children = (
 				27C34F812017DD4F00B129F6 /* BlockingListViewController.swift */,
-				27C34F832017DEB900B129F6 /* BlockingRuleViewController.swift */,
 				27C34F862017E24900B129F6 /* BlockingRuleCell.swift */,
 			);
 			path = "Blocking List";
@@ -280,8 +280,8 @@
 		27C34F922017E7E800B129F6 /* Helpers */ = {
 			isa = PBXGroup;
 			children = (
+				27CFF59120AFC44A00193AF8 /* Result.swift */,
 				789207DD2023B8FE0053F351 /* DateExtensions.swift */,
-				278196502053787500A42E4C /* Result.swift */,
 				27C34F882017E51800B129F6 /* Defaults */,
 			);
 			path = Helpers;
@@ -294,6 +294,14 @@
 				27CFF58820AE45D600193AF8 /* HeaderTableViewCell.xib */,
 			);
 			path = "Header Cell";
+			sourceTree = "<group>";
+		};
+		27CFF58E20AFAD6000193AF8 /* Blocking Rule */ = {
+			isa = PBXGroup;
+			children = (
+				27C34F832017DEB900B129F6 /* BlockingRuleViewController.swift */,
+			);
+			path = "Blocking Rule";
 			sourceTree = "<group>";
 		};
 		789207D42023A2C90053F351 /* Schedules */ = {
@@ -441,6 +449,7 @@
 				2781965320537E6500A42E4C /* UpdateAccountRequest.swift in Sources */,
 				274E8388207C018100BAE7A5 /* InnerShadowLayer.swift in Sources */,
 				27C34F802017DCF900B129F6 /* MainViewController.swift in Sources */,
+				27CFF59220AFC44A00193AF8 /* Result.swift in Sources */,
 				789207D62023AEB10053F351 /* BlockingSchedulesViewController.swift in Sources */,
 				27C34F842017DEB900B129F6 /* BlockingRuleViewController.swift in Sources */,
 				279FE4FC20659686007B7F17 /* BlockingListStore.swift in Sources */,
@@ -456,7 +465,6 @@
 				27431B732059E8E0008B4D2B /* CardView.swift in Sources */,
 				789207E02023BC160053F351 /* BlockingScheduleViewController.swift in Sources */,
 				27CFF58420ABC22700193AF8 /* DefaultBlockingLists.swift in Sources */,
-				278196512053787500A42E4C /* Result.swift in Sources */,
 				27CFF58720AE45CA00193AF8 /* HeaderTableViewCell.swift in Sources */,
 				789207DE2023B8FE0053F351 /* DateExtensions.swift in Sources */,
 				27CFF58B20AEF3BE00193AF8 /* BlockingListsTableViewStructure.swift in Sources */,

@@ -83,7 +83,7 @@
             </objects>
             <point key="canvasLocation" x="1017" y="-271"/>
         </scene>
-        <!--Blocking Rules-->
+        <!--Blocking List View Controller-->
         <scene sceneID="9Kb-Hr-2l5">
             <objects>
                 <viewController storyboardIdentifier="BlockingListViewController" id="cnb-Up-gyG" customClass="BlockingListViewController" customModule="Refrain" customModuleProvider="target" sceneMemberID="viewController">
@@ -105,7 +105,7 @@
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="NcS-zt-yA4"/>
                     </view>
-                    <navigationItem key="navigationItem" title="Blocking Rules" id="6ux-TM-fcl">
+                    <navigationItem key="navigationItem" id="6ux-TM-fcl">
                         <barButtonItem key="leftBarButtonItem" image="BackArrow" id="E2D-hf-tYr">
                             <color key="tintColor" name="White"/>
                             <connections>

@@ -51,6 +51,7 @@ class HeaderTableViewCell: UITableViewCell {
         addSubview(view)
         
         backgroundColor = .clear
+        selectionStyle = .none
 
         // style view here
     }

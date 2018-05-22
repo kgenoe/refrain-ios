@@ -14,6 +14,7 @@ class BlockingListViewController: UIViewController {
     
     @IBOutlet weak var tableView: UITableView!
     
+    /// Instantiate a BlockingListViewController from a BlockingList. If a nil BlockingList is provided, a prompt is displayed to create one to populate this view
     static func instantiate(blockingList: BlockingList) -> BlockingListViewController {
         let vc = UIStoryboard(name: "Main", bundle: Bundle.main).instantiateViewController(withIdentifier: "BlockingListViewController") as! BlockingListViewController
         vc.blockingList = blockingList
@@ -31,6 +32,7 @@ class BlockingListViewController: UIViewController {
     }
     
     private func setupView() {
+        
         tableView.delegate = self
         tableView.dataSource = self
         
@@ -38,21 +40,16 @@ class BlockingListViewController: UIViewController {
         if let updatedBlockingList = BlockingListStore.shared.lists.first(where: { $0.id == blockingList.id }) {
             blockingList = updatedBlockingList
         }
-                
+        
+        // style the view for the updated blocking list
         navigationItem.title = blockingList.name
         
         // set back button for next view (BlockingRuleView)
         navigationItem.backBarButtonItem = UIBarButtonItem(title: "", style: .plain, target: nil, action: nil)
         navigationItem.backBarButtonItem?.tintColor = UIColor(named: "White")
         
-        
-//        let allSections = IndexSet(integersIn: 0..<blockingList.rules.count)
-//        if allSections.count > 0 {
-//            tableView.reloadSections(allSections, with: .fade)
-//        }
         tableView.reloadData()
 
-        
         setBackgroundGradient()
     }
     
@@ -75,13 +72,13 @@ class BlockingListViewController: UIViewController {
         view.layer.addSublayer(gradient)
     }
     
-    
     @IBAction func closeButtonPressed() {
         dismiss(animated: true, completion: nil)
     }
     
     @IBAction func newBlockingRuleButtonPressed() {
-        let newRuleVC = BlockingRuleViewController.instantiate(blockingList: blockingList)
+        guard let list = blockingList else { return }
+        let newRuleVC = BlockingRuleViewController.instantiate(blockingList: list)
         navigationController?.pushViewController(newRuleVC, animated: true)
     }
 }
@@ -113,9 +110,14 @@ extension BlockingListViewController: UITableViewDataSource, UITableViewDelegate
     }
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        let rule = blockingList.rules[indexPath.row]
-        let editRuleVC = BlockingRuleViewController.instantiate(blockingList: blockingList, blockingRule: rule)
-        navigationController?.pushViewController(editRuleVC, animated: true)
+        if indexPath.row < blockingList.rules.count {
+            let rule = blockingList.rules[indexPath.row]
+            let editRuleVC = BlockingRuleViewController.instantiate(blockingList: blockingList, blockingRule: rule)
+            navigationController?.pushViewController(editRuleVC, animated: true)
+        } else {
+            BlockingListStore.shared.delete(blockingList)
+            closeButtonPressed()
+        }
     }
     
     
@@ -126,12 +128,19 @@ extension BlockingListViewController: UITableViewDataSource, UITableViewDelegate
     }
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return blockingList.rules.count
+        return blockingList.rules.count + 1
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let rule = blockingList.rules[indexPath.row]
-        return BlockingRuleCell(blockingList: blockingList, blockingRule: rule)
+        if indexPath.row < blockingList.rules.count {
+            let rule = blockingList.rules[indexPath.row]
+            return BlockingRuleCell(blockingList: blockingList, blockingRule: rule)
+        } else {
+            let cell = HeaderTableViewCell(title: "Delete list")
+            cell.titleLabel.textAlignment = .center
+            cell.titleLabel.textColor = UIColor(named: "Orange")
+            return cell
+        }
     }
     
 }
