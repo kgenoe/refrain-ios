@@ -71,9 +71,8 @@ extension SettingsViewController: UITableViewDataSource, UITableViewDelegate {
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         switch indexPath.row {
         case 0:
-            break
-//            let upgradeVC = PremiumUpgradeViewController.instantiate()
-//            navigationController?.pushViewController(upgradeVC, animated: true)
+            let upgradeVC = PremiumUpgradeViewController.instantiate()
+            navigationController?.pushViewController(upgradeVC, animated: true)
         default: break
         }
     }

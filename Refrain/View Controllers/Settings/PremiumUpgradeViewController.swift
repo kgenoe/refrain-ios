@@ -9,9 +9,11 @@
 import UIKit
 import StoreKit
 
-let premiumUpgradeID = "premiumSubscription"
+let premiumUpgradeID = "refrainPremium"
 
 class PremiumUpgradeViewController: UIViewController {
+    
+    @IBOutlet weak var buyPremiumButton: UIButton!
 
     @IBOutlet weak var priceLabel: UILabel!
     
@@ -37,16 +39,11 @@ class PremiumUpgradeViewController: UIViewController {
     
     private func setupView() {
         
-//        tableView.delegate = self
-//        tableView.dataSource = self
-        
-        navigationItem.title = "Premium Upgrade"
+        navigationItem.title = "Refrain Premium"
         
         // set back button for next views
         navigationItem.backBarButtonItem = UIBarButtonItem(title: "", style: .plain, target: nil, action: nil)
         navigationItem.backBarButtonItem?.tintColor = UIColor(named: "White")
-        
-//        tableView.reloadData()
         
         setBackgroundGradient()
     }
@@ -67,10 +64,32 @@ class PremiumUpgradeViewController: UIViewController {
     
     
     
+    //MARK: - UI Actions
+    @IBAction func purchasePremiumButtonPressed() {
+        if let product = premiumProduct {
+            self.purchaseProduct(product)
+        }
+    }
+    
+    @IBAction func restorePurchasesButtonPressed() {
+        SKPaymentQueue.default().add(self)
+        SKPaymentQueue.default().restoreCompletedTransactions()
+    }
+    
+    @objc func premiumPurchaseSuccessful() {
+        // Update UI here
+        buyPremiumButton.setTitle("Thanks for buying Refrain Premium", for: [])
+        buyPremiumButton.isEnabled = false
+        
+        UserDefaults.standard.set(true, forKey: DefaultsKey.extrasPurchased)
+    }
+    
+    
+    
     //MARK: - IAPs
     
     var productsRequest = SKProductsRequest()
-    var tipProducts = [SKProduct]()
+    var premiumProduct: SKProduct?
     
     func fetchAvailableProducts()  {
         
@@ -87,7 +106,6 @@ class PremiumUpgradeViewController: UIViewController {
             let payment = SKPayment(product: product)
             SKPaymentQueue.default().add(self)
             SKPaymentQueue.default().add(payment)
-            print("PURCHASING: \(product.productIdentifier)")
         } else {
             let alertController = UIAlertController(title: "Whoops!", message: "Purchasses are disabled on your account or device.", preferredStyle: .alert)
             let action = UIAlertAction(title: "Try Later", style: .default, handler: nil)
@@ -105,16 +123,17 @@ extension PremiumUpgradeViewController: SKProductsRequestDelegate, SKPaymentTran
         
         guard response.products.count == 1 else { return }
         
-        let subscriptionProduct = response.products[0]
+        premiumProduct = response.products[0]
         
         // get its price from itunes connect
         let numberFormatter = NumberFormatter()
         numberFormatter.formatterBehavior = .behavior10_4
         numberFormatter.numberStyle = .currency
-        numberFormatter.locale = subscriptionProduct.priceLocale
+        numberFormatter.locale = premiumProduct!.priceLocale
         
-        let priceString = numberFormatter.string(from: subscriptionProduct.price)
-        priceLabel.text = priceString
+        if let priceString = numberFormatter.string(from: premiumProduct!.price) {
+            priceLabel.text = "\(priceString) / year"
+        }
     }
     
     func paymentQueue(_ queue: SKPaymentQueue, updatedTransactions transactions: [SKPaymentTransaction]) {
@@ -125,7 +144,9 @@ extension PremiumUpgradeViewController: SKProductsRequestDelegate, SKPaymentTran
                 SKPaymentQueue.default().finishTransaction(transaction)
                 
                 let alertController = UIAlertController(title: "Success!", message: "You're now running Refrain with all features unlocked.", preferredStyle: .alert)
-                let action = UIAlertAction(title: "Done", style: .default, handler: nil)
+                let action = UIAlertAction(title: "Done", style: .default) { (action) in
+                    self.premiumPurchaseSuccessful()
+                }
                 alertController.addAction(action)
                 present(alertController, animated: true, completion: nil)
                 
@@ -144,8 +165,10 @@ extension PremiumUpgradeViewController: SKProductsRequestDelegate, SKPaymentTran
     }
     
     func paymentQueueRestoreCompletedTransactionsFinished(_ queue: SKPaymentQueue) {
-        let alertController = UIAlertController(title: "Purchases Restored", message: "Thanks again for your generous donation!", preferredStyle: .alert)
-        let action = UIAlertAction(title: "Done", style: .default, handler: nil)
+        let alertController = UIAlertController(title: "Purchases Restored", message: "You're now running Refrain with all features unlocked.", preferredStyle: .alert)
+        let action = UIAlertAction(title: "Done", style: .default) { (action) in
+            self.premiumPurchaseSuccessful()
+        }
         alertController.addAction(action)
         present(alertController, animated: true, completion: nil)
     }
