@@ -12,6 +12,7 @@ enum MainTableViewSection: Int {
     
     case DefaultBlockingLists
     case UserBlockingLists
+    case Schedules
     case Settings
     
     /// Number of potentially available Listing Sections
@@ -42,6 +43,9 @@ enum MainTableViewRow {
     case UserBlockingLists(Int)
     case NewUserBlockingList
     
+    case SchedulesHeader
+    case Schedules
+    
     case Settings
 }
 
@@ -52,9 +56,10 @@ struct MainTableViewStructure {
     private var sections = MainTableViewSection.all
     
     // Rows
-    private var defaultBlockingListsRows: [MainTableViewRow]
-    private var userBlockingListsRows: [MainTableViewRow]
-    private var settingsRows: [MainTableViewRow]
+    private var defaultBlockingListsRows: [MainTableViewRow] = []
+    private var userBlockingListsRows: [MainTableViewRow] = []
+    private var schedulesRows: [MainTableViewRow] = []
+    private var settingsRows: [MainTableViewRow] = []
     
     init(defaultListsCount: Int, userListsCount: Int){
         
@@ -68,6 +73,10 @@ struct MainTableViewStructure {
             userBlockingListsRows.append(.UserBlockingLists(i))
         }
         userBlockingListsRows.append(.NewUserBlockingList)
+        
+        if UserDefaults.standard.bool(forKey: DefaultsKey.extrasPurchased) {
+            self.schedulesRows = [.SchedulesHeader, .Schedules]
+        }
         
         self.settingsRows = [.Settings]
     }
@@ -94,6 +103,7 @@ struct MainTableViewStructure {
         switch section {
         case .DefaultBlockingLists: return defaultBlockingListsRows
         case .UserBlockingLists: return userBlockingListsRows
+        case .Schedules: return schedulesRows
         case .Settings: return settingsRows
         }
     }

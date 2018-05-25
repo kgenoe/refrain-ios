@@ -14,13 +14,10 @@ class MainViewController: UIViewController {
 
     @IBOutlet private weak var tableView: UITableView!
 
-    
-    
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         setupView()
     }
-    
     
     override func prepareForInterfaceBuilder() {
         super.prepareForInterfaceBuilder()
@@ -159,6 +156,13 @@ extension MainViewController: UITableViewDelegate, UITableViewDataSource {
             cell.titleLabel.textAlignment = .center
             cell.titleLabel.textColor = UIColor(named: "Orange")
             return cell
+        case .SchedulesHeader:
+            return HeaderTableViewCell(title: "Schedules")
+        case .Schedules:
+            let cell = HeaderTableViewCell(title: "Schedules")
+            cell.titleLabel.textAlignment = .center
+            cell.titleLabel.textColor = UIColor(named: "Orange")
+            return cell
         case .Settings:
             let cell = HeaderTableViewCell(title: "Settings")
             cell.titleLabel.textAlignment = .center
@@ -177,6 +181,8 @@ extension MainViewController: UITableViewDelegate, UITableViewDataSource {
             performSegue(withIdentifier: "toBlockingList", sender: list)
         case .NewUserBlockingList:
             self.presentCreateBlockingListAlert()
+        case .Schedules:
+            performSegue(withIdentifier: "toSchedules", sender: nil)
         case .Settings:
             performSegue(withIdentifier: "toSettings", sender: nil)
         default:
@@ -189,7 +195,7 @@ extension MainViewController: UITableViewDelegate, UITableViewDataSource {
     func tableView(_ tableView: UITableView, willSelectRowAt indexPath: IndexPath) -> IndexPath? {
         
         switch tableViewStructure.rowType(for: indexPath) {
-        case .DefaultBlockingLists(_), .UserBlockingLists(_), .NewUserBlockingList, .Settings:
+        case .DefaultBlockingLists(_), .UserBlockingLists(_), .NewUserBlockingList, .Schedules, .Settings:
             return indexPath
         default:
             return nil

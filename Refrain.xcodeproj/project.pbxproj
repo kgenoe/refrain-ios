@@ -163,9 +163,7 @@
 		27431B6A2059E843008B4D2B /* View Controllers */ = {
 			isa = PBXGroup;
 			children = (
-				27C34F7F2017DCF900B129F6 /* MainViewController.swift */,
-				27CFF58A20AEF3BE00193AF8 /* MainTableViewStructure.swift */,
-				271E0171208BBAA400FC37C6 /* BlockingListCell.swift */,
+				2761E58720B8A41500FEE78B /* Main */,
 				27C34F852017DEBD00B129F6 /* Blocking List */,
 				27CFF58E20AFAD6000193AF8 /* Blocking Rule */,
 				789207D42023A2C90053F351 /* Schedules */,
@@ -192,6 +190,16 @@
 				274E838C2081849D00BAE7A5 /* SwitchTableViewCell.xib */,
 			);
 			path = "Switch Cell";
+			sourceTree = "<group>";
+		};
+		2761E58720B8A41500FEE78B /* Main */ = {
+			isa = PBXGroup;
+			children = (
+				27C34F7F2017DCF900B129F6 /* MainViewController.swift */,
+				27CFF58A20AEF3BE00193AF8 /* MainTableViewStructure.swift */,
+				271E0171208BBAA400FC37C6 /* BlockingListCell.swift */,
+			);
+			path = Main;
 			sourceTree = "<group>";
 		};
 		277F5FBC2079C73400A1A558 /* Card View */ = {
