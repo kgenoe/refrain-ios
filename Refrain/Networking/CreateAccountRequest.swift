@@ -18,17 +18,19 @@ struct CreateAccountRequest {
         var localizedDescription: String { return rawValue }
     }
     
-    private let completionHandler: ((Result<Any>) -> Void)
+    private let completionHandler: ((Result<Any>) -> Void)?
     
-    init(_ completionHandler: @escaping (Result<Any>) -> Void) {
+    init(_ completionHandler: ((Result<Any>) -> Void)? = nil) {
         self.completionHandler = completionHandler
     }
     
     func send() {
         
+        completionHandler?(.Success("test"))
+        
         // Don't send create account Request if already hold a userApiAccountToken
         guard UserDefaults.standard.string(forKey: DefaultsKey.userApiAccountToken) == nil else {
-            completionHandler(.Failure(FailCase.accountAlreadyExists))
+            completionHandler?(.Failure(FailCase.accountAlreadyExists))
             return
         }
         
@@ -40,12 +42,12 @@ struct CreateAccountRequest {
         URLSession.shared.dataTask(with: request) { (data, response, error) in
             
             guard error == nil else {
-                self.completionHandler(.Failure(error!))
+                self.completionHandler?(.Failure(error!))
                 return
             }
             
             guard let data = data else {
-                self.completionHandler(.Failure(FailCase.noDataInResponse))
+                self.completionHandler?(.Failure(FailCase.noDataInResponse))
                 return
             }
             
@@ -53,7 +55,7 @@ struct CreateAccountRequest {
                 guard let json = try JSONSerialization.jsonObject(with: data, options: []) as? [String: Any] else { return }
                 
                 guard let userID = json["userID"] as? String else {
-                    self.completionHandler(.Failure(FailCase.noUserIDinResponseData))
+                    self.completionHandler?(.Failure(FailCase.noUserIDinResponseData))
                     return
                 }
                 
@@ -61,11 +63,11 @@ struct CreateAccountRequest {
                 print("Found userApiAccountToken: \(userID)")
                 UserDefaults.standard.set(userID, forKey: DefaultsKey.userApiAccountToken)
                 
-                self.completionHandler(.Success(userID))
+                self.completionHandler?(.Success(userID))
             }
             catch {
                 print("Response:\n\(String(data: data, encoding: .utf8)!)")
-                self.completionHandler(.Failure(error))
+                self.completionHandler?(.Failure(error))
                 return
             }
         }.resume()

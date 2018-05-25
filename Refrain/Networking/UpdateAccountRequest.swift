@@ -29,9 +29,9 @@ struct UpdateAccountRequest {
         var localizedDescription: String { return rawValue }
     }
     
-    private let completionHandler: ((Result<Any?>) -> Void)
+    private let completionHandler: ((Result<Any?>) -> Void)?
     
-    init(_ completionHandler: @escaping (Result<Any?>) -> Void) {
+    init(_ completionHandler: ((Result<Any?>) -> Void)? = nil) {
         self.completionHandler = completionHandler
     }
     
@@ -39,7 +39,7 @@ struct UpdateAccountRequest {
         
         // Get request components
         guard let userApiAccountToken = UserDefaults.standard.string(forKey: DefaultsKey.userApiAccountToken) else {
-            completionHandler(.Failure(FailCase.noLocalUserID))
+            completionHandler?(.Failure(FailCase.noLocalUserID))
             return
         }
 
@@ -57,7 +57,7 @@ struct UpdateAccountRequest {
     
         
         guard JSONSerialization.isValidJSONObject(payload) else {
-            completionHandler(.Failure(FailCase.invalidJsonPayload))
+            completionHandler?(.Failure(FailCase.invalidJsonPayload))
             return
         }
         
@@ -70,11 +70,11 @@ struct UpdateAccountRequest {
         URLSession.shared.dataTask(with: request) { (data, response, error) in
             
             guard error == nil else {
-                self.completionHandler(.Failure(error!))
+                self.completionHandler?(.Failure(error!))
                 return
             }
             
-            self.completionHandler(.Success(nil))
+            self.completionHandler?(.Success(nil))
         }.resume()
     }
 
