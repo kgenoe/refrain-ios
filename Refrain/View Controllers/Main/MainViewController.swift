@@ -17,6 +17,12 @@ class MainViewController: UIViewController {
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         setupView()
+        navigationController?.setNavigationBarHidden(true, animated: false)
+    }
+    
+    override func viewWillDisappear(_ animated: Bool) {
+        super.viewWillDisappear(animated)
+        navigationController?.setNavigationBarHidden(false, animated: false)
     }
     
     override func prepareForInterfaceBuilder() {
@@ -66,27 +72,23 @@ class MainViewController: UIViewController {
     
     
     
-    // MARK: - Segues
+    // MARK: - Push child view controllers
     
-    @objc func blockingSchedulesCardViewPressed() {
-        self.performSegue(withIdentifier: "toBlockingSchedules", sender: self)
+    func pushBlockingListView(list: BlockingList) {
+        let blockingListVC = BlockingListViewController.instantiate(blockingList: list)
+        navigationController?.pushViewController(blockingListVC, animated: true)
     }
     
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        super.prepare(for: segue, sender: sender)
-
-        if let navVC = segue.destination as? UINavigationController,
-            segue.identifier == "toBlockingList" {
-            let blockingListVC = BlockingListViewController.instantiate(blockingList: sender as! BlockingList)
-            navVC.viewControllers[0] = blockingListVC
-        }
-        
-        if let navVC = segue.destination as? UINavigationController,
-            segue.identifier == "toSettings" {
-            let settingsVC = SettingsViewController.instantiate()
-            navVC.viewControllers[0] = settingsVC
-        }
+    func pushSchedulesView() {
+        let schedulesVC = BlockingSchedulesViewController.instantiate()
+        navigationController?.pushViewController(schedulesVC, animated: true)
     }
+    
+    func pushSettingsView() {
+        let settingsVC = SettingsViewController.instantiate()
+        navigationController?.pushViewController(settingsVC, animated: true)
+    }
+    
     
     
     // MARK: - New Blocking List Alert
@@ -105,7 +107,7 @@ class MainViewController: UIViewController {
         let saveAction = UIAlertAction(title: "Save", style: .default, handler: { (action) in
             let newList = BlockingList(name: self.alert?.textFields?.first?.text ?? "")
             BlockingListStore.shared.saveList(newList)
-            self.performSegue(withIdentifier: "toBlockingList", sender: newList)
+            self.pushBlockingListView(list: newList)
         })
         saveAction.isEnabled = false
         saveAction.setValue(UIColor(named: "Orange"), forKey: "titleTextColor")
@@ -175,16 +177,16 @@ extension MainViewController: UITableViewDelegate, UITableViewDataSource {
         switch tableViewStructure.rowType(for: indexPath) {
         case .DefaultBlockingLists(let i):
             let list = BlockingListStore.shared.lists.filter{ $0.isDefault }[i]
-            performSegue(withIdentifier: "toBlockingList", sender: list)
+            self.pushBlockingListView(list: list)
         case .UserBlockingLists(let i):
             let list = BlockingListStore.shared.lists.filter{ !$0.isDefault }[i]
-            performSegue(withIdentifier: "toBlockingList", sender: list)
+            self.pushBlockingListView(list: list)
         case .NewUserBlockingList:
             self.presentCreateBlockingListAlert()
         case .Schedules:
-            performSegue(withIdentifier: "toSchedules", sender: nil)
+            self.pushSchedulesView()
         case .Settings:
-            performSegue(withIdentifier: "toSettings", sender: nil)
+            self.pushSettingsView()
         default:
             break
         }

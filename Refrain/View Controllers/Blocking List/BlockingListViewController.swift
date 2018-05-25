@@ -73,7 +73,7 @@ class BlockingListViewController: UIViewController {
     }
     
     @IBAction func closeButtonPressed() {
-        dismiss(animated: true, completion: nil)
+        navigationController?.popViewController(animated: true)
     }
     
     @IBAction func newBlockingRuleButtonPressed() {

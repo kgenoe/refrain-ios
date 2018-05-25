@@ -13,6 +13,10 @@ class BlockingSchedulesViewController: UIViewController {
     @IBOutlet weak var tableView: UITableView!
     
     
+    static func instantiate() -> BlockingSchedulesViewController {
+        return UIStoryboard(name: "Main", bundle: Bundle.main).instantiateViewController(withIdentifier: "BlockingSchedulesViewController") as! BlockingSchedulesViewController
+    }
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         tableView.delegate = self
@@ -42,7 +46,7 @@ class BlockingSchedulesViewController: UIViewController {
     }
     
     @IBAction func closeButtonPressed() {
-        dismiss(animated: true, completion: nil)
+        navigationController?.popViewController(animated: true)
     }
     
     @IBAction func newBlockingScheduleButtonPressed() {

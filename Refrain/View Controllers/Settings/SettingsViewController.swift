@@ -58,7 +58,7 @@ class SettingsViewController: UIViewController {
     }
     
     @IBAction func closeButtonPressed() {
-        dismiss(animated: true, completion: nil)
+        navigationController?.popViewController(animated: true)
     }
 }
 
