@@ -37,7 +37,7 @@
 		27CFF58420ABC22700193AF8 /* DefaultBlockingLists.swift in Sources */ = {isa = PBXBuildFile; fileRef = 27CFF58320ABC22700193AF8 /* DefaultBlockingLists.swift */; };
 		27CFF58720AE45CA00193AF8 /* HeaderTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 27CFF58620AE45CA00193AF8 /* HeaderTableViewCell.swift */; };
 		27CFF58920AE45D600193AF8 /* HeaderTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 27CFF58820AE45D600193AF8 /* HeaderTableViewCell.xib */; };
-		27CFF58B20AEF3BE00193AF8 /* BlockingListsTableViewStructure.swift in Sources */ = {isa = PBXBuildFile; fileRef = 27CFF58A20AEF3BE00193AF8 /* BlockingListsTableViewStructure.swift */; };
+		27CFF58B20AEF3BE00193AF8 /* MainTableViewStructure.swift in Sources */ = {isa = PBXBuildFile; fileRef = 27CFF58A20AEF3BE00193AF8 /* MainTableViewStructure.swift */; };
 		27CFF58D20AF8BE200193AF8 /* README.md in Resources */ = {isa = PBXBuildFile; fileRef = 27CFF58C20AF8BE200193AF8 /* README.md */; };
 		27CFF59220AFC44A00193AF8 /* Result.swift in Sources */ = {isa = PBXBuildFile; fileRef = 27CFF59120AFC44A00193AF8 /* Result.swift */; };
 		27CFF59520B4B36F00193AF8 /* SettingsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 27CFF59420B4B36F00193AF8 /* SettingsViewController.swift */; };
@@ -110,7 +110,7 @@
 		27CFF58320ABC22700193AF8 /* DefaultBlockingLists.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DefaultBlockingLists.swift; sourceTree = "<group>"; };
 		27CFF58620AE45CA00193AF8 /* HeaderTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HeaderTableViewCell.swift; sourceTree = "<group>"; };
 		27CFF58820AE45D600193AF8 /* HeaderTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = HeaderTableViewCell.xib; sourceTree = "<group>"; };
-		27CFF58A20AEF3BE00193AF8 /* BlockingListsTableViewStructure.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BlockingListsTableViewStructure.swift; sourceTree = "<group>"; };
+		27CFF58A20AEF3BE00193AF8 /* MainTableViewStructure.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainTableViewStructure.swift; sourceTree = "<group>"; };
 		27CFF58C20AF8BE200193AF8 /* README.md */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = net.daringfireball.markdown; path = README.md; sourceTree = "<group>"; };
 		27CFF59120AFC44A00193AF8 /* Result.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Result.swift; sourceTree = "<group>"; };
 		27CFF59420B4B36F00193AF8 /* SettingsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsViewController.swift; sourceTree = "<group>"; };
@@ -164,7 +164,7 @@
 			isa = PBXGroup;
 			children = (
 				27C34F7F2017DCF900B129F6 /* MainViewController.swift */,
-				27CFF58A20AEF3BE00193AF8 /* BlockingListsTableViewStructure.swift */,
+				27CFF58A20AEF3BE00193AF8 /* MainTableViewStructure.swift */,
 				271E0171208BBAA400FC37C6 /* BlockingListCell.swift */,
 				27C34F852017DEBD00B129F6 /* Blocking List */,
 				27CFF58E20AFAD6000193AF8 /* Blocking Rule */,
@@ -483,7 +483,7 @@
 				27CFF58420ABC22700193AF8 /* DefaultBlockingLists.swift in Sources */,
 				27CFF58720AE45CA00193AF8 /* HeaderTableViewCell.swift in Sources */,
 				789207DE2023B8FE0053F351 /* DateExtensions.swift in Sources */,
-				27CFF58B20AEF3BE00193AF8 /* BlockingListsTableViewStructure.swift in Sources */,
+				27CFF58B20AEF3BE00193AF8 /* MainTableViewStructure.swift in Sources */,
 				274E838A2081816200BAE7A5 /* SwitchTableViewCell.swift in Sources */,
 				273BE5372054610C00EF57C2 /* NetworkingConstants.swift in Sources */,
 				279FE4FA20659453007B7F17 /* BlockingList.swift in Sources */,

@@ -10,7 +10,7 @@ import UIKit
 
 class MainViewController: UIViewController {
     
-    private var tableViewStructure: BlockingListsTableViewStructure!
+    private var tableViewStructure: MainTableViewStructure!
 
     @IBOutlet private weak var tableView: UITableView!
 
@@ -59,11 +59,11 @@ class MainViewController: UIViewController {
     }
     
     
-    private func updateTableViewStructure() -> BlockingListsTableViewStructure {
+    private func updateTableViewStructure() -> MainTableViewStructure {
         let lists = BlockingListStore.shared.lists
         let defaultCount = lists.filter{ $0.isDefault }.count
         let userCount = lists.filter{ !$0.isDefault }.count
-        return BlockingListsTableViewStructure(defaultListsCount: defaultCount, userListsCount: userCount)
+        return MainTableViewStructure(defaultListsCount: defaultCount, userListsCount: userCount)
     }
     
     

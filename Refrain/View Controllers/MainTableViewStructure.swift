@@ -1,5 +1,5 @@
 //
-//  BlockingListsTableViewStructure.swift
+//  MainTableViewStructure.swift
 //  Refrain
 //
 //  Created by Kyle on 2018-05-18.
@@ -8,7 +8,7 @@
 
 import Foundation
 
-enum BlockingListsSection: Int {
+enum MainTableViewSection: Int {
     
     case DefaultBlockingLists
     case UserBlockingLists
@@ -17,14 +17,14 @@ enum BlockingListsSection: Int {
     /// Number of potentially available Listing Sections
     static var count: Int = {
         var max: Int = 0
-        while let _ = BlockingListsSection(rawValue: max) { max += 1 }
+        while let _ = MainTableViewSection(rawValue: max) { max += 1 }
         return max
     }()
     
-    static var all: [BlockingListsSection] = {
-        var sections: [BlockingListsSection] = []
+    static var all: [MainTableViewSection] = {
+        var sections: [MainTableViewSection] = []
         var i = 0
-        while let section = BlockingListsSection(rawValue: i) {
+        while let section = MainTableViewSection(rawValue: i) {
             i += 1
             sections.append(section)
         }
@@ -33,7 +33,7 @@ enum BlockingListsSection: Int {
 }
 
 
-enum BlockingListsRow {
+enum MainTableViewRow {
     
     case DefaultBlockingListsHeader
     case DefaultBlockingLists(Int)
@@ -46,15 +46,15 @@ enum BlockingListsRow {
 }
 
 
-struct BlockingListsTableViewStructure {
+struct MainTableViewStructure {
     
     // Sections
-    private var sections = BlockingListsSection.all
+    private var sections = MainTableViewSection.all
     
     // Rows
-    private var defaultBlockingListsRows: [BlockingListsRow]
-    private var userBlockingListsRows: [BlockingListsRow]
-    private var settingsRows: [BlockingListsRow]
+    private var defaultBlockingListsRows: [MainTableViewRow]
+    private var userBlockingListsRows: [MainTableViewRow]
+    private var settingsRows: [MainTableViewRow]
     
     init(defaultListsCount: Int, userListsCount: Int){
         
@@ -79,18 +79,18 @@ struct BlockingListsTableViewStructure {
         return sections.count
     }
     
-    func sectionTypeFor(_ section: Int)  -> BlockingListsSection {
+    func sectionTypeFor(_ section: Int)  -> MainTableViewSection {
         return sections[section]
     }
     
-    func sectionIndexFor(_ section: BlockingListsSection) -> Int? {
+    func sectionIndexFor(_ section: MainTableViewSection) -> Int? {
         return sections.index(of: section)
     }
     
     
     
     //MARK: - Row Management
-    func rows(for section: BlockingListsSection) -> [BlockingListsRow] {
+    func rows(for section: MainTableViewSection) -> [MainTableViewRow] {
         switch section {
         case .DefaultBlockingLists: return defaultBlockingListsRows
         case .UserBlockingLists: return userBlockingListsRows
@@ -103,7 +103,7 @@ struct BlockingListsTableViewStructure {
         return rows(for: sectionType).count
     }
     
-    func rowType(for indexPath: IndexPath) -> BlockingListsRow {
+    func rowType(for indexPath: IndexPath) -> MainTableViewRow {
         let section = sectionTypeFor(indexPath.section)
         let rows = self.rows(for: section)
         return rows[indexPath.row]
