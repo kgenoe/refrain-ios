@@ -82,6 +82,9 @@ class PremiumUpgradeViewController: UIViewController {
         buyPremiumButton.isEnabled = false
         
         UserDefaults.standard.set(true, forKey: DefaultsKey.extrasPurchased)
+        
+        // Create an account that will be used for API related activities
+        CreateAccountRequest().send()
     }
     
     

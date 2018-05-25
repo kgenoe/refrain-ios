@@ -21,6 +21,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         
         DefaultBlockingLists().createDefaultLists()
         
+        
         UNUserNotificationCenter.current().requestAuthorization(options: []) { (granted, error) in
             guard error == nil else {
                 print("UNUserNotificationCenter.requestAuthorization error: \(error!)")
@@ -28,34 +29,6 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
             }
             
             print("UNUserNotificationCenter.requestAuthorization granted = \(granted)")
-        }
-        
-//        // DEBUGGING //
-//        UpdateAccountRequest { (result) in
-//            switch result {
-//            case .Success(let resource):
-//                print("Success")
-//            case .Failure(let error):
-//                print(error)
-//            }
-//            }.send()
-//        // DEBUGGING //
-        
-        // Try to create account if one already doesnt exists (check by looking for userID)
-        if UserDefaults.standard.string(forKey: DefaultsKey.userApiAccountToken) == nil {
-            print("Create account request sending...")
-            CreateAccountRequest { (result) in
-                switch result {
-                case .Success(let userID):
-                    print("Created account with userID: \(userID)")
-                    DispatchQueue.main.async {
-                        print("Register for remote notifications after creating account...")
-                        UIApplication.shared.registerForRemoteNotifications()
-                    }
-                case .Failure(let error):
-                    print("Error creating account:\n\(error)")
-                }
-            }.send()
         }
         
 
@@ -69,6 +42,15 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         }
     
         return true
+    }
+    
+    
+    func applicationDidBecomeActive(_ application: UIApplication) {
+        
+        // A CreateAccountRequest is sent immediately after premium is unlocked but if that request fails, this one will continue to try to send the request. This request will fail immediately if the account has already been created.
+        if UserDefaults.standard.bool(forKey: DefaultsKey.extrasPurchased) {
+            CreateAccountRequest().send()
+        }
     }
 
     
