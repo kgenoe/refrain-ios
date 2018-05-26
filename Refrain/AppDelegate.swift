@@ -21,25 +21,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         
         DefaultBlockingLists().createDefaultLists()
         
-        
-        UNUserNotificationCenter.current().requestAuthorization(options: []) { (granted, error) in
-            guard error == nil else {
-                print("UNUserNotificationCenter.requestAuthorization error: \(error!)")
-                return
-            }
-            
-            print("UNUserNotificationCenter.requestAuthorization granted = \(granted)")
-        }
-        
-
-        // Check for a apnsToken before registering for remote notifications. If there is no apnsToken, it means a network request for one is in progress. registerForRemoteNotifications() after that request is completed.
-        if UserDefaults.standard.string(forKey: DefaultsKey.apnsToken) == nil &&
-            UserDefaults.standard.string(forKey: DefaultsKey.userApiAccountToken) != nil {
-            DispatchQueue.main.async {
-                print("Register for remote notifications...")
-                UIApplication.shared.registerForRemoteNotifications()
-            }
-        }
+        UserDefaults.standard.set(true, forKey: DefaultsKey.extrasPurchased)
     
         return true
     }
@@ -50,6 +32,15 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         // A CreateAccountRequest is sent immediately after premium is unlocked but if that request fails, this one will continue to try to send the request. This request will fail immediately if the account has already been created.
         if UserDefaults.standard.bool(forKey: DefaultsKey.extrasPurchased) {
             CreateAccountRequest().send()
+        }
+        
+        // registerForRemoteNotifications is called if the user allows notifications on the 1st prompt. If they decline & enable in settings, this check will pick that up and make the registerForRemoteNotifications call.
+        // Check for a apnsToken before registering for remote notifications. If there is no apnsToken, it means a network request for one is in progress. registerForRemoteNotifications() after that request is completed.
+        if UserDefaults.standard.string(forKey: DefaultsKey.apnsToken) == nil &&
+            UserDefaults.standard.string(forKey: DefaultsKey.userApiAccountToken) != nil {
+            DispatchQueue.main.async {
+                UIApplication.shared.registerForRemoteNotifications()
+            }
         }
     }
 

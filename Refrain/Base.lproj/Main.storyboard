@@ -382,6 +382,68 @@
             </objects>
             <point key="canvasLocation" x="1862" y="519"/>
         </scene>
+        <!--Notifications Splash View Controller-->
+        <scene sceneID="nnA-sx-8sq">
+            <objects>
+                <viewController storyboardIdentifier="NotificationsSplashViewController" id="tIY-do-4Rf" customClass="NotificationsSplashViewController" customModule="Refrain" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="yLq-gT-7VJ">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ZBb-MO-50m">
+                                <rect key="frame" x="16" y="95" width="343" height="110"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="110" id="Hvl-JC-EfX"/>
+                                </constraints>
+                                <string key="text">Premium features in Refrain use background notifications to function. Please allow push notifications to enable these features. (We won't spam you, I swear).</string>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <color key="textColor" name="White"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="rLW-Jy-rkk">
+                                <rect key="frame" x="191" y="376" width="124" height="55"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="55" id="SRG-um-aOi"/>
+                                    <constraint firstAttribute="width" constant="124" id="kqt-zx-fD4"/>
+                                </constraints>
+                                <state key="normal" title="Allow">
+                                    <color key="titleColor" name="Orange"/>
+                                </state>
+                                <connections>
+                                    <action selector="acceptButtonPressed" destination="tIY-do-4Rf" eventType="touchUpInside" id="9Sg-nY-D98"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="kFf-Ri-gni">
+                                <rect key="frame" x="59" y="376" width="124" height="55"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="55" id="NKU-gC-GmC"/>
+                                    <constraint firstAttribute="width" constant="124" id="ooY-pM-Uhe"/>
+                                </constraints>
+                                <state key="normal" title="Cancel">
+                                    <color key="titleColor" name="Orange"/>
+                                </state>
+                                <connections>
+                                    <action selector="cancelButtonPressed" destination="tIY-do-4Rf" eventType="touchUpInside" id="Gmq-aL-KSJ"/>
+                                </connections>
+                            </button>
+                        </subviews>
+                        <color key="backgroundColor" name="Gradient2"/>
+                        <constraints>
+                            <constraint firstItem="rLW-Jy-rkk" firstAttribute="centerY" secondItem="yLq-gT-7VJ" secondAttribute="centerY" constant="70" id="4qn-wE-8Yg"/>
+                            <constraint firstItem="kFf-Ri-gni" firstAttribute="centerX" secondItem="yLq-gT-7VJ" secondAttribute="centerX" constant="-66.5" id="99J-lZ-MTU"/>
+                            <constraint firstItem="rLW-Jy-rkk" firstAttribute="centerX" secondItem="yLq-gT-7VJ" secondAttribute="centerX" constant="65.5" id="P2S-uc-UPH"/>
+                            <constraint firstItem="ZBb-MO-50m" firstAttribute="leading" secondItem="VVr-ZF-8Zj" secondAttribute="leading" constant="16" id="PA7-UD-gcs"/>
+                            <constraint firstItem="kFf-Ri-gni" firstAttribute="centerY" secondItem="yLq-gT-7VJ" secondAttribute="centerY" constant="70" id="a5E-kq-sxX"/>
+                            <constraint firstItem="ZBb-MO-50m" firstAttribute="top" secondItem="VVr-ZF-8Zj" secondAttribute="top" constant="75" id="kMp-U9-dTe"/>
+                            <constraint firstItem="VVr-ZF-8Zj" firstAttribute="trailing" secondItem="ZBb-MO-50m" secondAttribute="trailing" constant="16" id="sNJ-NV-eSX"/>
+                        </constraints>
+                        <viewLayoutGuide key="safeArea" id="VVr-ZF-8Zj"/>
+                    </view>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="oCB-Lu-qwS" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="2682.4000000000001" y="519.49025487256381"/>
+        </scene>
         <!--Settings View Controller-->
         <scene sceneID="QDe-oR-baZ">
             <objects>
@@ -554,8 +616,20 @@
         <namedColor name="Gradient2">
             <color red="0.079000003635883331" green="0.21899999678134918" blue="0.43000000715255737" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
         </namedColor>
+        <namedColor name="Gradient2">
+            <color red="0.079000003635883331" green="0.21899999678134918" blue="0.43000000715255737" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+        </namedColor>
         <namedColor name="Orange">
             <color red="1" green="0.5" blue="0.10100000351667404" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </namedColor>
+        <namedColor name="Orange">
+            <color red="1" green="0.5" blue="0.1010000035" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </namedColor>
+        <namedColor name="Orange">
+            <color red="1" green="0.5" blue="0.10100000351667404" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </namedColor>
+        <namedColor name="White">
+            <color white="0.97000002861022949" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
         </namedColor>
         <namedColor name="White">
             <color white="0.97000002860000001" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>

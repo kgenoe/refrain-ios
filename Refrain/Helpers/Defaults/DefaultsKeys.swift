@@ -13,5 +13,6 @@ struct DefaultsKey {
     static let apnsToken = "apnsToken"
     static let savedApnsTokenToServer = "savedApnsTokenToServer"
     static let extrasPurchased = "extrasPurchased"
+    static let notifSplashShown = "notifSplashShown"
 }
 

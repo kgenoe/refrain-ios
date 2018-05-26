@@ -18,6 +18,7 @@
 		274E8388207C018100BAE7A5 /* InnerShadowLayer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 274E8387207C018100BAE7A5 /* InnerShadowLayer.swift */; };
 		274E838A2081816200BAE7A5 /* SwitchTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 274E83892081816200BAE7A5 /* SwitchTableViewCell.swift */; };
 		274E838D2081849D00BAE7A5 /* SwitchTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 274E838C2081849D00BAE7A5 /* SwitchTableViewCell.xib */; };
+		2761E58A20B8C4BC00FEE78B /* NotificationsSplashViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2761E58920B8C4BC00FEE78B /* NotificationsSplashViewController.swift */; };
 		277F5FBF2079C78400A1A558 /* BackgroundGradientLayer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 277F5FBE2079C78400A1A558 /* BackgroundGradientLayer.swift */; };
 		277F5FC12079CCA100A1A558 /* AppearanceManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 277F5FC02079CCA100A1A558 /* AppearanceManager.swift */; };
 		2781964F2053773900A42E4C /* CreateAccountRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2781964E2053773900A42E4C /* CreateAccountRequest.swift */; };
@@ -89,6 +90,7 @@
 		274E8387207C018100BAE7A5 /* InnerShadowLayer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InnerShadowLayer.swift; sourceTree = "<group>"; };
 		274E83892081816200BAE7A5 /* SwitchTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SwitchTableViewCell.swift; sourceTree = "<group>"; };
 		274E838C2081849D00BAE7A5 /* SwitchTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = SwitchTableViewCell.xib; sourceTree = "<group>"; };
+		2761E58920B8C4BC00FEE78B /* NotificationsSplashViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NotificationsSplashViewController.swift; sourceTree = "<group>"; };
 		277F5FBE2079C78400A1A558 /* BackgroundGradientLayer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BackgroundGradientLayer.swift; sourceTree = "<group>"; };
 		277F5FC02079CCA100A1A558 /* AppearanceManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppearanceManager.swift; sourceTree = "<group>"; };
 		2781964E2053773900A42E4C /* CreateAccountRequest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreateAccountRequest.swift; sourceTree = "<group>"; };
@@ -167,6 +169,7 @@
 				27C34F852017DEBD00B129F6 /* Blocking List */,
 				27CFF58E20AFAD6000193AF8 /* Blocking Rule */,
 				789207D42023A2C90053F351 /* Schedules */,
+				2761E58820B8C46300FEE78B /* Schedule */,
 				27CFF59320B4B35600193AF8 /* Settings */,
 			);
 			path = "View Controllers";
@@ -200,6 +203,15 @@
 				271E0171208BBAA400FC37C6 /* BlockingListCell.swift */,
 			);
 			path = Main;
+			sourceTree = "<group>";
+		};
+		2761E58820B8C46300FEE78B /* Schedule */ = {
+			isa = PBXGroup;
+			children = (
+				789207DF2023BC160053F351 /* BlockingScheduleViewController.swift */,
+				279FE4FD2065CABF007B7F17 /* BlockingScheduleListCell.swift */,
+			);
+			path = Schedule;
 			sourceTree = "<group>";
 		};
 		277F5FBC2079C73400A1A558 /* Card View */ = {
@@ -331,8 +343,7 @@
 			children = (
 				789207D52023AEB10053F351 /* BlockingSchedulesViewController.swift */,
 				789207DB2023B8370053F351 /* BlockingSchedueCell.swift */,
-				789207DF2023BC160053F351 /* BlockingScheduleViewController.swift */,
-				279FE4FD2065CABF007B7F17 /* BlockingScheduleListCell.swift */,
+				2761E58920B8C4BC00FEE78B /* NotificationsSplashViewController.swift */,
 			);
 			path = Schedules;
 			sourceTree = "<group>";
@@ -481,6 +492,7 @@
 				277F5FBF2079C78400A1A558 /* BackgroundGradientLayer.swift in Sources */,
 				271E0172208BBAA400FC37C6 /* BlockingListCell.swift in Sources */,
 				27CFF59820B4B7F700193AF8 /* PremiumUpgradeViewController.swift in Sources */,
+				2761E58A20B8C4BC00FEE78B /* NotificationsSplashViewController.swift in Sources */,
 				789207DA2023B32D0053F351 /* BlockingScheduleStore.swift in Sources */,
 				27C34F822017DD4F00B129F6 /* BlockingListViewController.swift in Sources */,
 				277F5FC12079CCA100A1A558 /* AppearanceManager.swift in Sources */,

@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import UserNotifications
 
 class BlockingSchedulesViewController: UIViewController {
 
@@ -21,15 +22,29 @@ class BlockingSchedulesViewController: UIViewController {
         super.viewDidLoad()
         tableView.delegate = self
         tableView.dataSource = self
+        
+        if !UserDefaults.standard.bool(forKey: DefaultsKey.notifSplashShown) {
+            UserDefaults.standard.set(true, forKey: DefaultsKey.notifSplashShown)
+            let notifSplashVC = NotificationsSplashViewController.instantiate()
+            present(notifSplashVC, animated: true, completion: nil)
+        }
     }
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(true)
+        
         navigationItem.title = "Blocking Schedules"
         
         navigationItem.backBarButtonItem = UIBarButtonItem(title: "Back", style: .plain, target: nil, action: nil)
         
         tableView.reloadSections(IndexSet(integer: 0), with: .fade)
+        
+        UNUserNotificationCenter.current().getNotificationSettings { (settings) in
+            if settings.authorizationStatus != .authorized {
+                // style view for unauthorized notifications here
+            }
+        }
+        
     }
     
     override func viewDidLayoutSubviews() {
