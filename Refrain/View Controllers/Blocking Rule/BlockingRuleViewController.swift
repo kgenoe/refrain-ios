@@ -46,6 +46,13 @@ class BlockingRuleViewController: UIViewController {
         saveButton.tintColor = UIColor(named: "White")
         navigationItem.rightBarButtonItem = saveButton
         
+        // enable "background press to dismiss keyboard" behaviour
+        let backgroundTap = UITapGestureRecognizer(target: self, action: #selector(backgroundPressed))
+        view.addGestureRecognizer(backgroundTap)
+        
+        filterTextField.delegate = self
+        descriptionTextField.delegate = self
+        
         if let rule = blockingRule {
             navigationItem.title = "Edit Rule"
             descriptionTextField.text = rule.ruleDescription
@@ -56,6 +63,11 @@ class BlockingRuleViewController: UIViewController {
         
     }
     
+    // Used to automatically show keyboard when appearing
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        filterTextField.becomeFirstResponder()
+    }
     
     override func viewDidLayoutSubviews() {
         super.viewDidLayoutSubviews()
@@ -101,5 +113,19 @@ class BlockingRuleViewController: UIViewController {
         
         // return to blocking collection
         navigationController?.popViewController(animated: true)
+    }
+    
+    @objc func backgroundPressed() {
+        filterTextField.resignFirstResponder()
+        descriptionTextField.resignFirstResponder()
+    }
+}
+
+
+// Enable "press done to hide keyboard" behaviour
+extension BlockingRuleViewController: UITextFieldDelegate {
+    func textFieldShouldReturn(_ textField: UITextField) -> Bool {
+        textField.resignFirstResponder()
+        return false
     }
 }
