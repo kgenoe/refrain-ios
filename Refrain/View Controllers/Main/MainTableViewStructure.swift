@@ -8,7 +8,7 @@
 
 import Foundation
 
-enum MainTableViewSection: Int {
+enum MainTableViewSection: Int, TableViewSection {
     
     case DefaultBlockingCollections
     case UserBlockingCollections
@@ -34,7 +34,7 @@ enum MainTableViewSection: Int {
 }
 
 
-enum MainTableViewRow {
+enum MainTableViewRow: TableViewRow {
     
     case DefaultBlockingCollectionsHeader
     case DefaultBlockingCollections(Int)
@@ -49,16 +49,17 @@ enum MainTableViewRow {
 }
 
 
-struct MainTableViewStructure {
+struct MainTableViewStructure: TableViewStructure {
     
     // Sections
-    private var sections = MainTableViewSection.all
+    var sections = MainTableViewSection.all
     
     // Rows
     private var defaultBlockingCollectionsRows: [MainTableViewRow] = []
     private var userBlockingCollectionsRows: [MainTableViewRow] = []
     private var schedulesRows: [MainTableViewRow] = []
     private var settingsRows: [MainTableViewRow] = []
+    
     
     init(defaultCollectionsCount: Int, userCollectionsCount: Int){
         
@@ -83,15 +84,7 @@ struct MainTableViewStructure {
     
     
     //MARK: - Section Management
-    func sectionCount() -> Int {
-        return sections.count
-    }
-    
-    func sectionTypeFor(_ section: Int)  -> MainTableViewSection {
-        return sections[section]
-    }
-    
-    func sectionIndexFor(_ section: MainTableViewSection) -> Int? {
+    func sectionIndex(for section: MainTableViewSection) -> Int? {
         return sections.index(of: section)
     }
     
@@ -105,17 +98,6 @@ struct MainTableViewStructure {
         case .Schedules: return schedulesRows
         case .Settings: return settingsRows
         }
-    }
-    
-    func rowCountFor(_ section: Int) -> Int{
-        let sectionType = sectionTypeFor(section)
-        return rows(for: sectionType).count
-    }
-    
-    func rowType(for indexPath: IndexPath) -> MainTableViewRow {
-        let section = sectionTypeFor(indexPath.section)
-        let rows = self.rows(for: section)
-        return rows[indexPath.row]
     }
 }
 

@@ -131,11 +131,11 @@ class MainViewController: UIViewController {
 extension MainViewController: UITableViewDelegate, UITableViewDataSource {
     
     func numberOfSections(in tableView: UITableView) -> Int {
-        return tableViewStructure.sectionCount()
+        return tableViewStructure.sections.count
     }
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-       return tableViewStructure.rowCountFor(section)
+       return tableViewStructure.rowCount(for: section)
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
@@ -230,7 +230,7 @@ extension MainViewController: UITableViewDelegate, UITableViewDataSource {
     }
     
     func tableView(_ tableView: UITableView, heightForHeaderInSection section: Int) -> CGFloat {
-        switch tableViewStructure.sectionTypeFor(section) {
+        switch tableViewStructure.sectionType(for: section) {
         case .Schedules, .Settings: return 40
         default: return 0
         }
