@@ -13,6 +13,8 @@
 		272EE1BD208A805E007B6FDB /* ContentBlockerRequestHandler.swift in Sources */ = {isa = PBXBuildFile; fileRef = 272EE1BC208A805E007B6FDB /* ContentBlockerRequestHandler.swift */; };
 		272EE1C1208A805E007B6FDB /* ContentBlocker.appex in Embed App Extensions */ = {isa = PBXBuildFile; fileRef = 272EE1B8208A805E007B6FDB /* ContentBlocker.appex */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
 		273BE5372054610C00EF57C2 /* NetworkingConstants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 273BE5362054610C00EF57C2 /* NetworkingConstants.swift */; };
+		27408FEF20C78102004FB25C /* ItemTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 27408FEE20C78102004FB25C /* ItemTableViewCell.swift */; };
+		27408FF120C7810D004FB25C /* ItemTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 27408FF020C7810D004FB25C /* ItemTableViewCell.xib */; };
 		27431B712059E8D2008B4D2B /* CardView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 27431B702059E8D2008B4D2B /* CardView.xib */; };
 		27431B732059E8E0008B4D2B /* CardView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 27431B722059E8E0008B4D2B /* CardView.swift */; };
 		274E8388207C018100BAE7A5 /* InnerShadowLayer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 274E8387207C018100BAE7A5 /* InnerShadowLayer.swift */; };
@@ -85,6 +87,8 @@
 		272EE1BE208A805E007B6FDB /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		272EE1C8208A836D007B6FDB /* ContentBlocker.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = ContentBlocker.entitlements; sourceTree = "<group>"; };
 		273BE5362054610C00EF57C2 /* NetworkingConstants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkingConstants.swift; sourceTree = "<group>"; };
+		27408FEE20C78102004FB25C /* ItemTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ItemTableViewCell.swift; sourceTree = "<group>"; };
+		27408FF020C7810D004FB25C /* ItemTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ItemTableViewCell.xib; sourceTree = "<group>"; };
 		27431B702059E8D2008B4D2B /* CardView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = CardView.xib; sourceTree = "<group>"; };
 		27431B722059E8E0008B4D2B /* CardView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CardView.swift; sourceTree = "<group>"; };
 		274E8387207C018100BAE7A5 /* InnerShadowLayer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InnerShadowLayer.swift; sourceTree = "<group>"; };
@@ -147,6 +151,7 @@
 			isa = PBXGroup;
 			children = (
 				27CFF58520AE45AC00193AF8 /* Header Cell */,
+				27408FED20C780D6004FB25C /* Item Cell */,
 				274E838B2081848B00BAE7A5 /* Switch Cell */,
 			);
 			path = "TableView Cells";
@@ -160,6 +165,15 @@
 				272EE1BE208A805E007B6FDB /* Info.plist */,
 			);
 			path = ContentBlocker;
+			sourceTree = "<group>";
+		};
+		27408FED20C780D6004FB25C /* Item Cell */ = {
+			isa = PBXGroup;
+			children = (
+				27408FEE20C78102004FB25C /* ItemTableViewCell.swift */,
+				27408FF020C7810D004FB25C /* ItemTableViewCell.xib */,
+			);
+			path = "Item Cell";
 			sourceTree = "<group>";
 		};
 		27431B6A2059E843008B4D2B /* View Controllers */ = {
@@ -451,6 +465,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				27408FF120C7810D004FB25C /* ItemTableViewCell.xib in Resources */,
 				27C34F782017D9E700B129F6 /* LaunchScreen.storyboard in Resources */,
 				274E838D2081849D00BAE7A5 /* SwitchTableViewCell.xib in Resources */,
 				27C34F752017D9E700B129F6 /* Assets.xcassets in Resources */,
@@ -508,6 +523,7 @@
 				273BE5372054610C00EF57C2 /* NetworkingConstants.swift in Sources */,
 				279FE4FA20659453007B7F17 /* BlockingCollection.swift in Sources */,
 				2781964F2053773900A42E4C /* CreateAccountRequest.swift in Sources */,
+				27408FEF20C78102004FB25C /* ItemTableViewCell.swift in Sources */,
 				279FE4FE2065CABF007B7F17 /* BlockingScheduleListCell.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

@@ -156,18 +156,10 @@ extension MainViewController: UITableViewDelegate, UITableViewDataSource {
             cell.titleLabel.textAlignment = .center
             cell.titleLabel.textColor = UIColor(named: "Orange")
             return cell
-        case .SchedulesHeader:
-            return HeaderTableViewCell(title: "Schedules")
         case .Schedules:
-            let cell = HeaderTableViewCell(title: "Schedules")
-            cell.titleLabel.textAlignment = .center
-            cell.titleLabel.textColor = UIColor(named: "Orange")
-            return cell
+            return ItemTableViewCell(text: "Schedules")
         case .Settings:
-            let cell = HeaderTableViewCell(title: "Settings")
-            cell.titleLabel.textAlignment = .center
-            cell.titleLabel.textColor = UIColor(named: "Orange")
-            return cell
+            return ItemTableViewCell(text: "Settings")
         }
     }
     
@@ -227,6 +219,20 @@ extension MainViewController: UITableViewDelegate, UITableViewDataSource {
             self.tableView.deleteRows(at: [indexPath], with: .automatic)
             
         default: break
+        }
+    }
+    
+    
+    func tableView(_ tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {
+        let view = UIView()
+        view.backgroundColor = .clear
+        return view
+    }
+    
+    func tableView(_ tableView: UITableView, heightForHeaderInSection section: Int) -> CGFloat {
+        switch tableViewStructure.sectionTypeFor(section) {
+        case .Schedules, .Settings: return 40
+        default: return 0
         }
     }
 }

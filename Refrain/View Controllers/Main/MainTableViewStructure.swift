@@ -43,7 +43,6 @@ enum MainTableViewRow {
     case UserBlockingCollections(Int)
     case NewUserBlockingCollection
     
-    case SchedulesHeader
     case Schedules
     
     case Settings
@@ -75,7 +74,7 @@ struct MainTableViewStructure {
         userBlockingCollectionsRows.append(.NewUserBlockingCollection)
         
         if UserDefaults.standard.bool(forKey: DefaultsKey.extrasPurchased) {
-            self.schedulesRows = [.SchedulesHeader, .Schedules]
+            self.schedulesRows = [.Schedules]
         }
         
         self.settingsRows = [.Settings]
