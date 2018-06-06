@@ -37,39 +37,18 @@ class SwitchTableViewCell: UITableViewCell {
         self.setupView()
     }
     
-    private func cellFromNibForClass() -> UITableViewCell {
+    private func viewFromNibForClass() -> UIView {
         let bundle = Bundle(for: type(of: self))
         let nib = UINib(nibName: "SwitchTableViewCell", bundle: bundle)
-        let cell = nib.instantiate(withOwner: self, options: nil).first as! UITableViewCell
+        let cell = nib.instantiate(withOwner: self, options: nil).first as! UIView
         return cell
     }
     
     
     private func setupView() {
-        
-        let cell = cellFromNibForClass()
+        let cell = viewFromNibForClass()
         cell.frame = bounds
         cell.autoresizingMask = [.flexibleWidth, .flexibleHeight]
         addSubview(cell)
-        
-        titleLabel.font = UIFont(name: "Avenir Book", size: 16.0)
-        titleLabel.textColor = UIColor(named: "DarkGrey")!
-        enabledSwitch.onTintColor = UIColor(named: "Orange")!
-        self.setInnerShadow()
-    }
-    
-    
-    override func layoutSubviews() {
-        super.layoutSubviews()
-        self.setInnerShadow()
-    }
-
-    
-    private func setInnerShadow() {
-        layer.sublayers?.filter{ $0.name == "innerShadow" }
-            .forEach{ $0.removeFromSuperlayer() }
-        let innerShadow = InnerShadowLayer(frame: bounds.insetBy(dx: -20, dy: 0).offsetBy(dx: 10, dy: 0))
-        innerShadow.name = "innerShadow"
-        layer.addSublayer(innerShadow)
     }
 }

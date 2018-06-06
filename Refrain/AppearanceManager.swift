@@ -16,15 +16,26 @@ struct AppearanceManager {
         // UINavigationBar
         let navigationBarAppearace = UINavigationBar.appearance()
 
-        let navBarAttributes: [NSAttributedStringKey: Any] = [
+        let navBarTitleAttributes: [NSAttributedStringKey: Any] = [
             .foregroundColor: UIColor(named: "White")!,
             .font: UIFont(name: "Georgia-Bold", size: 20)!,
             .backgroundColor: UIColor.clear
         ]
-        navigationBarAppearace.titleTextAttributes = navBarAttributes
+        
+        let navBarLargeTitleAttributes: [NSAttributedStringKey: Any] = [
+            .foregroundColor: UIColor(named: "White")!,
+            .font: UIFont(name: "Georgia-Bold", size: 30)!,
+            .backgroundColor: UIColor.clear
+        ]
+        
+        
+        navigationBarAppearace.titleTextAttributes = navBarTitleAttributes
+        navigationBarAppearace.largeTitleTextAttributes = navBarLargeTitleAttributes
         navigationBarAppearace.setBackgroundImage(UIImage(), for: .default)
         navigationBarAppearace.shadowImage = UIImage()
         navigationBarAppearace.isTranslucent = true
+        navigationBarAppearace.prefersLargeTitles = true
+        
         
         
         // UIBarButtonItem
