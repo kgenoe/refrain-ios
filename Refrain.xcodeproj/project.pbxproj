@@ -52,6 +52,7 @@
 		789207DE2023B8FE0053F351 /* DateExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 789207DD2023B8FE0053F351 /* DateExtensions.swift */; };
 		789207E02023BC160053F351 /* BlockingScheduleViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 789207DF2023BC160053F351 /* BlockingScheduleViewController.swift */; };
 		789C5A8020C815470004F04F /* TableViewStructure.swift in Sources */ = {isa = PBXBuildFile; fileRef = 789C5A7F20C815470004F04F /* TableViewStructure.swift */; };
+		789C5A8220C819C80004F04F /* MainTableViewDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 789C5A8120C819C80004F04F /* MainTableViewDelegate.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -129,6 +130,7 @@
 		789207DD2023B8FE0053F351 /* DateExtensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DateExtensions.swift; sourceTree = "<group>"; };
 		789207DF2023BC160053F351 /* BlockingScheduleViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BlockingScheduleViewController.swift; sourceTree = "<group>"; };
 		789C5A7F20C815470004F04F /* TableViewStructure.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TableViewStructure.swift; sourceTree = "<group>"; };
+		789C5A8120C819C80004F04F /* MainTableViewDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainTableViewDelegate.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -215,6 +217,7 @@
 			isa = PBXGroup;
 			children = (
 				27C34F7F2017DCF900B129F6 /* MainViewController.swift */,
+				789C5A8120C819C80004F04F /* MainTableViewDelegate.swift */,
 				27CFF58A20AEF3BE00193AF8 /* MainTableViewStructure.swift */,
 				271E0171208BBAA400FC37C6 /* BlockingListCell.swift */,
 			);
@@ -523,6 +526,7 @@
 				789207DE2023B8FE0053F351 /* DateExtensions.swift in Sources */,
 				27CFF58B20AEF3BE00193AF8 /* MainTableViewStructure.swift in Sources */,
 				789C5A8020C815470004F04F /* TableViewStructure.swift in Sources */,
+				789C5A8220C819C80004F04F /* MainTableViewDelegate.swift in Sources */,
 				274E838A2081816200BAE7A5 /* SwitchTableViewCell.swift in Sources */,
 				273BE5372054610C00EF57C2 /* NetworkingConstants.swift in Sources */,
 				279FE4FA20659453007B7F17 /* BlockingCollection.swift in Sources */,
