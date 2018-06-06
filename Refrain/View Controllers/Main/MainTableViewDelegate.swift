@@ -130,8 +130,7 @@ extension MainTableViewDelegate: UITableViewDataSource {
             
             // refresh the table view structure
             let defaultCount = collections.filter{ $0.isDefault }.count
-            let userCount = collections.filter{ !$0.isDefault }.count
-            structure = MainTableViewStructure(defaultCollectionsCount: defaultCount, userCollectionsCount: userCount)
+            structure = MainTableViewStructure(defaultCollectionsCount: defaultCount, userCollectionsCount: userCreatedCollections.count-1)
             
             // delete the table view cell
             tableView.deleteRows(at: [indexPath], with: .automatic)
