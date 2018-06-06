@@ -23,19 +23,19 @@
 		277F5FC12079CCA100A1A558 /* AppearanceManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 277F5FC02079CCA100A1A558 /* AppearanceManager.swift */; };
 		2781964F2053773900A42E4C /* CreateAccountRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2781964E2053773900A42E4C /* CreateAccountRequest.swift */; };
 		2781965320537E6500A42E4C /* UpdateAccountRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2781965220537E6500A42E4C /* UpdateAccountRequest.swift */; };
-		279FE4FA20659453007B7F17 /* BlockingList.swift in Sources */ = {isa = PBXBuildFile; fileRef = 279FE4F920659453007B7F17 /* BlockingList.swift */; };
-		279FE4FC20659686007B7F17 /* BlockingListStore.swift in Sources */ = {isa = PBXBuildFile; fileRef = 279FE4FB20659686007B7F17 /* BlockingListStore.swift */; };
+		279FE4FA20659453007B7F17 /* BlockingCollection.swift in Sources */ = {isa = PBXBuildFile; fileRef = 279FE4F920659453007B7F17 /* BlockingCollection.swift */; };
+		279FE4FC20659686007B7F17 /* BlockingCollectionStore.swift in Sources */ = {isa = PBXBuildFile; fileRef = 279FE4FB20659686007B7F17 /* BlockingCollectionStore.swift */; };
 		279FE4FE2065CABF007B7F17 /* BlockingScheduleListCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 279FE4FD2065CABF007B7F17 /* BlockingScheduleListCell.swift */; };
 		27C34F6E2017D9E700B129F6 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 27C34F6D2017D9E700B129F6 /* AppDelegate.swift */; };
 		27C34F732017D9E700B129F6 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 27C34F712017D9E700B129F6 /* Main.storyboard */; };
 		27C34F752017D9E700B129F6 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 27C34F742017D9E700B129F6 /* Assets.xcassets */; };
 		27C34F782017D9E700B129F6 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 27C34F762017D9E700B129F6 /* LaunchScreen.storyboard */; };
 		27C34F802017DCF900B129F6 /* MainViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 27C34F7F2017DCF900B129F6 /* MainViewController.swift */; };
-		27C34F822017DD4F00B129F6 /* BlockingListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 27C34F812017DD4F00B129F6 /* BlockingListViewController.swift */; };
+		27C34F822017DD4F00B129F6 /* BlockingCollectionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 27C34F812017DD4F00B129F6 /* BlockingCollectionViewController.swift */; };
 		27C34F842017DEB900B129F6 /* BlockingRuleViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 27C34F832017DEB900B129F6 /* BlockingRuleViewController.swift */; };
 		27C34F872017E24900B129F6 /* BlockingRuleCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 27C34F862017E24900B129F6 /* BlockingRuleCell.swift */; };
 		27C34F902017E6EA00B129F6 /* BlockingRule.swift in Sources */ = {isa = PBXBuildFile; fileRef = 27C34F8F2017E6EA00B129F6 /* BlockingRule.swift */; };
-		27CFF58420ABC22700193AF8 /* DefaultBlockingLists.swift in Sources */ = {isa = PBXBuildFile; fileRef = 27CFF58320ABC22700193AF8 /* DefaultBlockingLists.swift */; };
+		27CFF58420ABC22700193AF8 /* DefaultBlockingCollections.swift in Sources */ = {isa = PBXBuildFile; fileRef = 27CFF58320ABC22700193AF8 /* DefaultBlockingCollections.swift */; };
 		27CFF58720AE45CA00193AF8 /* HeaderTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 27CFF58620AE45CA00193AF8 /* HeaderTableViewCell.swift */; };
 		27CFF58920AE45D600193AF8 /* HeaderTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 27CFF58820AE45D600193AF8 /* HeaderTableViewCell.xib */; };
 		27CFF58B20AEF3BE00193AF8 /* MainTableViewStructure.swift in Sources */ = {isa = PBXBuildFile; fileRef = 27CFF58A20AEF3BE00193AF8 /* MainTableViewStructure.swift */; };
@@ -95,8 +95,8 @@
 		277F5FC02079CCA100A1A558 /* AppearanceManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppearanceManager.swift; sourceTree = "<group>"; };
 		2781964E2053773900A42E4C /* CreateAccountRequest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreateAccountRequest.swift; sourceTree = "<group>"; };
 		2781965220537E6500A42E4C /* UpdateAccountRequest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UpdateAccountRequest.swift; sourceTree = "<group>"; };
-		279FE4F920659453007B7F17 /* BlockingList.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BlockingList.swift; sourceTree = "<group>"; };
-		279FE4FB20659686007B7F17 /* BlockingListStore.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BlockingListStore.swift; sourceTree = "<group>"; };
+		279FE4F920659453007B7F17 /* BlockingCollection.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BlockingCollection.swift; sourceTree = "<group>"; };
+		279FE4FB20659686007B7F17 /* BlockingCollectionStore.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BlockingCollectionStore.swift; sourceTree = "<group>"; };
 		279FE4FD2065CABF007B7F17 /* BlockingScheduleListCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BlockingScheduleListCell.swift; sourceTree = "<group>"; };
 		27C34F6A2017D9E700B129F6 /* Refrain.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Refrain.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		27C34F6D2017D9E700B129F6 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -105,11 +105,11 @@
 		27C34F772017D9E700B129F6 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		27C34F792017D9E700B129F6 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		27C34F7F2017DCF900B129F6 /* MainViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainViewController.swift; sourceTree = "<group>"; };
-		27C34F812017DD4F00B129F6 /* BlockingListViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BlockingListViewController.swift; sourceTree = "<group>"; };
+		27C34F812017DD4F00B129F6 /* BlockingCollectionViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BlockingCollectionViewController.swift; sourceTree = "<group>"; };
 		27C34F832017DEB900B129F6 /* BlockingRuleViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BlockingRuleViewController.swift; sourceTree = "<group>"; };
 		27C34F862017E24900B129F6 /* BlockingRuleCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BlockingRuleCell.swift; sourceTree = "<group>"; };
 		27C34F8F2017E6EA00B129F6 /* BlockingRule.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BlockingRule.swift; sourceTree = "<group>"; };
-		27CFF58320ABC22700193AF8 /* DefaultBlockingLists.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DefaultBlockingLists.swift; sourceTree = "<group>"; };
+		27CFF58320ABC22700193AF8 /* DefaultBlockingCollections.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DefaultBlockingCollections.swift; sourceTree = "<group>"; };
 		27CFF58620AE45CA00193AF8 /* HeaderTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HeaderTableViewCell.swift; sourceTree = "<group>"; };
 		27CFF58820AE45D600193AF8 /* HeaderTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = HeaderTableViewCell.xib; sourceTree = "<group>"; };
 		27CFF58A20AEF3BE00193AF8 /* MainTableViewStructure.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainTableViewStructure.swift; sourceTree = "<group>"; };
@@ -166,7 +166,7 @@
 			isa = PBXGroup;
 			children = (
 				2761E58720B8A41500FEE78B /* Main */,
-				27C34F852017DEBD00B129F6 /* Blocking List */,
+				27C34F852017DEBD00B129F6 /* Blocking Collection */,
 				27CFF58E20AFAD6000193AF8 /* Blocking Rule */,
 				789207D42023A2C90053F351 /* Schedules */,
 				2761E58820B8C46300FEE78B /* Schedule */,
@@ -259,7 +259,7 @@
 				27C34F6D2017D9E700B129F6 /* AppDelegate.swift */,
 				2711EC4E20911F6300F32622 /* ContentBlockerManager.swift */,
 				277F5FC02079CCA100A1A558 /* AppearanceManager.swift */,
-				27CFF58320ABC22700193AF8 /* DefaultBlockingLists.swift */,
+				27CFF58320ABC22700193AF8 /* DefaultBlockingCollections.swift */,
 				2781964D2053771100A42E4C /* Networking */,
 				27C34F912017E6EE00B129F6 /* Model */,
 				27431B6A2059E843008B4D2B /* View Controllers */,
@@ -273,20 +273,20 @@
 			path = Refrain;
 			sourceTree = "<group>";
 		};
-		27C34F852017DEBD00B129F6 /* Blocking List */ = {
+		27C34F852017DEBD00B129F6 /* Blocking Collection */ = {
 			isa = PBXGroup;
 			children = (
-				27C34F812017DD4F00B129F6 /* BlockingListViewController.swift */,
+				27C34F812017DD4F00B129F6 /* BlockingCollectionViewController.swift */,
 				27C34F862017E24900B129F6 /* BlockingRuleCell.swift */,
 			);
-			path = "Blocking List";
+			path = "Blocking Collection";
 			sourceTree = "<group>";
 		};
 		27C34F882017E51800B129F6 /* Defaults */ = {
 			isa = PBXGroup;
 			children = (
 				2705BC31202E48DD00213DF6 /* DefaultsKeys.swift */,
-				279FE4FB20659686007B7F17 /* BlockingListStore.swift */,
+				279FE4FB20659686007B7F17 /* BlockingCollectionStore.swift */,
 				789207D92023B32D0053F351 /* BlockingScheduleStore.swift */,
 			);
 			path = Defaults;
@@ -295,7 +295,7 @@
 		27C34F912017E6EE00B129F6 /* Model */ = {
 			isa = PBXGroup;
 			children = (
-				279FE4F920659453007B7F17 /* BlockingList.swift */,
+				279FE4F920659453007B7F17 /* BlockingCollection.swift */,
 				27C34F8F2017E6EA00B129F6 /* BlockingRule.swift */,
 				789207D72023B18D0053F351 /* BlockingSchedule.swift */,
 			);
@@ -485,7 +485,7 @@
 				27CFF59220AFC44A00193AF8 /* Result.swift in Sources */,
 				789207D62023AEB10053F351 /* BlockingSchedulesViewController.swift in Sources */,
 				27C34F842017DEB900B129F6 /* BlockingRuleViewController.swift in Sources */,
-				279FE4FC20659686007B7F17 /* BlockingListStore.swift in Sources */,
+				279FE4FC20659686007B7F17 /* BlockingCollectionStore.swift in Sources */,
 				27C34F872017E24900B129F6 /* BlockingRuleCell.swift in Sources */,
 				789207D82023B18D0053F351 /* BlockingSchedule.swift in Sources */,
 				789207DC2023B8370053F351 /* BlockingSchedueCell.swift in Sources */,
@@ -494,19 +494,19 @@
 				27CFF59820B4B7F700193AF8 /* PremiumUpgradeViewController.swift in Sources */,
 				2761E58A20B8C4BC00FEE78B /* NotificationsSplashViewController.swift in Sources */,
 				789207DA2023B32D0053F351 /* BlockingScheduleStore.swift in Sources */,
-				27C34F822017DD4F00B129F6 /* BlockingListViewController.swift in Sources */,
+				27C34F822017DD4F00B129F6 /* BlockingCollectionViewController.swift in Sources */,
 				277F5FC12079CCA100A1A558 /* AppearanceManager.swift in Sources */,
 				27C34F902017E6EA00B129F6 /* BlockingRule.swift in Sources */,
 				27431B732059E8E0008B4D2B /* CardView.swift in Sources */,
 				27CFF59520B4B36F00193AF8 /* SettingsViewController.swift in Sources */,
 				789207E02023BC160053F351 /* BlockingScheduleViewController.swift in Sources */,
-				27CFF58420ABC22700193AF8 /* DefaultBlockingLists.swift in Sources */,
+				27CFF58420ABC22700193AF8 /* DefaultBlockingCollections.swift in Sources */,
 				27CFF58720AE45CA00193AF8 /* HeaderTableViewCell.swift in Sources */,
 				789207DE2023B8FE0053F351 /* DateExtensions.swift in Sources */,
 				27CFF58B20AEF3BE00193AF8 /* MainTableViewStructure.swift in Sources */,
 				274E838A2081816200BAE7A5 /* SwitchTableViewCell.swift in Sources */,
 				273BE5372054610C00EF57C2 /* NetworkingConstants.swift in Sources */,
-				279FE4FA20659453007B7F17 /* BlockingList.swift in Sources */,
+				279FE4FA20659453007B7F17 /* BlockingCollection.swift in Sources */,
 				2781964F2053773900A42E4C /* CreateAccountRequest.swift in Sources */,
 				279FE4FE2065CABF007B7F17 /* BlockingScheduleListCell.swift in Sources */,
 			);

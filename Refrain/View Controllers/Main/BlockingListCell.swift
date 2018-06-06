@@ -1,5 +1,5 @@
 //
-//  BlockingListCell.swift
+//  BlockingCollectionCell.swift
 //  Refrain
 //
 //  Created by Kyle on 2018-04-21.
@@ -8,17 +8,17 @@
 
 import UIKit
 
-class BlockingListCell: SwitchTableViewCell {
+class BlockingCollectionCell: SwitchTableViewCell {
 
-    var blockingList: BlockingList!
+    var blockingCollection: BlockingCollection!
     
     
-    init(blockingList: BlockingList) {
-        self.blockingList = blockingList
+    init(blockingCollection: BlockingCollection) {
+        self.blockingCollection = blockingCollection
         
         super.init()
         enabledSwitch.addTarget(self, action: #selector(switchToggled), for: .valueChanged)
-        setInitialState(for: blockingList)
+        setInitialState(for: blockingCollection)
     }
     
     required init?(coder aDecoder: NSCoder) {
@@ -26,14 +26,14 @@ class BlockingListCell: SwitchTableViewCell {
     }
     
     
-    private func setInitialState(for list: BlockingList) {
-        titleLabel.text = list.name
-        enabledSwitch.isOn = list.enabled
+    private func setInitialState(for collection: BlockingCollection) {
+        titleLabel.text = collection.name
+        enabledSwitch.isOn = collection.enabled
     }
     
     @objc func switchToggled() {
-        blockingList.enabled = enabledSwitch.isOn
-        BlockingListStore.shared.saveList(blockingList)
+        blockingCollection.enabled = enabledSwitch.isOn
+        BlockingCollectionStore.shared.saveCollection(blockingCollection)
     }
 
 }

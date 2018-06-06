@@ -10,12 +10,12 @@ import Foundation
 
 enum MainTableViewSection: Int {
     
-    case DefaultBlockingLists
-    case UserBlockingLists
+    case DefaultBlockingCollections
+    case UserBlockingCollections
     case Schedules
     case Settings
     
-    /// Number of potentially available Listing Sections
+    /// Number of potentially available Collectioning Sections
     static var count: Int = {
         var max: Int = 0
         while let _ = MainTableViewSection(rawValue: max) { max += 1 }
@@ -36,12 +36,12 @@ enum MainTableViewSection: Int {
 
 enum MainTableViewRow {
     
-    case DefaultBlockingListsHeader
-    case DefaultBlockingLists(Int)
+    case DefaultBlockingCollectionsHeader
+    case DefaultBlockingCollections(Int)
     
-    case UserBlockingListsHeader
-    case UserBlockingLists(Int)
-    case NewUserBlockingList
+    case UserBlockingCollectionsHeader
+    case UserBlockingCollections(Int)
+    case NewUserBlockingCollection
     
     case SchedulesHeader
     case Schedules
@@ -56,23 +56,23 @@ struct MainTableViewStructure {
     private var sections = MainTableViewSection.all
     
     // Rows
-    private var defaultBlockingListsRows: [MainTableViewRow] = []
-    private var userBlockingListsRows: [MainTableViewRow] = []
+    private var defaultBlockingCollectionsRows: [MainTableViewRow] = []
+    private var userBlockingCollectionsRows: [MainTableViewRow] = []
     private var schedulesRows: [MainTableViewRow] = []
     private var settingsRows: [MainTableViewRow] = []
     
-    init(defaultListsCount: Int, userListsCount: Int){
+    init(defaultCollectionsCount: Int, userCollectionsCount: Int){
         
-        self.defaultBlockingListsRows = [.DefaultBlockingListsHeader]
-        for i in 0..<defaultListsCount {
-            defaultBlockingListsRows.append(.DefaultBlockingLists(i))
+        self.defaultBlockingCollectionsRows = [.DefaultBlockingCollectionsHeader]
+        for i in 0..<defaultCollectionsCount {
+            defaultBlockingCollectionsRows.append(.DefaultBlockingCollections(i))
         }
         
-        self.userBlockingListsRows = [.UserBlockingListsHeader]
-        for i in 0..<userListsCount {
-            userBlockingListsRows.append(.UserBlockingLists(i))
+        self.userBlockingCollectionsRows = [.UserBlockingCollectionsHeader]
+        for i in 0..<userCollectionsCount {
+            userBlockingCollectionsRows.append(.UserBlockingCollections(i))
         }
-        userBlockingListsRows.append(.NewUserBlockingList)
+        userBlockingCollectionsRows.append(.NewUserBlockingCollection)
         
         if UserDefaults.standard.bool(forKey: DefaultsKey.extrasPurchased) {
             self.schedulesRows = [.SchedulesHeader, .Schedules]
@@ -101,8 +101,8 @@ struct MainTableViewStructure {
     //MARK: - Row Management
     func rows(for section: MainTableViewSection) -> [MainTableViewRow] {
         switch section {
-        case .DefaultBlockingLists: return defaultBlockingListsRows
-        case .UserBlockingLists: return userBlockingListsRows
+        case .DefaultBlockingCollections: return defaultBlockingCollectionsRows
+        case .UserBlockingCollections: return userBlockingCollectionsRows
         case .Schedules: return schedulesRows
         case .Settings: return settingsRows
         }

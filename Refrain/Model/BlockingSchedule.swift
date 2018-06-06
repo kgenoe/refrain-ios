@@ -14,7 +14,7 @@ class BlockingSchedule: NSObject, NSCoding {
     var startTime: Date
     var endTime: Date
     var enabled: Bool
-    var listIds: [String]
+    var collectionIds: [String]
     var createdDate: Date
     var updatedDate: Date
     
@@ -23,7 +23,7 @@ class BlockingSchedule: NSObject, NSCoding {
         self.startTime = startTime
         self.endTime = endTime
         self.enabled = enabled
-        self.listIds = []
+        self.collectionIds = []
         let now = Date()
         self.createdDate = now
         self.updatedDate = now
@@ -34,7 +34,7 @@ class BlockingSchedule: NSObject, NSCoding {
         guard let id = coder.decodeObject(forKey: "uuid") as? String,
             let startTime = coder.decodeObject(forKey: "startTime") as? Date,
             let endTime = coder.decodeObject(forKey: "endTime") as? Date,
-            let listIds = coder.decodeObject(forKey: "listIds") as? [String],
+            let collectionIds = coder.decodeObject(forKey: "collectionIds") as? [String],
             let createdDate = coder.decodeObject(forKey: "createdDate") as? Date,
             let updatedDate = coder.decodeObject(forKey: "updatedDate") as? Date else {
                 return nil
@@ -44,7 +44,7 @@ class BlockingSchedule: NSObject, NSCoding {
         self.startTime = startTime
         self.endTime = endTime
         self.enabled = coder.decodeBool(forKey: "enabled")
-        self.listIds = listIds
+        self.collectionIds = collectionIds
         self.createdDate = createdDate
         self.updatedDate = updatedDate
     }
@@ -55,7 +55,7 @@ class BlockingSchedule: NSObject, NSCoding {
         coder.encode(startTime, forKey: "startTime")
         coder.encode(endTime, forKey: "endTime")
         coder.encode(enabled, forKey: "enabled")
-        coder.encode(listIds, forKey: "listIds")
+        coder.encode(collectionIds, forKey: "collectionIds")
         coder.encode(createdDate, forKey: "createdDate")
         coder.encode(updatedDate, forKey: "updatedDate")
     }

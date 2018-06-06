@@ -1,5 +1,5 @@
 //
-//  DefaultBlockingLists.swift
+//  DefaultBlockingCollections.swift
 //  Refrain
 //
 //  Created by Kyle on 2018-05-15.
@@ -8,43 +8,43 @@
 
 import Foundation
 
-struct DefaultBlockingLists {
+struct DefaultBlockingCollections {
     
     
-    private let haveDefaultListsBeenCreatedKey = "haveDefaultListsBeenCreated"
+    private let haveDefaultCollectionsBeenCreatedKey = "haveDefaultCollectionsBeenCreated"
 
     
     init() { }
     
-    /// Creates default lists and adds them to the blocking list store. If default lists have already been created, this does nothing.
-    func createDefaultLists() {
+    /// Creates default collections and adds them to the blocking collection store. If default collections have already been created, this does nothing.
+    func createDefaultCollections() {
         
-        let haveDefaultListsBeenCreated = UserDefaults.standard.bool(forKey: haveDefaultListsBeenCreatedKey)
-        if !haveDefaultListsBeenCreated {
-            UserDefaults.standard.set(true, forKey: haveDefaultListsBeenCreatedKey)
+        let haveDefaultCollectionsBeenCreated = UserDefaults.standard.bool(forKey: haveDefaultCollectionsBeenCreatedKey)
+        if !haveDefaultCollectionsBeenCreated {
+            UserDefaults.standard.set(true, forKey: haveDefaultCollectionsBeenCreatedKey)
 
             
-            for (listName, filters) in defaultLists {
+            for (collectionName, filters) in defaultCollections {
                 
-                // create list
-                let list = BlockingList(name: listName, enabled: false)
-                list.isDefault = true
+                // create collection
+                let collection = BlockingCollection(name: collectionName, enabled: false)
+                collection.isDefault = true
                 
-                // add rules to list
+                // add rules to collection
                 for filter in filters {
                     let rule = BlockingRule(urlFilter: filter, ruleDescription: "")
-                    list.rules.append(rule)
+                    collection.rules.append(rule)
                 }
                 
-                // save list to list store
-                BlockingListStore.shared.saveList(list)
+                // save collection to collection store
+                BlockingCollectionStore.shared.saveCollection(collection)
             }
         }
     }
 
     
 
-    let defaultLists: [String: [String]] = [
+    let defaultCollections: [String: [String]] = [
         "Social Media" : [
             "facebook.com",
             "twitter.com",

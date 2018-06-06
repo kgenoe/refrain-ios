@@ -56,7 +56,7 @@ class BlockingScheduleViewController: UIViewController {
         // save schedule
         BlockingScheduleStore.shared.save(blockingSchedule)
         
-        // return to blocking list
+        // return to blocking collection
         navigationController?.popViewController(animated: true)
     }
     
@@ -125,12 +125,12 @@ extension BlockingScheduleViewController: UITableViewDataSource {
     }
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return BlockingListStore.shared.lists.count
+        return BlockingCollectionStore.shared.collections.count
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let list = BlockingListStore.shared.lists[indexPath.row]
-        return BlockingScheduleListCell.instantiate(from: tableView, schedule: blockingSchedule, blockingList: list)
+        let collection = BlockingCollectionStore.shared.collections[indexPath.row]
+        return BlockingScheduleCollectionCell.instantiate(from: tableView, schedule: blockingSchedule, blockingCollection: collection)
     }
 }
 

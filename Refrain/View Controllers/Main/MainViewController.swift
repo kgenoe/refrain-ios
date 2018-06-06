@@ -61,10 +61,10 @@ class MainViewController: UIViewController {
     
     
     private func updateTableViewStructure() -> MainTableViewStructure {
-        let lists = BlockingListStore.shared.lists
-        let defaultCount = lists.filter{ $0.isDefault }.count
-        let userCount = lists.filter{ !$0.isDefault }.count
-        return MainTableViewStructure(defaultListsCount: defaultCount, userListsCount: userCount)
+        let collections = BlockingCollectionStore.shared.collections
+        let defaultCount = collections.filter{ $0.isDefault }.count
+        let userCount = collections.filter{ !$0.isDefault }.count
+        return MainTableViewStructure(defaultCollectionsCount: defaultCount, userCollectionsCount: userCount)
     }
     
     
@@ -72,9 +72,9 @@ class MainViewController: UIViewController {
     
     // MARK: - Push child view controllers
     
-    func pushBlockingListView(list: BlockingList) {
-        let blockingListVC = BlockingListViewController.instantiate(blockingList: list)
-        navigationController?.pushViewController(blockingListVC, animated: true)
+    func pushBlockingCollectionView(collection: BlockingCollection) {
+        let blockingCollectionVC = BlockingCollectionViewController.instantiate(blockingCollection: collection)
+        navigationController?.pushViewController(blockingCollectionVC, animated: true)
     }
     
     func pushSchedulesView() {
@@ -89,11 +89,11 @@ class MainViewController: UIViewController {
     
     
     
-    // MARK: - New Blocking List Alert
+    // MARK: - New Blocking Collection Alert
     var alert: UIAlertController?
     
-    private func presentCreateBlockingListAlert() {
-        alert = UIAlertController(title: "New Blocking List", message: "Enter a name for the new collection of blocked websites", preferredStyle: .alert)
+    private func presentCreateBlockingCollectionAlert() {
+        alert = UIAlertController(title: "New Blocking Collection", message: "Enter a name for the new collection of blocked websites", preferredStyle: .alert)
         
         alert?.addTextField(configurationHandler: nil)
         alert?.textFields?[0].addTarget(self, action: #selector(alertTextDidChange), for: .editingChanged)
@@ -103,9 +103,9 @@ class MainViewController: UIViewController {
         alert?.addAction(cancelAction)
         
         let saveAction = UIAlertAction(title: "Save", style: .default, handler: { (action) in
-            let newList = BlockingList(name: self.alert?.textFields?.first?.text ?? "")
-            BlockingListStore.shared.saveList(newList)
-            self.pushBlockingListView(list: newList)
+            let newCollection = BlockingCollection(name: self.alert?.textFields?.first?.text ?? "")
+            BlockingCollectionStore.shared.saveCollection(newCollection)
+            self.pushBlockingCollectionView(collection: newCollection)
         })
         saveAction.isEnabled = false
         saveAction.setValue(UIColor(named: "Orange"), forKey: "titleTextColor")
@@ -141,18 +141,18 @@ extension MainViewController: UITableViewDelegate, UITableViewDataSource {
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         
         switch tableViewStructure.rowType(for: indexPath) {
-        case .DefaultBlockingListsHeader:
-            return HeaderTableViewCell(title: "Default Lists")
-        case .DefaultBlockingLists(let i):
-            let list = BlockingListStore.shared.lists.filter{ $0.isDefault }[i]
-            return BlockingListCell(blockingList: list)
-        case .UserBlockingListsHeader:
-            return HeaderTableViewCell(title: "Custom Lists")
-        case .UserBlockingLists(let i):
-            let list = BlockingListStore.shared.lists.filter{ !$0.isDefault }[i]
-            return BlockingListCell(blockingList: list)
-        case .NewUserBlockingList:
-            let cell = HeaderTableViewCell(title: "New Blocking List")
+        case .DefaultBlockingCollectionsHeader:
+            return HeaderTableViewCell(title: "Default Collections")
+        case .DefaultBlockingCollections(let i):
+            let collection = BlockingCollectionStore.shared.collections.filter{ $0.isDefault }[i]
+            return BlockingCollectionCell(blockingCollection: collection)
+        case .UserBlockingCollectionsHeader:
+            return HeaderTableViewCell(title: "Custom Collections")
+        case .UserBlockingCollections(let i):
+            let collection = BlockingCollectionStore.shared.collections.filter{ !$0.isDefault }[i]
+            return BlockingCollectionCell(blockingCollection: collection)
+        case .NewUserBlockingCollection:
+            let cell = HeaderTableViewCell(title: "New Blocking Collection")
             cell.titleLabel.textAlignment = .center
             cell.titleLabel.textColor = UIColor(named: "Orange")
             return cell
@@ -173,14 +173,14 @@ extension MainViewController: UITableViewDelegate, UITableViewDataSource {
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         switch tableViewStructure.rowType(for: indexPath) {
-        case .DefaultBlockingLists(let i):
-            let list = BlockingListStore.shared.lists.filter{ $0.isDefault }[i]
-            self.pushBlockingListView(list: list)
-        case .UserBlockingLists(let i):
-            let list = BlockingListStore.shared.lists.filter{ !$0.isDefault }[i]
-            self.pushBlockingListView(list: list)
-        case .NewUserBlockingList:
-            self.presentCreateBlockingListAlert()
+        case .DefaultBlockingCollections(let i):
+            let collection = BlockingCollectionStore.shared.collections.filter{ $0.isDefault }[i]
+            self.pushBlockingCollectionView(collection: collection)
+        case .UserBlockingCollections(let i):
+            let collection = BlockingCollectionStore.shared.collections.filter{ !$0.isDefault }[i]
+            self.pushBlockingCollectionView(collection: collection)
+        case .NewUserBlockingCollection:
+            self.presentCreateBlockingCollectionAlert()
         case .Schedules:
             self.pushSchedulesView()
         case .Settings:
@@ -195,30 +195,30 @@ extension MainViewController: UITableViewDelegate, UITableViewDataSource {
     func tableView(_ tableView: UITableView, willSelectRowAt indexPath: IndexPath) -> IndexPath? {
         
         switch tableViewStructure.rowType(for: indexPath) {
-        case .DefaultBlockingLists(_), .UserBlockingLists(_), .NewUserBlockingList, .Schedules, .Settings:
+        case .DefaultBlockingCollections(_), .UserBlockingCollections(_), .NewUserBlockingCollection, .Schedules, .Settings:
             return indexPath
         default:
             return nil
         }
     }
     
-    /// Conditionally enable deletion for user created blocking lists
+    /// Conditionally enable deletion for user created blocking collections
     func tableView(_ tableView: UITableView, canEditRowAt indexPath: IndexPath) -> Bool {
         switch tableViewStructure.rowType(for: indexPath) {
-        case .UserBlockingLists(_): return true
+        case .UserBlockingCollections(_): return true
         default: return false
         }
     }
     
     func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCellEditingStyle, forRowAt indexPath: IndexPath) {
         switch (editingStyle, tableViewStructure.rowType(for: indexPath)) {
-        case (.delete, .UserBlockingLists(let i)):
+        case (.delete, .UserBlockingCollections(let i)):
             
-            // delete the list in the data store
-            let lists = BlockingListStore.shared.lists
-            let userCreatedLists = lists.filter{ $0.isDefault == false }
-            let listToDelete = userCreatedLists[i]
-            BlockingListStore.shared.delete(listToDelete)
+            // delete the collection in the data store
+            let collections = BlockingCollectionStore.shared.collections
+            let userCreatedCollections = collections.filter{ $0.isDefault == false }
+            let collectionToDelete = userCreatedCollections[i]
+            BlockingCollectionStore.shared.delete(collectionToDelete)
             
             // refresh the table view structure
             tableViewStructure = updateTableViewStructure()

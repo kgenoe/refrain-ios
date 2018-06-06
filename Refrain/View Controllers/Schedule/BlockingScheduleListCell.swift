@@ -1,5 +1,5 @@
 //
-//  BlockingScheduleListCell.swift
+//  BlockingScheduleCollectionCell.swift
 //  Refrain
 //
 //  Created by Kyle on 2018-03-23.
@@ -8,23 +8,23 @@
 
 import UIKit
 
-class BlockingScheduleListCell: UITableViewCell {
+class BlockingScheduleCollectionCell: UITableViewCell {
 
     @IBOutlet weak var titleLabel: UILabel!
     
     weak var schedule: BlockingSchedule!
     
-    var blockingList: BlockingList!
+    var blockingCollection: BlockingCollection!
     
-    static func instantiate(from tableView: UITableView, schedule: BlockingSchedule, blockingList: BlockingList) -> BlockingScheduleListCell {
-        let cell = tableView.dequeueReusableCell(withIdentifier: "BlockingScheduleListCell") as! BlockingScheduleListCell
+    static func instantiate(from tableView: UITableView, schedule: BlockingSchedule, blockingCollection: BlockingCollection) -> BlockingScheduleCollectionCell {
+        let cell = tableView.dequeueReusableCell(withIdentifier: "BlockingScheduleCollectionCell") as! BlockingScheduleCollectionCell
         
         cell.schedule = schedule
-        cell.blockingList = blockingList
+        cell.blockingCollection = blockingCollection
         
-        cell.titleLabel.text = blockingList.name
+        cell.titleLabel.text = blockingCollection.name
         
-        let isSelected = schedule.listIds.contains(blockingList.id)
+        let isSelected = schedule.collectionIds.contains(blockingCollection.id)
         cell.accessoryType = isSelected ? .checkmark : .none
         
         let tap = UITapGestureRecognizer(target: cell, action: #selector(cell.tapped))
@@ -37,12 +37,12 @@ class BlockingScheduleListCell: UITableViewCell {
     @objc func tapped() {
         // If unselecting
         if accessoryType == .checkmark {
-            schedule.listIds = schedule.listIds.filter{ $0 != blockingList.id }
+            schedule.collectionIds = schedule.collectionIds.filter{ $0 != blockingCollection.id }
             accessoryType = .none
         }
         // If selecting
-        else if !schedule.listIds.contains(blockingList.id) {
-            schedule.listIds.append(blockingList.id)
+        else if !schedule.collectionIds.contains(blockingCollection.id) {
+            schedule.collectionIds.append(blockingCollection.id)
             accessoryType = .checkmark
         }
     }

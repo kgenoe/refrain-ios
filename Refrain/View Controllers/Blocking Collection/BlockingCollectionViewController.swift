@@ -1,5 +1,5 @@
 //
-//  BlockingListViewController.swift
+//  BlockingCollectionViewController.swift
 //  Refrain
 //
 //  Created by Kyle on 2018-01-23.
@@ -8,16 +8,16 @@
 
 import UIKit
 
-class BlockingListViewController: UIViewController {
+class BlockingCollectionViewController: UIViewController {
 
-    var blockingList: BlockingList!
+    var blockingCollection: BlockingCollection!
     
     @IBOutlet weak var tableView: UITableView!
     
-    /// Instantiate a BlockingListViewController from a BlockingList. If a nil BlockingList is provided, a prompt is displayed to create one to populate this view
-    static func instantiate(blockingList: BlockingList) -> BlockingListViewController {
-        let vc = UIStoryboard(name: "Main", bundle: Bundle.main).instantiateViewController(withIdentifier: "BlockingListViewController") as! BlockingListViewController
-        vc.blockingList = blockingList
+    /// Instantiate a BlockingCollectionViewController from a BlockingCollection. If a nil BlockingCollection is provided, a prompt is displayed to create one to populate this view
+    static func instantiate(blockingCollection: BlockingCollection) -> BlockingCollectionViewController {
+        let vc = UIStoryboard(name: "Main", bundle: Bundle.main).instantiateViewController(withIdentifier: "BlockingCollectionViewController") as! BlockingCollectionViewController
+        vc.blockingCollection = blockingCollection
         return vc
     }
     
@@ -36,13 +36,13 @@ class BlockingListViewController: UIViewController {
         tableView.delegate = self
         tableView.dataSource = self
         
-        // check for updated version of blocking list from store
-        if let updatedBlockingList = BlockingListStore.shared.lists.first(where: { $0.id == blockingList.id }) {
-            blockingList = updatedBlockingList
+        // check for updated version of blocking collection from store
+        if let updatedBlockingCollection = BlockingCollectionStore.shared.collections.first(where: { $0.id == blockingCollection.id }) {
+            blockingCollection = updatedBlockingCollection
         }
         
-        // style the view for the updated blocking list
-        navigationItem.title = blockingList.name
+        // style the view for the updated blocking collection
+        navigationItem.title = blockingCollection.name
         
         // set back button for next view (BlockingRuleView)
         navigationItem.backBarButtonItem = UIBarButtonItem(title: "", style: .plain, target: nil, action: nil)
@@ -56,7 +56,7 @@ class BlockingListViewController: UIViewController {
     override func viewWillDisappear(_ animated: Bool) {
         super.viewWillDisappear(animated)
         
-        BlockingListStore.shared.saveList(blockingList)
+        BlockingCollectionStore.shared.saveCollection(blockingCollection)
     }
     
     override func viewDidLayoutSubviews() {
@@ -77,15 +77,15 @@ class BlockingListViewController: UIViewController {
     }
     
     @IBAction func newBlockingRuleButtonPressed() {
-        guard let list = blockingList else { return }
-        let newRuleVC = BlockingRuleViewController.instantiate(blockingList: list)
+        guard let collection = blockingCollection else { return }
+        let newRuleVC = BlockingRuleViewController.instantiate(blockingCollection: collection)
         navigationController?.pushViewController(newRuleVC, animated: true)
     }
 }
 
 
 
-extension BlockingListViewController: UITableViewDataSource, UITableViewDelegate {
+extension BlockingCollectionViewController: UITableViewDataSource, UITableViewDelegate {
     
     
     //MARK: - UITableViewDelegate
@@ -103,19 +103,19 @@ extension BlockingListViewController: UITableViewDataSource, UITableViewDelegate
     func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCellEditingStyle, forRowAt indexPath: IndexPath) {
         switch editingStyle {
         case .delete:
-            blockingList.rules.remove(at: indexPath.row)
+            blockingCollection.rules.remove(at: indexPath.row)
             tableView.deleteRows(at: [indexPath], with: .fade)
         default: break
         }
     }
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        if indexPath.row < blockingList.rules.count {
-            let rule = blockingList.rules[indexPath.row]
-            let editRuleVC = BlockingRuleViewController.instantiate(blockingList: blockingList, blockingRule: rule)
+        if indexPath.row < blockingCollection.rules.count {
+            let rule = blockingCollection.rules[indexPath.row]
+            let editRuleVC = BlockingRuleViewController.instantiate(blockingCollection: blockingCollection, blockingRule: rule)
             navigationController?.pushViewController(editRuleVC, animated: true)
         } else {
-            BlockingListStore.shared.delete(blockingList)
+            BlockingCollectionStore.shared.delete(blockingCollection)
             closeButtonPressed()
         }
     }
@@ -128,15 +128,15 @@ extension BlockingListViewController: UITableViewDataSource, UITableViewDelegate
     }
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return blockingList.rules.count + 1
+        return blockingCollection.rules.count + 1
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        if indexPath.row < blockingList.rules.count {
-            let rule = blockingList.rules[indexPath.row]
-            return BlockingRuleCell(blockingList: blockingList, blockingRule: rule)
+        if indexPath.row < blockingCollection.rules.count {
+            let rule = blockingCollection.rules[indexPath.row]
+            return BlockingRuleCell(blockingCollection: blockingCollection, blockingRule: rule)
         } else {
-            let cell = HeaderTableViewCell(title: "Delete list")
+            let cell = HeaderTableViewCell(title: "Delete collection")
             cell.titleLabel.textAlignment = .center
             cell.titleLabel.textColor = UIColor(named: "Orange")
             return cell

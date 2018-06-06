@@ -42,7 +42,7 @@ class ContentBlockerManager: NSObject {
             return
         }
         
-        let path = container.appendingPathComponent("blockerList.json")
+        let path = container.appendingPathComponent("blockerCollection.json")
         fileManager.createFile(atPath: path.path, contents: jsonData, attributes: nil)
     }
 }

@@ -42,10 +42,10 @@
             </objects>
             <point key="canvasLocation" x="159" y="519"/>
         </scene>
-        <!--Blocking List View Controller-->
+        <!--Blocking Collection View Controller-->
         <scene sceneID="9Kb-Hr-2l5">
             <objects>
-                <viewController storyboardIdentifier="BlockingListViewController" id="cnb-Up-gyG" customClass="BlockingListViewController" customModule="Refrain" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="BlockingCollectionViewController" id="cnb-Up-gyG" customClass="BlockingCollectionViewController" customModule="Refrain" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="pBd-uk-6Al">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -277,7 +277,7 @@
                                 <rect key="frame" x="0.0" y="232" width="375" height="435"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <prototypes>
-                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" accessoryType="checkmark" indentationWidth="10" reuseIdentifier="BlockingScheduleListCell" id="yaZ-Hx-fD5" customClass="BlockingScheduleListCell" customModule="Refrain" customModuleProvider="target">
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" accessoryType="checkmark" indentationWidth="10" reuseIdentifier="BlockingScheduleCollectionCell" id="yaZ-Hx-fD5" customClass="BlockingScheduleCollectionCell" customModule="Refrain" customModuleProvider="target">
                                         <rect key="frame" x="0.0" y="28" width="375" height="44"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="yaZ-Hx-fD5" id="hXQ-UG-Jrq">
@@ -306,10 +306,9 @@
                                     </tableViewCell>
                                 </prototypes>
                             </tableView>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Lists this schedule applies to" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="uAW-xI-ey3">
-                                <rect key="frame" x="16" y="203" width="249" height="21"/>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Collections this schedule applies to" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="uAW-xI-ey3">
+                                <rect key="frame" x="16" y="203" width="343" height="21"/>
                                 <constraints>
-                                    <constraint firstAttribute="width" constant="249" id="Ewv-Jr-Hry"/>
                                     <constraint firstAttribute="height" constant="21" id="wAu-tS-32A"/>
                                 </constraints>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
@@ -328,6 +327,7 @@
                             <constraint firstItem="HwF-da-8OM" firstAttribute="trailing" secondItem="5XL-BO-cS3" secondAttribute="trailing" id="WOg-Rm-lKe"/>
                             <constraint firstItem="HwF-da-8OM" firstAttribute="leading" secondItem="5XL-BO-cS3" secondAttribute="leading" id="eWx-fA-WJx"/>
                             <constraint firstItem="zkr-Vs-HG1" firstAttribute="top" secondItem="5XL-BO-cS3" secondAttribute="top" constant="40" id="eXS-5z-5EG"/>
+                            <constraint firstItem="5XL-BO-cS3" firstAttribute="trailing" secondItem="uAW-xI-ey3" secondAttribute="trailing" constant="16" id="hpS-c2-FBi"/>
                             <constraint firstItem="uAW-xI-ey3" firstAttribute="leading" secondItem="5XL-BO-cS3" secondAttribute="leading" constant="16" id="kFk-A6-FQk"/>
                             <constraint firstItem="nX4-vY-CNr" firstAttribute="leading" secondItem="5XL-BO-cS3" secondAttribute="leading" constant="16" id="oJX-9U-HLX"/>
                             <constraint firstItem="KF1-lr-bj4" firstAttribute="top" secondItem="5XL-BO-cS3" secondAttribute="top" constant="40" id="ouF-SO-0XO"/>

@@ -1,5 +1,5 @@
 //
-//  BlockingList.swift
+//  BlockingCollection.swift
 //  Refrain
 //
 //  Created by Kyle on 2018-03-23.
@@ -8,7 +8,7 @@
 
 import Foundation
 
-class BlockingList: NSObject, NSCoding {
+class BlockingCollection: NSObject, NSCoding {
     
     var id: String
     var name: String

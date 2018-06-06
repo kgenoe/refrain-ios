@@ -10,12 +10,12 @@ import UIKit
 
 class BlockingRuleCell: SwitchTableViewCell {
     
-    var blockingList: BlockingList!
+    var blockingCollection: BlockingCollection!
 
     var blockingRule: BlockingRule!
     
-    init(blockingList: BlockingList, blockingRule: BlockingRule) {
-        self.blockingList = blockingList
+    init(blockingCollection: BlockingCollection, blockingRule: BlockingRule) {
+        self.blockingCollection = blockingCollection
         self.blockingRule = blockingRule
         
         super.init()
@@ -35,6 +35,6 @@ class BlockingRuleCell: SwitchTableViewCell {
     
     @objc func switchToggled() {
         blockingRule.enabled = enabledSwitch.isOn
-        BlockingListStore.shared.saveRule(blockingRule, to: blockingList)
+        BlockingCollectionStore.shared.saveRule(blockingRule, to: blockingCollection)
     }
 }

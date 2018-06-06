@@ -12,7 +12,7 @@ import UIKit
 
     private let cornerRadius = CGFloat(15.0)
 
-    var title: String = "Blocking List" { didSet{ titleLabel.text = title } }
+    var title: String = "Blocking Collection" { didSet{ titleLabel.text = title } }
 
     var subtitle: String = "Set which sites to block with the option to group similar sites together to make them easier to toggle on and off." { didSet{
         subtitleLabel.text = subtitle

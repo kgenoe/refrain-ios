@@ -19,7 +19,7 @@ class ContentBlockerRequestHandler: NSObject, NSExtensionRequestHandling {
             print("Error reaching Refrain shared container.")
             return
         }
-        let path = container.appendingPathComponent("blockerList.json")
+        let path = container.appendingPathComponent("blockerCollection.json")
 
         let attachment = NSItemProvider(contentsOf: path)!
         let item = NSExtensionItem()

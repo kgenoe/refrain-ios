@@ -19,7 +19,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     
         _ = AppearanceManager()
         
-        DefaultBlockingLists().createDefaultLists()
+        DefaultBlockingCollections().createDefaultCollections()
         
         UserDefaults.standard.set(true, forKey: DefaultsKey.extrasPurchased)
     
@@ -91,13 +91,13 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         }.send()
         
         
-        // Update blockerList.json with current blocking rules        
-        let lists = BlockingListStore.shared.lists
-        let enabledLists = lists.filter{ $0.enabled }
+        // Update blockerCollection.json with current blocking rules        
+        let collections = BlockingCollectionStore.shared.collections
+        let enabledCollections = collections.filter{ $0.enabled }
         
         var enabledRules = [BlockingRule]()
-        for list in enabledLists {
-            enabledRules += list.rules.filter{ $0.enabled }
+        for collection in enabledCollections {
+            enabledRules += collection.rules.filter{ $0.enabled }
         }
         
         let filters = enabledRules.map{ $0.urlFilter }
@@ -109,12 +109,12 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     private func updateContentBlocker() {
         var blockingItems = [[String: Any]]()
         
-        let lists = BlockingListStore.shared.lists
-        let enabledLists = lists.filter{ $0.enabled }
+        let collections = BlockingCollectionStore.shared.collections
+        let enabledCollections = collections.filter{ $0.enabled }
         
-        for list in enabledLists {
+        for collection in enabledCollections {
             
-            let enabledRules = list.rules.filter{ $0.enabled }
+            let enabledRules = collection.rules.filter{ $0.enabled }
             
             for rule in enabledRules {
                 
@@ -141,7 +141,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
             return
         }
         
-        let path = container.appendingPathComponent("blockerList.json")
+        let path = container.appendingPathComponent("blockerCollection.json")
         fileManager.createFile(atPath: path.path, contents: jsonData, attributes: nil)
     }
 }

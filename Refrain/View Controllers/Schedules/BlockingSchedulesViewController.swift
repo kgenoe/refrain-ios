@@ -1,5 +1,5 @@
 //
-//  BlockingSchedulesListViewController.swift
+//  BlockingSchedulesCollectionViewController.swift
 //  Refrain
 //
 //  Created by Kyle Genoe on 2018-02-01.
