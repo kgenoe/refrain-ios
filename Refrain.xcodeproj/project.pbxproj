@@ -15,6 +15,7 @@
 		273BE5372054610C00EF57C2 /* NetworkingConstants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 273BE5362054610C00EF57C2 /* NetworkingConstants.swift */; };
 		27408FEF20C78102004FB25C /* ItemTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 27408FEE20C78102004FB25C /* ItemTableViewCell.swift */; };
 		27408FF120C7810D004FB25C /* ItemTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 27408FF020C7810D004FB25C /* ItemTableViewCell.xib */; };
+		27408FF320C94B45004FB25C /* UIAlertController+backgroundColor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 27408FF220C94B45004FB25C /* UIAlertController+backgroundColor.swift */; };
 		27431B712059E8D2008B4D2B /* CardView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 27431B702059E8D2008B4D2B /* CardView.xib */; };
 		27431B732059E8E0008B4D2B /* CardView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 27431B722059E8E0008B4D2B /* CardView.swift */; };
 		274E8388207C018100BAE7A5 /* InnerShadowLayer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 274E8387207C018100BAE7A5 /* InnerShadowLayer.swift */; };
@@ -53,6 +54,7 @@
 		789207E02023BC160053F351 /* BlockingScheduleViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 789207DF2023BC160053F351 /* BlockingScheduleViewController.swift */; };
 		789C5A8020C815470004F04F /* TableViewStructure.swift in Sources */ = {isa = PBXBuildFile; fileRef = 789C5A7F20C815470004F04F /* TableViewStructure.swift */; };
 		789C5A8220C819C80004F04F /* MainTableViewDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 789C5A8120C819C80004F04F /* MainTableViewDelegate.swift */; };
+		789C5A8920C87C9B0004F04F /* BlockingCollectionTableViewStructure.swift in Sources */ = {isa = PBXBuildFile; fileRef = 789C5A8820C87C9A0004F04F /* BlockingCollectionTableViewStructure.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -91,6 +93,7 @@
 		273BE5362054610C00EF57C2 /* NetworkingConstants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkingConstants.swift; sourceTree = "<group>"; };
 		27408FEE20C78102004FB25C /* ItemTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ItemTableViewCell.swift; sourceTree = "<group>"; };
 		27408FF020C7810D004FB25C /* ItemTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ItemTableViewCell.xib; sourceTree = "<group>"; };
+		27408FF220C94B45004FB25C /* UIAlertController+backgroundColor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIAlertController+backgroundColor.swift"; sourceTree = "<group>"; };
 		27431B702059E8D2008B4D2B /* CardView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = CardView.xib; sourceTree = "<group>"; };
 		27431B722059E8E0008B4D2B /* CardView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CardView.swift; sourceTree = "<group>"; };
 		274E8387207C018100BAE7A5 /* InnerShadowLayer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InnerShadowLayer.swift; sourceTree = "<group>"; };
@@ -131,6 +134,7 @@
 		789207DF2023BC160053F351 /* BlockingScheduleViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BlockingScheduleViewController.swift; sourceTree = "<group>"; };
 		789C5A7F20C815470004F04F /* TableViewStructure.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TableViewStructure.swift; sourceTree = "<group>"; };
 		789C5A8120C819C80004F04F /* MainTableViewDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainTableViewDelegate.swift; sourceTree = "<group>"; };
+		789C5A8820C87C9A0004F04F /* BlockingCollectionTableViewStructure.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BlockingCollectionTableViewStructure.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -296,6 +300,7 @@
 			isa = PBXGroup;
 			children = (
 				27C34F812017DD4F00B129F6 /* BlockingCollectionViewController.swift */,
+				789C5A8820C87C9A0004F04F /* BlockingCollectionTableViewStructure.swift */,
 				27C34F862017E24900B129F6 /* BlockingRuleCell.swift */,
 			);
 			path = "Blocking Collection";
@@ -327,6 +332,7 @@
 				789C5A7F20C815470004F04F /* TableViewStructure.swift */,
 				27CFF59120AFC44A00193AF8 /* Result.swift */,
 				789207DD2023B8FE0053F351 /* DateExtensions.swift */,
+				27408FF220C94B45004FB25C /* UIAlertController+backgroundColor.swift */,
 				27C34F882017E51800B129F6 /* Defaults */,
 			);
 			path = Helpers;
@@ -499,6 +505,7 @@
 			files = (
 				27C34F6E2017D9E700B129F6 /* AppDelegate.swift in Sources */,
 				2705BC32202E48DD00213DF6 /* DefaultsKeys.swift in Sources */,
+				27408FF320C94B45004FB25C /* UIAlertController+backgroundColor.swift in Sources */,
 				2711EC4F20911F6300F32622 /* ContentBlockerManager.swift in Sources */,
 				2781965320537E6500A42E4C /* UpdateAccountRequest.swift in Sources */,
 				274E8388207C018100BAE7A5 /* InnerShadowLayer.swift in Sources */,
@@ -521,6 +528,7 @@
 				27431B732059E8E0008B4D2B /* CardView.swift in Sources */,
 				27CFF59520B4B36F00193AF8 /* SettingsViewController.swift in Sources */,
 				789207E02023BC160053F351 /* BlockingScheduleViewController.swift in Sources */,
+				789C5A8920C87C9B0004F04F /* BlockingCollectionTableViewStructure.swift in Sources */,
 				27CFF58420ABC22700193AF8 /* DefaultBlockingCollections.swift in Sources */,
 				27CFF58720AE45CA00193AF8 /* HeaderTableViewCell.swift in Sources */,
 				789207DE2023B8FE0053F351 /* DateExtensions.swift in Sources */,

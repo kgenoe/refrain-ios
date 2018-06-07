@@ -24,13 +24,14 @@
                 <autoresizingMask key="autoresizingMask"/>
                 <subviews>
                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="dnO-cV-9re">
-                        <rect key="frame" x="16" y="11" width="39" height="22"/>
+                        <rect key="frame" x="16" y="11" width="317" height="22"/>
                         <fontDescription key="fontDescription" name="Avenir-Book" family="Avenir" pointSize="16"/>
                         <color key="textColor" name="DarkGrey"/>
                         <nil key="highlightedColor"/>
                     </label>
                 </subviews>
                 <constraints>
+                    <constraint firstItem="dnO-cV-9re" firstAttribute="trailing" secondItem="czN-Wu-DRP" secondAttribute="trailingMargin" id="NYW-1l-lIN"/>
                     <constraint firstItem="dnO-cV-9re" firstAttribute="centerY" secondItem="czN-Wu-DRP" secondAttribute="centerY" id="acH-qK-dcq"/>
                     <constraint firstItem="dnO-cV-9re" firstAttribute="leading" secondItem="czN-Wu-DRP" secondAttribute="leadingMargin" id="qgj-cR-eRM"/>
                 </constraints>

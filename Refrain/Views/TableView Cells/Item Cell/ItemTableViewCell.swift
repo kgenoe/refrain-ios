@@ -11,8 +11,11 @@ import UIKit
 class ItemTableViewCell: UITableViewCell {
     
     @IBOutlet weak var titleLabel: UILabel!
-
-    init(text: String) {
+    
+    private var contentAccessoryType: AccessoryType = .disclosureIndicator
+    
+    init(text: String, accessoryType: AccessoryType = .disclosureIndicator) {
+        self.contentAccessoryType = accessoryType
         super.init(style: .default, reuseIdentifier: nil)
         self.setupView()
         titleLabel.text = text
@@ -37,16 +40,19 @@ class ItemTableViewCell: UITableViewCell {
     private func viewFromNibForClass() -> UIView {
         let bundle = Bundle(for: type(of: self))
         let nib = UINib(nibName: "ItemTableViewCell", bundle: bundle)
-        let cell = nib.instantiate(withOwner: self, options: nil).first as! UIView
+        let cell = nib.instantiate(withOwner: self, options: nil).first as! UITableViewCell
         return cell
     }
     
     
     private func setupView() {
-        let cell = viewFromNibForClass()
-        cell.frame = bounds
-        cell.autoresizingMask = [.flexibleWidth, .flexibleHeight]
-        addSubview(cell)
+        let view = viewFromNibForClass()
+        view.frame = bounds
+        view.autoresizingMask = [.flexibleWidth, .flexibleHeight]
+        addSubview(view)
+        
+        if let cell = view as? UITableViewCell {
+            cell.accessoryType = contentAccessoryType
+        }
     }
-
 }

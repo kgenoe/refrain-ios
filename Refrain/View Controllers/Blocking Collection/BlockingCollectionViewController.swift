@@ -9,8 +9,10 @@
 import UIKit
 
 class BlockingCollectionViewController: UIViewController {
-
+    
     var blockingCollection: BlockingCollection!
+    
+    var tableViewStructure: BlockingCollectionStructure!
     
     @IBOutlet weak var tableView: UITableView!
     
@@ -33,13 +35,17 @@ class BlockingCollectionViewController: UIViewController {
     
     private func setupView() {
         
-        tableView.delegate = self
-        tableView.dataSource = self
-        
         // check for updated version of blocking collection from store
         if let updatedBlockingCollection = BlockingCollectionStore.shared.collections.first(where: { $0.id == blockingCollection.id }) {
             blockingCollection = updatedBlockingCollection
         }
+        
+        let ruleCount = blockingCollection.rules.count
+        tableViewStructure = BlockingCollectionStructure(ruleCount: ruleCount)
+            
+        tableView.delegate = self
+        tableView.dataSource = self
+        tableView.reloadData()
         
         // style the view for the updated blocking collection
         navigationItem.title = blockingCollection.name
@@ -48,7 +54,6 @@ class BlockingCollectionViewController: UIViewController {
         navigationItem.backBarButtonItem = UIBarButtonItem(title: "", style: .plain, target: nil, action: nil)
         navigationItem.backBarButtonItem?.tintColor = UIColor(named: "White")
         
-        tableView.reloadData()
 
         setBackgroundGradient()
     }
@@ -56,7 +61,10 @@ class BlockingCollectionViewController: UIViewController {
     override func viewWillDisappear(_ animated: Bool) {
         super.viewWillDisappear(animated)
         
-        BlockingCollectionStore.shared.saveCollection(blockingCollection)
+        // Don't save blockingCollection if it's been deleted
+        if BlockingCollectionStore.shared.collections.contains(where: { $0.id == blockingCollection.id} ) {
+            BlockingCollectionStore.shared.saveCollection(blockingCollection)
+        }
     }
     
     override func viewDidLayoutSubviews() {
@@ -81,6 +89,64 @@ class BlockingCollectionViewController: UIViewController {
         let newRuleVC = BlockingRuleViewController.instantiate(blockingCollection: collection)
         navigationController?.pushViewController(newRuleVC, animated: true)
     }
+    
+    
+    
+    // MARK: - Delete Alert
+    private func presentDeleteAlert() {
+        let alert = UIAlertController(title: "Are you sure you want to delete this collection?", message: nil, preferredStyle: .actionSheet)
+        alert.setBackgroundColor(.white)
+        
+        let cancelAction = UIAlertAction(title: "Cancel", style: .cancel, handler: nil)
+        cancelAction.setValue(UIColor(named: "Orange"), forKey: "titleTextColor")
+        alert.addAction(cancelAction)
+        
+        let deleteAction = UIAlertAction(title: "Delete", style: .destructive, handler: { (action) in
+            BlockingCollectionStore.shared.delete(self.blockingCollection)
+            self.closeButtonPressed()
+        })
+        deleteAction.setValue(UIColor.red, forKey: "titleTextColor")
+        alert.addAction(deleteAction)
+        
+        present(alert, animated: true, completion: nil)
+    }
+    
+    
+    // MARK: - Rename Alert
+    var alert: UIAlertController?
+    
+    private func presentRenameAlert() {
+        alert = UIAlertController(title: "Rename Blocking Collection", message: "Enter a new name for this collection of blocked websites", preferredStyle: .alert)
+        
+        alert?.addTextField(configurationHandler: nil)
+        alert?.textFields?[0].addTarget(self, action: #selector(alertTextDidChange), for: .editingChanged)
+        alert?.textFields?[0].text = self.blockingCollection.name
+        
+        let cancelAction = UIAlertAction(title: "Cancel", style: .cancel, handler: nil)
+        cancelAction.setValue(UIColor(named: "Orange"), forKey: "titleTextColor")
+        alert?.addAction(cancelAction)
+        
+        let saveAction = UIAlertAction(title: "Rename", style: .default, handler: { (action) in
+            self.blockingCollection.name = self.alert?.textFields?.first?.text ?? ""
+            self.navigationItem.title = self.blockingCollection.name
+        })
+        saveAction.isEnabled = false
+        saveAction.setValue(UIColor(named: "Orange"), forKey: "titleTextColor")
+        alert?.addAction(saveAction)
+        
+        present(alert!, animated: true, completion: nil)
+    }
+    
+    @objc func alertTextDidChange() {
+        guard let alert = alert else { return }
+        
+        if alert.textFields?[0].text ?? "" == "" {
+            alert.actions[1].isEnabled = false
+        } else {
+            alert.actions[1].isEnabled = true
+        }
+    }
+    
 }
 
 
@@ -101,22 +167,29 @@ extension BlockingCollectionViewController: UITableViewDataSource, UITableViewDe
     }
     
     func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCellEditingStyle, forRowAt indexPath: IndexPath) {
-        switch editingStyle {
-        case .delete:
-            blockingCollection.rules.remove(at: indexPath.row)
+        let rowType = tableViewStructure.rowType(for: indexPath)
+        switch (editingStyle, rowType) {
+        case (.delete, .Rule(let i)):
+            blockingCollection.rules.remove(at: i)
             tableView.deleteRows(at: [indexPath], with: .fade)
         default: break
         }
     }
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        if indexPath.row < blockingCollection.rules.count {
-            let rule = blockingCollection.rules[indexPath.row]
+        switch tableViewStructure.rowType(for: indexPath) {
+        case .EnabledSwitch:
+            break
+        case .Rule(let i):
+            let rule = blockingCollection.rules[i]
             let editRuleVC = BlockingRuleViewController.instantiate(blockingCollection: blockingCollection, blockingRule: rule)
             navigationController?.pushViewController(editRuleVC, animated: true)
-        } else {
-            BlockingCollectionStore.shared.delete(blockingCollection)
-            closeButtonPressed()
+        case .Rename:
+            presentRenameAlert()
+            tableView.deselectRow(at: indexPath, animated: true)
+        case .Delete:
+            presentDeleteAlert()
+            tableView.deselectRow(at: indexPath, animated: true)
         }
     }
     
@@ -124,23 +197,54 @@ extension BlockingCollectionViewController: UITableViewDataSource, UITableViewDe
     
     //MARK: - UITableViewDataSource
     func numberOfSections(in tableView: UITableView) -> Int {
-        return 1
+        return tableViewStructure.sections.count
     }
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return blockingCollection.rules.count + 1
+        return tableViewStructure.rowCount(for: section)
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        if indexPath.row < blockingCollection.rules.count {
-            let rule = blockingCollection.rules[indexPath.row]
+        switch tableViewStructure.rowType(for: indexPath) {
+        case .EnabledSwitch:
+            let cell = SwitchTableViewCell()
+            cell.titleLabel.text = "Enabled"
+            return cell
+        case .Rule(let i):
+            let rule = blockingCollection.rules[i]
             return BlockingRuleCell(blockingCollection: blockingCollection, blockingRule: rule)
-        } else {
-            let cell = HeaderTableViewCell(title: "Delete collection")
+        case .Rename:
+            let cell = ItemTableViewCell(text: "Rename Collection", accessoryType: .none)
             cell.titleLabel.textAlignment = .center
-            cell.titleLabel.textColor = UIColor(named: "Orange")
+            return cell
+        case .Delete:
+            let cell = ItemTableViewCell(text: "Delete Collection", accessoryType: .none)
+            cell.titleLabel.textAlignment = .center
             return cell
         }
     }
+    
+    
+    
+    /// Conditionally disable selection for some table view rows
+    func tableView(_ tableView: UITableView, willSelectRowAt indexPath: IndexPath) -> IndexPath? {
+        switch tableViewStructure.rowType(for: indexPath) {
+        case .Rule(_), .Rename, .Delete:
+            return indexPath
+        default:
+            return nil
+        }
+    }
+    
+    /// Conditionally enable deletion for some table view rows
+    func tableView(_ tableView: UITableView, canEditRowAt indexPath: IndexPath) -> Bool {
+        switch tableViewStructure.rowType(for: indexPath) {
+        case .Rule(_): return true
+        default: return false
+        }
+    }
+    
+    
+    
     
 }
