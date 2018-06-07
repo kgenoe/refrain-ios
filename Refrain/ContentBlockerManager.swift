@@ -26,7 +26,6 @@ class ContentBlockerManager: NSObject {
             blockingItems.append(item)
         }
         
-        print(rules)
         
         guard let jsonData = try? JSONSerialization.data(withJSONObject: blockingItems, options: []) else {
             print("Error serializing blocking items into json")

@@ -86,7 +86,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
             switch result {
             case .Success(_): break
             case .Failure(let error):
-                print(error)
+                print("Error updating account: \(error)")
             }
         }.send()
         
@@ -102,47 +102,6 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         
         let filters = enabledRules.map{ $0.urlFilter }
         ContentBlockerManager.shared.update(filters)
-        
-    }
-    
-    
-    private func updateContentBlocker() {
-        var blockingItems = [[String: Any]]()
-        
-        let collections = BlockingCollectionStore.shared.collections
-        let enabledCollections = collections.filter{ $0.enabled }
-        
-        for collection in enabledCollections {
-            
-            let enabledRules = collection.rules.filter{ $0.enabled }
-            
-            for rule in enabledRules {
-                
-                let urlFilter = rule.urlFilter
-                
-                let trigger = ["url-filter": urlFilter]
-                let action = ["type" : "block"]
-                let item = ["trigger": trigger, "action": action]
-                blockingItems.append(item)
-            }
-        }
-        
-        guard let jsonData = try? JSONSerialization.data(withJSONObject: blockingItems, options: []) else {
-            print("Error serializing blocking items into json")
-            return
-        }
-        
-        
-        // open file
-        let fileManager = FileManager.default
-        let appGroup = "group.ca.genoe.Refrain"
-        guard let container = fileManager.containerURL(forSecurityApplicationGroupIdentifier: appGroup) else {
-            print("Error reaching Refrain shared container.")
-            return
-        }
-        
-        let path = container.appendingPathComponent("blockerCollection.json")
-        fileManager.createFile(atPath: path.path, contents: jsonData, attributes: nil)
     }
 }
 
