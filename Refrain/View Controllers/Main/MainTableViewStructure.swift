@@ -10,8 +10,8 @@ import Foundation
 
 enum MainTableViewSection: Int, TableViewSection {
     
-    case DefaultBlockingCollections
     case UserBlockingCollections
+    case DefaultBlockingCollections
     case Schedules
     case Settings
     
