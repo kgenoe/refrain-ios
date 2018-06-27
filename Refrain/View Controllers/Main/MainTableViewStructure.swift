@@ -36,12 +36,11 @@ enum MainTableViewSection: Int, TableViewSection {
 
 enum MainTableViewRow: TableViewRow {
     
-    case DefaultBlockingCollectionsHeader
-    case DefaultBlockingCollections(Int)
-    
-    case UserBlockingCollectionsHeader
     case UserBlockingCollections(Int)
     case NewUserBlockingCollection
+    
+    case DefaultBlockingCollectionsHeader
+    case DefaultBlockingCollections(Int)
     
     case Schedules
     
@@ -68,7 +67,7 @@ struct MainTableViewStructure: TableViewStructure {
             defaultBlockingCollectionsRows.append(.DefaultBlockingCollections(i))
         }
         
-        self.userBlockingCollectionsRows = [.UserBlockingCollectionsHeader]
+        self.userBlockingCollectionsRows = []
         for i in 0..<userCollectionsCount {
             userBlockingCollectionsRows.append(.UserBlockingCollections(i))
         }

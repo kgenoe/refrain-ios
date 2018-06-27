@@ -57,13 +57,6 @@ extension MainTableViewDelegate: UITableViewDataSource {
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         
         switch structure.rowType(for: indexPath) {
-        case .DefaultBlockingCollectionsHeader:
-            return HeaderTableViewCell(title: "Default Collections")
-        case .DefaultBlockingCollections(let i):
-            let collection = BlockingCollectionStore.shared.collections.filter{ $0.isDefault }[i]
-            return BlockingCollectionCell(blockingCollection: collection)
-        case .UserBlockingCollectionsHeader:
-            return HeaderTableViewCell(title: "Custom Collections")
         case .UserBlockingCollections(let i):
             let collection = BlockingCollectionStore.shared.collections.filter{ !$0.isDefault }[i]
             return BlockingCollectionCell(blockingCollection: collection)
@@ -72,6 +65,11 @@ extension MainTableViewDelegate: UITableViewDataSource {
             cell.titleLabel.textAlignment = .center
             cell.titleLabel.textColor = UIColor(named: "Orange")
             return cell
+        case .DefaultBlockingCollectionsHeader:
+            return HeaderTableViewCell(title: "Default Collections")
+        case .DefaultBlockingCollections(let i):
+            let collection = BlockingCollectionStore.shared.collections.filter{ $0.isDefault }[i]
+            return BlockingCollectionCell(blockingCollection: collection)
         case .Schedules:
             return ItemTableViewCell(text: "Schedules")
         case .Settings:
