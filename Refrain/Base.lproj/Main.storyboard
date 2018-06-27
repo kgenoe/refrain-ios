@@ -1,11 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14109" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="Njd-yJ-kOX">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14269.12" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="Njd-yJ-kOX">
     <device id="retina4_7" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14088"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14252.5"/>
         <capability name="Named colors" minToolsVersion="9.0"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
@@ -214,7 +214,7 @@
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="NFw-LG-ETg"/>
                     </view>
-                    <navigationItem key="navigationItem" title="Blocking Schedules" id="240-ec-lhU">
+                    <navigationItem key="navigationItem" title="Blocking Schedules" largeTitleDisplayMode="never" id="240-ec-lhU">
                         <barButtonItem key="rightBarButtonItem" systemItem="add" id="mCj-bF-339">
                             <color key="tintColor" name="White"/>
                             <connections>
@@ -434,7 +434,7 @@
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="y7I-1X-0SA"/>
                     </view>
-                    <navigationItem key="navigationItem" id="KG3-f3-DUO"/>
+                    <navigationItem key="navigationItem" largeTitleDisplayMode="never" id="KG3-f3-DUO"/>
                     <simulatedNavigationBarMetrics key="simulatedTopBarMetrics" prompted="NO"/>
                     <connections>
                         <outlet property="tableView" destination="tj7-Ss-4s3" id="IVP-po-bf3"/>
