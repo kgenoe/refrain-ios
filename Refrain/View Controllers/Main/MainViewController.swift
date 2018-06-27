@@ -12,6 +12,7 @@ class MainViewController: UIViewController {
     
     private var tableViewDelegate: MainTableViewDelegate!
     
+    
     @IBOutlet private weak var tableView: UITableView!
 
     override func viewWillAppear(_ animated: Bool) {

@@ -20,7 +20,7 @@ class BlockingCollectionStore: NSObject {
     private override init() {
         let collectionStoreHasBeenCreated = UserDefaults.standard.bool(forKey: hasCollectionStoreBeenCreatedKey)
         if !collectionStoreHasBeenCreated {
-            let initalBlockingCollection = BlockingCollection(name: "My Collection")
+            let initalBlockingCollection = BlockingCollection(name: "My Blocked Websites")
             let data = NSKeyedArchiver.archivedData(withRootObject: [initalBlockingCollection])
             UserDefaults.standard.set(data, forKey: collectionStoreKey)
             UserDefaults.standard.set(true, forKey: hasCollectionStoreBeenCreatedKey)
