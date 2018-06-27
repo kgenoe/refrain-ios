@@ -63,9 +63,7 @@ extension MainTableViewDelegate: UITableViewDataSource {
             let collection = BlockingCollectionStore.shared.collections.filter{ !$0.isDefault }[i]
             return BlockingCollectionCell(blockingCollection: collection)
         case .NewUserBlockingCollection:
-            let cell = HeaderTableViewCell(title: "New Blocking Collection")
-            cell.titleLabel.textAlignment = .center
-            cell.titleLabel.textColor = UIColor(named: "Orange")
+            let cell = ItemTableViewCell(text: "New Collection", accessoryType: .none)
             return cell
         case .DefaultBlockingCollectionsHeader:
             return HeaderTableViewCell(title: "Default Collections")

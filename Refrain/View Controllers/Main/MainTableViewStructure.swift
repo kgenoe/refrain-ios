@@ -74,7 +74,7 @@ struct MainTableViewStructure: TableViewStructure {
         }
         userBlockingCollectionsRows.append(.NewUserBlockingCollection)
         
-        self.defaultBlockingCollectionsRows = [.DefaultBlockingCollectionsHeader]
+        self.defaultBlockingCollectionsRows = [.Blank, .DefaultBlockingCollectionsHeader]
         for i in 0..<defaultCollectionsCount {
             defaultBlockingCollectionsRows.append(.DefaultBlockingCollections(i))
         }
