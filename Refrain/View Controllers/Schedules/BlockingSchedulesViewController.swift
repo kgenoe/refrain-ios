@@ -28,14 +28,16 @@ class BlockingSchedulesViewController: UIViewController {
             let notifSplashVC = NotificationsSplashViewController.instantiate()
             present(notifSplashVC, animated: true, completion: nil)
         }
+        
+        // set back button for next view (BlockingScheduleView)
+        navigationItem.backBarButtonItem = UIBarButtonItem(title: "", style: .plain, target: nil, action: nil)
+        navigationItem.backBarButtonItem?.tintColor = UIColor(named: "White")
     }
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(true)
         
         navigationItem.title = "Blocking Schedules"
-        
-        navigationItem.backBarButtonItem = UIBarButtonItem(title: "Back", style: .plain, target: nil, action: nil)
         
         tableView.reloadSections(IndexSet(integer: 0), with: .fade)
         
