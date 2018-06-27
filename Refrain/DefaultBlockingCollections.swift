@@ -42,6 +42,26 @@ struct DefaultBlockingCollections {
         }
     }
 
+    func restoreDefaultCollectionToDefault(collection: BlockingCollection) {
+        
+        // ensure that the provided collection is a default collection
+        guard collection.isDefault == true else { return }
+        
+        // ensure that the provided colleciton exists in the default collections
+        guard let filters = defaultCollections[collection.name] else { return }
+        
+        // reset the collection's rules
+        collection.rules = []
+        
+        // add rules to collection
+        for filter in filters {
+            let rule = BlockingRule(urlFilter: filter, ruleDescription: "")
+            collection.rules.append(rule)
+        }
+        
+        // save collection to collection store
+        BlockingCollectionStore.shared.saveCollection(collection)
+    }
     
 
     let defaultCollections: [String: [String]] = [

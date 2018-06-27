@@ -41,7 +41,7 @@ class BlockingCollectionViewController: UIViewController {
         }
         
         let ruleCount = blockingCollection.rules.count
-        tableViewStructure = BlockingCollectionStructure(ruleCount: ruleCount)
+        tableViewStructure = BlockingCollectionStructure(ruleCount: ruleCount, isDefaultCollection: blockingCollection.isDefault)
             
         tableView.delegate = self
         tableView.dataSource = self
@@ -112,6 +112,26 @@ class BlockingCollectionViewController: UIViewController {
     }
     
     
+    //MARK: - Reset To Default Alert
+    private func presentResetToDefaultAlert() {
+        let alert = UIAlertController(title: "Reset this collection?", message: "Any changes that have been made to this collection will be lost as a result.", preferredStyle: .actionSheet)
+        alert.setBackgroundColor(.white)
+        
+        let cancelAction = UIAlertAction(title: "Cancel", style: .cancel, handler: nil)
+        cancelAction.setValue(UIColor(named: "Orange"), forKey: "titleTextColor")
+        alert.addAction(cancelAction)
+        
+        let deleteAction = UIAlertAction(title: "Reset", style: .destructive, handler: { (action) in
+            DefaultBlockingCollections().restoreDefaultCollectionToDefault(collection: self.blockingCollection)
+            self.setupView()
+        })
+        deleteAction.setValue(UIColor.red, forKey: "titleTextColor")
+        alert.addAction(deleteAction)
+        
+        present(alert, animated: true, completion: nil)
+    }
+    
+    
     // MARK: - Rename Alert
     var alert: UIAlertController?
     
@@ -166,13 +186,42 @@ extension BlockingCollectionViewController: UITableViewDataSource, UITableViewDe
         return view
     }
     
+    
+    /// Conditionally enable deletion for some table view rows
+    func tableView(_ tableView: UITableView, canEditRowAt indexPath: IndexPath) -> Bool {
+        switch tableViewStructure.rowType(for: indexPath) {
+        case .Rule(_): return true
+        default: return false
+        }
+    }
+    
     func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCellEditingStyle, forRowAt indexPath: IndexPath) {
         let rowType = tableViewStructure.rowType(for: indexPath)
         switch (editingStyle, rowType) {
         case (.delete, .Rule(let i)):
+            
+            // delete the rule in the store
             blockingCollection.rules.remove(at: i)
-            tableView.deleteRows(at: [indexPath], with: .fade)
+            BlockingCollectionStore.shared.saveCollection(blockingCollection)
+            
+            // refresh the table view structure
+            tableViewStructure.updateStructureFor(ruleCount: blockingCollection.rules.count)
+            
+            // delete the table view cell
+            tableView.deleteRows(at: [indexPath], with: .automatic)
         default: break
+        }
+    }
+    
+    
+    
+    /// Conditionally disable selection for some table view rows
+    func tableView(_ tableView: UITableView, willSelectRowAt indexPath: IndexPath) -> IndexPath? {
+        switch tableViewStructure.rowType(for: indexPath) {
+        case .Rule(_), .Rename, .Delete, .ResetToDefaults:
+            return indexPath
+        default:
+            return nil
         }
     }
     
@@ -189,6 +238,9 @@ extension BlockingCollectionViewController: UITableViewDataSource, UITableViewDe
             tableView.deselectRow(at: indexPath, animated: true)
         case .Delete:
             presentDeleteAlert()
+            tableView.deselectRow(at: indexPath, animated: true)
+        case .ResetToDefaults:
+            presentResetToDefaultAlert()
             tableView.deselectRow(at: indexPath, animated: true)
         }
     }
@@ -208,7 +260,7 @@ extension BlockingCollectionViewController: UITableViewDataSource, UITableViewDe
         switch tableViewStructure.rowType(for: indexPath) {
         case .EnabledSwitch:
             let cell = SwitchTableViewCell()
-            cell.titleLabel.text = "Enabled"
+            cell.titleLabel.text = "Enable \(blockingCollection.name)"
             return cell
         case .Rule(let i):
             let rule = blockingCollection.rules[i]
@@ -221,30 +273,10 @@ extension BlockingCollectionViewController: UITableViewDataSource, UITableViewDe
             let cell = ItemTableViewCell(text: "Delete Collection", accessoryType: .none)
             cell.titleLabel.textAlignment = .center
             return cell
+        case .ResetToDefaults:
+            let cell = ItemTableViewCell(text: "Reset To Default", accessoryType: .none)
+            cell.titleLabel.textAlignment = .center
+            return cell
         }
     }
-    
-    
-    
-    /// Conditionally disable selection for some table view rows
-    func tableView(_ tableView: UITableView, willSelectRowAt indexPath: IndexPath) -> IndexPath? {
-        switch tableViewStructure.rowType(for: indexPath) {
-        case .Rule(_), .Rename, .Delete:
-            return indexPath
-        default:
-            return nil
-        }
-    }
-    
-    /// Conditionally enable deletion for some table view rows
-    func tableView(_ tableView: UITableView, canEditRowAt indexPath: IndexPath) -> Bool {
-        switch tableViewStructure.rowType(for: indexPath) {
-        case .Rule(_): return true
-        default: return false
-        }
-    }
-    
-    
-    
-    
 }

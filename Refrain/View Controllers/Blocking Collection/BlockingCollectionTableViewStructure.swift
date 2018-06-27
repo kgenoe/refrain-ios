@@ -15,6 +15,7 @@ enum BlockingCollectionSection: Int, TableViewSection {
     case Rules
     case Rename
     case Delete
+    case ResetToDefaults
     
     /// Number of potentially available sections
     static var count: Int = {
@@ -39,9 +40,12 @@ enum BlockingCollectionRow: TableViewRow {
     case Rule(Int)
     case Rename
     case Delete
+    case ResetToDefaults
 }
 
 struct BlockingCollectionStructure: TableViewStructure {
+    
+    private var isDefaultCollection: Bool
     
     var sections = BlockingCollectionSection.all
     
@@ -53,11 +57,13 @@ struct BlockingCollectionStructure: TableViewStructure {
         case .Rules: return ruleRows
         case .Rename: return [.Rename]
         case .Delete: return [.Delete]
+        case .ResetToDefaults: return [.ResetToDefaults]
         }
     }
 
     
-    init(ruleCount: Int) {
+    init(ruleCount: Int, isDefaultCollection: Bool) {
+        self.isDefaultCollection = isDefaultCollection
         self.updateStructureFor(ruleCount: ruleCount)
     }
     
@@ -72,6 +78,13 @@ struct BlockingCollectionStructure: TableViewStructure {
         ruleRows = []
         for i in 0..<ruleCount {
             ruleRows.append(.Rule(i))
+        }
+        
+        if isDefaultCollection {
+            sections = sections.filter{ $0 != .Rename }
+            sections = sections.filter{ $0 != .Delete }
+        } else {
+            sections = sections.filter{ $0 != .ResetToDefaults }
         }
     }
 }
