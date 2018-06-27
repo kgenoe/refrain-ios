@@ -10,6 +10,7 @@ import Foundation
 
 enum MainTableViewSection: Int, TableViewSection {
     
+    case Subtitle
     case UserBlockingCollections
     case DefaultBlockingCollections
     case Schedules
@@ -36,6 +37,8 @@ enum MainTableViewSection: Int, TableViewSection {
 
 enum MainTableViewRow: TableViewRow {
     
+    case Blank
+    
     case UserBlockingCollections(Int)
     case NewUserBlockingCollection
     
@@ -54,24 +57,27 @@ struct MainTableViewStructure: TableViewStructure {
     var sections = MainTableViewSection.all
     
     // Rows
-    private var defaultBlockingCollectionsRows: [MainTableViewRow] = []
+    private var subtitleRows: [MainTableViewRow] = []
     private var userBlockingCollectionsRows: [MainTableViewRow] = []
+    private var defaultBlockingCollectionsRows: [MainTableViewRow] = []
     private var schedulesRows: [MainTableViewRow] = []
     private var settingsRows: [MainTableViewRow] = []
     
     
     init(defaultCollectionsCount: Int, userCollectionsCount: Int){
         
-        self.defaultBlockingCollectionsRows = [.DefaultBlockingCollectionsHeader]
-        for i in 0..<defaultCollectionsCount {
-            defaultBlockingCollectionsRows.append(.DefaultBlockingCollections(i))
-        }
+        subtitleRows = [.Blank]
         
         self.userBlockingCollectionsRows = []
         for i in 0..<userCollectionsCount {
             userBlockingCollectionsRows.append(.UserBlockingCollections(i))
         }
         userBlockingCollectionsRows.append(.NewUserBlockingCollection)
+        
+        self.defaultBlockingCollectionsRows = [.DefaultBlockingCollectionsHeader]
+        for i in 0..<defaultCollectionsCount {
+            defaultBlockingCollectionsRows.append(.DefaultBlockingCollections(i))
+        }
         
         if UserDefaults.standard.bool(forKey: DefaultsKey.extrasPurchased) {
             self.schedulesRows = [.Schedules]
@@ -88,12 +94,13 @@ struct MainTableViewStructure: TableViewStructure {
     }
     
     
-    
+  
     //MARK: - Row Management
     func rows(for section: MainTableViewSection) -> [MainTableViewRow] {
         switch section {
-        case .DefaultBlockingCollections: return defaultBlockingCollectionsRows
+        case .Subtitle: return subtitleRows
         case .UserBlockingCollections: return userBlockingCollectionsRows
+        case .DefaultBlockingCollections: return defaultBlockingCollectionsRows
         case .Schedules: return schedulesRows
         case .Settings: return settingsRows
         }

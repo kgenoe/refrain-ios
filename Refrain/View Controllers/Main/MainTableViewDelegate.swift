@@ -57,6 +57,8 @@ extension MainTableViewDelegate: UITableViewDataSource {
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         
         switch structure.rowType(for: indexPath) {
+        case .Blank:
+            return HeaderTableViewCell(title: "")
         case .UserBlockingCollections(let i):
             let collection = BlockingCollectionStore.shared.collections.filter{ !$0.isDefault }[i]
             return BlockingCollectionCell(blockingCollection: collection)
