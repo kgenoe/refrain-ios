@@ -15,24 +15,19 @@ class BlockingSchedueCell: SwitchTableViewCell {
     init(blockingSchedule: BlockingSchedule) {
         self.blockingSchedule = blockingSchedule
         
-        super.init()
-        enabledSwitch.addTarget(self, action: #selector(switchToggled), for: .valueChanged)
-        setInitialState()
+        let title = "\(blockingSchedule.startTime.timeString()) - \(blockingSchedule.endTime.timeString())"
+        super.init(text: title, accessoryType: .none)
+        
+        accessorySwitch.isOn = blockingSchedule.enabled
+        accessorySwitch.addTarget(self, action: #selector(switchToggled), for: .valueChanged)
     }
     
     required init?(coder aDecoder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
     }
     
-    
-    private func setInitialState()
-    {
-        titleLabel.text = "\(blockingSchedule.startTime.timeString()) - \(blockingSchedule.endTime.timeString())"
-        enabledSwitch.isOn = blockingSchedule.enabled
-    }
-    
     @objc func switchToggled() {
-        blockingSchedule.enabled = enabledSwitch.isOn
+        blockingSchedule.enabled = accessorySwitch.isOn
         BlockingScheduleStore.shared.save(blockingSchedule)
     }
 

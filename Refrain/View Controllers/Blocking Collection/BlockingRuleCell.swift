@@ -18,24 +18,19 @@ class BlockingRuleCell: SwitchTableViewCell {
         self.blockingCollection = blockingCollection
         self.blockingRule = blockingRule
         
-        super.init()
-        enabledSwitch.addTarget(self, action: #selector(switchToggled), for: .valueChanged)
-        setInitialState(for: blockingRule, collection: blockingCollection)
+        super.init(text: blockingRule.urlFilter, accessoryType: .none)
+        
+        accessorySwitch.isOn = blockingRule.enabled
+        accessorySwitch.isEnabled = blockingCollection.enabled
+        accessorySwitch.addTarget(self, action: #selector(switchToggled), for: .valueChanged)
     }
     
     required init?(coder aDecoder: NSCoder) {
-        fatalError("init(coder:) has not been implemented")
-    }
-    
-    
-    private func setInitialState(for rule: BlockingRule, collection: BlockingCollection) {
-        titleLabel.text = rule.urlFilter
-        enabledSwitch.isOn = rule.enabled
-        enabledSwitch.isEnabled = collection.enabled
+        super.init(coder: aDecoder)
     }
     
     @objc func switchToggled() {
-        blockingRule.enabled = enabledSwitch.isOn
+        blockingRule.enabled = accessorySwitch.isOn
         BlockingCollectionStore.shared.saveRule(blockingRule, to: blockingCollection)
     }
 }

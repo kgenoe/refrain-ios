@@ -41,6 +41,13 @@ extension MainTableViewDelegate: UITableViewDelegate {
         default: return 0
         }
     }
+    
+    
+    
+    //MARK: - Row Height
+    func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
+        return UITableViewAutomaticDimension
+    }
 }
 
 

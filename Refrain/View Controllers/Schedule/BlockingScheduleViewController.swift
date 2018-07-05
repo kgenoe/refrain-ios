@@ -151,6 +151,12 @@ class BlockingScheduleViewController: UIViewController {
 
 
 //MARK: - UITableView
+extension BlockingScheduleViewController: UITableViewDelegate {
+    func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
+        return UITableViewAutomaticDimension
+    }
+}
+
 extension BlockingScheduleViewController: UITableViewDataSource {
     
     func numberOfSections(in tableView: UITableView) -> Int {

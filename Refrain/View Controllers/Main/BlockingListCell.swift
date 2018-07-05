@@ -16,23 +16,19 @@ class BlockingCollectionCell: SwitchTableViewCell {
     init(blockingCollection: BlockingCollection) {
         self.blockingCollection = blockingCollection
         
-        super.init()
-        enabledSwitch.addTarget(self, action: #selector(switchToggled), for: .valueChanged)
-        setInitialState(for: blockingCollection)
+        super.init(text: blockingCollection.name, accessoryType: .none)
+        
+        accessorySwitch.isOn = blockingCollection.enabled
+        accessorySwitch.addTarget(self, action: #selector(switchToggled), for: .valueChanged)
     }
     
     required init?(coder aDecoder: NSCoder) {
-        fatalError("init(coder:) has not been implemented")
+        super.init(coder: aDecoder)
     }
     
-    
-    private func setInitialState(for collection: BlockingCollection) {
-        titleLabel.text = collection.name
-        enabledSwitch.isOn = collection.enabled
-    }
     
     @objc func switchToggled() {
-        blockingCollection.enabled = enabledSwitch.isOn
+        blockingCollection.enabled = accessorySwitch.isOn
         BlockingCollectionStore.shared.saveCollection(blockingCollection)
     }
 

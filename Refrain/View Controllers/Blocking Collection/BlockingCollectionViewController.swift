@@ -259,15 +259,15 @@ extension BlockingCollectionViewController: UITableViewDataSource, UITableViewDe
             return BlockingRuleCell(blockingCollection: blockingCollection, blockingRule: rule)
         case .Rename:
             let cell = ItemTableViewCell(text: "Rename Collection", accessoryType: .none)
-            cell.titleLabel.textAlignment = .center
+            cell.textLabel?.textAlignment = .center
             return cell
         case .Delete:
             let cell = ItemTableViewCell(text: "Delete Collection", accessoryType: .none)
-            cell.titleLabel.textAlignment = .center
+            cell.textLabel?.textAlignment = .center
             return cell
         case .ResetToDefaults:
             let cell = ItemTableViewCell(text: "Reset To Default", accessoryType: .none)
-            cell.titleLabel.textAlignment = .center
+            cell.textLabel?.textAlignment = .center
             return cell
         }
     }

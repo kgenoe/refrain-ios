@@ -93,6 +93,10 @@ extension BlockingSchedulesViewController: UITableViewDataSource, UITableViewDel
         navigationController?.pushViewController(editScheduleVC, animated: true)
     }
     
+    func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
+        return UITableViewAutomaticDimension
+    }
+    
     
     //MARK: - UITableViewDataSource
     func numberOfSections(in tableView: UITableView) -> Int {
