@@ -67,6 +67,7 @@ class BlockingScheduleViewController: UIViewController {
         let collectionCount = BlockingCollectionStore.shared.collections.count
         tableViewStructure = BlockingScheduleStructure(collectionCount: collectionCount)
         tableView.dataSource = self
+        tableView.delegate = self
         tableView.tableFooterView = UIView()
 
         let saveButton = UIBarButtonItem(title: "Save", style: .done, target: self, action: #selector(saveButtonPressed))
@@ -154,6 +155,17 @@ class BlockingScheduleViewController: UIViewController {
 extension BlockingScheduleViewController: UITableViewDelegate {
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
         return UITableViewAutomaticDimension
+    }
+    
+    // MARK: - Section Headers
+    func tableView(_ tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {
+        let view = UIView()
+        view.backgroundColor = .clear
+        return view
+    }
+    
+    func tableView(_ tableView: UITableView, heightForHeaderInSection section: Int) -> CGFloat {
+        return 20
     }
 }
 
