@@ -93,6 +93,9 @@ extension MainTableViewDelegate: UITableViewDataSource {
             let collection = BlockingCollectionStore.shared.collections.filter{ !$0.isDefault }[i]
             collectionSelectedHandler?(collection)
         case .NewUserBlockingCollection:
+            tableView.indexPathsForSelectedRows?.forEach {
+                tableView.deselectRow(at: $0, animated: true)
+            }
             newCollectionSelectedHandler?()
         case .Schedules:
             schedulesSelectedHandler?()
