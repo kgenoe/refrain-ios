@@ -11,7 +11,6 @@ import Foundation
 
 enum BlockingCollectionSection: Int, TableViewSection {
     
-    case Enabled
     case Rules
     case Rename
     case Delete
@@ -36,7 +35,6 @@ enum BlockingCollectionSection: Int, TableViewSection {
 }
 
 enum BlockingCollectionRow: TableViewRow {
-    case EnabledSwitch
     case Rule(Int)
     case Rename
     case Delete
@@ -53,7 +51,6 @@ struct BlockingCollectionStructure: TableViewStructure {
     
     func rows(for section: BlockingCollectionSection) -> [BlockingCollectionRow] {
         switch section {
-        case .Enabled: return [.EnabledSwitch]
         case .Rules: return ruleRows
         case .Rename: return [.Rename]
         case .Delete: return [.Delete]

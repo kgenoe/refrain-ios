@@ -20,7 +20,7 @@ class BlockingRuleCell: SwitchTableViewCell {
         
         super.init()
         enabledSwitch.addTarget(self, action: #selector(switchToggled), for: .valueChanged)
-        setInitialState(for: blockingRule)
+        setInitialState(for: blockingRule, collection: blockingCollection)
     }
     
     required init?(coder aDecoder: NSCoder) {
@@ -28,9 +28,10 @@ class BlockingRuleCell: SwitchTableViewCell {
     }
     
     
-    private func setInitialState(for rule: BlockingRule) {
+    private func setInitialState(for rule: BlockingRule, collection: BlockingCollection) {
         titleLabel.text = rule.urlFilter
         enabledSwitch.isOn = rule.enabled
+        enabledSwitch.isEnabled = collection.enabled
     }
     
     @objc func switchToggled() {

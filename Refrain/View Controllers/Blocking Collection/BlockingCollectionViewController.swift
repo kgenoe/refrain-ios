@@ -220,15 +220,11 @@ extension BlockingCollectionViewController: UITableViewDataSource, UITableViewDe
         switch tableViewStructure.rowType(for: indexPath) {
         case .Rule(_), .Rename, .Delete, .ResetToDefaults:
             return indexPath
-        default:
-            return nil
         }
     }
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         switch tableViewStructure.rowType(for: indexPath) {
-        case .EnabledSwitch:
-            break
         case .Rule(let i):
             let rule = blockingCollection.rules[i]
             let editRuleVC = BlockingRuleViewController.instantiate(blockingCollection: blockingCollection, blockingRule: rule)
@@ -258,10 +254,6 @@ extension BlockingCollectionViewController: UITableViewDataSource, UITableViewDe
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         switch tableViewStructure.rowType(for: indexPath) {
-        case .EnabledSwitch:
-            let cell = SwitchTableViewCell()
-            cell.titleLabel.text = "Enable \(blockingCollection.name)"
-            return cell
         case .Rule(let i):
             let rule = blockingCollection.rules[i]
             return BlockingRuleCell(blockingCollection: blockingCollection, blockingRule: rule)
