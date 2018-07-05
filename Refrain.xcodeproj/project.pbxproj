@@ -29,6 +29,7 @@
 		279FE4FA20659453007B7F17 /* BlockingCollection.swift in Sources */ = {isa = PBXBuildFile; fileRef = 279FE4F920659453007B7F17 /* BlockingCollection.swift */; };
 		279FE4FC20659686007B7F17 /* BlockingCollectionStore.swift in Sources */ = {isa = PBXBuildFile; fileRef = 279FE4FB20659686007B7F17 /* BlockingCollectionStore.swift */; };
 		279FE4FE2065CABF007B7F17 /* BlockingScheduleListCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 279FE4FD2065CABF007B7F17 /* BlockingScheduleListCell.swift */; };
+		27A8FD1820E454B5001F187C /* SettingsTableViewStructure.swift in Sources */ = {isa = PBXBuildFile; fileRef = 27A8FD1720E454B5001F187C /* SettingsTableViewStructure.swift */; };
 		27C34F6E2017D9E700B129F6 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 27C34F6D2017D9E700B129F6 /* AppDelegate.swift */; };
 		27C34F732017D9E700B129F6 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 27C34F712017D9E700B129F6 /* Main.storyboard */; };
 		27C34F752017D9E700B129F6 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 27C34F742017D9E700B129F6 /* Assets.xcassets */; };
@@ -110,6 +111,7 @@
 		279FE4F920659453007B7F17 /* BlockingCollection.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BlockingCollection.swift; sourceTree = "<group>"; };
 		279FE4FB20659686007B7F17 /* BlockingCollectionStore.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BlockingCollectionStore.swift; sourceTree = "<group>"; };
 		279FE4FD2065CABF007B7F17 /* BlockingScheduleListCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BlockingScheduleListCell.swift; sourceTree = "<group>"; };
+		27A8FD1720E454B5001F187C /* SettingsTableViewStructure.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsTableViewStructure.swift; sourceTree = "<group>"; };
 		27C34F6A2017D9E700B129F6 /* Refrain.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Refrain.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		27C34F6D2017D9E700B129F6 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		27C34F722017D9E700B129F6 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
@@ -367,6 +369,7 @@
 			isa = PBXGroup;
 			children = (
 				27CFF59420B4B36F00193AF8 /* SettingsViewController.swift */,
+				27A8FD1720E454B5001F187C /* SettingsTableViewStructure.swift */,
 				27CFF59720B4B7F700193AF8 /* PremiumUpgradeViewController.swift */,
 			);
 			path = Settings;
@@ -542,6 +545,7 @@
 				789207DA2023B32D0053F351 /* BlockingScheduleStore.swift in Sources */,
 				78ED08A220E4347C00240E1B /* TextFieldTableViewCell.swift in Sources */,
 				27C34F822017DD4F00B129F6 /* BlockingCollectionViewController.swift in Sources */,
+				27A8FD1820E454B5001F187C /* SettingsTableViewStructure.swift in Sources */,
 				277F5FC12079CCA100A1A558 /* AppearanceManager.swift in Sources */,
 				27C34F902017E6EA00B129F6 /* BlockingRule.swift in Sources */,
 				27431B732059E8E0008B4D2B /* CardView.swift in Sources */,

@@ -10,6 +10,8 @@ import UIKit
 
 class SettingsViewController: UIViewController {
     
+    private var tableViewStructure = SettingsTableViewStructure()
+    
     @IBOutlet weak var tableView: UITableView!
     
     static func instantiate() -> SettingsViewController {
@@ -69,11 +71,28 @@ extension SettingsViewController: UITableViewDataSource, UITableViewDelegate {
     
     //MARK: - UITableViewDelegate
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        switch indexPath.row {
-        case 0:
+        switch tableViewStructure.rowType(for: indexPath) {
+        case .PremiumFeatures:
             let upgradeVC = PremiumUpgradeViewController.instantiate()
             navigationController?.pushViewController(upgradeVC, animated: true)
-        default: break
+        default:
+            break
+        }
+    }
+    
+    
+    
+    // MARK: - Section Headers
+    func tableView(_ tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {
+        let view = UIView()
+        view.backgroundColor = .clear
+        return view
+    }
+    
+    func tableView(_ tableView: UITableView, heightForHeaderInSection section: Int) -> CGFloat {
+        switch tableViewStructure.sectionType(for: section) {
+        case .HowTo, .Feedback, .About: return 40
+        default: return 0
         }
     }
     
@@ -81,19 +100,29 @@ extension SettingsViewController: UITableViewDataSource, UITableViewDelegate {
     
     //MARK: - UITableViewDataSource
     func numberOfSections(in tableView: UITableView) -> Int {
-        return 1
+        return tableViewStructure.sections.count
     }
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return 1
+        return tableViewStructure.rowCount(for: section)
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        switch indexPath.row {
-        case 0:
-            return HeaderTableViewCell(title: "Premium Features")
-        default:
-            return UITableViewCell()
+        switch tableViewStructure.rowType(for: indexPath) {
+        case .PremiumFeatures:
+            return ItemTableViewCell(text: "Premium Features")
+        case .HowToEnable:
+            return ItemTableViewCell(text: "How To Enable Refrain")
+        case .HowToUse:
+            return ItemTableViewCell(text: "How To Use Refrain")
+        case .ReviewOnAppStore:
+            return ItemTableViewCell(text: "Leave Us a Review")
+        case .RequestFeature:
+            return ItemTableViewCell(text: "Request a Feature")
+        case .ReportProblem:
+            return ItemTableViewCell(text: "Report a Problem or Bug")
+        case .About:
+            return ItemTableViewCell(text: "About")
         }
     }
 }
