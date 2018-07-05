@@ -189,8 +189,8 @@ extension BlockingCollectionViewController: UITableViewDataSource, UITableViewDe
     
     /// Conditionally enable deletion for some table view rows
     func tableView(_ tableView: UITableView, canEditRowAt indexPath: IndexPath) -> Bool {
-        switch tableViewStructure.rowType(for: indexPath) {
-        case .Rule(_): return true
+        switch (blockingCollection.isDefault, tableViewStructure.rowType(for: indexPath)) {
+        case (false, .Rule(_)): return true
         default: return false
         }
     }
