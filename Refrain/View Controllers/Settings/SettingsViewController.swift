@@ -64,11 +64,15 @@ class SettingsViewController: UIViewController {
         navigationController?.popViewController(animated: true)
     }
     
+    
+    //MARK: - Rate On App Store
     func rateOnAppStorePressed() {
         let url = URL(string : "itms-apps://itunes.apple.com/app/id1079072933")!
         UIApplication.shared.open(url, options: [:], completionHandler: nil)
     }
     
+    
+    //MARK: - Email Message View
     private func showEmailViewController(subject: String, body: String) {
 
         UINavigationBar.appearance().titleTextAttributes = [:]
@@ -84,6 +88,30 @@ class SettingsViewController: UIViewController {
         present(mailVC, animated: true, completion: nil)
         
         AppearanceManager().configure()
+    }
+    
+    
+    //MARK: - Restore Original Collections Alert
+    private func presentRestoreOriginalCollectionsAlert() {
+
+        let defaultCollectionNames = DefaultBlockingCollections().defaultCollectionTitles
+        let defaultCollectionsString = defaultCollectionNames.joined(separator: ", ")
+
+        let alert = UIAlertController(title: "Restore Original Collections?", message: "Any changes made to \(defaultCollectionsString) will be lost.", preferredStyle: .actionSheet)
+        alert.setBackgroundColor(.white)
+        
+        let cancelAction = UIAlertAction(title: "Cancel", style: .cancel, handler: nil)
+        cancelAction.setValue(UIColor(named: "Orange"), forKey: "titleTextColor")
+        alert.addAction(cancelAction)
+        
+        let restoreAction = UIAlertAction(title: "Restore", style: .destructive, handler: { (action) in
+            DefaultBlockingCollections().restoreAllDefaultCollections()
+            self.navigationController?.popViewController(animated: true)
+        })
+        restoreAction.setValue(UIColor.red, forKey: "titleTextColor")
+        alert.addAction(restoreAction)
+        
+        present(alert, animated: true, completion: nil)
     }
 }
 
@@ -104,6 +132,11 @@ extension SettingsViewController: UITableViewDataSource, UITableViewDelegate {
         case .PremiumFeatures:
             let upgradeVC = PremiumUpgradeViewController.instantiate()
             navigationController?.pushViewController(upgradeVC, animated: true)
+        case .RestoreOriginalCollections:
+            presentRestoreOriginalCollectionsAlert()
+            tableView.indexPathsForSelectedRows?.forEach {
+                tableView.deselectRow(at: $0, animated: true)
+            }
         case .ReviewOnAppStore:
             rateOnAppStorePressed()
             tableView.indexPathsForSelectedRows?.forEach {
@@ -132,7 +165,7 @@ extension SettingsViewController: UITableViewDataSource, UITableViewDelegate {
     
     func tableView(_ tableView: UITableView, heightForHeaderInSection section: Int) -> CGFloat {
         switch tableViewStructure.sectionType(for: section) {
-        case .HowTo, .Feedback, .About: return 40
+        case .Collections, .HowTo, .Feedback, .About: return 40
         default: return 0
         }
     }
@@ -152,6 +185,8 @@ extension SettingsViewController: UITableViewDataSource, UITableViewDelegate {
         switch tableViewStructure.rowType(for: indexPath) {
         case .PremiumFeatures:
             return ItemTableViewCell(text: "Premium Features")
+        case .RestoreOriginalCollections:
+            return ItemTableViewCell(text: "Restore Original Collections")
         case .HowToEnable:
             return ItemTableViewCell(text: "How To Enable Refrain")
         case .HowToUse:

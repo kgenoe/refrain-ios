@@ -12,6 +12,7 @@ import MessageUI
 enum SettingsTableViewSection: Int, TableViewSection {
     
     case PremiumFeatures
+    case Collections
     case HowTo
     case Feedback
     case About
@@ -39,6 +40,8 @@ enum SettingsTableViewSection: Int, TableViewSection {
 enum SettingsTableViewRow: TableViewRow {
     
     case PremiumFeatures
+    
+    case RestoreOriginalCollections
     
     case HowToEnable
     case HowToUse
@@ -76,6 +79,7 @@ struct SettingsTableViewStructure: TableViewStructure {
     func rows(for section: SettingsTableViewSection) -> [SettingsTableViewRow] {
         switch section {
         case .PremiumFeatures:  return [.PremiumFeatures]
+        case .Collections:      return [.RestoreOriginalCollections]
         case .HowTo:            return [.HowToEnable, .HowToUse]
         case .Feedback:         return [.ReviewOnAppStore, .RequestFeature, .ReportProblem]
         case .About:            return [.About]

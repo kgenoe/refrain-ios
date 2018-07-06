@@ -14,6 +14,8 @@ struct DefaultBlockingCollections {
     private let haveDefaultCollectionsBeenCreatedKey = "haveDefaultCollectionsBeenCreated"
 
     
+    
+    
     init() { }
     
     /// Creates default collections and adds them to the blocking collection store. If default collections have already been created, this does nothing.
@@ -22,9 +24,11 @@ struct DefaultBlockingCollections {
         let haveDefaultCollectionsBeenCreated = UserDefaults.standard.bool(forKey: haveDefaultCollectionsBeenCreatedKey)
         if !haveDefaultCollectionsBeenCreated {
             UserDefaults.standard.set(true, forKey: haveDefaultCollectionsBeenCreatedKey)
-
             
-            for (collectionName, filters) in defaultCollections {
+            for dict in defaultCollections.reversed() {
+                
+                guard let collectionName = dict["title"] as? String,
+                    let filters = dict["filters"] as? [String] else { return }
                 
                 // create collection
                 let collection = BlockingCollection(name: collectionName, enabled: false)
@@ -37,7 +41,7 @@ struct DefaultBlockingCollections {
                 }
                 
                 // save collection to collection store
-                BlockingCollectionStore.shared.saveCollection(collection)
+                BlockingCollectionStore.shared.saveCollection(collection, index: 0)
             }
         }
     }
@@ -48,7 +52,11 @@ struct DefaultBlockingCollections {
         guard collection.isDefault == true else { return }
         
         // ensure that the provided colleciton exists in the default collections
-        guard let filters = defaultCollections[collection.name] else { return }
+        let values = defaultCollections.filter{ ($0["title"] as? String) == collection.name }
+                                       .compactMap{ $0["filters"] as? [String] }
+                                       .first
+        guard let filters = values else { return }
+        
         
         // reset the collection's rules
         collection.rules = []
@@ -63,9 +71,25 @@ struct DefaultBlockingCollections {
         BlockingCollectionStore.shared.saveCollection(collection)
     }
     
+    func restoreAllDefaultCollections() {
+        
+        // delete all original collections
+        let defaultCollections = BlockingCollectionStore.shared.collections.filter{ $0.isDefault }
+        defaultCollections.forEach{ BlockingCollectionStore.shared.delete($0) }
+        
+        // restore original collecitons state
+        UserDefaults.standard.set(false, forKey: haveDefaultCollectionsBeenCreatedKey)
+        createDefaultCollections()
+    }
+    
 
-    let defaultCollections: [String: [String]] = [
-        "Social Media" : [
+    var defaultCollectionTitles: [String] {
+        return defaultCollections.compactMap{ $0["title"] as? String }
+    }
+    
+    private let defaultCollections: [[String: Any]] = [
+        ["title" : "Social Media",
+         "filters": [
             "facebook.com",
             "twitter.com",
             "reddit.com",
@@ -74,8 +98,9 @@ struct DefaultBlockingCollections {
             "pinterest.com",
             "tumblr.com",
             "flickr.com"
-        ],
-        "News" : [
+        ]],
+         ["title" : "News",
+           "filters": [
             "cnn.com",
             "nytimes.com",
             "washingtonpost.com",
@@ -109,14 +134,16 @@ struct DefaultBlockingCollections {
             "thestar.com",
             "huffingtonpost.ca",
             "mccleans.ca"
-        ],
-        "Videos" : [
+        ]],
+         ["title": "Videos",
+          "filters": [
             "netflix.com",
             "youtube.com",
             "hulu.com",
             "app.plex.tv",
-        ],
-        "Sports" : [
+        ]],
+         ["title": "Sports",
+          "filters": [
             "sports.yahoo.com",
             "espn.com",
             "bleacherreport.com",
@@ -137,8 +164,9 @@ struct DefaultBlockingCollections {
             "sport.bt.com",
             "bbc.com/sport",
             "espn.co.uk"
-        ],
-        "Technology" : [
+        ]],
+         ["title": "Technology",
+          "filters": [
             "techcrunch.com",
             "arstechnica.com",
             "thenextweb.com",
@@ -156,8 +184,9 @@ struct DefaultBlockingCollections {
             "engadget.com",
             "gadgetreview.com",
             ""
-        ],
-        "Gaming" : [
+        ]],
+         ["title": "Gaming",
+          "filters": [
             "twitch.tv",
             "ign.com",
             "gamespot.com",
@@ -173,15 +202,16 @@ struct DefaultBlockingCollections {
             "gamesradar.com",
             "cheatcc.com",
             "supercheats.com"
-        ],
-        "Shopping" : [
+        ]],
+         ["title": "Shopping",
+          "filters": [
             "amazon.com",
             "ebay.ca",
             "redflagdeals.com",
             "etsy.com",
             "amazon.ca",
             "overstock.com"
-        ]
+        ]]
     ]
     
 }

@@ -20,8 +20,7 @@ class BlockingCollectionStore: NSObject {
     private override init() {
         let collectionStoreHasBeenCreated = UserDefaults.standard.bool(forKey: hasCollectionStoreBeenCreatedKey)
         if !collectionStoreHasBeenCreated {
-            let initalBlockingCollection = BlockingCollection(name: "My Blocked Websites")
-            let data = NSKeyedArchiver.archivedData(withRootObject: [initalBlockingCollection])
+            let data = NSKeyedArchiver.archivedData(withRootObject: [])
             UserDefaults.standard.set(data, forKey: collectionStoreKey)
             UserDefaults.standard.set(true, forKey: hasCollectionStoreBeenCreatedKey)
         }
@@ -38,14 +37,19 @@ class BlockingCollectionStore: NSObject {
     
     
     //MARK: - Saving/Deleting Collection
-    /// Saves a BlockingCollection. If the collection already exists in the store, it is replaces with the new collection.
-    func saveCollection(_ collection: BlockingCollection) {
+    /// Saves a BlockingCollection. If the collection already exists in the store, it is replaces with the new collection. Optionally provide an index for where to insert the collection in the store (only works for new collections).
+    func saveCollection(_ collection: BlockingCollection, index: Int? = nil) {
         
         var existingCollections = self.collections
         
         // if new collection
         if !existingCollections.contains(where: { $0.id == collection.id }) {
-            existingCollections.append(collection)
+            // if an index is provided, insert there if possible
+            if let index = index, existingCollections.count > index {
+                existingCollections.insert(collection, at: index)
+            } else {
+                existingCollections.append(collection)
+            }
         }
         
         // else, update existing collection
