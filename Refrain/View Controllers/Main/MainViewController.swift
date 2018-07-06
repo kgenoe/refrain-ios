@@ -30,9 +30,7 @@ class MainViewController: UIViewController {
         
         // Build TableViewStructure
         let collections = BlockingCollectionStore.shared.collections
-        let defaultCount = collections.filter{ $0.isDefault }.count
-        let userCount = collections.filter{ !$0.isDefault }.count
-        let tableViewStructure = MainTableViewStructure(defaultCollectionsCount: defaultCount, userCollectionsCount: userCount)
+        let tableViewStructure = MainTableViewStructure(collectionsCount: collections.count)
         
         // Build TableView Delegate/Datasource
         tableViewDelegate = MainTableViewDelegate(structure: tableViewStructure)

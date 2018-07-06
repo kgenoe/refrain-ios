@@ -39,11 +39,8 @@ enum MainTableViewRow: TableViewRow {
     
     case Blank
     
-    case UserBlockingCollections(Int)
-    case NewUserBlockingCollection
-    
-    case DefaultBlockingCollectionsHeader
-    case DefaultBlockingCollections(Int)
+    case BlockingCollection(Int)
+    case NewBlockingCollection
     
     case Schedules
     
@@ -64,20 +61,15 @@ struct MainTableViewStructure: TableViewStructure {
     private var settingsRows: [MainTableViewRow] = []
     
     
-    init(defaultCollectionsCount: Int, userCollectionsCount: Int){
+    init(collectionsCount: Int){
         
         subtitleRows = [.Blank]
         
         self.userBlockingCollectionsRows = []
-        for i in 0..<userCollectionsCount {
-            userBlockingCollectionsRows.append(.UserBlockingCollections(i))
+        for i in 0..<collectionsCount {
+            userBlockingCollectionsRows.append(.BlockingCollection(i))
         }
-        userBlockingCollectionsRows.append(.NewUserBlockingCollection)
-        
-        self.defaultBlockingCollectionsRows = [.Blank, .DefaultBlockingCollectionsHeader]
-        for i in 0..<defaultCollectionsCount {
-            defaultBlockingCollectionsRows.append(.DefaultBlockingCollections(i))
-        }
+        userBlockingCollectionsRows.append(.NewBlockingCollection)
         
         if UserDefaults.standard.bool(forKey: DefaultsKey.extrasPurchased) {
             self.schedulesRows = [.Schedules]

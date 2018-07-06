@@ -66,17 +66,12 @@ extension MainTableViewDelegate: UITableViewDataSource {
         switch structure.rowType(for: indexPath) {
         case .Blank:
             return HeaderTableViewCell(title: "")
-        case .UserBlockingCollections(let i):
-            let collection = BlockingCollectionStore.shared.collections.filter{ !$0.isDefault }[i]
+        case .BlockingCollection(let i):
+            let collection = BlockingCollectionStore.shared.collections[i]
             return BlockingCollectionCell(blockingCollection: collection)
-        case .NewUserBlockingCollection:
-            let cell = ItemTableViewCell(text: "New Collection", accessoryType: .none)
+        case .NewBlockingCollection:
+            let cell = ItemTableViewCell(text: "+ New Collection", accessoryType: .none)
             return cell
-        case .DefaultBlockingCollectionsHeader:
-            return HeaderTableViewCell(title: "Default Collections")
-        case .DefaultBlockingCollections(let i):
-            let collection = BlockingCollectionStore.shared.collections.filter{ $0.isDefault }[i]
-            return BlockingCollectionCell(blockingCollection: collection)
         case .Schedules:
             return ItemTableViewCell(text: "Schedules")
         case .Settings:
@@ -86,13 +81,10 @@ extension MainTableViewDelegate: UITableViewDataSource {
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         switch structure.rowType(for: indexPath) {
-        case .DefaultBlockingCollections(let i):
-            let collection = BlockingCollectionStore.shared.collections.filter{ $0.isDefault }[i]
+        case .BlockingCollection(let i):
+            let collection = BlockingCollectionStore.shared.collections[i]
             collectionSelectedHandler?(collection)
-        case .UserBlockingCollections(let i):
-            let collection = BlockingCollectionStore.shared.collections.filter{ !$0.isDefault }[i]
-            collectionSelectedHandler?(collection)
-        case .NewUserBlockingCollection:
+        case .NewBlockingCollection:
             tableView.indexPathsForSelectedRows?.forEach {
                 tableView.deselectRow(at: $0, animated: true)
             }
@@ -111,7 +103,7 @@ extension MainTableViewDelegate: UITableViewDataSource {
     func tableView(_ tableView: UITableView, willSelectRowAt indexPath: IndexPath) -> IndexPath? {
         
         switch structure.rowType(for: indexPath) {
-        case .DefaultBlockingCollections(_), .UserBlockingCollections(_), .NewUserBlockingCollection, .Schedules, .Settings:
+        case .BlockingCollection(_), .NewBlockingCollection, .Schedules, .Settings:
             return indexPath
         default:
             return nil
@@ -121,24 +113,22 @@ extension MainTableViewDelegate: UITableViewDataSource {
     /// Conditionally enable deletion for user created blocking collections
     func tableView(_ tableView: UITableView, canEditRowAt indexPath: IndexPath) -> Bool {
         switch structure.rowType(for: indexPath) {
-        case .UserBlockingCollections(_): return true
+        case .BlockingCollection(_): return true
         default: return false
         }
     }
     
     func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCellEditingStyle, forRowAt indexPath: IndexPath) {
         switch (editingStyle, structure.rowType(for: indexPath)) {
-        case (.delete, .UserBlockingCollections(let i)):
+        case (.delete, .BlockingCollection(let i)):
             
             // delete the collection in the data store
             let collections = BlockingCollectionStore.shared.collections
-            let userCreatedCollections = collections.filter{ $0.isDefault == false }
-            let collectionToDelete = userCreatedCollections[i]
+            let collectionToDelete = collections[i]
             BlockingCollectionStore.shared.delete(collectionToDelete)
             
             // refresh the table view structure
-            let defaultCount = collections.filter{ $0.isDefault }.count
-            structure = MainTableViewStructure(defaultCollectionsCount: defaultCount, userCollectionsCount: userCreatedCollections.count-1)
+            structure = MainTableViewStructure(collectionsCount: collections.count-1)
             
             // delete the table view cell
             tableView.deleteRows(at: [indexPath], with: .automatic)
