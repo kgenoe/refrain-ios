@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import MessageUI
 
 class SettingsViewController: UIViewController {
     
@@ -62,6 +63,34 @@ class SettingsViewController: UIViewController {
     @IBAction func closeButtonPressed() {
         navigationController?.popViewController(animated: true)
     }
+    
+    func rateOnAppStorePressed() {
+        let url = URL(string : "itms-apps://itunes.apple.com/app/id1079072933")!
+        UIApplication.shared.open(url, options: [:], completionHandler: nil)
+    }
+    
+    private func showEmailViewController(subject: String, body: String) {
+
+        UINavigationBar.appearance().titleTextAttributes = [:]
+        UINavigationBar.appearance().prefersLargeTitles = false
+        UIBarButtonItem.appearance().setTitleTextAttributes([:], for: [])
+        
+        let mailVC = MFMailComposeViewController()
+        mailVC.additionalSafeAreaInsets = UIEdgeInsets(top: 10, left: 0, bottom: 0, right: 0)
+        mailVC.mailComposeDelegate = self
+        mailVC.setSubject(subject)
+        mailVC.setMessageBody(body, isHTML: false)
+        mailVC.setToRecipients(["kyle@genoe.ca"])
+        present(mailVC, animated: true, completion: nil)
+        
+        AppearanceManager().configure()
+    }
+}
+
+extension SettingsViewController: MFMailComposeViewControllerDelegate {
+    func mailComposeController(_ controller: MFMailComposeViewController, didFinishWith result: MFMailComposeResult, error: Error?) {
+        controller.dismiss(animated: true, completion: nil)
+    }
 }
 
 
@@ -75,6 +104,15 @@ extension SettingsViewController: UITableViewDataSource, UITableViewDelegate {
         case .PremiumFeatures:
             let upgradeVC = PremiumUpgradeViewController.instantiate()
             navigationController?.pushViewController(upgradeVC, animated: true)
+        case .ReviewOnAppStore:
+            rateOnAppStorePressed()
+            tableView.indexPathsForSelectedRows?.forEach {
+                tableView.deselectRow(at: $0, animated: true)
+            }
+        case .RequestFeature:
+            showEmailViewController(subject: "Request a Feature", body: "")
+        case .ReportProblem:
+            showEmailViewController(subject: "Bug Report", body: "")
         default:
             break
         }

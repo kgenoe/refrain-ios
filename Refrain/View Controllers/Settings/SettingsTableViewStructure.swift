@@ -7,6 +7,7 @@
 //
 
 import Foundation
+import MessageUI
 
 enum SettingsTableViewSection: Int, TableViewSection {
     
@@ -55,7 +56,12 @@ struct SettingsTableViewStructure: TableViewStructure {
     // Sections
     var sections = SettingsTableViewSection.all
     
-    init(){   }
+    init(){
+        // remove mail section if cannot send mail
+        if !MFMailComposeViewController.canSendMail() {
+            sections = sections.filter{ $0 != .Feedback }
+        }
+    }
     
     
     
