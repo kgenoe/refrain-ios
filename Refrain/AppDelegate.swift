@@ -27,6 +27,11 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     }
     
     
+    func application(_ application: UIApplication, continue userActivity: NSUserActivity, restorationHandler: @escaping ([Any]?) -> Void) -> Bool {
+        print("Restoring user state...")
+        return true
+    }
+    
     func applicationDidBecomeActive(_ application: UIApplication) {
         
         // A CreateAccountRequest is sent immediately after premium is unlocked but if that request fails, this one will continue to try to send the request. This request will fail immediately if the account has already been created.
