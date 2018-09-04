@@ -30,6 +30,13 @@ class BlockingCollectionCell: SwitchTableViewCell {
     @objc func switchToggled() {
         blockingCollection.enabled = accessorySwitch.isOn
         BlockingCollectionStore.shared.saveCollection(blockingCollection)
+        
+        // donate intents
+        if blockingCollection.enabled {
+            IntentsManager.shared.donate(enabledCollection: blockingCollection)
+        } else {
+            IntentsManager.shared.donate(disabledCollection: blockingCollection)
+        }
     }
 
 }

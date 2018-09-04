@@ -44,6 +44,9 @@
 		27CFF59220AFC44A00193AF8 /* Result.swift in Sources */ = {isa = PBXBuildFile; fileRef = 27CFF59120AFC44A00193AF8 /* Result.swift */; };
 		27CFF59520B4B36F00193AF8 /* SettingsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 27CFF59420B4B36F00193AF8 /* SettingsViewController.swift */; };
 		27CFF59820B4B7F700193AF8 /* PremiumUpgradeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 27CFF59720B4B7F700193AF8 /* PremiumUpgradeViewController.swift */; };
+		7804B0AE213F22FE00E7C372 /* DisableBlockingCollectionIntentHandler.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7804B0AD213F22FE00E7C372 /* DisableBlockingCollectionIntentHandler.swift */; };
+		7833597B213F2A48007A699B /* Intents.intentdefinition in Sources */ = {isa = PBXBuildFile; fileRef = 7833597A213F2A48007A699B /* Intents.intentdefinition */; };
+		7833597D213F2A6C007A699B /* IntentsManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7833597C213F2A6C007A699B /* IntentsManager.swift */; };
 		789207D62023AEB10053F351 /* BlockingSchedulesViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 789207D52023AEB10053F351 /* BlockingSchedulesViewController.swift */; };
 		789207D82023B18D0053F351 /* BlockingSchedule.swift in Sources */ = {isa = PBXBuildFile; fileRef = 789207D72023B18D0053F351 /* BlockingSchedule.swift */; };
 		789207DA2023B32D0053F351 /* BlockingScheduleStore.swift in Sources */ = {isa = PBXBuildFile; fileRef = 789207D92023B32D0053F351 /* BlockingScheduleStore.swift */; };
@@ -53,7 +56,6 @@
 		789C5A8020C815470004F04F /* TableViewStructure.swift in Sources */ = {isa = PBXBuildFile; fileRef = 789C5A7F20C815470004F04F /* TableViewStructure.swift */; };
 		789C5A8220C819C80004F04F /* MainTableViewDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 789C5A8120C819C80004F04F /* MainTableViewDelegate.swift */; };
 		789C5A8920C87C9B0004F04F /* BlockingCollectionTableViewStructure.swift in Sources */ = {isa = PBXBuildFile; fileRef = 789C5A8820C87C9A0004F04F /* BlockingCollectionTableViewStructure.swift */; };
-		78A648DD21387981007EF205 /* Intents.intentdefinition in Sources */ = {isa = PBXBuildFile; fileRef = 78A648DC21387981007EF205 /* Intents.intentdefinition */; };
 		78A648E521387DEC007EF205 /* IntentHandler.swift in Sources */ = {isa = PBXBuildFile; fileRef = 78A648E421387DEC007EF205 /* IntentHandler.swift */; };
 		78A648FB21387DEC007EF205 /* Shortcuts.appex in Embed App Extensions */ = {isa = PBXBuildFile; fileRef = 78A648E221387DEC007EF205 /* Shortcuts.appex */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
 		78A6490321388516007EF205 /* BlockingCollection+Intents.swift in Sources */ = {isa = PBXBuildFile; fileRef = 78A6490221388516007EF205 /* BlockingCollection+Intents.swift */; };
@@ -138,6 +140,9 @@
 		27CFF59120AFC44A00193AF8 /* Result.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Result.swift; sourceTree = "<group>"; };
 		27CFF59420B4B36F00193AF8 /* SettingsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsViewController.swift; sourceTree = "<group>"; };
 		27CFF59720B4B7F700193AF8 /* PremiumUpgradeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PremiumUpgradeViewController.swift; sourceTree = "<group>"; };
+		7804B0AD213F22FE00E7C372 /* DisableBlockingCollectionIntentHandler.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DisableBlockingCollectionIntentHandler.swift; sourceTree = "<group>"; };
+		7833597A213F2A48007A699B /* Intents.intentdefinition */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.intentdefinition; path = Intents.intentdefinition; sourceTree = "<group>"; };
+		7833597C213F2A6C007A699B /* IntentsManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IntentsManager.swift; sourceTree = "<group>"; };
 		789207D52023AEB10053F351 /* BlockingSchedulesViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BlockingSchedulesViewController.swift; sourceTree = "<group>"; };
 		789207D72023B18D0053F351 /* BlockingSchedule.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BlockingSchedule.swift; sourceTree = "<group>"; };
 		789207D92023B32D0053F351 /* BlockingScheduleStore.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BlockingScheduleStore.swift; sourceTree = "<group>"; };
@@ -147,7 +152,6 @@
 		789C5A7F20C815470004F04F /* TableViewStructure.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TableViewStructure.swift; sourceTree = "<group>"; };
 		789C5A8120C819C80004F04F /* MainTableViewDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainTableViewDelegate.swift; sourceTree = "<group>"; };
 		789C5A8820C87C9A0004F04F /* BlockingCollectionTableViewStructure.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BlockingCollectionTableViewStructure.swift; sourceTree = "<group>"; };
-		78A648DC21387981007EF205 /* Intents.intentdefinition */ = {isa = PBXFileReference; lastKnownFileType = file.intentdefinition; name = Intents.intentdefinition; path = Refrain/Intents.intentdefinition; sourceTree = SOURCE_ROOT; };
 		78A648E221387DEC007EF205 /* Shortcuts.appex */ = {isa = PBXFileReference; explicitFileType = "wrapper.app-extension"; includeInIndex = 0; path = Shortcuts.appex; sourceTree = BUILT_PRODUCTS_DIR; };
 		78A648E421387DEC007EF205 /* IntentHandler.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IntentHandler.swift; sourceTree = "<group>"; };
 		78A648E621387DEC007EF205 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -299,6 +303,7 @@
 				2711EC4E20911F6300F32622 /* ContentBlockerManager.swift */,
 				277F5FC02079CCA100A1A558 /* AppearanceManager.swift */,
 				27CFF58320ABC22700193AF8 /* DefaultBlockingCollections.swift */,
+				7804B0AF213F29D100E7C372 /* Intents */,
 				2781964D2053771100A42E4C /* Networking */,
 				27C34F912017E6EE00B129F6 /* Model */,
 				27431B6A2059E843008B4D2B /* View Controllers */,
@@ -307,9 +312,6 @@
 				27C34F712017D9E700B129F6 /* Main.storyboard */,
 				27C34F742017D9E700B129F6 /* Assets.xcassets */,
 				27C34F762017D9E700B129F6 /* LaunchScreen.storyboard */,
-				78A648DC21387981007EF205 /* Intents.intentdefinition */,
-				78A6490221388516007EF205 /* BlockingCollection+Intents.swift */,
-				78A64904213888EC007EF205 /* EnableBlockingCollectionIntentHandler.swift */,
 				27C34F792017D9E700B129F6 /* Info.plist */,
 			);
 			path = Refrain;
@@ -373,6 +375,18 @@
 				27CFF59720B4B7F700193AF8 /* PremiumUpgradeViewController.swift */,
 			);
 			path = Settings;
+			sourceTree = "<group>";
+		};
+		7804B0AF213F29D100E7C372 /* Intents */ = {
+			isa = PBXGroup;
+			children = (
+				7833597A213F2A48007A699B /* Intents.intentdefinition */,
+				7833597C213F2A6C007A699B /* IntentsManager.swift */,
+				78A6490221388516007EF205 /* BlockingCollection+Intents.swift */,
+				78A64904213888EC007EF205 /* EnableBlockingCollectionIntentHandler.swift */,
+				7804B0AD213F22FE00E7C372 /* DisableBlockingCollectionIntentHandler.swift */,
+			);
+			path = Intents;
 			sourceTree = "<group>";
 		};
 		789207D42023A2C90053F351 /* Schedules */ = {
@@ -571,11 +585,11 @@
 				27C34F6E2017D9E700B129F6 /* AppDelegate.swift in Sources */,
 				2705BC32202E48DD00213DF6 /* DefaultsKeys.swift in Sources */,
 				27408FF320C94B45004FB25C /* UIAlertController+backgroundColor.swift in Sources */,
+				7833597B213F2A48007A699B /* Intents.intentdefinition in Sources */,
 				2711EC4F20911F6300F32622 /* ContentBlockerManager.swift in Sources */,
 				2781965320537E6500A42E4C /* UpdateAccountRequest.swift in Sources */,
 				78A6490321388516007EF205 /* BlockingCollection+Intents.swift in Sources */,
 				274E8388207C018100BAE7A5 /* InnerShadowLayer.swift in Sources */,
-				78A648DD21387981007EF205 /* Intents.intentdefinition in Sources */,
 				27C34F802017DCF900B129F6 /* MainViewController.swift in Sources */,
 				27CFF59220AFC44A00193AF8 /* Result.swift in Sources */,
 				789207D62023AEB10053F351 /* BlockingSchedulesViewController.swift in Sources */,
@@ -583,6 +597,7 @@
 				279FE4FC20659686007B7F17 /* BlockingCollectionStore.swift in Sources */,
 				27C34F872017E24900B129F6 /* BlockingRuleCell.swift in Sources */,
 				789207D82023B18D0053F351 /* BlockingSchedule.swift in Sources */,
+				7804B0AE213F22FE00E7C372 /* DisableBlockingCollectionIntentHandler.swift in Sources */,
 				789207DC2023B8370053F351 /* BlockingSchedueCell.swift in Sources */,
 				277F5FBF2079C78400A1A558 /* BackgroundGradientLayer.swift in Sources */,
 				271E0172208BBAA400FC37C6 /* BlockingListCell.swift in Sources */,
@@ -600,6 +615,7 @@
 				789207E02023BC160053F351 /* BlockingScheduleViewController.swift in Sources */,
 				789C5A8920C87C9B0004F04F /* BlockingCollectionTableViewStructure.swift in Sources */,
 				27CFF58420ABC22700193AF8 /* DefaultBlockingCollections.swift in Sources */,
+				7833597D213F2A6C007A699B /* IntentsManager.swift in Sources */,
 				27CFF58720AE45CA00193AF8 /* HeaderTableViewCell.swift in Sources */,
 				789207DE2023B8FE0053F351 /* DateExtensions.swift in Sources */,
 				78ED089F20E431F600240E1B /* BlockingScheduleStructure.swift in Sources */,

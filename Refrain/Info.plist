@@ -27,6 +27,7 @@
 	</dict>
 	<key>NSUserActivityTypes</key>
 	<array>
+		<string>DisableBlockingCollectionIntent</string>
 		<string>EnableBlockingCollectionIntent</string>
 	</array>
 	<key>UILaunchStoryboardName</key>

@@ -154,6 +154,106 @@
 			<key>INIntentVerb</key>
 			<string>Set</string>
 		</dict>
+		<dict>
+			<key>INIntentCategory</key>
+			<string>set</string>
+			<key>INIntentDescription</key>
+			<string>Begin allowing the URLs included in the collection from being loaded in web browsers.</string>
+			<key>INIntentDescriptionID</key>
+			<string>ke4d1x</string>
+			<key>INIntentLastParameterTag</key>
+			<integer>2</integer>
+			<key>INIntentName</key>
+			<string>DisableBlockingCollection</string>
+			<key>INIntentParameterCombinations</key>
+			<dict>
+				<key>blockingCollection</key>
+				<dict>
+					<key>INIntentParameterCombinationIsPrimary</key>
+					<true/>
+					<key>INIntentParameterCombinationSubtitle</key>
+					<string>Begin allowing the URLs included in ${blockingCollection} from being loaded in web browsers.</string>
+					<key>INIntentParameterCombinationSubtitleID</key>
+					<string>7PrNXD</string>
+					<key>INIntentParameterCombinationSupportsBackgroundExecution</key>
+					<true/>
+					<key>INIntentParameterCombinationTitle</key>
+					<string>Stop Blocking ${blockingCollection} </string>
+					<key>INIntentParameterCombinationTitleID</key>
+					<string>5QK8ho</string>
+				</dict>
+			</dict>
+			<key>INIntentParameters</key>
+			<array>
+				<dict>
+					<key>INIntentParameterDisplayPriority</key>
+					<integer>1</integer>
+					<key>INIntentParameterName</key>
+					<string>blockingCollection</string>
+					<key>INIntentParameterSupportsMultipleValues</key>
+					<false/>
+					<key>INIntentParameterTag</key>
+					<integer>2</integer>
+					<key>INIntentParameterType</key>
+					<string>Object</string>
+				</dict>
+			</array>
+			<key>INIntentResponse</key>
+			<dict>
+				<key>INIntentResponseCodes</key>
+				<array>
+					<dict>
+						<key>INIntentResponseCodeFormatString</key>
+						<string>Whoops, something went wrong trying to stop blocking on ${blockingCollection}.</string>
+						<key>INIntentResponseCodeFormatStringID</key>
+						<string>w7xZdM</string>
+						<key>INIntentResponseCodeName</key>
+						<string>failure</string>
+						<key>INIntentResponseCodeSuccess</key>
+						<false/>
+					</dict>
+					<dict>
+						<key>INIntentResponseCodeFormatString</key>
+						<string>No longer blocking URL's from ${blockingCollection}.</string>
+						<key>INIntentResponseCodeFormatStringID</key>
+						<string>dXNLMh</string>
+						<key>INIntentResponseCodeName</key>
+						<string>success</string>
+						<key>INIntentResponseCodeSuccess</key>
+						<true/>
+					</dict>
+				</array>
+				<key>INIntentResponseLastParameterTag</key>
+				<integer>2</integer>
+				<key>INIntentResponseParameters</key>
+				<array>
+					<dict>
+						<key>INIntentResponseParameterDisplayPriority</key>
+						<integer>1</integer>
+						<key>INIntentResponseParameterName</key>
+						<string>blockingCollection</string>
+						<key>INIntentResponseParameterSupportsMultipleValues</key>
+						<false/>
+						<key>INIntentResponseParameterTag</key>
+						<integer>2</integer>
+						<key>INIntentResponseParameterType</key>
+						<string>Object</string>
+					</dict>
+				</array>
+			</dict>
+			<key>INIntentRestrictions</key>
+			<integer>0</integer>
+			<key>INIntentTitle</key>
+			<string>Stop Blocking Collection of URLs</string>
+			<key>INIntentTitleID</key>
+			<string>xPGX4I</string>
+			<key>INIntentType</key>
+			<string>Custom</string>
+			<key>INIntentUserConfirmationRequired</key>
+			<false/>
+			<key>INIntentVerb</key>
+			<string>Set</string>
+		</dict>
 	</array>
 </dict>
 </plist>

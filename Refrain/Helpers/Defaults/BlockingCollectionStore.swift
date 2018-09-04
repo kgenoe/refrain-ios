@@ -84,6 +84,9 @@ class BlockingCollectionStore: NSObject {
         // Save changed collections to defaults
         let data = NSKeyedArchiver.archivedData(withRootObject: existingCollections)
         UserDefaults.standard.set(data, forKey: collectionStoreKey)
+        
+        // Remove the collection from Shortcuts
+        IntentsManager.shared.delete(collection: collection)
     }
     
 
