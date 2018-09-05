@@ -54,6 +54,9 @@ class BlockingCollectionViewController: UIViewController {
         navigationItem.backBarButtonItem = UIBarButtonItem(title: "", style: .plain, target: nil, action: nil)
         navigationItem.backBarButtonItem?.tintColor = UIColor(named: "White")
         
+        // set the edit button
+        navigationItem.rightBarButtonItem = editButtonItem
+        navigationItem.rightBarButtonItem?.tintColor = UIColor(named: "White")
 
         setBackgroundGradient()
     }
@@ -90,7 +93,10 @@ class BlockingCollectionViewController: UIViewController {
         navigationController?.pushViewController(newRuleVC, animated: true)
     }
     
-    
+    override func setEditing(_ editing: Bool, animated: Bool) {
+        super.setEditing(editing, animated: animated)
+        tableView.setEditing(editing, animated: animated)
+    }
     
     // MARK: - Delete Alert
     private func presentDeleteAlert() {
@@ -187,10 +193,27 @@ extension BlockingCollectionViewController: UITableViewDataSource, UITableViewDe
     }
     
     
+    /// Conditionally enable reordering for some table view rows
+    func tableView(_ tableView: UITableView, canMoveRowAt indexPath: IndexPath) -> Bool {
+        switch tableViewStructure.rowType(for: indexPath) {
+        case .Rule(_): return true
+        default: return false
+        }
+    }
+    
+    func tableView(_ tableView: UITableView, moveRowAt sourceIndexPath: IndexPath, to destinationIndexPath: IndexPath) {
+        
+        let movedRule = blockingCollection.rules[sourceIndexPath.row]
+        blockingCollection.rules.remove(at: sourceIndexPath.row)
+        blockingCollection.rules.insert(movedRule, at: destinationIndexPath.row)
+        BlockingCollectionStore.shared.saveCollection(blockingCollection)
+    }
+    
+    
     /// Conditionally enable deletion for some table view rows
     func tableView(_ tableView: UITableView, canEditRowAt indexPath: IndexPath) -> Bool {
-        switch (blockingCollection.isDefault, tableViewStructure.rowType(for: indexPath)) {
-        case (false, .Rule(_)): return true
+        switch tableViewStructure.rowType(for: indexPath) {
+        case .Rule(_): return true
         default: return false
         }
     }
@@ -212,7 +235,6 @@ extension BlockingCollectionViewController: UITableViewDataSource, UITableViewDe
         default: break
         }
     }
-    
     
     
     /// Conditionally disable selection for some table view rows
