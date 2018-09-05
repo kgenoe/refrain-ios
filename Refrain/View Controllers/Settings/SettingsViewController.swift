@@ -165,7 +165,7 @@ extension SettingsViewController: UITableViewDataSource, UITableViewDelegate {
     
     func tableView(_ tableView: UITableView, heightForHeaderInSection section: Int) -> CGFloat {
         switch tableViewStructure.sectionType(for: section) {
-        case .Collections, .HowTo, .Feedback, .About: return 40
+        case .Collections, .Feedback, .About: return 40
         default: return 0
         }
     }
@@ -187,10 +187,6 @@ extension SettingsViewController: UITableViewDataSource, UITableViewDelegate {
             return ItemTableViewCell(text: "Premium Features")
         case .RestoreOriginalCollections:
             return ItemTableViewCell(text: "Restore Original Collections")
-        case .HowToEnable:
-            return ItemTableViewCell(text: "How To Enable Refrain")
-        case .HowToUse:
-            return ItemTableViewCell(text: "How To Use Refrain")
         case .ReviewOnAppStore:
             return ItemTableViewCell(text: "Leave Us a Review")
         case .RequestFeature:

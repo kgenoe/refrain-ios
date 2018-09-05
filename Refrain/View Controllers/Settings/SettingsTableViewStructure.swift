@@ -13,7 +13,6 @@ enum SettingsTableViewSection: Int, TableViewSection {
     
     case PremiumFeatures
     case Collections
-    case HowTo
     case Feedback
     case About
     
@@ -42,9 +41,6 @@ enum SettingsTableViewRow: TableViewRow {
     case PremiumFeatures
     
     case RestoreOriginalCollections
-    
-    case HowToEnable
-    case HowToUse
     
     case ReviewOnAppStore
     case RequestFeature
@@ -80,7 +76,6 @@ struct SettingsTableViewStructure: TableViewStructure {
         switch section {
         case .PremiumFeatures:  return [.PremiumFeatures]
         case .Collections:      return [.RestoreOriginalCollections]
-        case .HowTo:            return [.HowToEnable, .HowToUse]
         case .Feedback:         return [.ReviewOnAppStore, .RequestFeature, .ReportProblem]
         case .About:            return [.About]
         }
