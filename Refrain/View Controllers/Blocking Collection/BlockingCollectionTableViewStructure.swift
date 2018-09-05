@@ -36,6 +36,7 @@ enum BlockingCollectionSection: Int, TableViewSection {
 
 enum BlockingCollectionRow: TableViewRow {
     case Rule(Int)
+    case NewRule
     case Rename
     case Delete
     case ResetToDefaults
@@ -65,21 +66,17 @@ struct BlockingCollectionStructure: TableViewStructure {
     }
     
     mutating func updateStructureFor(ruleCount: Int) {
-        // Remove rules section if 0 rules
-        guard ruleCount > 0 else {
-            sections = sections.filter{ $0 != .Rules }
-            return
-        }
         
         sections = BlockingCollectionSection.all
         ruleRows = []
         for i in 0..<ruleCount {
             ruleRows.append(.Rule(i))
         }
+        ruleRows.append(.NewRule)
         
         if isDefaultCollection {
+            // Don't allow renaming of default collections
             sections = sections.filter{ $0 != .Rename }
-            sections = sections.filter{ $0 != .Delete }
         } else {
             sections = sections.filter{ $0 != .ResetToDefaults }
         }

@@ -218,7 +218,7 @@ extension BlockingCollectionViewController: UITableViewDataSource, UITableViewDe
     /// Conditionally disable selection for some table view rows
     func tableView(_ tableView: UITableView, willSelectRowAt indexPath: IndexPath) -> IndexPath? {
         switch tableViewStructure.rowType(for: indexPath) {
-        case .Rule(_), .Rename, .Delete, .ResetToDefaults:
+        case .Rule(_), .NewRule, .Rename, .Delete, .ResetToDefaults:
             return indexPath
         }
     }
@@ -229,6 +229,8 @@ extension BlockingCollectionViewController: UITableViewDataSource, UITableViewDe
             let rule = blockingCollection.rules[i]
             let editRuleVC = BlockingRuleViewController.instantiate(blockingCollection: blockingCollection, blockingRule: rule)
             navigationController?.pushViewController(editRuleVC, animated: true)
+        case .NewRule:
+            newBlockingRuleButtonPressed()
         case .Rename:
             presentRenameAlert()
             tableView.deselectRow(at: indexPath, animated: true)
@@ -257,6 +259,8 @@ extension BlockingCollectionViewController: UITableViewDataSource, UITableViewDe
         case .Rule(let i):
             let rule = blockingCollection.rules[i]
             return BlockingRuleCell(blockingCollection: blockingCollection, blockingRule: rule)
+        case .NewRule:
+            return ItemTableViewCell(text: "+ New URL", accessoryType: .none)
         case .Rename:
             let cell = ItemTableViewCell(text: "Rename Collection", accessoryType: .none)
             cell.textLabel?.textAlignment = .center
