@@ -14,6 +14,7 @@ enum SettingsTableViewSection: Int, TableViewSection {
     case PremiumFeatures
     case Collections
     case Feedback
+    case Shortcuts
     case About
     
     
@@ -46,6 +47,8 @@ enum SettingsTableViewRow: TableViewRow {
     case RequestFeature
     case ReportProblem
     
+    case DeleteAllSiriShortcuts
+    
     case About
 }
 
@@ -77,6 +80,7 @@ struct SettingsTableViewStructure: TableViewStructure {
         case .PremiumFeatures:  return [.PremiumFeatures]
         case .Collections:      return [.RestoreOriginalCollections]
         case .Feedback:         return [.ReviewOnAppStore, .RequestFeature, .ReportProblem]
+        case .Shortcuts:        return [.DeleteAllSiriShortcuts]
         case .About:            return [.About]
         }
     }

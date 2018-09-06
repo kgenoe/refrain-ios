@@ -43,4 +43,13 @@ class IntentsManager: NSObject {
             }
         }
     }
+    
+    func deleteAll() {
+        INInteraction.deleteAll { (error) in
+            guard error == nil else {
+                print("Error deleting all intents.")
+                return
+            }
+        }
+    }
 }

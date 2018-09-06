@@ -113,6 +113,26 @@ class SettingsViewController: UIViewController {
         
         present(alert, animated: true, completion: nil)
     }
+    
+    //MARK: - Shortcuts
+    private func presentDeleteAllShortcutsAlert() {
+        
+        let alert = UIAlertController(title: "Delete all Siri Shortcuts for Refrain?", message: nil, preferredStyle: .actionSheet)
+        alert.setBackgroundColor(.white)
+        
+        let cancelAction = UIAlertAction(title: "Cancel", style: .cancel, handler: nil)
+        cancelAction.setValue(UIColor(named: "Orange"), forKey: "titleTextColor")
+        alert.addAction(cancelAction)
+        
+        let restoreAction = UIAlertAction(title: "Delete", style: .destructive, handler: { (action) in
+            IntentsManager.shared.deleteAll()
+        })
+        restoreAction.setValue(UIColor.red, forKey: "titleTextColor")
+        alert.addAction(restoreAction)
+        
+        present(alert, animated: true, completion: nil)
+        
+    }
 }
 
 extension SettingsViewController: MFMailComposeViewControllerDelegate {
@@ -128,24 +148,26 @@ extension SettingsViewController: UITableViewDataSource, UITableViewDelegate {
     
     //MARK: - UITableViewDelegate
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        
+        // deselect the selected row
+        tableView.indexPathsForSelectedRows?.forEach {
+            tableView.deselectRow(at: $0, animated: true)
+        }
+        
         switch tableViewStructure.rowType(for: indexPath) {
         case .PremiumFeatures:
             let upgradeVC = PremiumUpgradeViewController.instantiate()
             navigationController?.pushViewController(upgradeVC, animated: true)
         case .RestoreOriginalCollections:
             presentRestoreOriginalCollectionsAlert()
-            tableView.indexPathsForSelectedRows?.forEach {
-                tableView.deselectRow(at: $0, animated: true)
-            }
         case .ReviewOnAppStore:
             rateOnAppStorePressed()
-            tableView.indexPathsForSelectedRows?.forEach {
-                tableView.deselectRow(at: $0, animated: true)
-            }
         case .RequestFeature:
             showEmailViewController(subject: "Request a Feature", body: "")
         case .ReportProblem:
             showEmailViewController(subject: "Bug Report", body: "")
+        case .DeleteAllSiriShortcuts:
+            presentDeleteAllShortcutsAlert()
         default:
             break
         }
@@ -165,8 +187,8 @@ extension SettingsViewController: UITableViewDataSource, UITableViewDelegate {
     
     func tableView(_ tableView: UITableView, heightForHeaderInSection section: Int) -> CGFloat {
         switch tableViewStructure.sectionType(for: section) {
-        case .Collections, .Feedback, .About: return 40
-        default: return 0
+        case .PremiumFeatures: return 0
+        default: return 40
         }
     }
     
@@ -193,6 +215,8 @@ extension SettingsViewController: UITableViewDataSource, UITableViewDelegate {
             return ItemTableViewCell(text: "Request a Feature")
         case .ReportProblem:
             return ItemTableViewCell(text: "Report a Problem or Bug")
+        case .DeleteAllSiriShortcuts:
+            return ItemTableViewCell(text: "Delete All Siri Shortcuts")
         case .About:
             return ItemTableViewCell(text: "About")
         }
