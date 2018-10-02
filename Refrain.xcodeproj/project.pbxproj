@@ -63,6 +63,14 @@
 		78ED089F20E431F600240E1B /* BlockingScheduleStructure.swift in Sources */ = {isa = PBXBuildFile; fileRef = 78ED089E20E431F600240E1B /* BlockingScheduleStructure.swift */; };
 		78ED08A220E4347C00240E1B /* TextFieldTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 78ED08A120E4347C00240E1B /* TextFieldTableViewCell.swift */; };
 		78ED08A420E4348B00240E1B /* TextFieldTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 78ED08A320E4348B00240E1B /* TextFieldTableViewCell.xib */; };
+		78EF34BD21406EFC00FE89B1 /* EnableBlockingCollectionIntentHandler.swift in Sources */ = {isa = PBXBuildFile; fileRef = 78A64904213888EC007EF205 /* EnableBlockingCollectionIntentHandler.swift */; };
+		78EF34BE21406EFC00FE89B1 /* DisableBlockingCollectionIntentHandler.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7804B0AD213F22FE00E7C372 /* DisableBlockingCollectionIntentHandler.swift */; };
+		78EF34BF21406F0900FE89B1 /* BlockingCollection+Intents.swift in Sources */ = {isa = PBXBuildFile; fileRef = 78A6490221388516007EF205 /* BlockingCollection+Intents.swift */; };
+		78EF34C021406F0C00FE89B1 /* IntentsManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7833597C213F2A6C007A699B /* IntentsManager.swift */; };
+		78EF34C121406F1100FE89B1 /* Intents.intentdefinition in Sources */ = {isa = PBXBuildFile; fileRef = 7833597A213F2A48007A699B /* Intents.intentdefinition */; settings = {ATTRIBUTES = (codegen, ); }; };
+		78EF34C221406F1700FE89B1 /* BlockingCollection.swift in Sources */ = {isa = PBXBuildFile; fileRef = 279FE4F920659453007B7F17 /* BlockingCollection.swift */; };
+		78EF34C321406F1700FE89B1 /* BlockingRule.swift in Sources */ = {isa = PBXBuildFile; fileRef = 27C34F8F2017E6EA00B129F6 /* BlockingRule.swift */; };
+		78EF34C421406F1E00FE89B1 /* BlockingCollectionStore.swift in Sources */ = {isa = PBXBuildFile; fileRef = 279FE4FB20659686007B7F17 /* BlockingCollectionStore.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -635,6 +643,14 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				78EF34C221406F1700FE89B1 /* BlockingCollection.swift in Sources */,
+				78EF34C421406F1E00FE89B1 /* BlockingCollectionStore.swift in Sources */,
+				78EF34C121406F1100FE89B1 /* Intents.intentdefinition in Sources */,
+				78EF34BF21406F0900FE89B1 /* BlockingCollection+Intents.swift in Sources */,
+				78EF34C021406F0C00FE89B1 /* IntentsManager.swift in Sources */,
+				78EF34BE21406EFC00FE89B1 /* DisableBlockingCollectionIntentHandler.swift in Sources */,
+				78EF34BD21406EFC00FE89B1 /* EnableBlockingCollectionIntentHandler.swift in Sources */,
+				78EF34C321406F1700FE89B1 /* BlockingRule.swift in Sources */,
 				78A648E521387DEC007EF205 /* IntentHandler.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

@@ -10,7 +10,6 @@ import UIKit
 
 class DisableBlockingCollectionIntentHandler: NSObject, DisableBlockingCollectionIntentHandling {
     
-    
     func handle(intent: DisableBlockingCollectionIntent, completion: @escaping (DisableBlockingCollectionIntentResponse) -> Void) {
         
         guard let intentID = intent.blockingCollection?.identifier else {

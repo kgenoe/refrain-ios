@@ -50,6 +50,9 @@ class BlockingCollectionStore: NSObject {
             } else {
                 existingCollections.append(collection)
             }
+            
+            IntentsManager.shared.donate(enabledCollection: collection)
+            IntentsManager.shared.donate(disabledCollection: collection)
         }
         
         // else, update existing collection

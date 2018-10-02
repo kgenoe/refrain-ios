@@ -3,47 +3,7 @@
 <plist version="1.0">
 <dict>
 	<key>INEnums</key>
-	<array>
-		<dict>
-			<key>INEnumName</key>
-			<string>State</string>
-			<key>INEnumType</key>
-			<string>State</string>
-			<key>INEnumValues</key>
-			<array>
-				<dict>
-					<key>INEnumValueDisplayName</key>
-					<string>unknown</string>
-					<key>INEnumValueDisplayNameID</key>
-					<string>tyKKE3</string>
-					<key>INEnumValueIndex</key>
-					<integer>0</integer>
-					<key>INEnumValueName</key>
-					<string>unknown</string>
-				</dict>
-				<dict>
-					<key>INEnumValueDisplayName</key>
-					<string>on</string>
-					<key>INEnumValueDisplayNameID</key>
-					<string>dvWYqB</string>
-					<key>INEnumValueIndex</key>
-					<integer>1</integer>
-					<key>INEnumValueName</key>
-					<string>on</string>
-				</dict>
-				<dict>
-					<key>INEnumValueDisplayName</key>
-					<string>off</string>
-					<key>INEnumValueDisplayNameID</key>
-					<string>CoMysb</string>
-					<key>INEnumValueIndex</key>
-					<integer>2</integer>
-					<key>INEnumValueName</key>
-					<string>off</string>
-				</dict>
-			</array>
-		</dict>
-	</array>
+	<array/>
 	<key>INIntentDefinitionModelVersion</key>
 	<string>1.0</string>
 	<key>INIntentDefinitionSystemVersion</key>
