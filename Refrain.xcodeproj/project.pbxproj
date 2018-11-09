@@ -321,6 +321,7 @@
 				27CFF58320ABC22700193AF8 /* DefaultBlockingCollections.swift */,
 				7804B0AF213F29D100E7C372 /* Intents */,
 				2781964D2053771100A42E4C /* Networking */,
+				27C34F882017E51800B129F6 /* Storage */,
 				27C34F912017E6EE00B129F6 /* Model */,
 				27431B6A2059E843008B4D2B /* View Controllers */,
 				27431B6B2059E84D008B4D2B /* Views */,
@@ -343,7 +344,7 @@
 			path = "Blocking Collection";
 			sourceTree = "<group>";
 		};
-		27C34F882017E51800B129F6 /* Defaults */ = {
+		27C34F882017E51800B129F6 /* Storage */ = {
 			isa = PBXGroup;
 			children = (
 				2705BC31202E48DD00213DF6 /* DefaultsKeys.swift */,
@@ -351,7 +352,7 @@
 				279FE4FB20659686007B7F17 /* BlockingCollectionStore.swift */,
 				789207D92023B32D0053F351 /* BlockingScheduleStore.swift */,
 			);
-			path = Defaults;
+			path = Storage;
 			sourceTree = "<group>";
 		};
 		27C34F912017E6EE00B129F6 /* Model */ = {
@@ -371,7 +372,6 @@
 				27CFF59120AFC44A00193AF8 /* Result.swift */,
 				789207DD2023B8FE0053F351 /* DateExtensions.swift */,
 				27408FF220C94B45004FB25C /* UIAlertController+backgroundColor.swift */,
-				27C34F882017E51800B129F6 /* Defaults */,
 			);
 			path = Helpers;
 			sourceTree = "<group>";
