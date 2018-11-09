@@ -29,7 +29,7 @@ struct CreateAccountRequest {
         completionHandler?(.Success("test"))
         
         // Don't send create account Request if already hold a userApiAccountToken
-        guard UserDefaults.standard.string(forKey: DefaultsKey.userApiAccountToken) == nil else {
+        guard UserDefaults.shared.string(forKey: DefaultsKey.userApiAccountToken) == nil else {
             completionHandler?(.Failure(FailCase.accountAlreadyExists))
             return
         }
@@ -61,7 +61,7 @@ struct CreateAccountRequest {
                 
                 //save UserID
                 print("Found userApiAccountToken: \(userID)")
-                UserDefaults.standard.set(userID, forKey: DefaultsKey.userApiAccountToken)
+                UserDefaults.shared.set(userID, forKey: DefaultsKey.userApiAccountToken)
                 
                 self.completionHandler?(.Success(userID))
             }

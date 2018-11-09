@@ -18,19 +18,30 @@ class BlockingCollectionStore: NSObject {
     private let hasCollectionStoreBeenCreatedKey = "hasCollectionStoreBeenCreated"
     
     private override init() {
-        let collectionStoreHasBeenCreated = UserDefaults.standard.bool(forKey: hasCollectionStoreBeenCreatedKey)
+
+        let collectionStoreHasBeenCreated = UserDefaults.shared.bool(forKey: hasCollectionStoreBeenCreatedKey)
         if !collectionStoreHasBeenCreated {
-            let data = NSKeyedArchiver.archivedData(withRootObject: [])
-            UserDefaults.standard.set(data, forKey: collectionStoreKey)
-            UserDefaults.standard.set(true, forKey: hasCollectionStoreBeenCreatedKey)
+            NSKeyedArchiver.setClassName("BlockingCollection", for: BlockingCollection.self)
+            NSKeyedArchiver.setClassName("BlockingRule", for: BlockingRule.self)
+            let data = try! NSKeyedArchiver.archivedData(withRootObject: [], requiringSecureCoding: false)
+            UserDefaults.shared.set(data, forKey: collectionStoreKey)
+            UserDefaults.shared.set(true, forKey: hasCollectionStoreBeenCreatedKey)
         }
     }
     
     
     /// An array of all currently stored blocking collections. Repeated calls of collections should be avoided is possible for performance.
     var collections: [BlockingCollection] {
-        let data = UserDefaults.standard.data(forKey: collectionStoreKey)!
-        return NSKeyedUnarchiver.unarchiveObject(with: data) as? [BlockingCollection] ?? []
+        let data = UserDefaults.shared.data(forKey: collectionStoreKey)!
+        do {
+            NSKeyedUnarchiver.setClass(BlockingCollection.self, forClassName: "BlockingCollection")
+            NSKeyedUnarchiver.setClass(BlockingRule.self, forClassName: "BlockingRule")
+            let object = try NSKeyedUnarchiver.unarchiveTopLevelObjectWithData(data)
+            return object as? [BlockingCollection] ?? []
+        } catch {
+            print("Error unarchiving Blocking Collections:\n\(error)")
+            return []
+        }
     }
     
     
@@ -67,8 +78,10 @@ class BlockingCollectionStore: NSObject {
         }
         
         // Save changed collection to defaults
-        let data = NSKeyedArchiver.archivedData(withRootObject: existingCollections)
-        UserDefaults.standard.set(data, forKey: collectionStoreKey)
+        NSKeyedArchiver.setClassName("BlockingCollection", for: BlockingCollection.self)
+        NSKeyedArchiver.setClassName("BlockingRule", for: BlockingRule.self)
+        let data = try! NSKeyedArchiver.archivedData(withRootObject: existingCollections, requiringSecureCoding: false)
+        UserDefaults.shared.set(data, forKey: collectionStoreKey)
     }
     
     /// Deletes the given collection from the store.
@@ -85,8 +98,10 @@ class BlockingCollectionStore: NSObject {
         }
         
         // Save changed collections to defaults
-        let data = NSKeyedArchiver.archivedData(withRootObject: existingCollections)
-        UserDefaults.standard.set(data, forKey: collectionStoreKey)
+        NSKeyedArchiver.setClassName("BlockingCollection", for: BlockingCollection.self)
+        NSKeyedArchiver.setClassName("BlockingRule", for: BlockingRule.self)
+        let data = try! NSKeyedArchiver.archivedData(withRootObject: existingCollections, requiringSecureCoding: false)
+        UserDefaults.shared.set(data, forKey: collectionStoreKey)
         
         // Remove the collection from Shortcuts
         IntentsManager.shared.delete(collection: collection)

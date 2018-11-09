@@ -71,7 +71,7 @@ struct MainTableViewStructure: TableViewStructure {
         }
         userBlockingCollectionsRows.append(.NewBlockingCollection)
         
-        if UserDefaults.standard.bool(forKey: DefaultsKey.extrasPurchased) {
+        if UserDefaults.shared.bool(forKey: DefaultsKey.extrasPurchased) {
             self.schedulesRows = [.Schedules]
         }
         

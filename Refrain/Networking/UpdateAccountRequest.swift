@@ -38,12 +38,12 @@ struct UpdateAccountRequest {
     func send() {
         
         // Get request components
-        guard let userApiAccountToken = UserDefaults.standard.string(forKey: DefaultsKey.userApiAccountToken) else {
+        guard let userApiAccountToken = UserDefaults.shared.string(forKey: DefaultsKey.userApiAccountToken) else {
             completionHandler?(.Failure(FailCase.noLocalUserID))
             return
         }
 
-        let apnsToken = UserDefaults.standard.string(forKey: DefaultsKey.apnsToken) ?? ""
+        let apnsToken = UserDefaults.shared.string(forKey: DefaultsKey.apnsToken) ?? ""
         
         let schedules = BlockingScheduleStore.shared.schedules
         let scheduleDicts = schedules.map{ $0.toDictionary() }

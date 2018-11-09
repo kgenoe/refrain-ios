@@ -21,9 +21,9 @@ struct DefaultBlockingCollections {
     /// Creates default collections and adds them to the blocking collection store. If default collections have already been created, this does nothing.
     func createDefaultCollections() {
         
-        let haveDefaultCollectionsBeenCreated = UserDefaults.standard.bool(forKey: haveDefaultCollectionsBeenCreatedKey)
+        let haveDefaultCollectionsBeenCreated = UserDefaults.shared.bool(forKey: haveDefaultCollectionsBeenCreatedKey)
         if !haveDefaultCollectionsBeenCreated {
-            UserDefaults.standard.set(true, forKey: haveDefaultCollectionsBeenCreatedKey)
+            UserDefaults.shared.set(true, forKey: haveDefaultCollectionsBeenCreatedKey)
             
             for dict in defaultCollections.reversed() {
                 
@@ -78,7 +78,7 @@ struct DefaultBlockingCollections {
         defaultCollections.forEach{ BlockingCollectionStore.shared.delete($0) }
         
         // restore original collecitons state
-        UserDefaults.standard.set(false, forKey: haveDefaultCollectionsBeenCreatedKey)
+        UserDefaults.shared.set(false, forKey: haveDefaultCollectionsBeenCreatedKey)
         createDefaultCollections()
     }
     

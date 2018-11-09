@@ -23,8 +23,8 @@ class BlockingSchedulesViewController: UIViewController {
         tableView.delegate = self
         tableView.dataSource = self
         
-        if !UserDefaults.standard.bool(forKey: DefaultsKey.notifSplashShown) {
-            UserDefaults.standard.set(true, forKey: DefaultsKey.notifSplashShown)
+        if !UserDefaults.shared.bool(forKey: DefaultsKey.notifSplashShown) {
+            UserDefaults.shared.set(true, forKey: DefaultsKey.notifSplashShown)
             let notifSplashVC = NotificationsSplashViewController.instantiate()
             present(notifSplashVC, animated: true, completion: nil)
         }

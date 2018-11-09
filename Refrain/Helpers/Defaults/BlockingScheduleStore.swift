@@ -17,11 +17,11 @@ class BlockingScheduleStore: NSObject {
     private let wasScheduleStoreCreated = "wasScheduleStoreCreated"
     
     private override init() {
-        let scheduleStoreCreated = UserDefaults.standard.bool(forKey: wasScheduleStoreCreated)
+        let scheduleStoreCreated = UserDefaults.shared.bool(forKey: wasScheduleStoreCreated)
         if !scheduleStoreCreated {
-            let data = NSKeyedArchiver.archivedData(withRootObject: [BlockingSchedule]())
-            UserDefaults.standard.set(data, forKey: scheduleStore)
-            UserDefaults.standard.set(true, forKey: wasScheduleStoreCreated)
+            let data = try! NSKeyedArchiver.archivedData(withRootObject: [BlockingSchedule](), requiringSecureCoding: false)
+            UserDefaults.shared.set(data, forKey: scheduleStore)
+            UserDefaults.shared.set(true, forKey: wasScheduleStoreCreated)
         }
     }
     
@@ -47,8 +47,8 @@ class BlockingScheduleStore: NSObject {
         }
         
         // Save changed schedules to defaults
-        let data = NSKeyedArchiver.archivedData(withRootObject: existingSchedules)
-        UserDefaults.standard.set(data, forKey: scheduleStore)
+        let data = try! NSKeyedArchiver.archivedData(withRootObject: existingSchedules, requiringSecureCoding: false)
+        UserDefaults.shared.set(data, forKey: scheduleStore)
     }
     
     
@@ -65,16 +65,21 @@ class BlockingScheduleStore: NSObject {
         }
         
         // Save changed rules to defaults
-        let data = NSKeyedArchiver.archivedData(withRootObject: existingSchedules)
-        UserDefaults.standard.set(data, forKey: scheduleStore)
+        let data = try! NSKeyedArchiver.archivedData(withRootObject: existingSchedules, requiringSecureCoding: false)
+        UserDefaults.shared.set(data, forKey: scheduleStore)
     }
     
     
     
     // An array of all currently stored blocking schedules. Repeated calls of schedules should be avoided if possible for performance.
     var schedules: [BlockingSchedule] {
-        let defaults = UserDefaults.standard
-        return (NSKeyedUnarchiver.unarchiveObject(with: defaults.data(forKey: scheduleStore)!) as? [BlockingSchedule]) ?? []
-
+        let data = UserDefaults.shared.data(forKey: scheduleStore)!
+        do {
+            let object = try NSKeyedUnarchiver.unarchiveTopLevelObjectWithData(data)
+            return object as? [BlockingSchedule] ?? []
+        } catch {
+            print("Error unarchiving Blocking Schedules:\n\(error)")
+            return []
+        }
     }
 }

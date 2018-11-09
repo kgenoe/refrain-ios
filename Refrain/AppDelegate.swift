@@ -21,7 +21,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
         DefaultBlockingCollections().createDefaultCollections()
         
-        UserDefaults.standard.set(true, forKey: DefaultsKey.extrasPurchased)
+        UserDefaults.shared.set(true, forKey: DefaultsKey.extrasPurchased)
     
         return true
     }
@@ -36,14 +36,14 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     func applicationDidBecomeActive(_ application: UIApplication) {
         
         // A CreateAccountRequest is sent immediately after premium is unlocked but if that request fails, this one will continue to try to send the request. This request will fail immediately if the account has already been created.
-        if UserDefaults.standard.bool(forKey: DefaultsKey.extrasPurchased) {
+        if UserDefaults.shared.bool(forKey: DefaultsKey.extrasPurchased) {
             CreateAccountRequest().send()
         }
         
         // registerForRemoteNotifications is called if the user allows notifications on the 1st prompt. If they decline & enable in settings, this check will pick that up and make the registerForRemoteNotifications call.
         // Check for a apnsToken before registering for remote notifications. If there is no apnsToken, it means a network request for one is in progress. registerForRemoteNotifications() after that request is completed.
-        if UserDefaults.standard.string(forKey: DefaultsKey.apnsToken) == nil &&
-            UserDefaults.standard.string(forKey: DefaultsKey.userApiAccountToken) != nil {
+        if UserDefaults.shared.string(forKey: DefaultsKey.apnsToken) == nil &&
+            UserDefaults.shared.string(forKey: DefaultsKey.userApiAccountToken) != nil {
             DispatchQueue.main.async {
                 UIApplication.shared.registerForRemoteNotifications()
             }
@@ -59,21 +59,21 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         
         print("New APN Device Token: \(newToken)")
 
-        let currentToken = UserDefaults.standard.string(forKey: DefaultsKey.apnsToken)
+        let currentToken = UserDefaults.shared.string(forKey: DefaultsKey.apnsToken)
         if currentToken != newToken {
             // if new token, save it and invalidate the old one
-            UserDefaults.standard.set(newToken, forKey: DefaultsKey.apnsToken)
-            UserDefaults.standard.set(false, forKey: DefaultsKey.savedApnsTokenToServer)
+            UserDefaults.shared.set(newToken, forKey: DefaultsKey.apnsToken)
+            UserDefaults.shared.set(false, forKey: DefaultsKey.savedApnsTokenToServer)
         }
         
         // Save token to server if previous one has been invalidated (or is 1st)
-        let hasSavedKey = UserDefaults.standard.bool(forKey: DefaultsKey.savedApnsTokenToServer)
+        let hasSavedKey = UserDefaults.shared.bool(forKey: DefaultsKey.savedApnsTokenToServer)
         if !hasSavedKey {
             UpdateAccountRequest { (result) in
                 switch result {
                 case .Success(_):
                     print("Successfully updated user profile with new APNs token")
-                    UserDefaults.standard.set(true, forKey: DefaultsKey.savedApnsTokenToServer)
+                    UserDefaults.shared.set(true, forKey: DefaultsKey.savedApnsTokenToServer)
                 case .Failure(let error):
                     print("Error updating user profile with new APNs token:\n\(error)")
                 }

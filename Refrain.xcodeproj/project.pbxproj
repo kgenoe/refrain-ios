@@ -27,6 +27,16 @@
 		279FE4FA20659453007B7F17 /* BlockingCollection.swift in Sources */ = {isa = PBXBuildFile; fileRef = 279FE4F920659453007B7F17 /* BlockingCollection.swift */; };
 		279FE4FC20659686007B7F17 /* BlockingCollectionStore.swift in Sources */ = {isa = PBXBuildFile; fileRef = 279FE4FB20659686007B7F17 /* BlockingCollectionStore.swift */; };
 		279FE4FE2065CABF007B7F17 /* BlockingScheduleListCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 279FE4FD2065CABF007B7F17 /* BlockingScheduleListCell.swift */; };
+		27A04DA82193947B001BF37C /* IntentHandler.swift in Sources */ = {isa = PBXBuildFile; fileRef = 27A04DA72193947B001BF37C /* IntentHandler.swift */; };
+		27A04DBC2193947B001BF37C /* CollectionsIntent.appex in Embed App Extensions */ = {isa = PBXBuildFile; fileRef = 27A04DA52193947B001BF37C /* CollectionsIntent.appex */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
+		27A04DC52193966B001BF37C /* Intents.intentdefinition in Sources */ = {isa = PBXBuildFile; fileRef = 7833597A213F2A48007A699B /* Intents.intentdefinition */; };
+		27A04DC92194DB54001BF37C /* IntentsManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7833597C213F2A6C007A699B /* IntentsManager.swift */; };
+		27A04DCB2194E337001BF37C /* BlockingCollection.swift in Sources */ = {isa = PBXBuildFile; fileRef = 279FE4F920659453007B7F17 /* BlockingCollection.swift */; };
+		27A04DCC2194E33F001BF37C /* BlockingRule.swift in Sources */ = {isa = PBXBuildFile; fileRef = 27C34F8F2017E6EA00B129F6 /* BlockingRule.swift */; };
+		27A04DCD2194E34B001BF37C /* BlockingCollection+Intents.swift in Sources */ = {isa = PBXBuildFile; fileRef = 78A6490221388516007EF205 /* BlockingCollection+Intents.swift */; };
+		27A04DCE2194E39F001BF37C /* BlockingCollectionStore.swift in Sources */ = {isa = PBXBuildFile; fileRef = 279FE4FB20659686007B7F17 /* BlockingCollectionStore.swift */; };
+		27A04DD02194E787001BF37C /* SharedUserDefaults.swift in Sources */ = {isa = PBXBuildFile; fileRef = 27A04DCF2194E787001BF37C /* SharedUserDefaults.swift */; };
+		27A04DD12194E7B6001BF37C /* SharedUserDefaults.swift in Sources */ = {isa = PBXBuildFile; fileRef = 27A04DCF2194E787001BF37C /* SharedUserDefaults.swift */; };
 		27A8FD1820E454B5001F187C /* SettingsTableViewStructure.swift in Sources */ = {isa = PBXBuildFile; fileRef = 27A8FD1720E454B5001F187C /* SettingsTableViewStructure.swift */; };
 		27C34F6E2017D9E700B129F6 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 27C34F6D2017D9E700B129F6 /* AppDelegate.swift */; };
 		27C34F732017D9E700B129F6 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 27C34F712017D9E700B129F6 /* Main.storyboard */; };
@@ -44,7 +54,6 @@
 		27CFF59220AFC44A00193AF8 /* Result.swift in Sources */ = {isa = PBXBuildFile; fileRef = 27CFF59120AFC44A00193AF8 /* Result.swift */; };
 		27CFF59520B4B36F00193AF8 /* SettingsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 27CFF59420B4B36F00193AF8 /* SettingsViewController.swift */; };
 		27CFF59820B4B7F700193AF8 /* PremiumUpgradeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 27CFF59720B4B7F700193AF8 /* PremiumUpgradeViewController.swift */; };
-		7804B0AE213F22FE00E7C372 /* DisableBlockingCollectionIntentHandler.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7804B0AD213F22FE00E7C372 /* DisableBlockingCollectionIntentHandler.swift */; };
 		7833597B213F2A48007A699B /* Intents.intentdefinition in Sources */ = {isa = PBXBuildFile; fileRef = 7833597A213F2A48007A699B /* Intents.intentdefinition */; };
 		7833597D213F2A6C007A699B /* IntentsManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7833597C213F2A6C007A699B /* IntentsManager.swift */; };
 		789207D62023AEB10053F351 /* BlockingSchedulesViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 789207D52023AEB10053F351 /* BlockingSchedulesViewController.swift */; };
@@ -56,21 +65,10 @@
 		789C5A8020C815470004F04F /* TableViewStructure.swift in Sources */ = {isa = PBXBuildFile; fileRef = 789C5A7F20C815470004F04F /* TableViewStructure.swift */; };
 		789C5A8220C819C80004F04F /* MainTableViewDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 789C5A8120C819C80004F04F /* MainTableViewDelegate.swift */; };
 		789C5A8920C87C9B0004F04F /* BlockingCollectionTableViewStructure.swift in Sources */ = {isa = PBXBuildFile; fileRef = 789C5A8820C87C9A0004F04F /* BlockingCollectionTableViewStructure.swift */; };
-		78A648E521387DEC007EF205 /* IntentHandler.swift in Sources */ = {isa = PBXBuildFile; fileRef = 78A648E421387DEC007EF205 /* IntentHandler.swift */; };
-		78A648FB21387DEC007EF205 /* Shortcuts.appex in Embed App Extensions */ = {isa = PBXBuildFile; fileRef = 78A648E221387DEC007EF205 /* Shortcuts.appex */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
 		78A6490321388516007EF205 /* BlockingCollection+Intents.swift in Sources */ = {isa = PBXBuildFile; fileRef = 78A6490221388516007EF205 /* BlockingCollection+Intents.swift */; };
-		78A64905213888EC007EF205 /* EnableBlockingCollectionIntentHandler.swift in Sources */ = {isa = PBXBuildFile; fileRef = 78A64904213888EC007EF205 /* EnableBlockingCollectionIntentHandler.swift */; };
 		78ED089F20E431F600240E1B /* BlockingScheduleStructure.swift in Sources */ = {isa = PBXBuildFile; fileRef = 78ED089E20E431F600240E1B /* BlockingScheduleStructure.swift */; };
 		78ED08A220E4347C00240E1B /* TextFieldTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 78ED08A120E4347C00240E1B /* TextFieldTableViewCell.swift */; };
 		78ED08A420E4348B00240E1B /* TextFieldTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 78ED08A320E4348B00240E1B /* TextFieldTableViewCell.xib */; };
-		78EF34BD21406EFC00FE89B1 /* EnableBlockingCollectionIntentHandler.swift in Sources */ = {isa = PBXBuildFile; fileRef = 78A64904213888EC007EF205 /* EnableBlockingCollectionIntentHandler.swift */; };
-		78EF34BE21406EFC00FE89B1 /* DisableBlockingCollectionIntentHandler.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7804B0AD213F22FE00E7C372 /* DisableBlockingCollectionIntentHandler.swift */; };
-		78EF34BF21406F0900FE89B1 /* BlockingCollection+Intents.swift in Sources */ = {isa = PBXBuildFile; fileRef = 78A6490221388516007EF205 /* BlockingCollection+Intents.swift */; };
-		78EF34C021406F0C00FE89B1 /* IntentsManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7833597C213F2A6C007A699B /* IntentsManager.swift */; };
-		78EF34C121406F1100FE89B1 /* Intents.intentdefinition in Sources */ = {isa = PBXBuildFile; fileRef = 7833597A213F2A48007A699B /* Intents.intentdefinition */; settings = {ATTRIBUTES = (codegen, ); }; };
-		78EF34C221406F1700FE89B1 /* BlockingCollection.swift in Sources */ = {isa = PBXBuildFile; fileRef = 279FE4F920659453007B7F17 /* BlockingCollection.swift */; };
-		78EF34C321406F1700FE89B1 /* BlockingRule.swift in Sources */ = {isa = PBXBuildFile; fileRef = 27C34F8F2017E6EA00B129F6 /* BlockingRule.swift */; };
-		78EF34C421406F1E00FE89B1 /* BlockingCollectionStore.swift in Sources */ = {isa = PBXBuildFile; fileRef = 279FE4FB20659686007B7F17 /* BlockingCollectionStore.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -81,12 +79,12 @@
 			remoteGlobalIDString = 272EE1B7208A805E007B6FDB;
 			remoteInfo = ContentBlocker;
 		};
-		78A648F921387DEC007EF205 /* PBXContainerItemProxy */ = {
+		27A04DBA2193947B001BF37C /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
 			containerPortal = 27C34F622017D9E700B129F6 /* Project object */;
 			proxyType = 1;
-			remoteGlobalIDString = 78A648E121387DEC007EF205;
-			remoteInfo = Shortcuts;
+			remoteGlobalIDString = 27A04DA42193947B001BF37C;
+			remoteInfo = CollectionsIntent;
 		};
 /* End PBXContainerItemProxy section */
 
@@ -97,8 +95,8 @@
 			dstPath = "";
 			dstSubfolderSpec = 13;
 			files = (
+				27A04DBC2193947B001BF37C /* CollectionsIntent.appex in Embed App Extensions */,
 				272EE1C1208A805E007B6FDB /* ContentBlocker.appex in Embed App Extensions */,
-				78A648FB21387DEC007EF205 /* Shortcuts.appex in Embed App Extensions */,
 			);
 			name = "Embed App Extensions";
 			runOnlyForDeploymentPostprocessing = 0;
@@ -129,6 +127,11 @@
 		279FE4F920659453007B7F17 /* BlockingCollection.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BlockingCollection.swift; sourceTree = "<group>"; };
 		279FE4FB20659686007B7F17 /* BlockingCollectionStore.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BlockingCollectionStore.swift; sourceTree = "<group>"; };
 		279FE4FD2065CABF007B7F17 /* BlockingScheduleListCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BlockingScheduleListCell.swift; sourceTree = "<group>"; };
+		27A04DA52193947B001BF37C /* CollectionsIntent.appex */ = {isa = PBXFileReference; explicitFileType = "wrapper.app-extension"; includeInIndex = 0; path = CollectionsIntent.appex; sourceTree = BUILT_PRODUCTS_DIR; };
+		27A04DA72193947B001BF37C /* IntentHandler.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IntentHandler.swift; sourceTree = "<group>"; };
+		27A04DA92193947B001BF37C /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		27A04DCF2194E787001BF37C /* SharedUserDefaults.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SharedUserDefaults.swift; sourceTree = "<group>"; };
+		27A04DD22194E7D9001BF37C /* CollectionsIntent.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = CollectionsIntent.entitlements; sourceTree = "<group>"; };
 		27A8FD1720E454B5001F187C /* SettingsTableViewStructure.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsTableViewStructure.swift; sourceTree = "<group>"; };
 		27C34F6A2017D9E700B129F6 /* Refrain.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Refrain.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		27C34F6D2017D9E700B129F6 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -148,7 +151,6 @@
 		27CFF59120AFC44A00193AF8 /* Result.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Result.swift; sourceTree = "<group>"; };
 		27CFF59420B4B36F00193AF8 /* SettingsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsViewController.swift; sourceTree = "<group>"; };
 		27CFF59720B4B7F700193AF8 /* PremiumUpgradeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PremiumUpgradeViewController.swift; sourceTree = "<group>"; };
-		7804B0AD213F22FE00E7C372 /* DisableBlockingCollectionIntentHandler.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DisableBlockingCollectionIntentHandler.swift; sourceTree = "<group>"; };
 		7833597A213F2A48007A699B /* Intents.intentdefinition */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.intentdefinition; path = Intents.intentdefinition; sourceTree = "<group>"; };
 		7833597C213F2A6C007A699B /* IntentsManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IntentsManager.swift; sourceTree = "<group>"; };
 		789207D52023AEB10053F351 /* BlockingSchedulesViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BlockingSchedulesViewController.swift; sourceTree = "<group>"; };
@@ -160,12 +162,8 @@
 		789C5A7F20C815470004F04F /* TableViewStructure.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TableViewStructure.swift; sourceTree = "<group>"; };
 		789C5A8120C819C80004F04F /* MainTableViewDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainTableViewDelegate.swift; sourceTree = "<group>"; };
 		789C5A8820C87C9A0004F04F /* BlockingCollectionTableViewStructure.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BlockingCollectionTableViewStructure.swift; sourceTree = "<group>"; };
-		78A648E221387DEC007EF205 /* Shortcuts.appex */ = {isa = PBXFileReference; explicitFileType = "wrapper.app-extension"; includeInIndex = 0; path = Shortcuts.appex; sourceTree = BUILT_PRODUCTS_DIR; };
-		78A648E421387DEC007EF205 /* IntentHandler.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IntentHandler.swift; sourceTree = "<group>"; };
-		78A648E621387DEC007EF205 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		78A648ED21387DEC007EF205 /* IntentsUI.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = IntentsUI.framework; path = System/Library/Frameworks/IntentsUI.framework; sourceTree = SDKROOT; };
 		78A6490221388516007EF205 /* BlockingCollection+Intents.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "BlockingCollection+Intents.swift"; sourceTree = "<group>"; };
-		78A64904213888EC007EF205 /* EnableBlockingCollectionIntentHandler.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EnableBlockingCollectionIntentHandler.swift; sourceTree = "<group>"; };
 		78ED089E20E431F600240E1B /* BlockingScheduleStructure.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BlockingScheduleStructure.swift; sourceTree = "<group>"; };
 		78ED08A120E4347C00240E1B /* TextFieldTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TextFieldTableViewCell.swift; sourceTree = "<group>"; };
 		78ED08A320E4348B00240E1B /* TextFieldTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = TextFieldTableViewCell.xib; sourceTree = "<group>"; };
@@ -179,14 +177,14 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		27C34F672017D9E700B129F6 /* Frameworks */ = {
+		27A04DA22193947B001BF37C /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		78A648DF21387DEC007EF205 /* Frameworks */ = {
+		27C34F672017D9E700B129F6 /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -281,13 +279,23 @@
 			path = Networking;
 			sourceTree = "<group>";
 		};
+		27A04DA62193947B001BF37C /* CollectionsIntent */ = {
+			isa = PBXGroup;
+			children = (
+				27A04DD22194E7D9001BF37C /* CollectionsIntent.entitlements */,
+				27A04DA72193947B001BF37C /* IntentHandler.swift */,
+				27A04DA92193947B001BF37C /* Info.plist */,
+			);
+			path = CollectionsIntent;
+			sourceTree = "<group>";
+		};
 		27C34F612017D9E700B129F6 = {
 			isa = PBXGroup;
 			children = (
 				27CFF58C20AF8BE200193AF8 /* README.md */,
 				27C34F6C2017D9E700B129F6 /* Refrain */,
 				272EE1B9208A805E007B6FDB /* ContentBlocker */,
-				78A648E321387DEC007EF205 /* Shortcuts */,
+				27A04DA62193947B001BF37C /* CollectionsIntent */,
 				78A648EC21387DEC007EF205 /* Frameworks */,
 				27C34F6B2017D9E700B129F6 /* Products */,
 			);
@@ -298,7 +306,7 @@
 			children = (
 				27C34F6A2017D9E700B129F6 /* Refrain.app */,
 				272EE1B8208A805E007B6FDB /* ContentBlocker.appex */,
-				78A648E221387DEC007EF205 /* Shortcuts.appex */,
+				27A04DA52193947B001BF37C /* CollectionsIntent.appex */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -339,6 +347,7 @@
 			isa = PBXGroup;
 			children = (
 				2705BC31202E48DD00213DF6 /* DefaultsKeys.swift */,
+				27A04DCF2194E787001BF37C /* SharedUserDefaults.swift */,
 				279FE4FB20659686007B7F17 /* BlockingCollectionStore.swift */,
 				789207D92023B32D0053F351 /* BlockingScheduleStore.swift */,
 			);
@@ -391,8 +400,6 @@
 				7833597A213F2A48007A699B /* Intents.intentdefinition */,
 				7833597C213F2A6C007A699B /* IntentsManager.swift */,
 				78A6490221388516007EF205 /* BlockingCollection+Intents.swift */,
-				78A64904213888EC007EF205 /* EnableBlockingCollectionIntentHandler.swift */,
-				7804B0AD213F22FE00E7C372 /* DisableBlockingCollectionIntentHandler.swift */,
 			);
 			path = Intents;
 			sourceTree = "<group>";
@@ -405,15 +412,6 @@
 				2761E58920B8C4BC00FEE78B /* NotificationsSplashViewController.swift */,
 			);
 			path = Schedules;
-			sourceTree = "<group>";
-		};
-		78A648E321387DEC007EF205 /* Shortcuts */ = {
-			isa = PBXGroup;
-			children = (
-				78A648E421387DEC007EF205 /* IntentHandler.swift */,
-				78A648E621387DEC007EF205 /* Info.plist */,
-			);
-			path = Shortcuts;
 			sourceTree = "<group>";
 		};
 		78A648EC21387DEC007EF205 /* Frameworks */ = {
@@ -453,6 +451,23 @@
 			productReference = 272EE1B8208A805E007B6FDB /* ContentBlocker.appex */;
 			productType = "com.apple.product-type.app-extension";
 		};
+		27A04DA42193947B001BF37C /* CollectionsIntent */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 27A04DC02193947B001BF37C /* Build configuration list for PBXNativeTarget "CollectionsIntent" */;
+			buildPhases = (
+				27A04DA12193947B001BF37C /* Sources */,
+				27A04DA22193947B001BF37C /* Frameworks */,
+				27A04DA32193947B001BF37C /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = CollectionsIntent;
+			productName = CollectionsIntent;
+			productReference = 27A04DA52193947B001BF37C /* CollectionsIntent.appex */;
+			productType = "com.apple.product-type.app-extension";
+		};
 		27C34F692017D9E700B129F6 /* Refrain */ = {
 			isa = PBXNativeTarget;
 			buildConfigurationList = 27C34F7C2017D9E700B129F6 /* Build configuration list for PBXNativeTarget "Refrain" */;
@@ -466,29 +481,12 @@
 			);
 			dependencies = (
 				272EE1C0208A805E007B6FDB /* PBXTargetDependency */,
-				78A648FA21387DEC007EF205 /* PBXTargetDependency */,
+				27A04DBB2193947B001BF37C /* PBXTargetDependency */,
 			);
 			name = Refrain;
 			productName = Refrain;
 			productReference = 27C34F6A2017D9E700B129F6 /* Refrain.app */;
 			productType = "com.apple.product-type.application";
-		};
-		78A648E121387DEC007EF205 /* Shortcuts */ = {
-			isa = PBXNativeTarget;
-			buildConfigurationList = 78A648FF21387DEC007EF205 /* Build configuration list for PBXNativeTarget "Shortcuts" */;
-			buildPhases = (
-				78A648DE21387DEC007EF205 /* Sources */,
-				78A648DF21387DEC007EF205 /* Frameworks */,
-				78A648E021387DEC007EF205 /* Resources */,
-			);
-			buildRules = (
-			);
-			dependencies = (
-			);
-			name = Shortcuts;
-			productName = Shortcuts;
-			productReference = 78A648E221387DEC007EF205 /* Shortcuts.appex */;
-			productType = "com.apple.product-type.app-extension";
 		};
 /* End PBXNativeTarget section */
 
@@ -496,12 +494,21 @@
 		27C34F622017D9E700B129F6 /* Project object */ = {
 			isa = PBXProject;
 			attributes = {
-				LastSwiftUpdateCheck = 1000;
+				LastSwiftUpdateCheck = 1010;
 				LastUpgradeCheck = 0920;
 				ORGANIZATIONNAME = Kyle;
 				TargetAttributes = {
 					272EE1B7208A805E007B6FDB = {
 						CreatedOnToolsVersion = 9.3;
+						ProvisioningStyle = Automatic;
+						SystemCapabilities = {
+							com.apple.ApplicationGroups.iOS = {
+								enabled = 1;
+							};
+						};
+					};
+					27A04DA42193947B001BF37C = {
+						CreatedOnToolsVersion = 10.1;
 						ProvisioningStyle = Automatic;
 						SystemCapabilities = {
 							com.apple.ApplicationGroups.iOS = {
@@ -521,10 +528,6 @@
 							};
 						};
 					};
-					78A648E121387DEC007EF205 = {
-						CreatedOnToolsVersion = 10.0;
-						ProvisioningStyle = Automatic;
-					};
 				};
 			};
 			buildConfigurationList = 27C34F652017D9E700B129F6 /* Build configuration list for PBXProject "Refrain" */;
@@ -542,13 +545,20 @@
 			targets = (
 				27C34F692017D9E700B129F6 /* Refrain */,
 				272EE1B7208A805E007B6FDB /* ContentBlocker */,
-				78A648E121387DEC007EF205 /* Shortcuts */,
+				27A04DA42193947B001BF37C /* CollectionsIntent */,
 			);
 		};
 /* End PBXProject section */
 
 /* Begin PBXResourcesBuildPhase section */
 		272EE1B6208A805E007B6FDB /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		27A04DA32193947B001BF37C /* Resources */ = {
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -568,13 +578,6 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		78A648E021387DEC007EF205 /* Resources */ = {
-			isa = PBXResourcesBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
@@ -583,6 +586,21 @@
 			buildActionMask = 2147483647;
 			files = (
 				272EE1BD208A805E007B6FDB /* ContentBlockerRequestHandler.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		27A04DA12193947B001BF37C /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				27A04DCD2194E34B001BF37C /* BlockingCollection+Intents.swift in Sources */,
+				27A04DD12194E7B6001BF37C /* SharedUserDefaults.swift in Sources */,
+				27A04DCE2194E39F001BF37C /* BlockingCollectionStore.swift in Sources */,
+				27A04DCB2194E337001BF37C /* BlockingCollection.swift in Sources */,
+				27A04DCC2194E33F001BF37C /* BlockingRule.swift in Sources */,
+				27A04DC52193966B001BF37C /* Intents.intentdefinition in Sources */,
+				27A04DA82193947B001BF37C /* IntentHandler.swift in Sources */,
+				27A04DC92194DB54001BF37C /* IntentsManager.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -605,12 +623,11 @@
 				279FE4FC20659686007B7F17 /* BlockingCollectionStore.swift in Sources */,
 				27C34F872017E24900B129F6 /* BlockingRuleCell.swift in Sources */,
 				789207D82023B18D0053F351 /* BlockingSchedule.swift in Sources */,
-				7804B0AE213F22FE00E7C372 /* DisableBlockingCollectionIntentHandler.swift in Sources */,
 				789207DC2023B8370053F351 /* BlockingSchedueCell.swift in Sources */,
 				277F5FBF2079C78400A1A558 /* BackgroundGradientLayer.swift in Sources */,
 				271E0172208BBAA400FC37C6 /* BlockingListCell.swift in Sources */,
-				78A64905213888EC007EF205 /* EnableBlockingCollectionIntentHandler.swift in Sources */,
 				27CFF59820B4B7F700193AF8 /* PremiumUpgradeViewController.swift in Sources */,
+				27A04DD02194E787001BF37C /* SharedUserDefaults.swift in Sources */,
 				2761E58A20B8C4BC00FEE78B /* NotificationsSplashViewController.swift in Sources */,
 				789207DA2023B32D0053F351 /* BlockingScheduleStore.swift in Sources */,
 				78ED08A220E4347C00240E1B /* TextFieldTableViewCell.swift in Sources */,
@@ -639,22 +656,6 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		78A648DE21387DEC007EF205 /* Sources */ = {
-			isa = PBXSourcesBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-				78EF34C221406F1700FE89B1 /* BlockingCollection.swift in Sources */,
-				78EF34C421406F1E00FE89B1 /* BlockingCollectionStore.swift in Sources */,
-				78EF34C121406F1100FE89B1 /* Intents.intentdefinition in Sources */,
-				78EF34BF21406F0900FE89B1 /* BlockingCollection+Intents.swift in Sources */,
-				78EF34C021406F0C00FE89B1 /* IntentsManager.swift in Sources */,
-				78EF34BE21406EFC00FE89B1 /* DisableBlockingCollectionIntentHandler.swift in Sources */,
-				78EF34BD21406EFC00FE89B1 /* EnableBlockingCollectionIntentHandler.swift in Sources */,
-				78EF34C321406F1700FE89B1 /* BlockingRule.swift in Sources */,
-				78A648E521387DEC007EF205 /* IntentHandler.swift in Sources */,
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
 /* End PBXSourcesBuildPhase section */
 
 /* Begin PBXTargetDependency section */
@@ -663,10 +664,10 @@
 			target = 272EE1B7208A805E007B6FDB /* ContentBlocker */;
 			targetProxy = 272EE1BF208A805E007B6FDB /* PBXContainerItemProxy */;
 		};
-		78A648FA21387DEC007EF205 /* PBXTargetDependency */ = {
+		27A04DBB2193947B001BF37C /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
-			target = 78A648E121387DEC007EF205 /* Shortcuts */;
-			targetProxy = 78A648F921387DEC007EF205 /* PBXContainerItemProxy */;
+			target = 27A04DA42193947B001BF37C /* CollectionsIntent */;
+			targetProxy = 27A04DBA2193947B001BF37C /* PBXContainerItemProxy */;
 		};
 /* End PBXTargetDependency section */
 
@@ -728,6 +729,49 @@
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SKIP_INSTALL = YES;
 				SWIFT_VERSION = 4.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Release;
+		};
+		27A04DC12193947B001BF37C /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CODE_SIGN_ENTITLEMENTS = CollectionsIntent/CollectionsIntent.entitlements;
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = V9CEBD9ZBT;
+				INFOPLIST_FILE = CollectionsIntent/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 12.1;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @executable_path/../../Frameworks";
+				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
+				MTL_FAST_MATH = YES;
+				PRODUCT_BUNDLE_IDENTIFIER = ca.genoe.Refrain.CollectionsIntent;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SKIP_INSTALL = YES;
+				SWIFT_VERSION = 4.2;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Debug;
+		};
+		27A04DC22193947B001BF37C /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CODE_SIGN_ENTITLEMENTS = CollectionsIntent/CollectionsIntent.entitlements;
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = V9CEBD9ZBT;
+				INFOPLIST_FILE = CollectionsIntent/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 12.1;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @executable_path/../../Frameworks";
+				MTL_FAST_MATH = YES;
+				PRODUCT_BUNDLE_IDENTIFIER = ca.genoe.Refrain.CollectionsIntent;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SKIP_INSTALL = YES;
+				SWIFT_VERSION = 4.2;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
 			name = Release;
@@ -875,47 +919,6 @@
 			};
 			name = Release;
 		};
-		78A6490021387DEC007EF205 /* Debug */ = {
-			isa = XCBuildConfiguration;
-			buildSettings = {
-				CLANG_ENABLE_OBJC_WEAK = YES;
-				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
-				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
-				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = V9CEBD9ZBT;
-				INFOPLIST_FILE = Shortcuts/Info.plist;
-				IPHONEOS_DEPLOYMENT_TARGET = 12.0;
-				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @executable_path/../../Frameworks";
-				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
-				MTL_FAST_MATH = YES;
-				PRODUCT_BUNDLE_IDENTIFIER = ca.genoe.Refrain.Shortcuts;
-				PRODUCT_NAME = "$(TARGET_NAME)";
-				SKIP_INSTALL = YES;
-				SWIFT_VERSION = 4.2;
-				TARGETED_DEVICE_FAMILY = "1,2";
-			};
-			name = Debug;
-		};
-		78A6490121387DEC007EF205 /* Release */ = {
-			isa = XCBuildConfiguration;
-			buildSettings = {
-				CLANG_ENABLE_OBJC_WEAK = YES;
-				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
-				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
-				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = V9CEBD9ZBT;
-				INFOPLIST_FILE = Shortcuts/Info.plist;
-				IPHONEOS_DEPLOYMENT_TARGET = 12.0;
-				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @executable_path/../../Frameworks";
-				MTL_FAST_MATH = YES;
-				PRODUCT_BUNDLE_IDENTIFIER = ca.genoe.Refrain.Shortcuts;
-				PRODUCT_NAME = "$(TARGET_NAME)";
-				SKIP_INSTALL = YES;
-				SWIFT_VERSION = 4.2;
-				TARGETED_DEVICE_FAMILY = "1,2";
-			};
-			name = Release;
-		};
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
@@ -924,6 +927,15 @@
 			buildConfigurations = (
 				272EE1C2208A805E007B6FDB /* Debug */,
 				272EE1C3208A805E007B6FDB /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		27A04DC02193947B001BF37C /* Build configuration list for PBXNativeTarget "CollectionsIntent" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				27A04DC12193947B001BF37C /* Debug */,
+				27A04DC22193947B001BF37C /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
@@ -942,15 +954,6 @@
 			buildConfigurations = (
 				27C34F7D2017D9E700B129F6 /* Debug */,
 				27C34F7E2017D9E700B129F6 /* Release */,
-			);
-			defaultConfigurationIsVisible = 0;
-			defaultConfigurationName = Release;
-		};
-		78A648FF21387DEC007EF205 /* Build configuration list for PBXNativeTarget "Shortcuts" */ = {
-			isa = XCConfigurationList;
-			buildConfigurations = (
-				78A6490021387DEC007EF205 /* Debug */,
-				78A6490121387DEC007EF205 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
