@@ -12,7 +12,6 @@ enum MainTableViewSection: Int, TableViewSection {
     
     case Subtitle
     case UserBlockingCollections
-    case DefaultBlockingCollections
     case Schedules
     case Settings
     
@@ -51,12 +50,11 @@ enum MainTableViewRow: TableViewRow {
 struct MainTableViewStructure: TableViewStructure {
     
     // Sections
-    var sections = MainTableViewSection.all
+    var sections:  [MainTableViewSection] = [.Subtitle, .UserBlockingCollections, .Settings]
     
     // Rows
     private var subtitleRows: [MainTableViewRow] = []
     private var userBlockingCollectionsRows: [MainTableViewRow] = []
-    private var defaultBlockingCollectionsRows: [MainTableViewRow] = []
     private var schedulesRows: [MainTableViewRow] = []
     private var settingsRows: [MainTableViewRow] = []
     
@@ -92,7 +90,6 @@ struct MainTableViewStructure: TableViewStructure {
         switch section {
         case .Subtitle: return subtitleRows
         case .UserBlockingCollections: return userBlockingCollectionsRows
-        case .DefaultBlockingCollections: return defaultBlockingCollectionsRows
         case .Schedules: return schedulesRows
         case .Settings: return settingsRows
         }
