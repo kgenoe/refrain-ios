@@ -56,7 +56,7 @@ enum SettingsTableViewRow: TableViewRow {
 struct SettingsTableViewStructure: TableViewStructure {
     
     // Sections
-    var sections = SettingsTableViewSection.all
+    var sections: [SettingsTableViewSection] = [.Collections, .Feedback, .Shortcuts, .About]
     
     init(){
         // remove mail section if cannot send mail
