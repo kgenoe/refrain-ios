@@ -19,6 +19,10 @@
 		27431B732059E8E0008B4D2B /* CardView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 27431B722059E8E0008B4D2B /* CardView.swift */; };
 		274E8388207C018100BAE7A5 /* InnerShadowLayer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 274E8387207C018100BAE7A5 /* InnerShadowLayer.swift */; };
 		274E838A2081816200BAE7A5 /* SwitchTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 274E83892081816200BAE7A5 /* SwitchTableViewCell.swift */; };
+		275DC5AD219A2BAB00596D10 /* AboutViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 275DC5AC219A2BAB00596D10 /* AboutViewController.swift */; };
+		275DC5B0219A4C7F00596D10 /* DonateViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 275DC5AF219A4C7F00596D10 /* DonateViewController.swift */; };
+		275DC5B2219B072B00596D10 /* UIBorderedButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 275DC5B1219B072B00596D10 /* UIBorderedButton.swift */; };
+		275DC5B4219B08E400596D10 /* InAppPurchaseIDs.swift in Sources */ = {isa = PBXBuildFile; fileRef = 275DC5B3219B08E400596D10 /* InAppPurchaseIDs.swift */; };
 		2761E58A20B8C4BC00FEE78B /* NotificationsSplashViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2761E58920B8C4BC00FEE78B /* NotificationsSplashViewController.swift */; };
 		277F5FBF2079C78400A1A558 /* BackgroundGradientLayer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 277F5FBE2079C78400A1A558 /* BackgroundGradientLayer.swift */; };
 		277F5FC12079CCA100A1A558 /* AppearanceManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 277F5FC02079CCA100A1A558 /* AppearanceManager.swift */; };
@@ -119,6 +123,10 @@
 		27431B722059E8E0008B4D2B /* CardView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CardView.swift; sourceTree = "<group>"; };
 		274E8387207C018100BAE7A5 /* InnerShadowLayer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InnerShadowLayer.swift; sourceTree = "<group>"; };
 		274E83892081816200BAE7A5 /* SwitchTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SwitchTableViewCell.swift; sourceTree = "<group>"; };
+		275DC5AC219A2BAB00596D10 /* AboutViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AboutViewController.swift; sourceTree = "<group>"; };
+		275DC5AF219A4C7F00596D10 /* DonateViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DonateViewController.swift; sourceTree = "<group>"; };
+		275DC5B1219B072B00596D10 /* UIBorderedButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIBorderedButton.swift; sourceTree = "<group>"; };
+		275DC5B3219B08E400596D10 /* InAppPurchaseIDs.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InAppPurchaseIDs.swift; sourceTree = "<group>"; };
 		2761E58920B8C4BC00FEE78B /* NotificationsSplashViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NotificationsSplashViewController.swift; sourceTree = "<group>"; };
 		277F5FBE2079C78400A1A558 /* BackgroundGradientLayer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BackgroundGradientLayer.swift; sourceTree = "<group>"; };
 		277F5FC02079CCA100A1A558 /* AppearanceManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppearanceManager.swift; sourceTree = "<group>"; };
@@ -234,9 +242,34 @@
 				271E0170208BB94500FC37C6 /* TableView Cells */,
 				277F5FBE2079C78400A1A558 /* BackgroundGradientLayer.swift */,
 				274E8387207C018100BAE7A5 /* InnerShadowLayer.swift */,
+				275DC5B1219B072B00596D10 /* UIBorderedButton.swift */,
 				277F5FBC2079C73400A1A558 /* Card View */,
 			);
 			path = Views;
+			sourceTree = "<group>";
+		};
+		275DC5AA219A2B7100596D10 /* Premium */ = {
+			isa = PBXGroup;
+			children = (
+				27CFF59720B4B7F700193AF8 /* PremiumUpgradeViewController.swift */,
+			);
+			path = Premium;
+			sourceTree = "<group>";
+		};
+		275DC5AB219A2B7C00596D10 /* About */ = {
+			isa = PBXGroup;
+			children = (
+				275DC5AC219A2BAB00596D10 /* AboutViewController.swift */,
+			);
+			path = About;
+			sourceTree = "<group>";
+		};
+		275DC5AE219A4C5400596D10 /* Donate */ = {
+			isa = PBXGroup;
+			children = (
+				275DC5AF219A4C7F00596D10 /* DonateViewController.swift */,
+			);
+			path = Donate;
 			sourceTree = "<group>";
 		};
 		2761E58720B8A41500FEE78B /* Main */ = {
@@ -372,6 +405,7 @@
 				27CFF59120AFC44A00193AF8 /* Result.swift */,
 				789207DD2023B8FE0053F351 /* DateExtensions.swift */,
 				27408FF220C94B45004FB25C /* UIAlertController+backgroundColor.swift */,
+				275DC5B3219B08E400596D10 /* InAppPurchaseIDs.swift */,
 			);
 			path = Helpers;
 			sourceTree = "<group>";
@@ -389,7 +423,9 @@
 			children = (
 				27CFF59420B4B36F00193AF8 /* SettingsViewController.swift */,
 				27A8FD1720E454B5001F187C /* SettingsTableViewStructure.swift */,
-				27CFF59720B4B7F700193AF8 /* PremiumUpgradeViewController.swift */,
+				275DC5AA219A2B7100596D10 /* Premium */,
+				275DC5AB219A2B7C00596D10 /* About */,
+				275DC5AE219A4C5400596D10 /* Donate */,
 			);
 			path = Settings;
 			sourceTree = "<group>";
@@ -626,10 +662,12 @@
 				789207DC2023B8370053F351 /* BlockingSchedueCell.swift in Sources */,
 				277F5FBF2079C78400A1A558 /* BackgroundGradientLayer.swift in Sources */,
 				271E0172208BBAA400FC37C6 /* BlockingListCell.swift in Sources */,
+				275DC5B2219B072B00596D10 /* UIBorderedButton.swift in Sources */,
 				27CFF59820B4B7F700193AF8 /* PremiumUpgradeViewController.swift in Sources */,
 				27A04DD02194E787001BF37C /* SharedUserDefaults.swift in Sources */,
 				2761E58A20B8C4BC00FEE78B /* NotificationsSplashViewController.swift in Sources */,
 				789207DA2023B32D0053F351 /* BlockingScheduleStore.swift in Sources */,
+				275DC5AD219A2BAB00596D10 /* AboutViewController.swift in Sources */,
 				78ED08A220E4347C00240E1B /* TextFieldTableViewCell.swift in Sources */,
 				27C34F822017DD4F00B129F6 /* BlockingCollectionViewController.swift in Sources */,
 				27A8FD1820E454B5001F187C /* SettingsTableViewStructure.swift in Sources */,
@@ -644,11 +682,13 @@
 				27CFF58720AE45CA00193AF8 /* HeaderTableViewCell.swift in Sources */,
 				789207DE2023B8FE0053F351 /* DateExtensions.swift in Sources */,
 				78ED089F20E431F600240E1B /* BlockingScheduleStructure.swift in Sources */,
+				275DC5B4219B08E400596D10 /* InAppPurchaseIDs.swift in Sources */,
 				27CFF58B20AEF3BE00193AF8 /* MainTableViewStructure.swift in Sources */,
 				789C5A8020C815470004F04F /* TableViewStructure.swift in Sources */,
 				789C5A8220C819C80004F04F /* MainTableViewDelegate.swift in Sources */,
 				274E838A2081816200BAE7A5 /* SwitchTableViewCell.swift in Sources */,
 				273BE5372054610C00EF57C2 /* NetworkingConstants.swift in Sources */,
+				275DC5B0219A4C7F00596D10 /* DonateViewController.swift in Sources */,
 				279FE4FA20659453007B7F17 /* BlockingCollection.swift in Sources */,
 				2781964F2053773900A42E4C /* CreateAccountRequest.swift in Sources */,
 				27408FEF20C78102004FB25C /* ItemTableViewCell.swift in Sources */,

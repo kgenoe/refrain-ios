@@ -1,10 +1,10 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14313.13.2" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="Njd-yJ-kOX">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14460.31" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="Njd-yJ-kOX">
     <device id="retina4_7" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14283.9"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14460.20"/>
         <capability name="Named colors" minToolsVersion="9.0"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
@@ -485,7 +485,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="evq-GX-lFP" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1862" y="1232"/>
+            <point key="canvasLocation" x="3500" y="1232"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="Eaz-aZ-Bac">
@@ -502,6 +502,183 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="BFC-k7-Jos" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="-649" y="518"/>
+        </scene>
+        <!--About View Controller-->
+        <scene sceneID="Xzz-uS-axV">
+            <objects>
+                <viewController storyboardIdentifier="AboutViewController" id="sBh-a4-luY" customClass="AboutViewController" customModule="Refrain" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="gjo-sy-IVK">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="© 2015-2018 Kyle Genoe" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="B7P-nU-ag4">
+                                <rect key="frame" x="16" y="608" width="343" height="59"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="59" id="E9G-im-Vwe"/>
+                                    <constraint firstAttribute="width" constant="343" id="Wru-5W-kfK"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" name="Avenir-Book" family="Avenir" pointSize="14"/>
+                                <color key="textColor" name="White"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" editable="NO" textAlignment="justified" selectable="NO" translatesAutoresizingMaskIntoConstraints="NO" id="NKw-Ry-TXn">
+                                <rect key="frame" x="20" y="84" width="335" height="504"/>
+                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <color key="textColor" name="White"/>
+                                <fontDescription key="fontDescription" name="Avenir-Book" family="Avenir" pointSize="14"/>
+                                <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
+                            </textView>
+                        </subviews>
+                        <color key="backgroundColor" name="Gradient2"/>
+                        <constraints>
+                            <constraint firstItem="ZHj-Th-9II" firstAttribute="trailing" secondItem="B7P-nU-ag4" secondAttribute="trailing" constant="16" id="5z0-Mc-qWp"/>
+                            <constraint firstItem="ZHj-Th-9II" firstAttribute="trailing" secondItem="NKw-Ry-TXn" secondAttribute="trailing" constant="20" id="JZl-mR-qIq"/>
+                            <constraint firstItem="B7P-nU-ag4" firstAttribute="top" secondItem="NKw-Ry-TXn" secondAttribute="bottom" constant="20" id="Kdv-ZQ-tf1"/>
+                            <constraint firstItem="ZHj-Th-9II" firstAttribute="bottom" secondItem="B7P-nU-ag4" secondAttribute="bottom" id="LsX-Cg-TPB"/>
+                            <constraint firstItem="NKw-Ry-TXn" firstAttribute="leading" secondItem="ZHj-Th-9II" secondAttribute="leading" constant="20" id="e9U-5h-ErT"/>
+                            <constraint firstItem="B7P-nU-ag4" firstAttribute="leading" secondItem="ZHj-Th-9II" secondAttribute="leading" constant="16" id="fmW-5Q-oqG"/>
+                            <constraint firstItem="NKw-Ry-TXn" firstAttribute="top" secondItem="ZHj-Th-9II" secondAttribute="top" constant="20" id="nZf-AV-OR9"/>
+                        </constraints>
+                        <viewLayoutGuide key="safeArea" id="ZHj-Th-9II"/>
+                    </view>
+                    <simulatedNavigationBarMetrics key="simulatedTopBarMetrics" prompted="NO"/>
+                    <connections>
+                        <outlet property="aboutTextView" destination="NKw-Ry-TXn" id="foR-nr-2hd"/>
+                        <outlet property="bottomLabel" destination="B7P-nU-ag4" id="Uqg-sY-Lx3"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="aDo-n2-bQe" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1861.5999999999999" y="1231.9340329835084"/>
+        </scene>
+        <!--Donate View Controller-->
+        <scene sceneID="iBQ-00-d4M">
+            <objects>
+                <viewController storyboardIdentifier="DonateViewController" id="rMP-vY-K1d" customClass="DonateViewController" customModule="Refrain" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="QAu-PD-Plt">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Gf8-RV-uqy">
+                                <rect key="frame" x="16" y="124" width="343" height="75"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="343" id="KUe-9O-Hi6"/>
+                                    <constraint firstAttribute="height" constant="75" id="e61-b3-sEw"/>
+                                </constraints>
+                                <string key="text">Thanks for considering a donation! Refrain is maintained by a single developer and a lot of caffeine, so any amount helps a lot.</string>
+                                <fontDescription key="fontDescription" name="Avenir-Book" family="Avenir" pointSize="16"/>
+                                <color key="textColor" name="White"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="UaM-2a-AGY" customClass="UIBorderedButton" customModule="Refrain" customModuleProvider="target">
+                                <rect key="frame" x="20" y="259" width="103.5" height="45"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="45" id="Bci-Is-phR"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" name="Avenir-Book" family="Avenir" pointSize="15"/>
+                                <state key="normal" title="Tip 1">
+                                    <color key="titleColor" name="Orange"/>
+                                </state>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="IVq-P4-sMw" customClass="UIBorderedButton" customModule="Refrain" customModuleProvider="target">
+                                <rect key="frame" x="135.5" y="259" width="104" height="45"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="45" id="qoM-Wv-Asb"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" name="Avenir-Book" family="Avenir" pointSize="15"/>
+                                <state key="normal" title="Tip 2">
+                                    <color key="titleColor" name="Orange"/>
+                                </state>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="4uo-08-2vG" customClass="UIBorderedButton" customModule="Refrain" customModuleProvider="target">
+                                <rect key="frame" x="251.5" y="259" width="103.5" height="45"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="45" id="JZE-e5-VIo"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" name="Avenir-Book" family="Avenir" pointSize="15"/>
+                                <state key="normal" title="Tip 3">
+                                    <color key="titleColor" name="Orange"/>
+                                </state>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="CK0-7K-Nid" customClass="UIBorderedButton" customModule="Refrain" customModuleProvider="target">
+                                <rect key="frame" x="20" y="316" width="335" height="45"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="45" id="tkp-3C-3uH"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" name="Avenir-Book" family="Avenir" pointSize="15"/>
+                                <state key="normal" title="Restore Purchases">
+                                    <color key="titleColor" name="Orange"/>
+                                </state>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="NK5-t9-ANh" customClass="UIBorderedButton" customModule="DripSimpleHydration" customModuleProvider="target">
+                                <rect key="frame" x="20" y="602" width="161.5" height="45"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="45" id="vk0-Dk-Q1g"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" name="Avenir-Book" family="Avenir" pointSize="17"/>
+                                <state key="normal" title="Tweet">
+                                    <color key="titleColor" name="Orange"/>
+                                </state>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Ub2-EF-hgN" customClass="UIBorderedButton" customModule="DripSimpleHydration" customModuleProvider="target">
+                                <rect key="frame" x="193.5" y="602" width="161.5" height="45"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="45" id="9OH-ZD-4jI"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" name="Avenir-Book" family="Avenir" pointSize="17"/>
+                                <state key="normal" title="Email">
+                                    <color key="titleColor" name="Orange"/>
+                                </state>
+                            </button>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="For support or feature suggestions:" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="mWT-TC-ulu">
+                                <rect key="frame" x="20" y="560" width="343" height="22"/>
+                                <fontDescription key="fontDescription" name="Avenir-Book" family="Avenir" pointSize="16"/>
+                                <color key="textColor" name="White"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                        </subviews>
+                        <color key="backgroundColor" name="Gradient2"/>
+                        <constraints>
+                            <constraint firstItem="uzH-vI-Zr1" firstAttribute="trailing" secondItem="4uo-08-2vG" secondAttribute="trailing" constant="20" id="0XA-X2-gG9"/>
+                            <constraint firstItem="4uo-08-2vG" firstAttribute="width" secondItem="UaM-2a-AGY" secondAttribute="width" id="2YX-4F-Ir5"/>
+                            <constraint firstItem="IVq-P4-sMw" firstAttribute="width" secondItem="UaM-2a-AGY" secondAttribute="width" id="4AY-rl-t2C"/>
+                            <constraint firstItem="mWT-TC-ulu" firstAttribute="leading" secondItem="uzH-vI-Zr1" secondAttribute="leading" constant="20" id="6mu-01-kVD"/>
+                            <constraint firstItem="Ub2-EF-hgN" firstAttribute="width" secondItem="NK5-t9-ANh" secondAttribute="width" id="79c-Jz-jEq"/>
+                            <constraint firstItem="uzH-vI-Zr1" firstAttribute="trailing" secondItem="Ub2-EF-hgN" secondAttribute="trailing" constant="20" id="AII-1v-a6q"/>
+                            <constraint firstItem="uzH-vI-Zr1" firstAttribute="trailing" secondItem="mWT-TC-ulu" secondAttribute="trailing" constant="12" id="Jg1-9F-PWv"/>
+                            <constraint firstItem="UaM-2a-AGY" firstAttribute="leading" secondItem="uzH-vI-Zr1" secondAttribute="leading" constant="20" id="Nna-Y5-sX1"/>
+                            <constraint firstItem="UaM-2a-AGY" firstAttribute="top" secondItem="Gf8-RV-uqy" secondAttribute="bottom" constant="60" id="W9L-R3-TxO"/>
+                            <constraint firstItem="uzH-vI-Zr1" firstAttribute="trailing" secondItem="Gf8-RV-uqy" secondAttribute="trailing" constant="16" id="ZLE-Lp-1Gf"/>
+                            <constraint firstItem="NK5-t9-ANh" firstAttribute="top" secondItem="mWT-TC-ulu" secondAttribute="bottom" constant="20" id="Zi0-QK-7ug"/>
+                            <constraint firstItem="uzH-vI-Zr1" firstAttribute="bottom" secondItem="NK5-t9-ANh" secondAttribute="bottom" constant="20" id="Zz2-Sk-mOM"/>
+                            <constraint firstItem="NK5-t9-ANh" firstAttribute="leading" secondItem="uzH-vI-Zr1" secondAttribute="leading" constant="20" id="aR8-kg-WRC"/>
+                            <constraint firstItem="Gf8-RV-uqy" firstAttribute="top" secondItem="uzH-vI-Zr1" secondAttribute="top" constant="60" id="beI-hW-kJC"/>
+                            <constraint firstItem="uzH-vI-Zr1" firstAttribute="bottom" secondItem="Ub2-EF-hgN" secondAttribute="bottom" constant="20" id="iEN-zO-O2X"/>
+                            <constraint firstItem="CK0-7K-Nid" firstAttribute="top" secondItem="UaM-2a-AGY" secondAttribute="bottom" constant="12" id="icy-Zp-1sZ"/>
+                            <constraint firstItem="IVq-P4-sMw" firstAttribute="leading" secondItem="UaM-2a-AGY" secondAttribute="trailing" constant="12" id="ifW-W4-mhN"/>
+                            <constraint firstItem="IVq-P4-sMw" firstAttribute="top" secondItem="Gf8-RV-uqy" secondAttribute="bottom" constant="60" id="ikd-qL-Jw9"/>
+                            <constraint firstItem="uzH-vI-Zr1" firstAttribute="trailing" secondItem="CK0-7K-Nid" secondAttribute="trailing" constant="20" id="j8m-LS-CSM"/>
+                            <constraint firstItem="4uo-08-2vG" firstAttribute="leading" secondItem="IVq-P4-sMw" secondAttribute="trailing" constant="12" id="kCr-xn-uHm"/>
+                            <constraint firstItem="CK0-7K-Nid" firstAttribute="leading" secondItem="uzH-vI-Zr1" secondAttribute="leading" constant="20" id="mKG-Sz-3X6"/>
+                            <constraint firstItem="Ub2-EF-hgN" firstAttribute="leading" secondItem="NK5-t9-ANh" secondAttribute="trailing" constant="12" id="nDw-7z-Alb"/>
+                            <constraint firstItem="4uo-08-2vG" firstAttribute="top" secondItem="Gf8-RV-uqy" secondAttribute="bottom" constant="60" id="oor-Ug-fSV"/>
+                            <constraint firstItem="Gf8-RV-uqy" firstAttribute="leading" secondItem="uzH-vI-Zr1" secondAttribute="leading" constant="16" id="wLh-Xe-nY6"/>
+                        </constraints>
+                        <viewLayoutGuide key="safeArea" id="uzH-vI-Zr1"/>
+                    </view>
+                    <simulatedNavigationBarMetrics key="simulatedTopBarMetrics" prompted="NO"/>
+                    <connections>
+                        <outlet property="emailButton" destination="Ub2-EF-hgN" id="27n-oB-K6D"/>
+                        <outlet property="restorePurchasesButton" destination="CK0-7K-Nid" id="dju-xc-GLC"/>
+                        <outlet property="tip1Button" destination="UaM-2a-AGY" id="EEy-Jk-88W"/>
+                        <outlet property="tip2Button" destination="IVq-P4-sMw" id="vR8-IS-4af"/>
+                        <outlet property="tip3Button" destination="4uo-08-2vG" id="vM3-Qh-bAX"/>
+                        <outlet property="tweetButton" destination="NK5-t9-ANh" id="qgS-Vg-Dgu"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="OsS-PM-nLq" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="2680.8000000000002" y="1231.9340329835084"/>
         </scene>
     </scenes>
     <resources>

@@ -168,8 +168,12 @@ extension SettingsViewController: UITableViewDataSource, UITableViewDelegate {
             showEmailViewController(subject: "Bug Report", body: "")
         case .DeleteAllSiriShortcuts:
             presentDeleteAllShortcutsAlert()
-        default:
-            break
+        case .About:
+            let aboutVC = AboutViewController.instantiate()
+            navigationController?.pushViewController(aboutVC, animated: true)
+        case .Donation:
+            let donateVC = DonateViewController.instantiate()
+            navigationController?.pushViewController(donateVC, animated: true)
         }
     }
     
@@ -219,6 +223,8 @@ extension SettingsViewController: UITableViewDataSource, UITableViewDelegate {
             return ItemTableViewCell(text: "Delete All Siri Shortcuts")
         case .About:
             return ItemTableViewCell(text: "About")
+        case .Donation:
+            return ItemTableViewCell(text: "Donate")
         }
     }
 }

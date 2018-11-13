@@ -9,8 +9,6 @@
 import UIKit
 import StoreKit
 
-let premiumUpgradeID = "refrainPremium"
-
 class PremiumUpgradeViewController: UIViewController {
     
     @IBOutlet weak var buyPremiumButton: UIButton!

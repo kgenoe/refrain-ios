@@ -50,6 +50,7 @@ enum SettingsTableViewRow: TableViewRow {
     case DeleteAllSiriShortcuts
     
     case About
+    case Donation
 }
 
 
@@ -58,10 +59,12 @@ struct SettingsTableViewStructure: TableViewStructure {
     // Sections
     var sections: [SettingsTableViewSection] = [.Collections, .Feedback, .Shortcuts, .About]
     
+    private var feedbackRows: [SettingsTableViewRow] = [.ReviewOnAppStore, .RequestFeature, .ReportProblem]
+    
     init(){
         // remove mail section if cannot send mail
         if !MFMailComposeViewController.canSendMail() {
-            sections = sections.filter{ $0 != .Feedback }
+            feedbackRows = [.ReviewOnAppStore]
         }
     }
     
@@ -79,9 +82,9 @@ struct SettingsTableViewStructure: TableViewStructure {
         switch section {
         case .PremiumFeatures:  return [.PremiumFeatures]
         case .Collections:      return [.RestoreOriginalCollections]
-        case .Feedback:         return [.ReviewOnAppStore, .RequestFeature, .ReportProblem]
+        case .Feedback:         return feedbackRows
         case .Shortcuts:        return [.DeleteAllSiriShortcuts]
-        case .About:            return [.About]
+        case .About:            return [.About, .Donation]
         }
     }
 }
