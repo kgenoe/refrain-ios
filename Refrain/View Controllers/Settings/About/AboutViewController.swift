@@ -21,12 +21,11 @@ class AboutViewController: UIViewController {
     }
     
     
-    override func viewDidLoad() {
-        super.viewDidLoad()
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
         
         navigationItem.title = "About Refrain"
         
-    
         let text = """
 Refrain is meant to be used to block unhelpful websites from your device. That can mean different things to different people, but here are some suggestions on how to use it effectively:
 
@@ -41,7 +40,7 @@ Refrain is developed by me, Kyle Genoe, in my spare time. If you find Refrain us
 Developed in Toronto with love.
 """
         aboutTextView.text = text
-
+        
         // set version & copyright label
         var bottomText = ""
         if let version = Bundle.main.infoDictionary?["CFBundleShortVersionString"] as? String,
@@ -51,6 +50,16 @@ Developed in Toronto with love.
         
         bottomText += "© 2015-2018 Kyle Genoe"
         bottomLabel.text = bottomText
+        
+        setBackgroundGradient()
+    }
+    
+    private func setBackgroundGradient() {
+        view.layer.sublayers?.filter{ ($0 as? BackgroundGradientLayer) != nil }
+            .forEach{ $0.removeFromSuperlayer() }
+        
+        let gradient = BackgroundGradientLayer(frame: view.bounds)
+        view.layer.addSublayer(gradient)
     }
 
 }

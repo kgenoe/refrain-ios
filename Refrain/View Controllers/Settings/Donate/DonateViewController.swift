@@ -26,8 +26,9 @@ class DonateViewController: UIViewController {
         return vc
     }
     
-    override func viewDidLoad() {
-        super.viewDidLoad()
+    
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
         
         navigationItem.title = "Donate"
         
@@ -37,9 +38,18 @@ class DonateViewController: UIViewController {
         restorePurchasesButton.borderColor = UIColor(named: "Orange")!
         tweetButton.borderColor = UIColor(named: "Orange")!
         emailButton.borderColor = UIColor(named: "Orange")!
+        
+        setBackgroundGradient()
     }
     
     
+    private func setBackgroundGradient() {
+        view.layer.sublayers?.filter{ ($0 as? BackgroundGradientLayer) != nil }
+            .forEach{ $0.removeFromSuperlayer() }
+        
+        let gradient = BackgroundGradientLayer(frame: view.bounds)
+        view.layer.addSublayer(gradient)
+    }
     
     //MARK: - IAPs
     
