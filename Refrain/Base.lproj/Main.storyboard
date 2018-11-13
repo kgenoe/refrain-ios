@@ -83,26 +83,17 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="URL FILTER" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="1bx-9N-NMo">
-                                <rect key="frame" x="16" y="94" width="343" height="21"/>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Url Filter" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="1bx-9N-NMo">
+                                <rect key="frame" x="16" y="84" width="343" height="21"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="21" id="qRu-V5-1Bw"/>
                                 </constraints>
-                                <fontDescription key="fontDescription" name="AvenirNextCondensed-DemiBold" family="Avenir Next Condensed" pointSize="18"/>
-                                <color key="textColor" name="White"/>
-                                <nil key="highlightedColor"/>
-                            </label>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="DESCRIPTION" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="dFf-oQ-0xU">
-                                <rect key="frame" x="16" y="189" width="343" height="21"/>
-                                <constraints>
-                                    <constraint firstAttribute="height" constant="21" id="56e-IC-0CI"/>
-                                </constraints>
-                                <fontDescription key="fontDescription" name="AvenirNextCondensed-DemiBold" family="Avenir Next Condensed" pointSize="18"/>
+                                <fontDescription key="fontDescription" name="Avenir-Medium" family="Avenir" pointSize="14"/>
                                 <color key="textColor" name="White"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="The URL filterSupports basic, single-line, regular expressions, only using the following tokens: [ ] ? + * ( )" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="yzS-gE-yNC">
-                                <rect key="frame" x="16" y="280" width="343" height="99"/>
+                                <rect key="frame" x="16" y="179" width="343" height="99"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="99" id="PRT-bP-NEd"/>
                                 </constraints>
@@ -111,7 +102,7 @@
                                 <nil key="highlightedColor"/>
                             </label>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="VNm-h9-cne">
-                                <rect key="frame" x="0.0" y="119" width="375" height="40"/>
+                                <rect key="frame" x="0.0" y="109" width="375" height="40"/>
                                 <subviews>
                                     <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="https://facebook.com/" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="1LT-pB-9I1">
                                         <rect key="frame" x="16" y="5" width="343" height="30"/>
@@ -130,52 +121,24 @@
                                     <constraint firstAttribute="height" constant="40" id="s2h-hF-682"/>
                                 </constraints>
                             </view>
-                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="vMd-m7-E8z">
-                                <rect key="frame" x="0.0" y="214" width="375" height="40"/>
-                                <subviews>
-                                    <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Optional" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="oIW-ad-lsN">
-                                        <rect key="frame" x="16" y="5" width="343" height="30"/>
-                                        <color key="tintColor" name="DarkGrey"/>
-                                        <color key="textColor" name="DarkGrey"/>
-                                        <fontDescription key="fontDescription" name="Avenir-Book" family="Avenir" pointSize="14"/>
-                                        <textInputTraits key="textInputTraits" returnKeyType="done"/>
-                                    </textField>
-                                </subviews>
-                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                <constraints>
-                                    <constraint firstAttribute="height" constant="40" id="IXY-gE-444"/>
-                                    <constraint firstAttribute="trailing" secondItem="oIW-ad-lsN" secondAttribute="trailing" constant="16" id="P5w-Sl-2Uh"/>
-                                    <constraint firstItem="oIW-ad-lsN" firstAttribute="top" secondItem="vMd-m7-E8z" secondAttribute="top" constant="5" id="dng-lz-0rJ"/>
-                                    <constraint firstItem="oIW-ad-lsN" firstAttribute="leading" secondItem="vMd-m7-E8z" secondAttribute="leading" constant="16" id="udq-sM-Jks"/>
-                                    <constraint firstAttribute="bottom" secondItem="oIW-ad-lsN" secondAttribute="bottom" constant="5" id="zil-D4-tbC"/>
-                                </constraints>
-                            </view>
                         </subviews>
                         <color key="backgroundColor" name="Gradient2"/>
                         <constraints>
-                            <constraint firstItem="yzS-gE-yNC" firstAttribute="top" secondItem="vMd-m7-E8z" secondAttribute="bottom" constant="26" id="6YH-dT-qcb"/>
-                            <constraint firstItem="vMd-m7-E8z" firstAttribute="leading" secondItem="AyL-Un-Ig1" secondAttribute="leading" id="6ei-Qm-5Z4"/>
-                            <constraint firstItem="vMd-m7-E8z" firstAttribute="top" secondItem="dFf-oQ-0xU" secondAttribute="bottom" constant="4" id="DEh-Xt-nYQ"/>
                             <constraint firstItem="AyL-Un-Ig1" firstAttribute="trailing" secondItem="1bx-9N-NMo" secondAttribute="trailing" constant="16" id="MJC-eh-7h2"/>
                             <constraint firstItem="1bx-9N-NMo" firstAttribute="leading" secondItem="AyL-Un-Ig1" secondAttribute="leading" constant="16" id="T1p-uM-32c"/>
                             <constraint firstItem="VNm-h9-cne" firstAttribute="leading" secondItem="AyL-Un-Ig1" secondAttribute="leading" id="TdG-ni-mor"/>
-                            <constraint firstItem="dFf-oQ-0xU" firstAttribute="top" secondItem="VNm-h9-cne" secondAttribute="bottom" constant="30" id="Xcm-l4-0zm"/>
                             <constraint firstItem="AyL-Un-Ig1" firstAttribute="trailing" secondItem="yzS-gE-yNC" secondAttribute="trailing" constant="16" id="aTz-ZT-uyK"/>
-                            <constraint firstItem="vMd-m7-E8z" firstAttribute="trailing" secondItem="AyL-Un-Ig1" secondAttribute="trailing" id="b5g-dM-k0c"/>
                             <constraint firstItem="VNm-h9-cne" firstAttribute="top" secondItem="1bx-9N-NMo" secondAttribute="bottom" constant="4" id="blU-mq-ldO"/>
                             <constraint firstItem="yzS-gE-yNC" firstAttribute="leading" secondItem="AyL-Un-Ig1" secondAttribute="leading" constant="16" id="gFA-Qc-nen"/>
+                            <constraint firstItem="yzS-gE-yNC" firstAttribute="top" secondItem="VNm-h9-cne" secondAttribute="bottom" constant="30" id="jFZ-pg-b8m"/>
                             <constraint firstItem="VNm-h9-cne" firstAttribute="trailing" secondItem="AyL-Un-Ig1" secondAttribute="trailing" id="nD2-wJ-oA6"/>
-                            <constraint firstItem="dFf-oQ-0xU" firstAttribute="leading" secondItem="AyL-Un-Ig1" secondAttribute="leading" constant="16" id="qQf-S7-qw6"/>
-                            <constraint firstItem="AyL-Un-Ig1" firstAttribute="trailing" secondItem="dFf-oQ-0xU" secondAttribute="trailing" constant="16" id="qdH-60-JZ1"/>
-                            <constraint firstItem="1bx-9N-NMo" firstAttribute="top" secondItem="AyL-Un-Ig1" secondAttribute="top" constant="30" id="tqk-T2-KdZ"/>
+                            <constraint firstItem="1bx-9N-NMo" firstAttribute="top" secondItem="AyL-Un-Ig1" secondAttribute="top" constant="20" id="tqk-T2-KdZ"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="AyL-Un-Ig1"/>
                     </view>
                     <navigationItem key="navigationItem" title="Rule" largeTitleDisplayMode="never" id="33Y-YO-kbO"/>
                     <simulatedNavigationBarMetrics key="simulatedTopBarMetrics" prompted="NO"/>
                     <connections>
-                        <outlet property="descriptionTextField" destination="oIW-ad-lsN" id="2fG-Rz-njq"/>
-                        <outlet property="descriptionTextFieldView" destination="vMd-m7-E8z" id="xBD-97-nYm"/>
                         <outlet property="filterTextField" destination="1LT-pB-9I1" id="esR-IP-uU0"/>
                         <outlet property="filterTextFieldView" destination="VNm-h9-cne" id="Mo5-Cn-ts1"/>
                     </connections>

@@ -36,7 +36,7 @@ struct DefaultBlockingCollections {
                 
                 // add rules to collection
                 for filter in filters {
-                    let rule = BlockingRule(urlFilter: filter, ruleDescription: "")
+                    let rule = BlockingRule(urlFilter: filter)
                     collection.rules.append(rule)
                 }
                 
@@ -63,7 +63,7 @@ struct DefaultBlockingCollections {
         
         // add rules to collection
         for filter in filters {
-            let rule = BlockingRule(urlFilter: filter, ruleDescription: "")
+            let rule = BlockingRule(urlFilter: filter)
             collection.rules.append(rule)
         }
         
