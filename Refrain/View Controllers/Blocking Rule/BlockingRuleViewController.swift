@@ -19,6 +19,25 @@ class BlockingRuleViewController: UIViewController {
     @IBOutlet private weak var filterTextField: UITextField!
     
     
+    @IBOutlet private weak var rule1Label: UILabel!
+    @IBOutlet private weak var rule2Label: UILabel!
+    @IBOutlet private weak var rule3Label: UILabel!
+    @IBOutlet private weak var rule4Label: UILabel!
+    @IBOutlet private weak var rule5Label: UILabel!
+    @IBOutlet private weak var rule6Label: UILabel!
+    @IBOutlet private weak var rule7Label: UILabel!
+    @IBOutlet private weak var rule8Label: UILabel!
+    
+    @IBOutlet private weak var rule1LabelHeight: NSLayoutConstraint!
+    @IBOutlet private weak var rule2LabelHeight: NSLayoutConstraint!
+    @IBOutlet private weak var rule3LabelHeight: NSLayoutConstraint!
+    @IBOutlet private weak var rule4LabelHeight: NSLayoutConstraint!
+    @IBOutlet private weak var rule5LabelHeight: NSLayoutConstraint!
+    @IBOutlet private weak var rule6LabelHeight: NSLayoutConstraint!
+    @IBOutlet private weak var rule7LabelHeight: NSLayoutConstraint!
+    @IBOutlet private weak var rule8LabelHeight: NSLayoutConstraint!
+
+    
     static func instantiate(blockingCollection: BlockingCollection, blockingRule: BlockingRule? = nil) -> BlockingRuleViewController {
         let vc = UIStoryboard(name: "Main", bundle: Bundle.main).instantiateViewController(withIdentifier: "BlockingRuleViewController") as! BlockingRuleViewController
         vc.blockingCollection = blockingCollection
@@ -69,8 +88,10 @@ class BlockingRuleViewController: UIViewController {
     
     override func viewDidLayoutSubviews() {
         super.viewDidLayoutSubviews()
+        
         setBackgroundGradient()
         setTextFieldInnerShadows()
+        adjustLabelHeightsForContent()
     }
     
     private func setBackgroundGradient() {
@@ -87,6 +108,17 @@ class BlockingRuleViewController: UIViewController {
         let filterInnerShadow = InnerShadowLayer(frame: filterTextFieldView.bounds.insetBy(dx: -2, dy: 0).offsetBy(dx: 1, dy: 0))
         filterTextFieldView.clipsToBounds = true
         filterTextFieldView.layer.addSublayer(filterInnerShadow)
+    }
+    
+    private func adjustLabelHeightsForContent() {
+        rule1LabelHeight.constant = rule1Label.intrinsicContentSize.height
+        rule2LabelHeight.constant = rule2Label.intrinsicContentSize.height
+        rule3LabelHeight.constant = rule3Label.intrinsicContentSize.height
+        rule4LabelHeight.constant = rule4Label.intrinsicContentSize.height
+        rule5LabelHeight.constant = rule5Label.intrinsicContentSize.height
+        rule6LabelHeight.constant = rule6Label.intrinsicContentSize.height
+        rule7LabelHeight.constant = rule7Label.intrinsicContentSize.height
+        rule8LabelHeight.constant = rule8Label.intrinsicContentSize.height
     }
 
     @objc func saveButtonPressed() {
