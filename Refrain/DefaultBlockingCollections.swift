@@ -141,6 +141,7 @@ struct DefaultBlockingCollections {
             "youtube.com",
             "hulu.com",
             "app.plex.tv",
+            "vimeo.com"
         ]],
          ["title": "Sports",
           "filters": [
