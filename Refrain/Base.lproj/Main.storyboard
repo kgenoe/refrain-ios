@@ -35,7 +35,7 @@
                     </view>
                     <navigationItem key="navigationItem" title="Refrain" id="zqs-c1-Kmk"/>
                     <connections>
-                        <outlet property="tableView" destination="wPE-P6-NXf" id="nwW-UM-xuq"/>
+                        <outlet property="tableView" destination="wPE-P6-NXf" id="22I-sk-cXy"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
