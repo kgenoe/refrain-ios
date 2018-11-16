@@ -225,7 +225,6 @@
 		271E0170208BB94500FC37C6 /* TableView Cells */ = {
 			isa = PBXGroup;
 			children = (
-				276318FD219E1E9B00F15EA2 /* Switch Cell */,
 				27CFF58620AE45CA00193AF8 /* HeaderTableViewCell.swift */,
 				27408FEE20C78102004FB25C /* ItemTableViewCell.swift */,
 				274E83892081816200BAE7A5 /* SwitchTableViewCell.swift */,
@@ -300,7 +299,6 @@
 				789C5A8120C819C80004F04F /* MainTableViewDelegate.swift */,
 				27CFF58A20AEF3BE00193AF8 /* MainTableViewStructure.swift */,
 				271E0171208BBAA400FC37C6 /* BlockingListCell.swift */,
-				276318FE219E1EF300F15EA2 /* Collection Cell */,
 			);
 			path = Main;
 			sourceTree = "<group>";
@@ -313,20 +311,6 @@
 				279FE4FD2065CABF007B7F17 /* BlockingScheduleListCell.swift */,
 			);
 			path = Schedule;
-			sourceTree = "<group>";
-		};
-		276318FD219E1E9B00F15EA2 /* Switch Cell */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			path = "Switch Cell";
-			sourceTree = "<group>";
-		};
-		276318FE219E1EF300F15EA2 /* Collection Cell */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			path = "Collection Cell";
 			sourceTree = "<group>";
 		};
 		277F5FBC2079C73400A1A558 /* Card View */ = {

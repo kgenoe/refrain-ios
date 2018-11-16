@@ -16,6 +16,7 @@ class RefrainSnapshot: XCTestCase {
         continueAfterFailure = false
 
         let app = XCUIApplication()
+        app.launchArguments += ["screenshots"]
         setupSnapshot(app)
         app.launch()
     }
@@ -25,7 +26,17 @@ class RefrainSnapshot: XCTestCase {
     }
 
     func testExample() {
-        //        snapshot("FirstScreenshot")
+        let app = XCUIApplication()
+        let tablesQuery = app.tables
+        
+        snapshot("01Main")
+        
+        tablesQuery/*@START_MENU_TOKEN@*/.staticTexts["Social Media"]/*[[".cells.matching(identifier: \"0\").staticTexts[\"Social Media\"]",".staticTexts[\"Social Media\"]"],[[[-1,1],[-1,0]]],[0]]@END_MENU_TOKEN@*/.tap()
+        snapshot("02Collection")
+        
+        tablesQuery/*@START_MENU_TOKEN@*/.staticTexts["facebook.com"]/*[[".cells.matching(identifier: \"1\").staticTexts[\"facebook.com\"]",".staticTexts[\"facebook.com\"]"],[[[-1,1],[-1,0]]],[0]]@END_MENU_TOKEN@*/.tap()
+        app.scrollViews.otherElements.staticTexts["Regular Expression Syntax"].tap()
+        snapshot("03Rule")
     }
 
 }

@@ -82,6 +82,23 @@ struct DefaultBlockingCollections {
         createDefaultCollections()
     }
     
+    func restoreAllDefaultCollectionsForScreenshots() {
+        
+        restoreAllDefaultCollections()
+        
+        let enable1 = BlockingCollectionStore.shared.collections[0]
+        let enable2 = BlockingCollectionStore.shared.collections[1]
+        let enable3 = BlockingCollectionStore.shared.collections[5]
+
+        enable1.enabled = true
+        enable2.enabled = true
+        enable3.enabled = true
+
+        BlockingCollectionStore.shared.saveCollection(enable1)
+        BlockingCollectionStore.shared.saveCollection(enable2)
+        BlockingCollectionStore.shared.saveCollection(enable3)
+    }
+    
 
     var defaultCollectionTitles: [String] {
         return defaultCollections.compactMap{ $0["title"] as? String }

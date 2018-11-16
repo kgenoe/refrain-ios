@@ -19,10 +19,13 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     
         AppearanceManager().configure()
 
-        DefaultBlockingCollections().createDefaultCollections()
+        let defaultManager = DefaultBlockingCollections()
+        defaultManager.createDefaultCollections()
         
-        UserDefaults.shared.set(true, forKey: DefaultsKey.extrasPurchased)
-    
+        if ProcessInfo.processInfo.arguments.contains("screenshots") {
+            defaultManager.restoreAllDefaultCollectionsForScreenshots()
+        }
+        
         return true
     }
     
