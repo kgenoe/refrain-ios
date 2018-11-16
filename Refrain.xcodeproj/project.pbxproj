@@ -51,6 +51,9 @@
 		27C34F842017DEB900B129F6 /* BlockingRuleViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 27C34F832017DEB900B129F6 /* BlockingRuleViewController.swift */; };
 		27C34F872017E24900B129F6 /* BlockingRuleCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 27C34F862017E24900B129F6 /* BlockingRuleCell.swift */; };
 		27C34F902017E6EA00B129F6 /* BlockingRule.swift in Sources */ = {isa = PBXBuildFile; fileRef = 27C34F8F2017E6EA00B129F6 /* BlockingRule.swift */; };
+		27CB0B5A219E4BBB00ECFC8D /* Snapfile in Resources */ = {isa = PBXBuildFile; fileRef = 27CB0B57219E4BBA00ECFC8D /* Snapfile */; };
+		27CB0B5B219E4BBB00ECFC8D /* Appfile in Resources */ = {isa = PBXBuildFile; fileRef = 27CB0B58219E4BBA00ECFC8D /* Appfile */; };
+		27CB0B5C219E4BBB00ECFC8D /* Fastfile in Resources */ = {isa = PBXBuildFile; fileRef = 27CB0B59219E4BBA00ECFC8D /* Fastfile */; };
 		27CFF58420ABC22700193AF8 /* DefaultBlockingCollections.swift in Sources */ = {isa = PBXBuildFile; fileRef = 27CFF58320ABC22700193AF8 /* DefaultBlockingCollections.swift */; };
 		27CFF58720AE45CA00193AF8 /* HeaderTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 27CFF58620AE45CA00193AF8 /* HeaderTableViewCell.swift */; };
 		27CFF58B20AEF3BE00193AF8 /* MainTableViewStructure.swift in Sources */ = {isa = PBXBuildFile; fileRef = 27CFF58A20AEF3BE00193AF8 /* MainTableViewStructure.swift */; };
@@ -161,6 +164,9 @@
 		27C34F832017DEB900B129F6 /* BlockingRuleViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BlockingRuleViewController.swift; sourceTree = "<group>"; };
 		27C34F862017E24900B129F6 /* BlockingRuleCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BlockingRuleCell.swift; sourceTree = "<group>"; };
 		27C34F8F2017E6EA00B129F6 /* BlockingRule.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BlockingRule.swift; sourceTree = "<group>"; };
+		27CB0B57219E4BBA00ECFC8D /* Snapfile */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; name = Snapfile; path = fastlane/Snapfile; sourceTree = SOURCE_ROOT; };
+		27CB0B58219E4BBA00ECFC8D /* Appfile */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; name = Appfile; path = fastlane/Appfile; sourceTree = SOURCE_ROOT; };
+		27CB0B59219E4BBA00ECFC8D /* Fastfile */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; name = Fastfile; path = fastlane/Fastfile; sourceTree = SOURCE_ROOT; };
 		27CFF58320ABC22700193AF8 /* DefaultBlockingCollections.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DefaultBlockingCollections.swift; sourceTree = "<group>"; };
 		27CFF58620AE45CA00193AF8 /* HeaderTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HeaderTableViewCell.swift; sourceTree = "<group>"; };
 		27CFF58A20AEF3BE00193AF8 /* MainTableViewStructure.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainTableViewStructure.swift; sourceTree = "<group>"; };
@@ -385,6 +391,7 @@
 				27C34F742017D9E700B129F6 /* Assets.xcassets */,
 				27C34F762017D9E700B129F6 /* LaunchScreen.storyboard */,
 				27C34F792017D9E700B129F6 /* Info.plist */,
+				27CB0B56219E4B9D00ECFC8D /* Fastlane */,
 			);
 			path = Refrain;
 			sourceTree = "<group>";
@@ -430,6 +437,16 @@
 				275DC5B3219B08E400596D10 /* InAppPurchaseIDs.swift */,
 			);
 			path = Helpers;
+			sourceTree = "<group>";
+		};
+		27CB0B56219E4B9D00ECFC8D /* Fastlane */ = {
+			isa = PBXGroup;
+			children = (
+				27CB0B58219E4BBA00ECFC8D /* Appfile */,
+				27CB0B59219E4BBA00ECFC8D /* Fastfile */,
+				27CB0B57219E4BBA00ECFC8D /* Snapfile */,
+			);
+			path = Fastlane;
 			sourceTree = "<group>";
 		};
 		27CFF58E20AFAD6000193AF8 /* Blocking Rule */ = {
@@ -661,11 +678,14 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				27CB0B5C219E4BBB00ECFC8D /* Fastfile in Resources */,
+				27CB0B5B219E4BBB00ECFC8D /* Appfile in Resources */,
 				27C34F782017D9E700B129F6 /* LaunchScreen.storyboard in Resources */,
 				27C34F752017D9E700B129F6 /* Assets.xcassets in Resources */,
 				78ED08A420E4348B00240E1B /* TextFieldTableViewCell.xib in Resources */,
 				27CFF58D20AF8BE200193AF8 /* README.md in Resources */,
 				27431B712059E8D2008B4D2B /* CardView.xib in Resources */,
+				27CB0B5A219E4BBB00ECFC8D /* Snapfile in Resources */,
 				27C34F732017D9E700B129F6 /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

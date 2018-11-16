@@ -16,8 +16,34 @@
 default_platform(:ios)
 
 platform :ios do
+
   desc "Generate new localized screenshots"
   lane :screenshots do
     capture_screenshots(scheme: "RefrainSnapshot")
+  end
+
+
+
+  desc "Submit a new beta build to TestFlight"
+  lane :beta do
+
+    increment_build_number
+
+    sync_code_signing(type: "appstore", readonly: true)
+    build_app(scheme: "refrain-ios")
+
+    upload_to_testflight(
+    app_identifier: "ca.genoe.Refrain",
+    username: "kylegenoe@hotmail.com")
+
+    clean_build_artifacts
+
+    # Commit, tag and push beta release to git
+    msgText = "v" + get_version_number + " (" + get_build_number + ")"
+    commit_version_bump(message: msgText, force: true)
+    tagText = "v" + get_version_number + "-beta." + get_build_number
+    add_git_tag(tag: tagText)
+    push_to_git_remote
+
   end
 end
