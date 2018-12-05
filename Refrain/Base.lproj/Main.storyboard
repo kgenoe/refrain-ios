@@ -866,6 +866,9 @@
                                 <state key="normal" title="Tip 1">
                                     <color key="titleColor" name="Orange"/>
                                 </state>
+                                <connections>
+                                    <action selector="tip1Pressed" destination="rMP-vY-K1d" eventType="touchUpInside" id="AOn-o4-cmA"/>
+                                </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="IVq-P4-sMw" customClass="UIBorderedButton" customModule="Refrain" customModuleProvider="target">
                                 <rect key="frame" x="135.5" y="259" width="104" height="45"/>
@@ -876,6 +879,9 @@
                                 <state key="normal" title="Tip 2">
                                     <color key="titleColor" name="Orange"/>
                                 </state>
+                                <connections>
+                                    <action selector="tip2Pressed" destination="rMP-vY-K1d" eventType="touchUpInside" id="ack-CN-wCV"/>
+                                </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="4uo-08-2vG" customClass="UIBorderedButton" customModule="Refrain" customModuleProvider="target">
                                 <rect key="frame" x="251.5" y="259" width="103.5" height="45"/>
@@ -886,6 +892,9 @@
                                 <state key="normal" title="Tip 3">
                                     <color key="titleColor" name="Orange"/>
                                 </state>
+                                <connections>
+                                    <action selector="tip3Pressed" destination="rMP-vY-K1d" eventType="touchUpInside" id="qgv-7D-2wg"/>
+                                </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="CK0-7K-Nid" customClass="UIBorderedButton" customModule="Refrain" customModuleProvider="target">
                                 <rect key="frame" x="20" y="316" width="335" height="45"/>
@@ -896,6 +905,9 @@
                                 <state key="normal" title="Restore Purchases">
                                     <color key="titleColor" name="Orange"/>
                                 </state>
+                                <connections>
+                                    <action selector="restorePurchasesPressed" destination="rMP-vY-K1d" eventType="touchUpInside" id="d7G-RK-xRh"/>
+                                </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="NK5-t9-ANh" customClass="UIBorderedButton" customModule="Refrain" customModuleProvider="target">
                                 <rect key="frame" x="20" y="602" width="161.5" height="45"/>
@@ -906,6 +918,9 @@
                                 <state key="normal" title="Tweet">
                                     <color key="titleColor" name="Orange"/>
                                 </state>
+                                <connections>
+                                    <action selector="tweetButtonPressed" destination="rMP-vY-K1d" eventType="touchUpInside" id="23b-kf-QnK"/>
+                                </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Ub2-EF-hgN" customClass="UIBorderedButton" customModule="Refrain" customModuleProvider="target">
                                 <rect key="frame" x="193.5" y="602" width="161.5" height="45"/>
@@ -916,6 +931,9 @@
                                 <state key="normal" title="Email">
                                     <color key="titleColor" name="Orange"/>
                                 </state>
+                                <connections>
+                                    <action selector="emailButtonPressed" destination="rMP-vY-K1d" eventType="touchUpInside" id="3nR-HJ-RSX"/>
+                                </connections>
                             </button>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="For support or feature suggestions:" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="mWT-TC-ulu">
                                 <rect key="frame" x="20" y="560" width="343" height="22"/>

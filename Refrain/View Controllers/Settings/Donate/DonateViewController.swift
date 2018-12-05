@@ -40,6 +40,8 @@ class DonateViewController: UIViewController {
         emailButton.borderColor = UIColor(named: "Orange")!
         
         setBackgroundGradient()
+        
+        fetchAvailableProducts()
     }
     
     
@@ -82,11 +84,7 @@ class DonateViewController: UIViewController {
     
     
     
-    //MARK: - UI Actions
-    @IBAction func closeButtonPressed() {
-        dismiss(animated: true, completion: nil)
-    }
-    
+    //MARK: - UI Actions    
     @IBAction func tip1Pressed() {
         self.purchaseProduct(tipProducts[0])
     }
@@ -116,7 +114,7 @@ class DonateViewController: UIViewController {
         let composeVC = MFMailComposeViewController()
         composeVC.mailComposeDelegate = self
         composeVC.setToRecipients(["kyle@genoe.ca"])
-        composeVC.setSubject("Drip - Customer Support")
+        composeVC.setSubject("Refrain - Customer Support")
         self.present(composeVC, animated: true, completion: nil)
     }
 }
@@ -131,28 +129,29 @@ extension DonateViewController: MFMailComposeViewControllerDelegate {
 extension DonateViewController: SKProductsRequestDelegate, SKPaymentTransactionObserver {
     
     func productsRequest(_ request: SKProductsRequest, didReceive response: SKProductsResponse) {
-        if response.products.count == 3 {
-            self.tipProducts = response.products
-            
-            let firstProduct = response.products[0]
-            let secondProduct = response.products[1]
-            let thirdProduct = response.products[2]
-            
-            // get its price from itunes connect
-            let numberFormatter = NumberFormatter()
-            numberFormatter.formatterBehavior = .behavior10_4
-            numberFormatter.numberStyle = .currency
-            numberFormatter.locale = firstProduct.priceLocale
-            
-            let tip1PriceString = numberFormatter.string(from: firstProduct.price)
-            tip1Button.setTitle(tip1PriceString, for: [])
-            
-            let tip2PriceString = numberFormatter.string(from: secondProduct.price)
-            tip2Button.setTitle(tip2PriceString, for: [])
-            
-            let tip3PriceString = numberFormatter.string(from: thirdProduct.price)
-            tip3Button.setTitle(tip3PriceString, for: [])
-        }
+ 
+        print("Fetched products: \(response.products.count)")
+        self.tipProducts = response.products
+        
+        let firstProduct = response.products[0]
+        let secondProduct = response.products[1]
+        let thirdProduct = response.products[2]
+        
+        // get its price from itunes connect
+        let numberFormatter = NumberFormatter()
+        numberFormatter.formatterBehavior = .behavior10_4
+        numberFormatter.numberStyle = .currency
+        numberFormatter.locale = firstProduct.priceLocale
+        
+        let tip1PriceString = numberFormatter.string(from: firstProduct.price)
+        tip1Button.setTitle(tip1PriceString, for: [])
+        
+        let tip2PriceString = numberFormatter.string(from: secondProduct.price)
+        tip2Button.setTitle(tip2PriceString, for: [])
+        
+        let tip3PriceString = numberFormatter.string(from: thirdProduct.price)
+        tip3Button.setTitle(tip3PriceString, for: [])
+        
     }
     
     func paymentQueue(_ queue: SKPaymentQueue, updatedTransactions transactions: [SKPaymentTransaction]) {
