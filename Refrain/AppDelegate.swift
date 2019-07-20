@@ -8,6 +8,7 @@
 
 import UIKit
 import UserNotifications
+import Firebase
 
 @UIApplicationMain
 class AppDelegate: UIResponder, UIApplicationDelegate {
@@ -24,6 +25,31 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         
         if ProcessInfo.processInfo.arguments.contains("screenshots") {
             defaultManager.restoreAllDefaultCollectionsForScreenshots()
+        }
+        
+        
+        FirebaseApp.configure()
+        
+        UNUserNotificationCenter.current().delegate = self
+        
+        let authOptions: UNAuthorizationOptions = [.alert, .badge, .sound]
+        UNUserNotificationCenter.current().requestAuthorization(
+            options: authOptions,
+            completionHandler: {_, _ in })
+    
+        application.registerForRemoteNotifications()
+        
+        Messaging.messaging().delegate = self
+        
+        
+        // fetch token
+        InstanceID.instanceID().instanceID { (result, error) in
+            if let error = error {
+                print("Error fetching remote instance ID: \(error)")
+            } else if let result = result {
+                print("Remote instance ID token: \(result.token)")
+                //                self.instanceIDTokenMessage.text  = "Remote InstanceID token: \(result.token)"
+            }
         }
         
         return true
@@ -43,7 +69,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
             CreateAccountRequest().send()
         }
         
-        // registerForRemoteNotifications is called if the user allows notifications on the 1st prompt. If they decline & enable in settings, this check will pick that up and make the registerForRemoteNotifications call.
+        // registerForRemoteNotifications is called if the user allows notifications on the 1st prompt. If they decline & enable in settings, this check will pick that up and make the registerForRemoteNotifications cqall.
         // Check for a apnsToken before registering for remote notifications. If there is no apnsToken, it means a network request for one is in progress. registerForRemoteNotifications() after that request is completed.
         if UserDefaults.shared.string(forKey: DefaultsKey.apnsToken) == nil &&
             UserDefaults.shared.string(forKey: DefaultsKey.userApiAccountToken) != nil {
@@ -114,3 +140,22 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     }
 }
 
+
+
+extension AppDelegate: UNUserNotificationCenterDelegate {
+    
+}
+
+extension AppDelegate: MessagingDelegate {
+    func messaging(_ messaging: Messaging, didReceiveRegistrationToken fcmToken: String) {
+        
+        print("Firebase registration token: \(fcmToken)")
+        
+        let dataDict:[String: String] = ["token": fcmToken]
+        NotificationCenter.default.post(name: Notification.Name("FCMToken"), object: nil, userInfo: dataDict)
+        // TODO: If necessary send token to application server.
+        // Note: This callback is fired at each app startup and whenever a new token is generated.
+    }
+    
+    
+}

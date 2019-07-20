@@ -1,0 +1,6 @@
+framework module Pods_CollectionsIntent {
+  umbrella header "Pods-CollectionsIntent-umbrella.h"
+
+  export *
+  module * { export * }
+}
