@@ -20,6 +20,8 @@ target 'Refrain' do
 
   pod 'Firebase'
   pod 'Firebase/Messaging'
+  pod 'Firebase/Core'
+  pod 'Firebase/Firestore'
 
   target 'RefrainSnapshot' do
     inherit! :search_paths
